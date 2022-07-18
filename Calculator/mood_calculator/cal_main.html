@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Calculator</title>
     <link rel="stylesheet" href="style.css">
-
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="script_cal.js"></script>
 </head>
 <body>
     <div class="cal_body">
         <form name="form">
             <input type="text" name="result" readonly>
-            <input type="button" value="♥" name="heart" onclick="document.form.heart.value='&bull;&omega;&bull;'">
-            <input type="button" class="value="C" onclick="document.form.result.value=''">
+            <input type="button" value="♥" name="heart" class="change_heart" onclick="document.form.heart.value='&bull;&omega;&bull;♥'">
+            <input type="button" class="clear" value="C" onclick="document.form.result.value=''">
             <input type="button" value="1/x" onclick="document.form.result.value='1/'">
             <input type="button" value="x&sup2;" onclick="document.form.result.value+='&sup2;'">
             <input type="button" value="&sup2;&radic;" onclick="document.form.result.value+='&sup2;&radic;'">
