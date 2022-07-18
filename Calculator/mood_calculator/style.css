@@ -2,4 +2,23 @@
   margin: 0;
   padding: 0;
   font-family: fantasy;
+  box-sizing: padding-box;
+}
+body {
+  height: 100vh;
+  background-color: rgb(219, 199, 199);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cal_body {
+  width: 285px;
+  border: 1px solid #333;
+  background-color: #ccc;
+  padding: 5px;
+}
+.cal_body form {
+  display: grid;
+  
+
 }
