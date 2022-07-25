@@ -15,6 +15,7 @@ a { color: inherit; text-decoration: none; }
 img { vertical-align: middle; }
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
+
 /*header-event*/
 .event-header {
 	width: 100%;
@@ -32,12 +33,28 @@ img { vertical-align: middle; }
 	padding: 10px;
 }
 /*logo-header*/
-nav ul li {
-	float:right;
-	display:inline;
-	padding:10px;
+.logo-header {
+	display: inline-grid;
+	grid-template-columns: 4fr 4fr 1fr;
+	
+}
+.menu_bar_png {
 	margin:10px;
 }
+.main-title p {
+	color:#5D5B6A;
+	font-size:1.1em;
+	/*font-family: "Times New Roman", Times, serif;*/
+	font-family: cursive;
+	transform : rotate(0.04deg);
+}
+.main-title {
+	margin:10px;
+}
+nav ul li{
+	display:inline;
+}
+
 
 /* Base 
 html { font-family: "Ropa Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 16px; line-height: 1.5; }
