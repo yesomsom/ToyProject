@@ -22,7 +22,7 @@
 		<div class="main-title item">
 			<a href="#"><p>오늘,  꽃 한송이</p></a>
 		</div>
-		<nav class="nav_item">
+		<nav class="item">
 			<ul>
 				<li><a href="#">돋</a></li>
 				<li><a href="#">장</a></li>

@@ -9,6 +9,7 @@ F5CDAA
 *{
 	margin:0;
 	padding:0;
+	box-sizing: border-box;
 }
 ul li { list-style-type: none; }
 a { color: inherit; text-decoration: none; }
@@ -36,8 +37,7 @@ img { vertical-align: middle; }
 .logo-header {
 	display: flex;
 	text-align: center;
-	justify-content: space-between;
-	flex: 1 1 1;
+	align-items: center;
 }
 .menu_bar_png {
 	margin:10px;
@@ -56,9 +56,9 @@ img { vertical-align: middle; }
 nav ul li {
 	display:inline;
 }
-.nav_item {
-	display:right;
-}
+.item:nth-child(1) { flex-grow: 0.05; }
+.item:nth-child(2) { flex-grow: 5; }
+.item:nth-child(3) { flex-grow: 0.2; }
 
 /* Base 
 html { font-family: "Ropa Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 16px; line-height: 1.5; }
