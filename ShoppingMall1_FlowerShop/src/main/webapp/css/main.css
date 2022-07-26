@@ -34,9 +34,10 @@ img { vertical-align: middle; }
 }
 /*logo-header*/
 .logo-header {
-	display: inline-grid;
-	grid-template-columns: 4fr 4fr 1fr;
-	
+	display: flex;
+	text-align: center;
+	justify-content: space-between;
+	flex: 1 1 1;
 }
 .menu_bar_png {
 	margin:10px;
@@ -47,14 +48,17 @@ img { vertical-align: middle; }
 	/*font-family: "Times New Roman", Times, serif;*/
 	font-family: cursive;
 	transform : rotate(0.04deg);
+	justify-content: center;
 }
 .main-title {
 	margin:10px;
 }
-nav ul li{
+nav ul li {
 	display:inline;
 }
-
+.nav_item {
+	display:right;
+}
 
 /* Base 
 html { font-family: "Ropa Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 16px; line-height: 1.5; }

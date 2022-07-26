@@ -16,18 +16,18 @@
 		</div>	
 	</section>
 		<section class="logo-header">
-		<div class="menu-bar">
+		<div class="menu-bar item">
 			<img class="menu_bar_png" src="img/menu_bar1.png" width="20px" alt="상단바이미지">
 		</div>
-		<div class="main-title">
-			<p>오늘,  꽃 한송이</p>
+		<div class="main-title item">
+			<a href="#"><p>오늘,  꽃 한송이</p></a>
 		</div>
-		<nav>
+		<nav class="nav_item">
 			<ul>
-				<li>돋보기</li>
-				<li>장바구니</li>
-				<li>찜</li>
-				<li>로그인</li>
+				<li><a href="#">돋</a></li>
+				<li><a href="#">장</a></li>
+				<li><a href="#">찜</a></li>
+				<li><a href="#">로</a></li>
 			</ul>
 		</nav>
 		<br><br>	
