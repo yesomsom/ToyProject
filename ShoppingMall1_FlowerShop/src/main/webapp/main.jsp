@@ -26,8 +26,8 @@
 	<jsp:include page="main_slider.jsp" flush="false"/>
 	<br><br>
 	
-	<%--event slider--%>
-	<jsp:include page="event_slider.jsp" flush="false"/>
+	<%--Best item--%>
+	<jsp:include page="best_product_slider.jsp" flush="false"/>
 	<br><br>
 	
 </body>

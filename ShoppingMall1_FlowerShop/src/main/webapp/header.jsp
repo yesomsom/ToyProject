@@ -5,6 +5,49 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/main.css">
+<style type="text/css">
+	/*header-event*/
+.event-header {
+	width: 100%;
+	height: 15%;
+	background-color:#5D5B6A;
+	text-align: center;
+	color: #CFB495;
+	font-size:0.7em;
+	padding: 10px;
+}
+.event-header .event-writer {
+	text-align: center;
+	color: #CFB495;
+	font-size:0.7em;
+	padding: 10px;
+}
+
+/*logo-header*/
+.logo-header {
+	display: flex;
+	text-align: center;
+	align-items: center;
+}
+.menu_bar_png {
+	margin:10px;
+}
+.main-title p {
+	color:#5D5B6A;
+	font-size:1.1em;
+	/*font-family: "Times New Roman", Times, serif;*/
+	font-family: cursive;
+	transform : rotate(0.04deg);
+	justify-content: center;
+}
+
+nav ul li {
+	display:inline;
+}
+.item:nth-child(1) { flex-grow: 0.05; }
+.item:nth-child(2) { flex-grow: 5; }
+.item:nth-child(3) { flex-grow: 0.2; }
+</style>
 <title>header.jsp</title>
 </head>
 <body>
@@ -15,7 +58,7 @@
 			</p>
 		</div>	
 	</section>
-		<section class="logo-header">
+	<section class="logo-header">
 		<div class="menu-bar item">
 			<img class="menu_bar_png" src="img/menu_bar1.png" width="20px" alt="상단바이미지">
 		</div>
@@ -24,7 +67,7 @@
 		</div>
 		<nav class="item">
 			<ul>
-				<li><a href="#">돋</a></li>
+				<li><a href="#"><img src="img/search_icon1.png" width="22px" alt="search"></a></li>
 				<li><a href="#">장</a></li>
 				<li><a href="#">찜</a></li>
 				<li><a href="#">로</a></li>
