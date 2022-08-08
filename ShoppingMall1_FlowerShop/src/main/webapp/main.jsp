@@ -24,7 +24,7 @@
 	
 	<%--top slider--%>
 	<jsp:include page="main_slider.jsp" flush="false"/>
-	<br><br>
+	<br><br><br><br>
 	
 	<%--Best item--%>
 	<jsp:include page="best_product_slider.jsp" flush="false"/>
