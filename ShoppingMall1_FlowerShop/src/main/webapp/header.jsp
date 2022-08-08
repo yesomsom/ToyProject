@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/main.css">
 <style type="text/css">
 	/*header-event*/
@@ -41,12 +43,32 @@
 	justify-content: center;
 }
 
-nav ul li {
+.item ul li {
 	display:inline;
 }
 .item:nth-child(1) { flex-grow: 0.05; }
 .item:nth-child(2) { flex-grow: 5; }
 .item:nth-child(3) { flex-grow: 0.2; }
+
+.menu_toggle > ul > li {
+	float: left;
+	width: 120px;
+	position: relative;	
+}
+.menu_toggle {
+	display: none;
+}
+
+.subMenu > li {
+	line-height: 30px;	
+	font-size: 0.7em;
+}
+#menu_name {
+	text-align: right;
+	font-weight: 900%;
+	font-size: 0.95em;
+}
+
 </style>
 <title>header.jsp</title>
 </head>
@@ -75,5 +97,52 @@ nav ul li {
 		</nav>
 		<br><br>	
 	</section>
+	<section class="menu_toggle">
+		<ul id="menu_name">
+			<li>
+				<a id="menu_name" href="#">구독</a>
+				<ul class="subMenu">
+					<li><a href="#">SUB1</a></li>
+					<li><a href="#">SUB2</a></li>
+					<li><a href="#">SUB3</a></li>
+					<li><a href="#">SUB4</a></li>
+				</ul>
+			</li>
+			<li>
+				<a id="menu_name" href="#">NEW</a>
+				<ul class="subMenu">
+					<li><a href="#">SUB1</a></li>
+					<li><a href="#">SUB2</a></li>
+					<li><a href="#">SUB3</a></li>
+					<li><a href="#">SUB4</a></li>
+				</ul>
+			</li>
+			<li>
+				<a id="menu_name" href="#">BEST</a>
+				<ul class="subMenu">
+					<li><a href="#">SUB1</a></li>
+					<li><a href="#">SUB2</a></li>
+					<li><a href="#">SUB3</a></li>
+					<li><a href="#">SUB4</a></li>
+				</ul>
+			</li>
+			<li>
+				<a id="menu_name" href="#">ALL</a>
+				<ul class="subMenu">
+					<li><a href="#">SUB1</a></li>
+					<li><a href="#">SUB2</a></li>
+					<li><a href="#">SUB3</a></li>
+					<li><a href="#">SUB4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.menu_bar_png').click(function() {
+				$('.menu_toggle').toggle('fast');
+			});
+		});
+	</script>
 </body>
 </html>
