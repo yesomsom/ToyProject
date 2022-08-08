@@ -25,6 +25,7 @@
     		text-align: center;
     		font-weight: 900;
     		font-size: 1.4em;
+    		color: #5D5B6A;
     	}
         .best_product_img {
 	        width: 100%;	        
@@ -49,13 +50,14 @@
   </head>
   <body>
   	<p class="best_product_title">BEST PRODUCTS</p>
+  	<br>
     <div class="slider">
-      <div><img class="best_product_img" src="img/flower5.jpg" width="200px" height="300px"></div>
-      <div><img class="best_product_img" src="img/flower2.jpg" width="200px" height="300px"></div>
-      <div><img class="best_product_img" src="img/flower6.jpg" width="200px" height="300px"></div>
-      <div><img class="best_product_img" src="img/flower4.jpg" width="200px" height="300px"></div>
-      <div><img class="best_product_img" src="img/flower10.jpg" width="200px" height="300px"></div>
-      <div><img class="best_product_img" src="img/flower9.jpg" width="200px" height="300px"></div>
+      <div><img class="best_product_img" src="img/flower5.jpg" width="200px" height="350px"></div>
+      <div><img class="best_product_img" src="img/flower2.jpg" width="200px" height="350px"></div>
+      <div><img class="best_product_img" src="img/flower6.jpg" width="200px" height="350px"></div>
+      <div><img class="best_product_img" src="img/flower4.jpg" width="200px" height="350px"></div>
+      <div><img class="best_product_img" src="img/flower10.jpg" width="200px" height="350px"></div>
+      <div><img class="best_product_img" src="img/flower9.jpg" width="200px" height="350px"></div>
     </div>
   </body>
 </html>
