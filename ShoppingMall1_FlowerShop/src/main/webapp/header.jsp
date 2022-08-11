@@ -11,15 +11,17 @@
 	/*header-event*/
 .event-header {
 	width: 100%;
-	height: 15%;
+	height: 35px;
 	background-color:#5D5B6A;
 	text-align: center;
+	align-items: center;
 	color: #CFB495;
 	font-size:0.7em;
 	padding: 10px;
 }
-.event-header .event-writer {
+.event-writer {
 	text-align: center;
+	align-items: center;
 	color: #CFB495;
 	font-size:0.7em;
 	padding: 10px;
@@ -74,11 +76,7 @@
 </head>
 <body>
 	<section class="event-header">
-		<div>
-			<p>
-				<a href="#" class="event-writer">신규회원 최대 60~70% 할인 / 오늘의 장미 구독시 무료배송</a>
-			</p>
-		</div>	
+		<a href="#" class="event-writer">신규회원 최대 60~70% 할인 / 오늘의 장미 구독시 무료배송</a>
 	</section>
 	<section class="logo-header">
 		<div class="menu-bar item">
@@ -106,6 +104,7 @@
 					<li><a href="#">SUB2</a></li>
 					<li><a href="#">SUB3</a></li>
 					<li><a href="#">SUB4</a></li>
+					<br>
 				</ul>
 			</li>
 			<li>
@@ -115,6 +114,7 @@
 					<li><a href="#">SUB2</a></li>
 					<li><a href="#">SUB3</a></li>
 					<li><a href="#">SUB4</a></li>
+					<br>
 				</ul>
 			</li>
 			<li>
@@ -124,6 +124,7 @@
 					<li><a href="#">SUB2</a></li>
 					<li><a href="#">SUB3</a></li>
 					<li><a href="#">SUB4</a></li>
+					<br>					
 				</ul>
 			</li>
 			<li>
@@ -133,6 +134,7 @@
 					<li><a href="#">SUB2</a></li>
 					<li><a href="#">SUB3</a></li>
 					<li><a href="#">SUB4</a></li>
+					<br>					
 				</ul>
 			</li>
 		</ul>

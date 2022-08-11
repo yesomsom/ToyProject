@@ -20,14 +20,18 @@
 </head>
 <body>
 	<%--header--%>
-	<jsp:include page="header.jsp" flush="false"/>
+	<jsp:include page="header.jsp" flush="true"/>
 	
 	<%--top slider--%>
-	<jsp:include page="main_slider.jsp" flush="false"/>
+	<jsp:include page="main_slider.jsp" flush="true"/>
 	<br><br><br><br>
 	
 	<%--Best item--%>
-	<jsp:include page="best_product_slider.jsp" flush="false"/>
+	<jsp:include page="best_product_slider.jsp" flush="true"/>
+	<br><br>
+	
+	<%--New Arrival--%>
+	<jsp:include page="new_arrival_scroll.jsp" flush="true"/>
 	<br><br>
 	
 </body>
