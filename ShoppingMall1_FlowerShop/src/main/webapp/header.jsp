@@ -83,12 +83,12 @@
 			<img class="menu_bar_png" src="img/menu_bar1.png" width="20px" alt="상단바이미지">
 		</div>
 		<div class="main-title item">
-			<a href="#"><p>오늘,  꽃 한송이</p></a>
+			<a href="main.jsp"><p>오늘,  꽃 한송이</p></a>
 		</div>
 		<nav class="item">
 			<ul>
 				<li><a href="#"><img src="img/search_icon1.png" width="22px" alt="search"></a></li>
-				<li><a href="#">장</a></li>
+				<li><a href="#"><img src="img/cart_icon4.png" width="23px" alt="cart"></a></li>
 				<li><a href="#">찜</a></li>
 				<li><a href="#">로</a></li>
 			</ul>

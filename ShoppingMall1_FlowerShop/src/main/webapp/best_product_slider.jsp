@@ -24,7 +24,7 @@
     	.best_product_title {
     		text-align: center;
     		font-weight: 900;
-    		font-size: 1.4em;
+    		font-size: 1.6em;
     		color: #5D5B6A;
     	}
         .best_product_img {
@@ -49,6 +49,7 @@
     </style>
   </head>
   <body>
+    <br><br><br>
   	<p class="best_product_title">BEST PRODUCTS</p>
   	<br>
     <div class="slider">
@@ -59,5 +60,6 @@
       <div><img class="best_product_img" src="img/flower10.jpg" width="200px" height="350px"></div>
       <div><img class="best_product_img" src="img/flower9.jpg" width="200px" height="350px"></div>
     </div>
+    <br><br><br><br>
   </body>
 </html>
