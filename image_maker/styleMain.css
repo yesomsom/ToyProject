@@ -121,11 +121,12 @@ ul.viewImage li.signPosition {
 }
 
 /* OUTPUT */
-.capture_modal {
+.capture_model {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
   z-index: 1;
 }
 
@@ -135,7 +136,7 @@ ul.viewImage li.signPosition {
   transform: translate(-50%, -50%);
 */
 
-.capture_modal::before {
+.capture_model::before {
   position: absolute;
   text-align: center;
   content: '❤ 이미지 완성 (❁´◡`❁) ❤';
@@ -146,7 +147,7 @@ ul.viewImage li.signPosition {
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.capture_modal::after {
+.capture_model::after {
   position: relative;
   text-align: center;
   content: '이미지를 저장해주세요!';
