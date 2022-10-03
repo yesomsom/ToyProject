@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--html2canvas 이미지 저장 API-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script defer src="imageMaker.js"></script>
+  <link rel="stylesheet" href="styleMain.css">
+  <!--google font API-->
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+
+  <title>Image Maker</title>
+</head>
+<body>
+  <section class="sectionBody">
+    <header>
+      <h1>IMAGE MAKER</h1>
+      <p>나만의 이미지 만들기</p>
+    </header>
+
+    <div id="imageBodyId" class="imageBody">
+      <ul id="ViewImageId" class="viewImage">
+        <li class="render titlePosition" id="title">This is Title</li>
+        <li class="render subtitlePosition" id="subtitle">SubTitle</li>
+        <li class="render signPosition" id="sign">Sign</li>
+      </ul>
+    </div>
+    <div class="controller">
+      <div class="inputField">
+        <input class="inputText inputTitle" data-name="titlePosition" type="text" spellcheck="false" placeholder="제목 입력">
+        <input class="inputText inputSubtitle" data-name="subtitlePosition" data-set="subtitle" type="text" spellcheck="false" placeholder="부제목 입력">
+        <input class="inputText inputSign" data-name="signPosition" type="text" spellcheck="false" placeholder="서명 입력">
+      </div>
+      <div>
+        <div id="selectPanelId" class="selectPanel">
+          <span class="panelTitle">Background</span>
+
+          <div class="bgClass" id="bgId">
+            <button class="btn colorPink">pink</button>
+            <button class="btn colorSkyblue">skyblue</button>
+            <button class="btn colorPurple">purple</button>
+            <button class="btn colorYellow">yellow</button>
+            <button class="btn colorRandom">random</button>
+            <button class="btn colorRandomGradient">gradient</button>
+            <button class="btn bgURL">image</button>
+            <button class="btn resetColor">reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div id="selectPanelId" class="selectPanel">
+          <span class="panelTitle">Font Color</span>
+
+          <div class="bgClass" id="bgId">
+            <button class="btn fontColorBlack" id="black">black</button>
+            <button class="btn fontColorWhite">white</button>
+            <button class="btn fontColorGrey">grey</button>
+            <button class="btn fontColorBlue">blue</button>
+            <button class="btn fontColorPurple">purple</button>
+            <button class="btn fontColorGreen">green</button>
+            <button class="btn fontColorRandom">random</button>
+            <button class="btn resetFontColor">reset</button>
+          </div>
+        </div>
+      </div>     
+      <div>
+        <button class="btn" id="saveImage">SAVE</button>
+      </div>
+    </div>
+  </section>
+  <section class="mod capture_modal hidden"></section>
+  <div class="mod overlay hidden"></div>
+</body>
+</html>
