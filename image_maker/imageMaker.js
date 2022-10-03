@@ -2,8 +2,8 @@
 
 // HTML2CANVAS API
 
-const produceImageBtn = document.querySelector('#saveImage');
-const captureModal = document.querySelector('.capture_modal');
+const saveImage = document.querySelector('#saveImage');
+const captureModel = document.querySelector('.capture_model');
 const mod = document.querySelectorAll('.mod');
 const overlay = document.querySelector('.overlay');
 
@@ -14,19 +14,19 @@ const captureExport = function() {
     allowTaint: true,
     useCORS: true,
   }).then((canvas) => {
-    captureModal.appendChild(canvas).classList.add('canvas');
+    captureModel.appendChild(canvas).classList.add('canvas');
   });
 
   mod.forEach((e) => e.classList.remove('hidden'));
 };
 
 const removeCapture = function () {
-  captureModal.removeChild(captureModal.firstElementChild);
+  captureModel.removeChild(captureModel.firstElementChild);
 
   mod.forEach((e) => e.classList.add('hidden'));
 };
 
-produceImageBtn.addEventListener('click', captureExport);
+saveImage.addEventListener('click', captureExport);
 overlay.addEventListener('click', removeCapture);
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
