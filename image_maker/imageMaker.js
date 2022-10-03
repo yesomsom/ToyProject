@@ -28,14 +28,12 @@ const removeCapture = function () {
 
 saveImage.addEventListener('click', captureExport);
 overlay.addEventListener('click', removeCapture);
-
-/*
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     removeCapture();
   }
 });
-*/
+
 // INPUT TEXT
 
 const inputFields = document.querySelectorAll('.inputText');
