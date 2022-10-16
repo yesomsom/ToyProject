@@ -1,0 +1,85 @@
+a {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+.Category {
+	display: inline-block;
+	position: absolute;
+	top: 140px;
+    left: 426px;
+}
+
+.Cateul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	text-align: center;
+	display: inline-flex;
+}
+
+.pageInfo {
+	display: flex;
+}
+
+.pageInfo a {
+	margin:10px;
+}
+.pageInfo a:hover {
+	color:aqua;
+}
+.pageInfo_wrap {
+	position: absolute;
+	top: 820px;
+	left: 850px;
+}
+#allCate {
+	width: 90px;
+}
+
+#allCate:hover {
+	background-color: rgba(116, 255, 86, 0.2);
+	border-radius: 15px;
+}
+
+#Cate:hover {
+	background-color: rgba(132, 235, 235, 0.2);
+	border-radius: 15px;
+}
+
+.Cateul li a {
+	text-decoration: none;
+	display: block;
+	width: 80px;
+	height: 35px;
+	line-height: 35px;
+	margin: 0 auto;
+	font-weight:bold;
+}
+
+.Goods_Contents {
+	position: absolute;
+	left: 400px;
+	top: 200px;
+	width: 1100px;
+}
+
+.Goods_list {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.Goods_list img {
+	width: 100%;
+}
+
+.Goods_list>li {
+	width: 220px !important;
+	height: 240px;
+	margin: 0 27px 70px 27px;
+}

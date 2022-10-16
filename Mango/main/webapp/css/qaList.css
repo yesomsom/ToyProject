@@ -1,0 +1,98 @@
+.Qa_container {
+    position: absolute;
+    top: 215px;
+    left: 520px;
+    text-align: center;
+    font-size:20px;
+  }
+  #h_div{
+    position: relative;
+    bottom:40px;
+    right: 265px;
+    font-size:30px;
+    font-weight:bold;
+  }
+  thead>tr{
+  background-color:lightgray;
+  }
+  tbody>tr{
+  background-color:white;
+  }
+  
+  #td:nth-child(1){
+    
+    width: 70px;
+  }
+  #td:nth-child(2){
+    
+    width: 75px;
+  }
+  #td:nth-child(3){
+    
+    width: 445px;
+  }
+  #td:nth-child(4){
+    
+    width: 150px;
+  }
+  .pageInfo {
+   display: flex;
+}
+
+.pageInfo a {
+   margin:10px;
+}
+.pageInfo a:hover {
+   color:aqua;
+}
+.pageInfo_wrap {
+   position: RELATIVE;
+    top: 15px;
+    left: 236px;
+}
+
+
+/*모달*/
+/* .modal_button {
+   position: absolute;
+   top: 500px;
+   left: 650px;
+   width: 120px;
+   height: 30px;
+   margin-top: -15px;
+   margin-left: -60px;
+   line-height: 15px;
+   cursor: pointer;
+   background: rgba(0, 0, 0, 0);
+   border: 0;
+   font-weight: 600;
+} */
+
+.modal {
+   position: fixed;
+   width: 1918px;
+   height: 937px;
+   background: rgba(0, 0, 0, 0.8);
+   top: 0;
+   left: 0;
+   display: none;
+   z-index:9998;
+}
+
+
+.modal_content {
+   width: 400px;
+   background: #fff;
+   border-radius: 10px;
+   position: relative;
+   top: 50%;
+   left: 50%;
+   margin-top: -100px;
+   margin-left: -200px;
+   text-align: center;
+   box-sizing: border-box;
+   padding: 30px;
+   line-height: 23px;
+   cursor: pointer;
+   z-index: 9999;
+}
