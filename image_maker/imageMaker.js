@@ -85,13 +85,13 @@ colorChangeYellow.addEventListener('click', changeYellow);
 const randomSolidBtn = document.querySelector('.colorRandom');
 const randomRGB = function () {
   let rgb = '';
-  rgb += (Math.floor(Math.random() * 100 + 2) + 100)
+  rgb += (Math.floor(Math.random() * 100) + 102)
     .toString(16)
     console.log(rgb);
-  rgb += (Math.floor(Math.random() * 100 +2) + 100)
+  rgb += (Math.floor(Math.random() * 100) + 102)
     .toString(16)
     console.log(rgb);
-  rgb += (Math.floor(Math.random() * 100 +2) + 100)
+  rgb += (Math.floor(Math.random() * 100) + 102)
     .toString(16)
     console.log(rgb);
   return rgb;
