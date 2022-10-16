@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+
+	<resultMap id="boardList" type="BoardVO">
+		<result property="boardId" column="board_id" />
+		<result property="boardType" column="board_type" />
+		<result property="title" column="title" />
+		<result property="contents" column="contents" />
+		<result property="writer" column="writer" />
+		<result property="writerId" column="writer_id" />
+		<result property="num" column="num" />
+		<result property="notice" column="notice" />
+		<result property="secret" column="secret" />
+		<result property="regDate" column="reg_date" />
+	</resultMap>
+	
+	<!-- 게시글 리스트 -->
+	<select id="selectBoardList" resultMap="boardList" parameterType="boardVO">
+		select 
+			b.board_id, b.title, b.contents, b.writer, date_format(b.reg_date, "%Y-%m-%d") regDate
+		from board b
+		where 1 order by regDate desc
+		limit #{skip}, #{amount}
+	</select>
+	
+	<!-- 게시글 갯수 -->
+	<select id="countBoard" resultType="Integer" parameterType="boardVO">
+		select count(*) from board where 1
+	</select>
+	
+	<!-- 게시글 상세페이지 -->
+	<select id="selectBoardById" resultMap="boardList" parameterType="boardVO">
+		select 
+			b.board_id, b.title, b.contents, b.writer, date_foramt(b.reg_date, "%Y-%m-%d")
+		from board b
+		where board_id = #{boarId}
+	</select>
+	
+	<!-- 게시글 등록 -->
+	<insert id="insertBoard" parameterType="boardVO">
+		insert into board values (#{boardId}, #{boardType}, #{title}, #{contents}, #{writer}, #{writerId}, #{num}, #{notice}, #{secret}, now())
+	</insert>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="boardVO">
+		update board set 
+			<![CDATA[
+				board_type = #{boardType}, title = #{title}, contents = #{contents}
+			]]>
+			<if test="@mango.common.util.EgovMybaitsUtil@isNotEmpty(writer)">
+				, writer = #{writer}
+			</if>
+			<if test="@mango.common.util.EgovMybaitsUtil@isNotEmpty(writer_id)">
+				, writer_id = #{writerId}
+			</if>
+			<if test="@mango.common.util.EgovMybaitsUtil@isNotEmpty(num)">
+				, num = #{num}
+			</if>
+			<if test="@mango.common.util.EgovMybaitsUtil@isNotEmpty(notice)">
+				, notice = #{notice}
+			</if>
+			<if test="@mango.common.util.EgovMybaitsUtil@isNotEmpty(secret)">
+				, secret = #{secret}
+			</if>
+		where board_id = #{boardId}
+			
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoardById" parameterType="String">
+		delete from board where board_id = #{boardId}
+	</delete>
+
+
+</mapper>

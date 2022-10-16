@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- CREATE TABLE _MEMBER ( ID VARCHAR2(200) NOT NULL, PASSWORD VARCHAR2(200) 
+	NULL, NAME VARCHAR2(200) NULL, PHONE_NUMBER VARCHAR2(200) NULL, EMAIL VARCHAR2(200) 
+	NULL, ADDRESS VARCHAR2(200) NULL, AUTH NUMBER(20) NULL, REGISTER_DATE DATE 
+	NULL, UN_REGISTER_DATE DATE NULL, CONSTRAINT _MEMBER_PK PRIMARY KEY (ID) 
+	) -->
+<mapper namespace="MemberMapper">
+	<resultMap type="MemberVO" id="memberList">
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="auth" column="auth" />
+		<result property="registerDate" column="registerdate" />
+		<result property="unRegisterDate" column="unregisterdate" />
+		<result property="address" column="address" />
+		<result property="zipNo" column="zipno" />
+	</resultMap>
+
+	<!-- <select id="allMember" resultType="bit.com.a.model.MemberVO"> SELECT 
+		* FROM MEMBER </select> -->
+
+	<select id="getId" resultType="String" parameterType="String">
+		select *
+		from member where id = #{id}
+	</select>
+
+	<insert id="register" parameterType="MemberVO">
+		insert into member(id, password, name, phone, email, auth, address, zipno, registerdate)
+		values(#{id}, #{password}, #{name},	#{phone},#{email},3, #{address},#{zipNo}, SYSDATE(6))
+	</insert>
+
+	<select id="login" resultType="MemberVO"
+		parameterType="MemberVO">
+		select * from member
+		where id=#{id} and
+		password=#{password}
+	</select>
+
+	<update id="memberUpdate" parameterType="MemberVO">
+		update member set
+		name =
+		#{name},
+		password = #{password},
+		phone = #{phone},
+		email = #{email},
+		address = #{address},
+		zipno = #{zipNo}
+		where id =
+		#{id}
+	</update>
+
+	<delete id="memberDelete" parameterType="MemberVO">
+		delete from member
+		where
+		id = #{id}
+	</delete>
+	<!-- <select id="getMemberInfo" parameterType="MemberVO" resultType="MemberVO"> 
+		SELECT ID, PASSWORD, NAME, PHONE_NUMBER, EMAIL, AUTH, REGISTER_DATE, UNREGISTER_DATE 
+		FROM WHERE ID = #{id} </select> -->
+
+
+</mapper>

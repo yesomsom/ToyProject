@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- CREATE TABLE CGV_PAY
+(
+    ID             VARCHAR2(200)    NULL, 
+    RESERVE_SEQ    NUMBER(20)       NULL, 
+    PAY_DATE       DATE             NULL, 
+    PAY_MONEY      VARCHAR2(200)     NULL   
+)
+ -->
+  
+  <mapper namespace="Pay">
+  <resultMap type="PayVO" id="payList">
+      <result property="id" column="id" />
+      <result property="reserveSequence" column="reserve_seq" />
+      <result property="payDate" column="pay_date" />
+      <result property="payMoney" column="pay_money" />
+   </resultMap> 
+  <insert id="Pay" parameterType="PayVO">
+     <![CDATA[
+        insert into pay(id,reserve_seq,pay_date,pay_money)
+        values(#{id}, #{reserveSequence}, SYSDATE(6), #{payMoney})
+     ]]>
+  </insert>
+  
+  <select id="getData" resultType="PayVO">
+  SELECT id, reserveSequence, payDate, payMoney FROM PAY WHERE ID = #{id}
+  </select>
+ 
+ 
+  </mapper>

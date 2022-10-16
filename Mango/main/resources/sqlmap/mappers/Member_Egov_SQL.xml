@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mamber.Mapper">
+
+
+	<resultMap type="Membervo" id="memberList">
+		<result column="uid" property="uid" />
+
+		<result column="member_id" property="memberId" />
+
+		<result column="member_pwd" property="memberPwd" />
+
+		<result column="member_name" property="memberName" />
+
+		<result column="member_gender" property="memberGender" />
+
+		<result column="birth" property="birth" />
+
+		<result column="member_type" property="memberType" />
+
+		<result column="member_level" property="memberLevel" />
+
+		<result column="member_point" property="memberPoint" />
+
+		<result column="phone_number" property="phoneNumber" />
+
+		<result column="email" property="email" />
+
+		<result column="email_domain" property="emailDomain" />
+
+		<result column="info_yn" property="infoYN" />
+
+		<result column="joinDate" property="joinDate" />
+
+		<result column="deletedDate" property="deletedDate" />
+
+		<result column="del_yn" property="delYN" />
+
+		<result column="send_phoneNumber" property="sendPhoneNumber" />
+
+		<result column="SALT" property="salt" />
+	</resultMap>
+
+
+	<insert id="insertMember" parameterType="memberVO">
+
+<![CDATA[
+		 insert into member(uid,member_id,member_pwd,member_name,member_gender,birth,member_type,member_level,member_point,phone_number,email,email_domain,info_yn,joinDate,deletedDate,del_yn,send_phoneNumber,SALT)
+		 values(0, #{memberId}, #{memberPwd}, #{memberName}, #{memberGender}, #{birth}, default, default, default, #{phoneNumber}, #{email}, #{emailDomain}, default, #{joinDate}, #{deletedDate}, #{delYN}, #{phoneNumber}, #{salt})
+		]]>
+	</insert>
+
+
+	<select id="login" parameterType="memberVO"
+		resultType="memberVO">
+
+<![CDATA[
+			select * from member	
+			where member_id=#{memberId} and member_pwd=#{memberPwd}		
+		]]>
+	</select>
+
+</mapper>

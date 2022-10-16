@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+
+
+<mapper namespace="Reserve">
+
+   <resultMap id="ReserveVO" type="ReserveVO">
+      <id column="reserve_seq" property="reserveSequence" />
+      <result column="id" property="id" />
+      <result column="title" property="title" />
+      <result column="running_time" property="runningTime" />
+      <result column="movie_age" property="movieAge" />
+      <result column="movie_date" property="movieDate" />
+      <result column="reserve_date" property="reserveDate" />
+      <result column="ticket_number" property="ticketNumber" />
+      <result column="selected_seat" property="selectedSeat" />
+      <result column="selected_theater" property="selectedTheater" />
+      <collection property="PayVO" resultMap="PayVO" />
+      <!-- <association javaType="bit.com.a.model.ReserveVO" property="PayVO"></association> -->
+   </resultMap>
+
+   <resultMap id="PayVO" type="PayVO">
+      <result column="id" property="id" />
+      <result column="reserve_seq" property="reserveSequence" />
+      <result column="pay_date" property="payDate" />
+      <result column="pay_money" property="payMoney" />
+   </resultMap>
+
+   <select id="selectMapping" parameterType="ReserveVO"
+      resultMap="ReserveVO">
+      SELECT A.ID, A.RESERVE_SEQ, A.TITLE, A.RUNNING_TIME,A.MOVIE_AGE, A.MOVIE_DATE, A.RESERVE_DATE, A.TICKET_NUMBER,   A.SELECTED_SEAT, A.SELECTED_THEATER, 
+      B.PAY_MONEY, B.PAY_DATE
+      FROM RESERVE A, PAY B
+      WHERE A.RESERVE_SEQ = B.RESERVE_SEQ AND A.ID = #{id}
+      ORDER BY B.PAY_DATE DESC
+   </select>
+
+   <insert id="Reserve" parameterType="ReserveVO"
+      useGeneratedKeys="true" keyColumn="reserveSequence">
+
+      <selectKey keyProperty="reserveSequence" resultType="int"
+         order="BEFORE">
+         select NEXTVAL(reserve_seq) from DUAL
+      </selectKey>      
+      <![CDATA[
+      insert into reserve(reserve_seq,id,title,running_time,movie_age,movie_date,reserve_date,ticket_number,selected_seat,selected_theater)
+      values(#{reserveSequence},#{id},#{title},#{runningTime},#{movieAge},#{movieDate},SYSDATE(6),#{ticketNumber},#{selectedSeat},#{selectedTheater})
+      ]]>
+   </insert>
+
+   <select id="getReserveList" parameterType="ReserveVO"
+      resultType="ReserveVO">
+
+      SELECT ID, RESERVE_SEQ as reserveSequence, TITLE,
+      RUNNING_TIME,
+      MOVIE_AGE,
+      MOVIE_DATE, RESERVE_DATE, TICKET_NUMBER,
+      SELECTED_SEAT,
+      SELECTED_THEATER
+      FROM RESERVE WHERE ID = #{id}
+      ORDER
+      BY RESERVE_SEQ
+      DESC
+   </select>
+
+   <select id="getReserve" parameterType="ReserveVO"
+      resultType="ReserveVO">
+      SELECT ID, RESERVE_SEQ as reserveSequence, TITLE,
+      RUNNING_TIME,
+      MOVIE_AGE,
+      MOVIE_DATE, RESERVE_DATE, TICKET_NUMBER,
+      SELECTED_SEAT,
+      SELECTED_THEATER
+      FROM RESERVE WHERE ID = #{id}
+      ORDER
+      BY RESERVE_SEQ
+      DESC
+   </select>
+
+
+
+
+<!--    <select id="allMember" resultType="ReserveVO"> SELECT
+      * FROM MEMBER
+   </select>
+   <select id="getId" resultType="ReserveVO">
+      SELECT ID FROM MEMBER WHERE ID =
+      #{id}
+   </select>
+   <insert id="register" parameterType="bit.com.a.model.MemberVO">
+      INSERT INTO MEMBER(ID, PWD,
+      NAME, EMAIL, AUTH) VALUES(#{id}, #{pwd},
+      #{name},
+      #{email}, 3)
+   </insert>
+   <select id="login" parameterType="bit.com.a.model.MemberVO"
+      resultType="ReserveVO"> SELECT ID, NAME, EMAIL, AUTH FROM
+      MEMBER WHERE ID = #{id}
+      and PWD = #{pwd}
+   </select>
+
+   ALTER TABLE MEGABOX_RESERVE ADD CONSTRAINT
+   FK_MEGABOX_RESERVE_ID_MEGABOX_
+   FOREIGN KEY (ID) REFERENCES
+   MEGABOX_MEMBER (ID) -->
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goodsMapper">
+   <resultMap type="GoodsVO" id="goodsList">
+      <result property="goodsId" column="goods_id" />
+      <result property="goodsCategory" column="goods_category" />
+      <result property="goodsName" column="goods_name" />
+      <result property="sellerName" column="seller_name" />
+      <result property="goodsImgPath" column="goods_img_path" />
+      <result property="goodsState" column="goods_state" />
+      <result property="goodsDetail" column="goods_detail" />
+      <result property="goodsPrice" column="goods_price" />
+      <result property="goodsStock" column="goods_stock" />
+      <result property="deliveryPrice" column="delivery_price" />
+      <result property="goodsDiscount" column="goods_discount" />
+   </resultMap>
+   
+   <select id="selectAllGoodsList" resultMap="goodsList"
+      parameterType="GoodsVO">
+      select * from goods
+      limit #{skip}, #{amount}
+   </select>
+
+   <select id="selectAllGoodsCount" resultType="Integer"
+      parameterType="GoodsVO">
+      select count(*) from goods
+   </select>
+
+   <select id="selectGoodsDetailList" resultMap="goodsList"
+      parameterType="GoodsVO">
+      select * from goods where goods_id = #{goodsId}
+   </select>
+
+   <insert id="insertGoods" parameterType="GoodsVO">
+      insert into goods values
+      (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsImgPath}, #{goodsState}, #{goodsDetail}, #{goodsPrice},   #{goodsStock},#{deliveryPrice},#{goodsDiscount})
+   </insert>
+</mapper>
