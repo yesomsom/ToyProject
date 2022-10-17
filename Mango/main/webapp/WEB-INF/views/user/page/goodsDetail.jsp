@@ -126,14 +126,9 @@ if (login != null)
 	<form id="orders_direct" action="/page/orders/insert.do" method="post">
 		<input class="id_submit" type="hidden" name="id"
 			value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
-		<input class="goods_id_submit" type="hidden" name="goodsId"
-			value="${goods.goodsId}"> <input class="goods_name_submit"
-			type="hidden" name="goodsName" value="${goods.goodsName}"> <input
-			class="goods_qty_submit" type="hidden" name="goodsQty" value="1">
-		<input class="goods_price_submit" type="hidden" name="goodsPrice"
-			value="${goods.goodsPrice}"> <input
-			class="delivery_price_submit" type="hidden" name="delivery"
-			value="${goods.deliveryPrice}"> <input class="name_submit"
+		<input class="goods_name_submit"
+			type="hidden" name="goodsAllName" value="${goods.goodsName}">
+		<input class="name_submit"
 			type="hidden" name="name"
 			value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
 		<input class="receiver_name_submit" type="hidden" name="receiverName"
@@ -141,6 +136,9 @@ if (login != null)
 		<input class="receiver_phone_submit" type="hidden"
 			name="receiverPhone"
 			value="<%if (login != null) {%><%=login.getPhone()%><%} else {%><%}%>">
+		<input class="receiver_zipno_submit" type="hidden"
+			name="receiverZipno"
+			value="<%if (login != null) {%><%=login.getZipNo()%><%} else {%><%}%>">
 		<input class="receiver_address_submit" type="hidden"
 			name="receiverAddress"
 			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">

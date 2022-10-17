@@ -89,13 +89,18 @@ if (login != null)
          <div><input class="margin_right" type="radio" name="payment" value="nocardPay">무통장입금</div>
       </div> -->
 <!-- 결제하기 -->
-      <div class="pay_detail">
-         <div class="pay_total">총 결제액:  <span class="comma_price">${ordersList[0].totalPrice}</span></div>
-         <div class="pay_submit">
-            <input class="btn" type="submit" value="결제하기">
-         </div>
-      </div>
-   </div>
+		<div class="pay_detail">
+			<div class="pay_total">총 결제액:  <span class="comma_price">${ordersList[0].totalPrice}</span></div>
+			<div class="pay_submit">
+				<form action="/page/ordersKakao/insert.do" method="post">
+					<span class="orders_pay">결제하기</span>
+					<input type="hidden" name="OrdersId" value="${ordersList[0].ordersId}">
+					<input type="hidden" name="OrdersPayMoney" value="${ordersList[0].totalPrice}">
+					<button type="submit"><img class="btn" src="${path }/images/payment_icon_yellow_medium.png"></button>
+				</form>
+			</div> 
+		</div>
+	</div>
 	<script src="${path}/js/orders.js"></script>
 
 </body>

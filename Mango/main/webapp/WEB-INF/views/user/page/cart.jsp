@@ -39,7 +39,7 @@ if (login != null)
 						<div>
 							<input type="checkbox" class="chk"
 								value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}"
-								checked="checked" data-cartid="${cart.cartId}"> <span
+								checked="checked" data-cartid="${cart.cartId}" data-gn="${cart.goodsName}"> <span
 								class="font_bold_big seller_name">${cart.sellerName}</span>
 						</div>
 						<div>
@@ -51,8 +51,6 @@ if (login != null)
 
 					<div class="cart_product_middle">
 						<div class="cart_product_img">
-							<%--                      ${cart.goodsImg} --%>
-							<%-- <img class="cart_product_img" src="${path}/images/tor.png"> --%>
 							<img class="cart_product_img" src="${cart.goodsImg}">
 						</div>
 						<div class="cart_product_name font_bold_big">${cart.goodsName}</div>
@@ -135,25 +133,34 @@ if (login != null)
 
 	<!-- 하단 결제하기 바 -->
 	<div class="total_price_wrapper">
-		<form class="cartForm" action="/page/orders/insert.do" method="post">
+		<form name="" class="cartForm" action="/page/orders/insert.do" method="post">
 			<input type="hidden" class="id" name="id"
 				value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
 			<input type="hidden" name="name"
 				value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
-			<%--          <input type="hidden" class="goodsId" name="goodsId" value="00"> 
-         <input type="hidden" class="goodsName" name="goodsName" value="00">
-         <input type="hidden" class="goodsQty" name="goodsQty" value="${cart.goodsQty}"> --%>
-			<%--          <input type="hidden" name="goodsPrice" value="${cart.goodsPrice}">
-         <input type="hidden" name="deliveryPrice" value="${cart.deliveryPrice}"> --%>
-			<span class="total_price_title">총 주문금액</span> <span
-				class="total_price font_bold_big"> <c:set var="total"
-					value="0" /> <c:forEach var="cart" items="${cartList}">
-					<c:set var="total"
-						value="${total + ((cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice)}" />
+         <input type="hidden" name="goodsAllName">
+         <input class="receiver_name_submit" type="hidden" name="receiverName"
+			value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
+		<input class="receiver_phone_submit" type="hidden"
+			name="receiverPhone"
+			value="<%if (login != null) {%><%=login.getPhone()%><%} else {%><%}%>">
+		<input class="receiver_zipno_submit" type="hidden"
+			name="receiverZipno"
+			value="<%if (login != null) {%><%=login.getZipNo()%><%} else {%><%}%>">
+		<input class="receiver_address_submit" type="hidden"
+			name="receiverAddress"
+			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
+			<span class="total_price_title">총 주문금액</span> 
+			<span class="total_price font_bold_big"> 
+				<c:set var="total" value="0" /> 
+				<c:forEach var="cart" items="${cartList}">
+				<c:set var="total" value="${total + ((cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice)}" />
 				</c:forEach> <fmt:formatNumber pattern="###,###,###" value="${total}" /> 원
-			</span> <input type="hidden" class="totalPrice" name="totalPrice"
-				value="${total}"> <input class="btn" type="submit"
-				value="주문하기">
+			</span> 
+			<input type="hidden" class="totalPrice" name="totalPrice" value="${total}"> 
+				
+				<button class="btn" onClick="">주문하기</button>
+				<!-- <input class="btn" type="submit" value="주문하기"> -->
 		</form>
 	</div>
 
@@ -169,8 +176,18 @@ if (login != null)
 	<!-- 삭제 form -->
 	<form action="/page/cart/delete.do" method="post"
 		class="quantity_delete_form">
-		<input type="hidden" name="cartId" class="delete_cartId"> <input
-			type="hidden" name="memberId" value="">
+		<input type="hidden" name="cartId" class="delete_cartId">
+	</form>
+	
+	<!-- order 유무 변경 form -->
+	<form name="changeOrdersYNForm" action="/page/cart/update.do" method="post"
+		class="checked_order_form">
+		<input type="hidden" name="cartList[0].cartId" class="update_cartId[0]" value="Y">
+		<input type="hidden" name="cartList[1].cartId" class="update_cartId[1]" value="N">
+		<input type="hidden" name="cartList[2].cartId" class="update_cartId[2]" value="Y">
+		<input type="hidden" name="cartList[3].cartId" class="update_cartId[3]" value="N">
+		<input type="hidden" name="cartList[4].cartId" class="update_cartId[4]" value="Y">
+		
 	</form>
 
 	<script src="${path}/js/cart.js"></script>
