@@ -6,11 +6,7 @@
    <resultMap type="OrdersVO" id="ordersList">
       <result property="ordersId" column="orders_id" />
       <result property="id" column="id" />
-      <result property="goodsId" column="goods_id" />
-      <result property="goodsName" column="goods_name" /> 
-      <result property="goodsQty" column="goods_qty" />
-      <result property="goodsPrice" column="goods_price" />
-      <result property="deliveryPrice" column="delivery_price" />
+      <result property="goodsAllName" column="goods_all_name" /> 
       <result property="name" column="name" />
       <result property="receiverName" column="receiver_name" />
       <result property="receiverPhone" column="receiver_phone" />
@@ -26,8 +22,8 @@
    </select>   
     
     <insert id="insertOrders" parameterType="OrdersVO">
-      insert into orders(orders_id,id,goods_id,goods_name,goods_qty,goods_price,delivery_price,name,receiver_name,receiver_phone,receiver_zipno,receiver_address,payment,creDate,total_price)
-      values(#{ordersId},#{id},#{goodsId},#{goodsName},#{goodsQty},#{goodsPrice},#{deliveryPrice},#{name},#{receiverName},#{receiverPhone},#{receiverZipno},#{receiverAddress},#{payment},SYSDATE(6),#{totalPrice})
+      insert into orders(orders_id,id,goods_all_name,name,receiver_name,receiver_phone,receiver_zipno,receiver_address,payment,creDate,total_price)
+      values(#{ordersId},#{id},#{goodsAllName},#{name},#{receiverName},#{receiverPhone},#{receiverZipno},#{receiverAddress},#{payment},SYSDATE(6),#{totalPrice})
    </insert>  
    
    <select id="selectOrders" resultType="OrdersVO"

@@ -13,20 +13,21 @@
       <result property="sellerName" column="seller_name" />
       <result property="goodsImg" column="goods_img" />
       <result property="goodsName" column="goods_name" />
+      <result property="orderYN" column="orderYN" />
    </resultMap>
 
    <select id="selectAllCartList" resultMap="cartList"
       parameterType="CartVO">
-      select * from cart WHERE id = #{id};
+      select * from cart WHERE id = #{id} AND orderYN = "N";
    </select>
 
    <insert id="insertCart" parameterType="CartVO">
       insert into cart(cart_id, goods_id, goods_price, id, goods_qty,
       delivery_price, seller_name, goods_img,
-      goods_name)
+      goods_name, orderYN)
       values(#{cartId}, #{goodsId}, #{goodsPrice},
       #{id}, #{goodsQty}, #{deliveryPrice}, #{sellerName}, #{goodsImg},
-      #{goodsName})
+      #{goodsName},"N")
    </insert>
 
    <update id="modifyCount" parameterType="CartVO">
