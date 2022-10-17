@@ -60,7 +60,6 @@
    padding: 20px;
 }
 .pay_detail div {
-   flex: 1;
    position: relative;
    left: 92px;
 }
@@ -72,6 +71,9 @@
     display: relative;
     top: 25px;
 }
+.pay_submit {
+	margin-left: 560px;
+}
 .comma_price {
 	font-size: 26px !important;
     font-weight: 900 !important;
@@ -79,13 +81,13 @@
 
 /* button */
 .btn {
-    width: 340px;
-    height: 80px;
-    background: #fce8ac;
-    border-radius: 7px;
-	display: relative;
+	position: relative;
+	top: 14px;
+}
+.orders_pay {
 	font-size: 22px !important;
 	font-weight: 900 !important;
+	margin-right: 10px;
 }
 .md_btn {
 	background: #ccc;

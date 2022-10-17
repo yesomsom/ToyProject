@@ -30,7 +30,7 @@ function jusoCallBack(roadFullAddr, zipNo){
 
 // 총액 콤마
 function commaTotal() {
-	var sum = $(".comma_price").text();
-	var sumComma = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	let sum = $(".comma_price").text();
+	let sumComma = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	$(".comma_price").text(sumComma);
 }
