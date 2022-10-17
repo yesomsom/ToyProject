@@ -15,6 +15,7 @@ public class CartVO {
    private String sellerName;
    private String goodsImg;
    private String goodsName;
+   private String orderYN;
 
    public int getCartId() {
       return cartId;
@@ -87,5 +88,13 @@ public class CartVO {
    public void setGoodsName(String goodsName) {
       this.goodsName = goodsName;
    }
+
+	public String getOrderYN() {
+		return orderYN;
+	}
+	
+	public void setOrderYN(String orderYN) {
+		this.orderYN = orderYN;
+	}
 
 }

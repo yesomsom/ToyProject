@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
-import mango.mango.model.CartVO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
+import mango.mango.service.OrdersPayService;
 import mango.mango.service.OrdersService;
 
 @Controller
@@ -23,6 +24,9 @@ public class OrdersController {
 
 	@Resource(name = "OrdersService")
 	private OrdersService ordersService;
+	@Resource(name = "OrdersPayService")
+	private OrdersPayService ordersPayService;
+	
 
 	@RequestMapping(value = "/orders")
 	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, HttpSession session)
@@ -62,6 +66,33 @@ public class OrdersController {
 	public String updateOrders(ModelMap model, Criteria cri, OrdersVO oVO) throws Exception {
 		ordersService.modifyOrders(oVO);
 
-		return "/user/page/orders";
+		return "redirect:/page/orders.do";
+	}
+	
+	@RequestMapping(value = "/ordersKakao")
+	public String OrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
+		return "/user/page/ordersKakao";
+	}
+	
+	@RequestMapping(value = "/ordersKakao/insert", method = RequestMethod.POST)
+	public String insertOrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		opVO.setId(login.getId());
+		
+		int isSuccess = ordersPayService.insertOrdersPay(opVO);
+		model.addAttribute("ordersPay", opVO);
+		
+		if (isSuccess != 1) {
+			System.out.println("결제오류");
+			return "redirect:/main.do";
+		}
+		return "/user/page/ordersKakao";
+	}
+	@RequestMapping(value = "/ordersPayKakao")
+	public String ordersPayKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		opVO.setId(login.getId());
+		
+		return "redirect:/page/myPage.do"; 
 	}
 }

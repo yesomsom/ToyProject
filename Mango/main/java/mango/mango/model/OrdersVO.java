@@ -7,12 +7,8 @@ import lombok.Setter;
 @Setter
 public class OrdersVO {
    private int ordersId;
-   private int goodsId;
-   private int goodsQty;
-   private int goodsPrice;
-   private int deliveryPrice;
    private String id;
-   private String goodsName;
+   private String goodsAllName;
    private String name;
    private String receiverName;
    private String receiverPhone;
@@ -20,67 +16,35 @@ public class OrdersVO {
    private String receiverAddress;
    private String payment;
    private String creDate;
-   private int totalPrice;
+   private int totalPrice;   
 
-   public int getordersId() {
-      return ordersId;
-   }
-
-   public void setordersId(int ordersId) {
-      this.ordersId = ordersId;
-   }
-
-   public int getGoodsId() {
-      return goodsId;
-   }
-
-   public void setGoodsId(int goodsId) {
-      this.goodsId = goodsId;
-   }
-
-   public int getGoodsQty() {
-      return goodsQty;
-   }
-
-   public void setGoodsQty(int goodsQty) {
-      this.goodsQty = goodsQty;
-   }
-
-   public int getGoodsPrice() {
-      return goodsPrice;
-   }
-
-   public void setGoodsPrice(int goodsPrice) {
-      this.goodsPrice = goodsPrice;
-   }
-
-   public int getDeliveryPrice() {
-      return deliveryPrice;
-   }
-
-   public void setDeliveryPrice(int deliveryPrice) {
-      this.deliveryPrice = deliveryPrice;
-   }
-
-   public String getId() {
-      return id;
+   public int getOrdersId() {
+		return ordersId;
+	}
+	
+	public void setOrdersId(int ordersId) {
+		this.ordersId = ordersId;
+	}
+	
+	public String getId() {
+	      return id;
    }
 
    public void setId(String id) {
       this.id = id;
    }
-
-   public String getGoodsName() {
-      return goodsName;
-   }
-
-   public void setGoodsName(String goodsName) {
-      this.goodsName = goodsName;
-   }
-
-   public String getName() {
-      return name;
-   }
+	
+	public String getGoodsAllName() {
+		return goodsAllName;
+	}
+	
+	public void setGoodsAllName(String goodsAllName) {
+		this.goodsAllName = goodsAllName;
+	}
+	
+	public String getName() {
+	      return name;
+	}
 
    public void setName(String name) {
       this.name = name;
