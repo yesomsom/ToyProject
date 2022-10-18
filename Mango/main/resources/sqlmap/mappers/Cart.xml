@@ -18,7 +18,7 @@
 
    <select id="selectAllCartList" resultMap="cartList"
       parameterType="CartVO">
-      select * from cart WHERE id = #{id} AND orderYN = "N";
+      select * from cart WHERE id = #{id} AND orderYN = "N" ORDER BY cart_id DESC;
    </select>
 
    <insert id="insertCart" parameterType="CartVO">
@@ -32,6 +32,10 @@
 
    <update id="modifyCount" parameterType="CartVO">
       UPDATE cart SET goods_qty = #{goodsQty} WHERE cart_id = #{cartId};
+   </update>
+   
+   <update id="modifyYN" parameterType="CartVO">
+      UPDATE cart SET orderYN = #{orderYN} WHERE cart_id = #{cartId};
    </update>
 
    <delete id="deleteCart" parameterType="CartVO">
