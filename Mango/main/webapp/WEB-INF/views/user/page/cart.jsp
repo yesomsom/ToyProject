@@ -21,7 +21,7 @@ if (login != null)
 		<div class="cart_title">장바구니</div>
 		<div class="chk_all_wrapper">
 			<div>
-				<input type="checkbox" class="chk_all" checked="checked"> <span
+				<input type="checkbox" class="chk_all"> <span
 					class="check_all_title">전체 선택</span>
 			</div>
 			<div>
@@ -39,7 +39,7 @@ if (login != null)
 						<div>
 							<input type="checkbox" class="chk"
 								value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}"
-								checked="checked" data-cartid="${cart.cartId}" data-gn="${cart.goodsName}"> <span
+								data-cartid="${cart.cartId}" data-gn="${cart.goodsName}"> <span
 								class="font_bold_big seller_name">${cart.sellerName}</span>
 						</div>
 						<div>
@@ -150,15 +150,19 @@ if (login != null)
 		<input class="receiver_address_submit" type="hidden"
 			name="receiverAddress"
 			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
+		<input type="hidden" name="payment" value="카카오페이">
 			<span class="total_price_title">총 주문금액</span> 
 			<span class="total_price font_bold_big"> 
-				<c:set var="total" value="0" /> 
+<%-- 				<c:set var="total" value="0" /> 
 				<c:forEach var="cart" items="${cartList}">
 				<c:set var="total" value="${total + ((cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice)}" />
-				</c:forEach> <fmt:formatNumber pattern="###,###,###" value="${total}" /> 원
-			</span> 
-			<input type="hidden" class="totalPrice" name="totalPrice" value="${total}"> 
+				</c:forEach> <fmt:formatNumber pattern="###,###,###" value="${total}" /> --%> 
 				
+				0
+			</span>
+			<span class="font_bold_big">원</span>
+			<input type="hidden" class="totalPrice" name="totalPrice" value=""> 
+								
 				<button class="btn" onClick="">주문하기</button>
 				<!-- <input class="btn" type="submit" value="주문하기"> -->
 		</form>
@@ -169,8 +173,7 @@ if (login != null)
 	<form action="/page/cart/update.do" method="post"
 		class="quantity_update_form">
 		<input type="hidden" name="cartId" class="update_cartId"> <input
-			type="hidden" name="goodsQty" class="update_goodsQty"> <input
-			type="hidden" name="memberId" value="">
+			type="hidden" name="goodsQty" class="update_goodsQty">
 	</form>
 
 	<!-- 삭제 form -->
@@ -179,16 +182,17 @@ if (login != null)
 		<input type="hidden" name="cartId" class="delete_cartId">
 	</form>
 	
+		<!-- checked 삭제 form -->
+<!-- 	<form action="/page/cart/delete.do" method="post"
+		class="check_delete_form">
+		<div class="check_delete"></div>
+	</form> -->
+	
 	<!-- order 유무 변경 form -->
-	<form name="changeOrdersYNForm" action="/page/cart/update.do" method="post"
-		class="checked_order_form">
-		<input type="hidden" name="cartList[0].cartId" class="update_cartId[0]" value="Y">
-		<input type="hidden" name="cartList[1].cartId" class="update_cartId[1]" value="N">
-		<input type="hidden" name="cartList[2].cartId" class="update_cartId[2]" value="Y">
-		<input type="hidden" name="cartList[3].cartId" class="update_cartId[3]" value="N">
-		<input type="hidden" name="cartList[4].cartId" class="update_cartId[4]" value="Y">
-		
-	</form>
+<!-- 	<form action="/page/cart/updateYN.do" method="post" class="orderYN_form">
+		<input type="hidden" name="cartId" class="updateYN_cartId"> 
+		<input type="hidden" name="orderYN" class="updateYN_order" value="Y"> 
+	</form> -->
 
 	<script src="${path}/js/cart.js"></script>
 

@@ -144,6 +144,7 @@ if (login != null)
 			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
 		<input type="hidden" class="goods_totalPrice_submit" name="totalPrice"
 			value="${goods.goodsPrice + goods.deliveryPrice}">
+		<input type="hidden" name="payment" value="카카오페이">
 	</form>
 
 	<script src="${path}/js/goodsDetail.js"></script>

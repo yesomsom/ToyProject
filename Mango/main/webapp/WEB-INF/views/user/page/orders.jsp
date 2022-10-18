@@ -7,10 +7,6 @@ MemberVO login = (MemberVO) session.getAttribute("login");
 if (login != null)
    System.out.println(login.toString());
 %>
-<%-- <%
-   String totalPrice = request.getParameter("totalPrice");
-   totalPrice = totalPrice.replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
-%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,25 +19,7 @@ if (login != null)
 
 <body>
 	<div class="orders_wrapper">
-		<div class="orders_wrapper_title">주문 결제</div>
-<%--       <div class="orders_product_all">
-         <div class="orders_product_all_title">
-            <span>상품정보</span> <span>판매자</span> <span>배송비</span> <span>수량</span>
-            <span>총 금액</span>
-         </div>
-
-         <c:forEach var="orders" items="${orderList}">
-            <div class="product_detail">
-               <div>사진</div>
-               <div>${orders.goodsName}</div>
-               <div>${orders.sellerName}</div>
-               <div>배송비</div>
-               <div>수량</div>
-               <div>상품금액</div>
-            </div>
-         </c:forEach>
-      </div --%>
-      
+		<div class="orders_wrapper_title">주문 결제</div>      
 <!-- 구매자 정보 -->
 		<div class="member_detail detail_wrapper">
 			<div class="title_bold_big">구매자 정보</div>
@@ -80,14 +58,6 @@ if (login != null)
 		         </form>
 			</div>
       </div>       
-
-<!-- 결제 정보 -->
-<!--       <div class="member_detail detail_wrapper">
-         <div class="title_bold_big">결제수단</div>
-         <div class="margin_top"><input class="margin_right" type="radio" name="payment" value="kakaoPay">카카오페이</div>
-         <div><input class="margin_right" type="radio" name="payment" value="cardPay">카드결제</div>
-         <div><input class="margin_right" type="radio" name="payment" value="nocardPay">무통장입금</div>
-      </div> -->
 <!-- 결제하기 -->
 		<div class="pay_detail">
 			<div class="pay_total">총 결제액:  <span class="comma_price">${ordersList[0].totalPrice}</span></div>
