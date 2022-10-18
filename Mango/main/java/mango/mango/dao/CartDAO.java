@@ -18,9 +18,14 @@ public class CartDAO extends ComAbstractDAO {
 		insert("cartMapper.insertCart", cVO);
 	}
 
-	// 카트 상품 수정
+	// 카트 상품 수량 수정
 	public int modifyCount(CartVO cVO) throws Exception {
 		return update("cartMapper.modifyCount", cVO);
+	}
+	
+	// 카트 상품 주문 여부 업데이트
+	public int modifyYN(CartVO cVO) throws Exception {
+		return update("cartMapper.modifyYN", cVO);
 	}
 
 	// 카트 상품 삭제

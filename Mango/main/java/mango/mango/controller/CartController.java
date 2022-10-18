@@ -53,6 +53,15 @@ public class CartController {
 		model.addAttribute("cartList", cartList);
 		return "redirect:/page/cart.do";
 	}
+	
+	@RequestMapping(value = "/cart/updateYN")
+	public String updateCartYN(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+		cartService.modifyYN(cVO);
+
+		List<CartVO> cartList = cartService.selectAllCartList(cVO);
+		model.addAttribute("cartList", cartList);
+		return "redirect:/page/cart.do";
+	}
 
 	@RequestMapping(value = "/cart/delete")
 	public String deletCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {

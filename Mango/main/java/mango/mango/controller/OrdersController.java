@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
+import mango.mango.model.CartVO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
+import mango.mango.service.CartService;
 import mango.mango.service.OrdersPayService;
 import mango.mango.service.OrdersService;
 
@@ -26,10 +28,12 @@ public class OrdersController {
 	private OrdersService ordersService;
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService ordersPayService;
+	@Resource(name = "CartService")
+	private CartService cartService;
 	
 
 	@RequestMapping(value = "/orders")
-	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, HttpSession session)
+	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, CartVO cVO, HttpSession session)
 			throws Exception {
 
 		MemberVO login = (MemberVO) session.getAttribute("login");
@@ -38,6 +42,10 @@ public class OrdersController {
 		 * model.addAttribute("orders", ordersVO); System.out.println("ordersVO " +
 		 * ordersVO);
 		 */
+		
+		cartService.modifyYN(cVO);
+		System.out.println("cVO " + cVO);
+		
 		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
 		model.addAttribute("ordersList", ordersList);
 		System.out.println("ordersList " + ordersList);
@@ -88,11 +96,23 @@ public class OrdersController {
 		}
 		return "/user/page/ordersKakao";
 	}
+	
 	@RequestMapping(value = "/ordersPayKakao")
 	public String ordersPayKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		opVO.setId(login.getId());
 		
 		return "redirect:/page/myPage.do"; 
+	}
+	
+	@RequestMapping(value = "/myOrdersPage")
+	public String myOrdersPage(ModelMap model, Criteria cri, OrdersVO oVO, HttpSession session) throws Exception {
+
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		
+		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
+		model.addAttribute("ordersList", ordersList);
+		System.out.println("ordersList " + ordersList);
+		return "/user/page/myOrdersPage";
 	}
 }

@@ -23,14 +23,19 @@ public class CartServiceImpl extends EgovAbstractServiceImpl implements CartServ
    }
 
    @Override
+   public void insertCart(CartVO cVO) throws Exception {
+	   cartDAO.insertCart(cVO);
+   }
+   
+   @Override
    public int modifyCount(CartVO cVO) throws Exception {
       return cartDAO.modifyCount(cVO);
    }
 
-   @Override
-   public void insertCart(CartVO cVO) throws Exception {
-	   cartDAO.insertCart(cVO);
-   }
+	@Override
+	public int modifyYN(CartVO cVO) throws Exception {
+		return cartDAO.modifyYN(cVO);
+	}
 
 	@Override
 	public int deleteCart(int cartId) throws Exception {
