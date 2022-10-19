@@ -237,3 +237,39 @@ seatButton.addEventListener('click', function() {
         );
     }
 });
+
+$(document).ready(function() {
+/* 탭 tab */
+   $('ul.tabs li').click(function() {
+      var tab_id = $(this).attr('data-tab');
+
+      $('ul.tabs li').removeClass('current');
+      $('.tab-content').removeClass('current');
+
+      $(this).addClass('current');
+      $("#" + tab_id).addClass('current');
+   })
+   
+   $('ul.tabs1 li').click(function() {
+      var tab_id = $(this).attr('data-tab');
+
+      $('ul.tabs1 li').removeClass('current1');
+      $('.tab1-content').removeClass('current1');
+
+      $(this).addClass('current1');
+      $("#" + tab_id).addClass('current1');
+
+      $('ul.tabs1 li').removeClass('current3');
+      $('.tab1-content').removeClass('current3');
+
+      $(this).addClass('current3');
+      $("#" + tab_id).addClass('current3');
+   })
+
+/* 선택한 영화관 종류 hidden 값으로 넘길 때 사용 */   
+   $('.theater-location').click(function() {
+      let k = $(this).text();
+      $('input[name=theaterKind]').attr('value', k);
+   })
+
+})
