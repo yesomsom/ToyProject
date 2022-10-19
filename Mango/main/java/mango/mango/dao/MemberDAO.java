@@ -1,8 +1,5 @@
 package mango.mango.dao;
 
-import javax.inject.Inject;
-
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import mango.common.service.impl.ComAbstractDAO;
@@ -10,8 +7,6 @@ import mango.mango.model.MemberVO;
 
 @Repository("MemberDAO")
 public class MemberDAO extends ComAbstractDAO {
-	@Inject
-	SqlSession sql;
 
 	// 기본 설정 - dao
 	public String getId(String id) throws Exception {
@@ -26,11 +21,11 @@ public class MemberDAO extends ComAbstractDAO {
 		return selectOne("MemberMapper.login", mVO);
 	}
 
-	public void memberUpdate(MemberVO mVO) throws Exception {
-		sql.update("MemberMapper.memberUpdate", mVO);
+	public void updateMember(MemberVO mVO) throws Exception {
+		update("MemberMapper.updateMember", mVO);
 	}
 
-	public void memberDelete(MemberVO mVO) throws Exception {
-		sql.delete("MemberMapper.memberDelete", mVO);
+	public void deleteMember(String id) throws Exception {
+		delete("MemberMapper.deleteMember", id);
 	}
 }

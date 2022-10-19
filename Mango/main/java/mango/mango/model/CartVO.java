@@ -89,12 +89,12 @@ public class CartVO {
       this.goodsName = goodsName;
    }
 
-	public String getOrderYN() {
-		return orderYN;
-	}
-	
-	public void setOrderYN(String orderYN) {
-		this.orderYN = orderYN;
-	}
+   public String getOrderYN() {
+      return orderYN;
+   }
+   
+   public void setOrderYN(String orderYN) {
+      this.orderYN = orderYN;
+   }
 
 }

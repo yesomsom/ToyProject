@@ -22,7 +22,7 @@ public class GoodsDAO extends ComAbstractDAO {
 	}
 
 	// 상품 등록
-	public void insertGoods(GoodsVO goodsVO) throws Exception {
-		insert("goodsMapper.insertGoods", goodsVO);
+	public void insertGoods(GoodsVO gVO) throws Exception {
+		insert("goodsMapper.insertGoods", gVO);
 	}
 }

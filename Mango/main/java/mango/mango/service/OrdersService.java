@@ -2,7 +2,6 @@ package mango.mango.service;
 
 import java.util.List;
 
-import mango.mango.model.CartVO;
 import mango.mango.model.OrdersVO;
 
 public interface OrdersService {

@@ -33,13 +33,13 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 	}
 
 	@Override
-	public void memberUpdate(MemberVO mVO) throws Exception {
-		memberDAO.memberUpdate(mVO);
+	public void updateMember(MemberVO mVO) throws Exception {
+		memberDAO.updateMember(mVO);
 	}
 
 	@Override
-	public void memberDelete(MemberVO mVO) throws Exception {
-		memberDAO.memberDelete(mVO);
+	public void deleteMember(String id) throws Exception {
+		memberDAO.deleteMember(id);
 	}
 
 }

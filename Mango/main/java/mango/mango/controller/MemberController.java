@@ -19,6 +19,7 @@ import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
 import mango.mango.model.MemberVO;
 import mango.mango.service.MemberService;
+import mango.mango.service.SellerService;
 import mango.sms.Coolsms;
 
 @Controller
@@ -27,18 +28,19 @@ public class MemberController {
 
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
+	@Resource(name = "SellerService")
+	private SellerService SellerService;
 
 	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 
-	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/login")
 	public String login(ModelMap model, Criteria cri, HttpSession session) throws Exception {
-		logger.info("register");
 
 		return "user/page/login";
 
 	}
 
-	@RequestMapping(value = "/login/insert", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/login/insert", method = { RequestMethod.POST })
 	public String insertLogin(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session) throws Exception {
 		logger.info("register");
 
@@ -93,35 +95,34 @@ public class MemberController {
 	}
 
 	// 회원정보 수정 페이지
-	@RequestMapping(value = "/memberModify")
-	public String modifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
-			throws Exception {
+	   @RequestMapping(value = "/memberModify")
+	   public String modifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
+	         throws Exception {
 
-		return "/user/page/memberModify";
-	}
+	      return "/user/page/memberModify";
+	   }
 
-	// 회원 정보 수정
-	@RequestMapping(value = "/memberModify/update", method = RequestMethod.POST)
-	public String updateModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
-			throws Exception {
+	   // 회원 정보 수정
+	   @RequestMapping(value = "/memberModify/update", method = RequestMethod.POST)
+	   public String updateModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
+	         throws Exception {
 
-		System.out.println("업데이트 완료");
-		MemberService.memberUpdate(mVO);
-		session.invalidate();
-		return "user/page/login";
-	}
+	      System.out.println("업데이트 완료");
+	      MemberService.updateMember(mVO);
+	      session.invalidate();
+	      return "redirect:/page/login.do";
+	   }
 
-	// 회원 정보 삭제
-	@RequestMapping(value = "/memberModify/delete", method = RequestMethod.POST)
-	public String deleteModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
-			throws Exception {
+	   // 회원 정보 삭제
+	   @RequestMapping(value = "/memberModify/delete", method = RequestMethod.POST)
+	   public String deleteModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
+	         throws Exception {
 
-		System.out.println("삭제완료");
-		String getId = MemberService.getId(id);
-		MemberService.memberDelete(mVO);
-		session.invalidate();
-		return "user/page/main";
-	}
+	      System.out.println("삭제완료");
+	      MemberService.deleteMember(id);
+	      session.invalidate();
+	      return "redirect:/main.do";
+	   }
 
 	@RequestMapping(value = "/jusoPopup")
 	public String jusoPopup(ModelMap model, Criteria cri) throws Exception {
@@ -158,8 +159,14 @@ public class MemberController {
 	public String idCheck(ModelMap model, Criteria cri, String id) throws Exception {
 
 		String getId = MemberService.getId(id);
+		String getSellerId = SellerService.getSellerId(id);
 
-		return getId + "";
+		if (getId == null && getSellerId == null) {
+
+			return getId + "";
+
+		} else {
+			return "fail";
+		}
 	}
-
 }

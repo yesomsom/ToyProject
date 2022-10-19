@@ -32,8 +32,8 @@ public class GoodsServiceImpl extends EgovAbstractServiceImpl implements GoodsSe
 	}
 
 	@Override
-	public void insertGoods(GoodsVO goodsVO) throws Exception {
-		goodsDAO.insertGoods(goodsVO);
+	public void insertGoods(GoodsVO gVO) throws Exception {
+		goodsDAO.insertGoods(gVO);
 	}
 
 }

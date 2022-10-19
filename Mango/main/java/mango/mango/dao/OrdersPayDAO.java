@@ -7,7 +7,7 @@ import mango.mango.model.OrdersPayVO;
 
 @Repository("OrdersPayDAO")
 public class OrdersPayDAO extends ComAbstractDAO {
-	public int insertOrdersPay(OrdersPayVO opVO) throws Exception {
-		return insert("ordersPayMapper.insertOrdersPay", opVO);
-	}
+   public int insertOrdersPay(OrdersPayVO opVO) throws Exception {
+      return insert("ordersPayMapper.insertOrdersPay", opVO);
+   }
 }

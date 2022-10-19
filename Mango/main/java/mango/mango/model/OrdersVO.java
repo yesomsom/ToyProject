@@ -19,32 +19,32 @@ public class OrdersVO {
    private int totalPrice;   
 
    public int getOrdersId() {
-		return ordersId;
-	}
-	
-	public void setOrdersId(int ordersId) {
-		this.ordersId = ordersId;
-	}
-	
-	public String getId() {
-	      return id;
+      return ordersId;
+   }
+   
+   public void setOrdersId(int ordersId) {
+      this.ordersId = ordersId;
+   }
+   
+   public String getId() {
+         return id;
    }
 
    public void setId(String id) {
       this.id = id;
    }
-	
-	public String getGoodsAllName() {
-		return goodsAllName;
-	}
-	
-	public void setGoodsAllName(String goodsAllName) {
-		this.goodsAllName = goodsAllName;
-	}
-	
-	public String getName() {
-	      return name;
-	}
+   
+   public String getGoodsAllName() {
+      return goodsAllName;
+   }
+   
+   public void setGoodsAllName(String goodsAllName) {
+      this.goodsAllName = goodsAllName;
+   }
+   
+   public String getName() {
+         return name;
+   }
 
    public void setName(String name) {
       this.name = name;
@@ -67,14 +67,14 @@ public class OrdersVO {
    }
    
    public int getReceiverZipno() {
-		return receiverZipno;
-	}
-	
-	public void setReceiverZipno(int receiverZipno) {
-		this.receiverZipno = receiverZipno;
-	}
+      return receiverZipno;
+   }
+   
+   public void setReceiverZipno(int receiverZipno) {
+      this.receiverZipno = receiverZipno;
+   }
 
-	public String getReceiverAddress() {
+   public String getReceiverAddress() {
       return receiverAddress;
    }
 

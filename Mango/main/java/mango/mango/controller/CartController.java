@@ -18,55 +18,55 @@ import mango.mango.service.CartService;
 @Controller
 @RequestMapping(value = UserURLValue.MANGO_BASIC)
 public class CartController {
-	@Resource(name = "CartService")
-	private CartService cartService;
+   @Resource(name = "CartService")
+   private CartService cartService;
 
-	@RequestMapping(value = "/cart")
-	public String cart(ModelMap model, Criteria cri, CartVO cVO, MemberVO mVO, HttpSession session) throws Exception {
-		MemberVO login = (MemberVO) session.getAttribute("login");
-		model.addAttribute("type", "cart");
-		if (login != null) {
-			cVO.setId(login.getId());
-			List<CartVO> cartList = cartService.selectAllCartList(cVO);
-			model.addAttribute("cartList", cartList);
-		} else {
-			model.addAttribute("isSuccess", false);
-			return "/user/page/process";
-		}
-		return "/user/page/cart";
-	}
+   @RequestMapping(value = "/cart")
+   public String cart(ModelMap model, Criteria cri, CartVO cVO, MemberVO mVO, HttpSession session) throws Exception {
+      MemberVO login = (MemberVO) session.getAttribute("login");
+      model.addAttribute("type", "cart");
+      if (login != null) {
+         cVO.setId(login.getId());
+         List<CartVO> cartList = cartService.selectAllCartList(cVO);
+         model.addAttribute("cartList", cartList);
+      } else {
+         model.addAttribute("isSuccess", false);
+         return "/user/page/process";
+      }
+      return "/user/page/cart";
+   }
 
-	@RequestMapping(value = "/cart/insert")
-	public String insertCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
-		cartService.insertCart(cVO);
-		List<CartVO> cartList = cartService.selectAllCartList(cVO);
-		model.addAttribute("cartList", cartList);
+   @RequestMapping(value = "/cart/insert")
+   public String insertCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+      cartService.insertCart(cVO);
+      List<CartVO> cartList = cartService.selectAllCartList(cVO);
+      model.addAttribute("cartList", cartList);
 
-		return "redirect:/page/cart.do";
-	}
+      return "redirect:/page/cart.do";
+   }
 
-	@RequestMapping(value = "/cart/update")
-	public String updateCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
-		cartService.modifyCount(cVO);
+   @RequestMapping(value = "/cart/update")
+   public String updateCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+      cartService.modifyCount(cVO);
 
-		List<CartVO> cartList = cartService.selectAllCartList(cVO);
-		model.addAttribute("cartList", cartList);
-		return "redirect:/page/cart.do";
-	}
-	
-	@RequestMapping(value = "/cart/updateYN")
-	public String updateCartYN(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
-		cartService.modifyYN(cVO);
+      List<CartVO> cartList = cartService.selectAllCartList(cVO);
+      model.addAttribute("cartList", cartList);
+      return "redirect:/page/cart.do";
+   }
+   
+   @RequestMapping(value = "/cart/updateYN")
+   public String updateCartYN(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+      cartService.modifyYN(cVO);
 
-		List<CartVO> cartList = cartService.selectAllCartList(cVO);
-		model.addAttribute("cartList", cartList);
-		return "redirect:/page/cart.do";
-	}
+      List<CartVO> cartList = cartService.selectAllCartList(cVO);
+      model.addAttribute("cartList", cartList);
+      return "redirect:/page/cart.do";
+   }
 
-	@RequestMapping(value = "/cart/delete")
-	public String deletCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
-		cartService.deleteCart(cVO.getCartId());
+   @RequestMapping(value = "/cart/delete")
+   public String deletCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+      cartService.deleteCart(cVO.getCartId());
 
-		return "redirect:/page/cart.do";
-	}
+      return "redirect:/page/cart.do";
+   }
 }

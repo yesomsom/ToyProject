@@ -17,13 +17,20 @@ public class GoodsVO {
    private int goodsStock;
    private int deliveryPrice;
    private int goodsDiscount;
+   private String gno;
 
    /* 페이징 */
    private int amount = 8; // 한 페이지 당 보여질 게시물 갯수
    private int skip; // 스킵 할 게시물 수( (pageNum-1) * amount )
    
    
-   public String getSellerName() {
+   public String getGno() {
+	return gno;
+}
+public void setGno(String gno) {
+	this.gno = gno;
+}
+public String getSellerName() {
       return sellerName;
    }
    public void setSellerName(String sellerName) {

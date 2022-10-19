@@ -13,27 +13,27 @@ import mango.mango.service.OrdersService;
 
 @Service("OrdersService")
 public class OrdersServiceImpl extends EgovAbstractServiceImpl implements OrdersService {
-	@Resource(name = "OrdersDAO")
-	private OrdersDAO ordersDAO;
+   @Resource(name = "OrdersDAO")
+   private OrdersDAO ordersDAO;
 
-	@Override
-	public List<OrdersVO> selectAllOrdersList(OrdersVO oVO) throws Exception {
-		return ordersDAO.selectAllOrdersList(oVO);
-	}
+   @Override
+   public List<OrdersVO> selectAllOrdersList(OrdersVO oVO) throws Exception {
+      return ordersDAO.selectAllOrdersList(oVO);
+   }
 
-	@Override
-	public void insertOrders(OrdersVO oVO) throws Exception {
-		ordersDAO.insertOrders(oVO);
-	}
+   @Override
+   public void insertOrders(OrdersVO oVO) throws Exception {
+      ordersDAO.insertOrders(oVO);
+   }
 
-	@Override
-	public OrdersVO selectOrders(OrdersVO oVO) throws Exception {
-		return ordersDAO.selectOrders(oVO);
-	}
+   @Override
+   public OrdersVO selectOrders(OrdersVO oVO) throws Exception {
+      return ordersDAO.selectOrders(oVO);
+   }
 
-	@Override
-	public int modifyOrders(OrdersVO oVO) throws Exception {
-		return ordersDAO.modifyOrders(oVO);
-	}
+   @Override
+   public int modifyOrders(OrdersVO oVO) throws Exception {
+      return ordersDAO.modifyOrders(oVO);
+   }
 
 }

@@ -11,11 +11,11 @@ import mango.mango.service.OrdersPayService;
 
 @Service("OrdersPayService")
 public class OrdersPayServiceImpl extends EgovAbstractServiceImpl implements OrdersPayService{
-	@Resource(name = "OrdersPayDAO")
-	private OrdersPayDAO ordersPayDAO;
+   @Resource(name = "OrdersPayDAO")
+   private OrdersPayDAO ordersPayDAO;
 
-	@Override
-	public int insertOrdersPay(OrdersPayVO opVO) throws Exception {
-		return ordersPayDAO.insertOrdersPay(opVO);
-	}
+   @Override
+   public int insertOrdersPay(OrdersPayVO opVO) throws Exception {
+      return ordersPayDAO.insertOrdersPay(opVO);
+   }
 }

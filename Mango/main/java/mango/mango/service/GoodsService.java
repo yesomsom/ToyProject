@@ -11,5 +11,5 @@ public interface GoodsService {
 
    public GoodsVO selectGoodsDetailList(int goodsId) throws Exception;
    
-   void insertGoods(GoodsVO goodsVO) throws Exception;
+   void insertGoods(GoodsVO gVO) throws Exception;
 }
