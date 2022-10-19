@@ -43,9 +43,9 @@ public class ServiceCenterController {
 
 	@RequestMapping(value = "/serviceCenter")
 	public String serviceCenter(ModelMap model, Criteria cri, NoticeVO nVO) throws Exception {
-		
+
 		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
-        model.addAttribute("notice", notice);      
+		model.addAttribute("notice", notice);
 
 		return "/user/page/serviceCenter";
 	}
@@ -53,7 +53,7 @@ public class ServiceCenterController {
 	// 1:1문의하기
 	@RequestMapping(value = "/askForm")
 	public String askForm(ModelMap model, Criteria cri, AskVO aVO) throws Exception {
-		
+
 		return "/user/page/askForm";
 	}
 
@@ -61,8 +61,30 @@ public class ServiceCenterController {
 	public String insertAskForm(ModelMap model, Criteria cri, AskVO aVO) throws Exception {
 
 		askService.insertAsk(aVO);
-		
+
 		return "/user/page/serviceCenter";
+	}
+
+	// 1:1문의사항 조회
+	@RequestMapping(value = "/myAskList")
+	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO,
+			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
+
+		int askListTotal = askService.selectAllAskCount(aVO);
+		// 페이징
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, askListTotal);
+		if (pageNumCri == null) {
+			pageNumCri = "1";
+		}
+		aVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
+		aVO.setAmount(cri.getAmount());
+
+		List<AskVO> askList = askService.selectAskList(aVO);
+		model.addAttribute("askList", askList);
+		System.out.println("askList : " + askList);
+		model.put("pageMaker", pageMaker);
+
+		return "/user/page/myAskList";
 	}
 
 	// 공지사항 리스트
@@ -82,7 +104,7 @@ public class ServiceCenterController {
 		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
 		model.addAttribute("notice", notice);
 		model.put("pageMaker", pageMaker);
-		
+
 		return "/user/page/noticeList";
 	}
 

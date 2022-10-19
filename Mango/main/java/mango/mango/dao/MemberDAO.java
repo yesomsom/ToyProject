@@ -16,6 +16,9 @@ public class MemberDAO extends ComAbstractDAO {
 	public int register(MemberVO mVO) throws Exception {
 		return insert("MemberMapper.register", mVO);
 	}
+	public int sellerRegister(MemberVO mVO) throws Exception {
+		return insert("MemberMapper.sellerRegister", mVO);
+	}
 
 	public MemberVO login(MemberVO mVO) throws Exception {
 		return selectOne("MemberMapper.login", mVO);

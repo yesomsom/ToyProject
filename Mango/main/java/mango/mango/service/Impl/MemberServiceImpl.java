@@ -25,6 +25,12 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 
 		return memberDAO.register(mVO);
 	}
+	
+	@Override
+	public int sellerRegister(MemberVO mVO) throws Exception {
+		
+		return memberDAO.sellerRegister(mVO);
+	}
 
 	@Override
 	public MemberVO login(MemberVO mVO) throws Exception {

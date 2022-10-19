@@ -19,7 +19,6 @@ import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
 import mango.mango.model.MemberVO;
 import mango.mango.service.MemberService;
-import mango.mango.service.SellerService;
 import mango.sms.Coolsms;
 
 @Controller
@@ -28,9 +27,7 @@ public class MemberController {
 
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
-	@Resource(name = "SellerService")
-	private SellerService SellerService;
-
+	
 	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 
 	@RequestMapping(value = "/login")
@@ -45,13 +42,18 @@ public class MemberController {
 		logger.info("register");
 
 		MemberVO login = MemberService.login(mVO);
-
+		
 		model.addAttribute("type", "login");
-
+		
 		if (login != null) {
 			model.addAttribute("isSuccess", true);
-			model.addAttribute("name", login.getName());
+			model.addAttribute("name", login.getName());			
+			model.addAttribute("auth", login.getAuth());			
+			model.addAttribute("login", login);
+			
 			session.setAttribute("login", login);
+			session.setAttribute("auth", login.getAuth());
+			
 		} else {
 			model.addAttribute("isSuccess", false);
 			return "/user/page/process";
@@ -99,7 +101,7 @@ public class MemberController {
 	   public String modifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
 	         throws Exception {
 
-	      return "/user/page/memberModify";
+	      return "user/page/memberModify";
 	   }
 
 	   // 회원 정보 수정
@@ -158,10 +160,9 @@ public class MemberController {
 	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
 	public String idCheck(ModelMap model, Criteria cri, String id) throws Exception {
 
-		String getId = MemberService.getId(id);
-		String getSellerId = SellerService.getSellerId(id);
+		String getId = MemberService.getId(id);		
 
-		if (getId == null && getSellerId == null) {
+		if (getId == null) {
 
 			return getId + "";
 

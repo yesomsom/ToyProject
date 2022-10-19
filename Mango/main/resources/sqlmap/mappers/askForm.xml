@@ -22,11 +22,6 @@
       <result property="askDate" column="ask_date" />
    </resultMap>
    
-   <!-- 1:1문의 리스트 조회-->
-<!--    <select id="selectAskList" resultMap="ask" parameterType="AskVO">
-      select * from ask where order by ask_date desc
-      ask_id = #{ask_id}
-   </select> -->
 
    <!-- 1:1문의 등록 -->
    <insert id="insertAsk" parameterType="AskVO">
@@ -35,5 +30,17 @@
       values (#{askId}, #{id}, #{askName}, #{askPhone}, #{askCat}, #{askCatDetail}, #{askType}, #{askTypeDetail}, #{askEmail}, #{askSubject}, #{askContent})
       ]]>
    </insert>
+   
+   
+   <!-- 1:1문의 리스트 조회 -->
+   <!-- mypage 메인 완성 후 id = #{id}로 변경할 것 -->
+   <select id="selectAskList" resultMap="ask" parameterType="AskVO">
+      select * from ask where id = "son1"
+      limit #{skip}, #{amount}
+   </select>
+   
+   <select id="selectAllAskCount" resultType="Integer" parameterType="AskVO">
+      select count(*) from ask
+   </select>
    
 </mapper>

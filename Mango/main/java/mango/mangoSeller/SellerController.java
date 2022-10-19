@@ -17,17 +17,17 @@ import mango.common.service.Criteria;
 import mango.common.util.SellerURLValue;
 import mango.mango.controller.InfoController;
 import mango.mango.model.GoodsVO;
-import mango.mango.model.SellerVO;
+import mango.mango.model.MemberVO;
 import mango.mango.service.GoodsService;
-import mango.mango.service.SellerService;
+import mango.mango.service.MemberService;
 
 @Controller
 @RequestMapping(value = SellerURLValue.MANGO_SELLER)
 public class SellerController {
 	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
-
-	@Resource(name = "SellerService")
-	private SellerService SellerService;
+	
+	@Resource(name = "MemberService")
+	private MemberService MemberService;
 
 	@Resource(name = "GoodsService")
 	private GoodsService GoodsService;
@@ -70,12 +70,12 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/sellerRegister/insert", method = RequestMethod.POST)
-	public String sellerRegisterinsert(ModelMap model, Criteria cri, SellerVO sVO, String sellerId) throws Exception {
-		SellerService.register(sVO);
-		String getId = SellerService.getSellerId(sellerId);
+	public String sellerRegisterinsert(ModelMap model, Criteria cri, MemberVO mVO, String id) throws Exception {
+		MemberService.sellerRegister(mVO);
+		String getId = MemberService.getId(id);
 		model.addAttribute("type", "register");
 
-		if (sellerId != null) {
+		if (id != null) {
 			model.addAttribute("isSuccess", true);
 		} else {
 			model.addAttribute("isSuccess", false);

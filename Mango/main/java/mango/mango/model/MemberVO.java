@@ -13,30 +13,21 @@ public class MemberVO implements Serializable {
 	private String registerDate;
 	private String address;
 	private String unRegisterDate;
+	private String ownerName;
+	private String businessNumber;
+	private String sellerName;
+	private String logoImg;
 
 	public MemberVO() {
 
 	}
 
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", phone=" + phone + ", email="
-				+ email + ", address=" + address + ", zipNo=" + zipNo + ", auth=" + auth + ", registerDate="
-				+ registerDate + ", unRegisterDate=" + unRegisterDate + "]";
+	public String getLogoImg() {
+		return logoImg;
 	}
 
-	public MemberVO(String id, String name, String phone, String email, String address, int auth, int zipNo,
-			String registerDate, String unRegisterDate) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-		this.zipNo = zipNo;
-		this.auth = auth;
-		this.registerDate = registerDate;
-		this.unRegisterDate = unRegisterDate;
+	public void setLogoImg(String logoImg) {
+		this.logoImg = logoImg;
 	}
 
 	public String getId() {
@@ -118,6 +109,29 @@ public class MemberVO implements Serializable {
 	public void setUnRegisterDate(String unRegisterDate) {
 		this.unRegisterDate = unRegisterDate;
 	}
-	
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public String getBusinessNumber() {
+		return businessNumber;
+	}
+
+	public void setBusinessNumber(String businessNumber) {
+		this.businessNumber = businessNumber;
+	}
+
+	public String getSellerName() {
+		return sellerName;
+	}
+
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
 
 }
