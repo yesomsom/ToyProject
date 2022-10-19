@@ -26,7 +26,7 @@
 				<div class="form-wrapper form-wrapper-id">
 					<div class="id-wrapper">
 						<!-- 아이디 입력칸 -->
-						<input id="id" name="sellerId" type="text" placeholder="아이디"
+						<input id="id" name="id" type="text" placeholder="아이디"
 							class="form-control">
 						<!-- 아이디 체크 버튼 -->
 						<button type="button" class="idCheckButton" onclick="idCheck();">아이디
@@ -36,7 +36,7 @@
 
 				<div class="form-wrapper">
 					<!-- 비밀번호 입력칸 -->
-					<input type="password" name="sellerPassword" placeholder="비밀번호"
+					<input type="password" name="password" placeholder="비밀번호"
 						id="password" class="form-control"> <i
 						class="zmdi zmdi-lock"></i>
 				</div>
@@ -49,13 +49,13 @@
 				
 				<div class="form-wrapper">
 					<!-- 매장명 입력칸 -->
-					<input name="sellerName" type="text" id="sellername" placeholder="매장명"
+					<input name="sellerName" type="text" id="sellerName" placeholder="매장명"
 						class="form-control"> <i class="zmdi zmdi-account-box"></i>
 				</div>
 				
 				<div class="form-wrapper">
 					<!-- 대표자명 입력칸 -->
-					<input name="ownerName" type="text" id="name" placeholder="대표자명"
+					<input name="ownerName" type="text" id="ownerName" placeholder="대표자명"
 						class="form-control"> <i class="zmdi zmdi-account-box"></i>
 				</div>
 
@@ -63,20 +63,20 @@
 
 				<div class="form-wrapper">
 					<!-- 사업자등록번호 입력칸 -->
-					<input name="businessNumber" type="text" id="sellername"
+					<input name="businessNumber" type="text" id="businessNumber"
 						placeholder="사업자등록번호" class="form-control"> <i
 						class="zmdi zmdi-account-box"></i>
 				</div>
 
 				<div class="form-wrapper">
 					<!-- 담당자명 입력칸 -->
-					<input name="managerName" type="text" id="managerName" placeholder="담당자명"
+					<input name="name" type="text" id="name" placeholder="담당자명"
 						class="form-control"> <i class="zmdi zmdi-account-box"></i>
 				</div>
 
 				<div class="form-wrapper phone_num">
 					<!-- 담당자 휴대폰 번호 입력칸 -->
-					<input type="text" name="managerPhone" placeholder="담당자 휴대폰번호"
+					<input type="text" name="phone" placeholder="담당자 휴대폰번호"
 						class="form-control" id="phone" readonly> <i
 						class="zmdi  zmdi-phone"></i>
 
@@ -87,7 +87,7 @@
 
 				<div class="form-wrapper">
 					<!-- 담당자 이메일 입력칸 -->
-					<input type="email" name="managerEmail" placeholder="담당자 이메일"
+					<input type="email" name="email" placeholder="담당자 이메일"
 						class="form-control"> <i class="zmdi zmdi-email"></i>
 				</div>
 
@@ -106,8 +106,7 @@
 
 				<!-- 회사로고 등록  -->
 				<div class="form-wrapper">
-					<input class="form-control" type="file" placeholder="로고 등록"
-						id="sellerLogo" name="sellerLogo" /> <i class="zmdi  zmdi-phone"></i>
+					<input class="form-control" type="file" placeholder="로고 등록" id="sellerLogo" name="logoImg" /> <i class="zmdi  zmdi-phone"></i>
 				</div>
 
 				<!-- 회원가입시 유효성 검사를 진행한 후 일치하면 submit실행 -->

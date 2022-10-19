@@ -45,7 +45,7 @@ String id = request.getParameter("id");
 				<div class="form-wrapper">
 					<input type="password" name="password" placeholder="비밀번호"
 						id="password" class="form-control" value="${login.getPassword()}"
-						readonly> <i class="zmdi zmdi-lock"></i>
+						disabled> <i class="zmdi zmdi-lock"></i>
 					<button id="pw" class="pnCheckButton" type="button"
 						onClick="changepw();">비밀번호 변경</button>
 				</div>

@@ -57,16 +57,16 @@ String id = request.getParameter("id");
                      <td><select title="문의 내용 분류 선택" name="askCat"
                         class="selBox">
                            <option value="0" selected>분류 선택</option>
-                           <option value="100">영화관</option>
-                           <option value="200">영화</option>
-                           <option value="300">예매/결제</option>
-                           <option value="400">이벤트</option>
-                           <option value="500">개인정보</option>
-                           <option value="600">분실물</option>
+                           <option value="영화관">영화관</option>
+                           <option value="영화">영화</option>
+                           <option value="예매/결제">예매/결제</option>
+                           <option value="결제">이벤트</option>
+                           <option value="개인정보">개인정보</option>
+                           <option value="분실물">분실물</option>
                      </select> <select title="문의내용 종류" name="askCatDetail" class="selBox">
                            <option value="0" selected>문의 종류</option>
-                           <option value="1">문의</option>
-                           <option value="2">건의</option>
+                           <option value="문의">문의</option>
+                           <option value="건의">건의</option>
                      </select></td>
                   </tr>
 

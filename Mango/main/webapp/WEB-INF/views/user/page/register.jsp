@@ -78,7 +78,8 @@
             </div>
             	<!-- 회원가입시 유효성 검사를 진행한 후 일치하면 submit실행 -->
             <div class="register_div">
-            	<button type="button" id="register_btn"><a href="/page/sellerRegister.do">사업주 회원가입</a></button>
+            	<!-- <button type="button" id="register_btn"><a href="/page/sellerRegister.do">사업주 회원가입</a></button> -->
+            	<button type="button" id="register_btn" onclick="sellerRegister()">사업주 회원가입</button>
             	<button type="button" id="register_btn" onclick="checks()">회원가입</button>
             </div>
 

@@ -1,87 +1,183 @@
-<%@page import="java.util.List"%>
-<%@page import="mango.mango.model.ReserveVO"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@page import="mango.mango.model.MemberVO"%>
+<%@ include file="/WEB-INF/views/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <%
-List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
+MemberVO login = (MemberVO) session.getAttribute("login");
+if (login != null)
+   System.out.println(login.toString());
 %>
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>마이페이지</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="${path}/css/reset.css">
 <link rel="stylesheet" href="${path}/css/myPage.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel='stylesheet'
-	href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-<script
-	src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 </head>
 <body>
-	<div>
-		<div class="my-page-container">
-			<div class="my-page-wrapper">
-				<div class="my-page-header">예약한 영화 목록</div>
-				<div class="movie-reserve-list">
-					<%
-					if (list == null) {
-					%>
-					<div>예약한 영화가 없습니다</div>
-					<%
-					} else {
-					for (int i = 0; i < list.size(); i++) {
-						ReserveVO reserveVO = list.get(i);
-					%>
-					<div class="movie-reserve">
-						<div class="movie-reserve-title"><%=reserveVO.getTitle()%></div>
-						<div class="movie-reserve-theater-wrapper">
-							<div><%=reserveVO.getSelectedTheater()%></div>
-							&nbsp;/&nbsp;
-							<div class="ticket-numeber"><%=reserveVO.getTicketNumber()%>장
-							</div>
-						</div>
-						<div class="movie-reserve-seats"><%=reserveVO.getSelectedSeat()%></div>
-						<div class="movie-reserve-date-wrapper">
-							<div class="movie-reserve-date"><%=reserveVO.getMovieDate()%></div>
-							<div class="movie-reserve-runningTime"><%=reserveVO.getRunningTime()%></div>
-						</div>
-						<div class="movie"></div>
+   <div class="myPage_wrap">
+    <!-- 사이드바 -->
+     <aside class="sideBar">
+       <div class="side_head">MY HOME</div>
+       <div class="side_body">
+         <div><a href="${path}/page/myReserve.do">예매 목록</a></div>
+         <div><a href="${path}/page/myOrdersPage.do">구매 목록</a></div>
+         <div><a href="#">문의 목록</a></div>
+         <div><a href="${path}/page/memberModify.do">회원정보수정</a></div>
+       </div>
+     </aside>
+     <!-- 바디 -->
+     <div class="myPage_container">
 
-						<div class="pay-information-wrapper">
-							<div class="pay-information-date-wrapper">
-								<div class="pay-information-date-title">결제한 날</div>
-								<div class="pay-information-date"><%=reserveVO.getPayVO().getPayDate()%></div>
-							</div>
-
-							<div class="pay-information-money-wrapper">
-								<div class="pay-information-money-title">결제한 비용</div>
-								<div class="pay-information-money"><%=reserveVO.getPayVO().getPayMoney()%>원
-								</div>
-							</div>
-
-							<div class="barcode-wrapper">
-								<div>mango</div>
-								<img src="${path }/images/barcode.png">
-							</div>
-
-						</div>
-					</div>
-					<%
-					}
-					%>
-
-					<%
-					}
-					%>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
+         <!--나의 구매 목록 box -->
+         <div class="myPage_subtitle"><a href="${path}/page/myOrdersPage.do">구매 목록</a></div>'
+         
+         <!-- 구매 상품 전체 묶음 -->
+         <div class="ordersList_wrap">
+         
+         <!-- 첫번째 구매 상품 -->
+             <div class="ordersList_card">
+                <div class="ordersId_title">주문번호 : ${ordersList[0].ordersId}</div>   
+                <div class="information_wrapper">
+                   <div class="wrapper_content">
+                      <div class="wrapper_content_title">주문 상품</div>
+                      <div class="orders_info">${ordersList[0].goodsAllName}</div>
+                   </div>
+                </div>
+                
+                <div class="orders_content_wrapper">
+                   <div class="font_size">주문일</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[0].creDate}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 수단</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[0].payment}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 비용</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[0].totalPrice}원</div>
+                </div>
+                <!-- 수령인 정보 (toggle) -->
+                <div class="information_wrapper_receiver">
+                   <div class="wrapper_content_title w_0">수령인 정보 보기</div>
+                   <div class="toggle_hidden t_0">
+                      <div class="wrapper_content">
+                         <div>이름</div>
+                         <div class="content_bold">${ordersList[0].receiverName}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>전화번호</div>
+                         <div class="content_bold">${ordersList[0].receiverPhone}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>주소</div>
+                         <div class="content_bold">${ordersList[0].receiverAddress}</div>
+                      </div>                        
+                   </div>   
+                </div>      
+           </div>
+           
+         <!-- 두번째 구매 상품 -->
+             <div class="ordersList_card">
+                <div class="ordersId_title">주문번호 : ${ordersList[1].ordersId}</div>   
+                <div class="information_wrapper">
+                   <div class="wrapper_content">
+                      <div class="wrapper_content_title">주문 상품</div>
+                      <div class="orders_info">${ordersList[1].goodsAllName}</div>
+                   </div>
+                </div>
+                
+                <div class="orders_content_wrapper">
+                   <div class="font_size">주문일</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[1].creDate}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 수단</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[1].payment}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 비용</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[1].totalPrice}원</div>
+                </div>
+                <!-- 수령인 정보 (toggle) -->
+                <div class="information_wrapper_receiver">
+                   <div class="wrapper_content_title w_1">수령인 정보 보기</div>
+                   <div class="toggle_hidden t_1">
+                      <div class="wrapper_content">
+                         <div>이름</div>
+                         <div class="content_bold">${ordersList[1].receiverName}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>전화번호</div>
+                         <div class="content_bold">${ordersList[1].receiverPhone}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>주소</div>
+                         <div class="content_bold">${ordersList[1].receiverAddress}</div>
+                      </div>                        
+                   </div>   
+                </div>      
+           </div>           
+           
+         <!-- 세번째 구매 상품 -->
+             <div class="ordersList_card">
+                <div class="ordersId_title">주문번호 : ${ordersList[2].ordersId}</div>   
+                <div class="information_wrapper">
+                   <div class="wrapper_content">
+                      <div class="wrapper_content_title">주문 상품</div>
+                      <div class="orders_info">${ordersList[2].goodsAllName}</div>
+                   </div>
+                </div>
+                
+                <div class="orders_content_wrapper">
+                   <div class="font_size">주문일</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[2].creDate}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 수단</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[2].payment}</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">결제 비용</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name">${ordersList[2].totalPrice}원</div>
+                </div>
+                <!-- 수령인 정보 (toggle) -->
+                <div class="information_wrapper_receiver">
+                   <div class="wrapper_content_title w_2">수령인 정보 보기</div>
+                   <div class="toggle_hidden t_2">
+                      <div class="wrapper_content">
+                         <div>이름</div>
+                         <div class="content_bold">${ordersList[2].receiverName}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>전화번호</div>
+                         <div class="content_bold">${ordersList[2].receiverPhone}</div>
+                      </div>
+                      <div class="wrapper_content">
+                         <div>주소</div>
+                         <div class="content_bold">${ordersList[2].receiverAddress}</div>
+                      </div>                        
+                   </div>   
+                </div>      
+           </div>           
+           
+           
+           
+         </div>     
+     </div>
+   </div>
+   <script src="${path}/js/myPage.js"></script>
 </body>
-
 </html>

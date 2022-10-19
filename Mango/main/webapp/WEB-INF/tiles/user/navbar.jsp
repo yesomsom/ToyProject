@@ -12,7 +12,40 @@ if (login != null)
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.dropdown {
+	display: inline-block;
+}
 
+.dropdown_btn {
+	/* width: 200px; */
+	/* padding: 10px; */
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown_submenu {
+	width: 200px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+	display: none;
+	position: absolute;
+}
+
+.dropdown_submenu a {
+	display: block;
+	padding: 7px;
+	text-align: center;
+}
+
+.dropdown_submenu a hover {
+	background-color: #eee;
+}
+
+.dropdown:hover .dropdown_submenu {
+	display: block;
+}
+</style>
 </head>
 <body>
 	<div class="header-nav-wrapper">
@@ -32,8 +65,8 @@ if (login != null)
 				<a href="/page/logout.do"><button>로그아웃</button></a>
 			</div>
 			<div class="inner-button">
-            <a href="/page/memberModify.do"><button>회원정보 수정</button></a>
-         </div>
+				<a href="/page/memberModify.do"><button>회원정보 수정</button></a>
+			</div>
 			<%
 			} else {
 			%>
@@ -41,7 +74,15 @@ if (login != null)
 				<a href="/page/login.do"><button>로그인</button></a>
 			</div>
 			<div class="inner-button">
-				<a href="/page/register.do"><button>회원가입</button></a>
+				<div class="dropdown">
+					<a><button class="dropdown_btn">회원가입</button></a>
+					
+					<div class="dropdown_submenu">
+						<a href="/page/register.do">일반회원</a>
+						<a href="/page/sellerRegister.do"">사업자</a>
+					</div>
+					
+				</div>
 			</div>
 			<%
 			}

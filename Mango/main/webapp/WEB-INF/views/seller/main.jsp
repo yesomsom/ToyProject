@@ -10,16 +10,16 @@
 <body>
 	<div class="seller_Container">
 		<div class="first_Container">
-		
+
 			<!-- 상단 박스 좌측 -->
-			
+
 			<div class="left_Container">
 				<div class="title">로고, 입점 회사명</div>
 				<a href="/page/uploadGoods.do" class="first_Btn">상품 등록하러가기</a>
 			</div>
-			
+
 			<!-- 상단 박스 우측  -->
-			
+
 			<div class="right_Container">
 				<div class="title">매출현황</div>
 				<a href="/page/salesDetails.do" class="first_Btn">매출내역 상세보기</a>
