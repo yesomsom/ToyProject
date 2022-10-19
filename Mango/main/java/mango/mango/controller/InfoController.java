@@ -46,22 +46,11 @@ public class InfoController {
          
           doc = Jsoup.connect("http://www.cgv.co.kr/movies/").get();
          /* Elements */
-          Elements ranks = doc.select(".rank");
-         /* logger.info("rank" + ranks); */
-          
+          Elements ranks = doc.select(".rank");   
           Elements imgs = doc.select(".thumb-image > img");
-         /* logger.info("imgs" + imgs); */
-          
           Elements movieTitles = doc.select("div.box-contents strong.title");
-         /* logger.info("titles" + movieTitles); */
-          
           Elements movieRates = doc.select(".percent span");
-         /* logger.info("percents" + movieRates); */
-          
-          
           Elements movieOpenDates = doc.select(".txt-info strong");
-         /* logger.info("percents" + movieOpenDates); */
-
           List<InfoDTO> list = new ArrayList<InfoDTO>();
           
           for(int i = 0; i < ranks.size(); i++) {
