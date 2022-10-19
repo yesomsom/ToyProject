@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="ordersPayMapper">
+   <resultMap type="OrdersPayVO" id="ordersPayList">
+      <result property="id" column="id" />
+      <result property="ordersId" column="orders_id" />
+      <result property="ordersPayDate" column="orders_pay_date" />
+      <result property="ordersPayMoney" column="orders_pay_money" />
+   </resultMap> 
+   
+   <insert id="insertOrdersPay" parameterType="OrdersPayVO">
+     <![CDATA[
+        insert into orderspay(id,orders_id,orders_pay_date,orders_pay_money)
+        values(#{id}, #{ordersId}, SYSDATE(6), #{ordersPayMoney})
+     ]]>
+   </insert>
+  
+   <select id="getOrdersPayData" resultType="OrdersPayVO">
+      SELECT id, ordersId, ordersPayDate, ordersPayMoney FROM orderspay WHERE ID = #{id}
+   </select>
+ 
+ 
+</mapper>

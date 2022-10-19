@@ -15,6 +15,7 @@
       <result property="goodsStock" column="goods_stock" />
       <result property="deliveryPrice" column="delivery_price" />
       <result property="goodsDiscount" column="goods_discount" />
+      <result property="gno" column="gno" />
    </resultMap>
    
    <select id="selectAllGoodsList" resultMap="goodsList"
@@ -34,7 +35,7 @@
    </select>
 
    <insert id="insertGoods" parameterType="GoodsVO">
-      insert into goods values
-      (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsImgPath}, #{goodsState}, #{goodsDetail}, #{goodsPrice},   #{goodsStock},#{deliveryPrice},#{goodsDiscount})
+      insert into goods (goods_category, goods_name, seller_name, goods_img_path, goods_state, goods_detail, goods_price, goods_stock, delivery_price, goods_discount, gno)values
+      (#{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsImgPath}, #{goodsState}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, #{gno})
    </insert>
 </mapper>

@@ -17,12 +17,8 @@
 		<property name="prefix" value="/WEB-INF/views/"></property> <!-- 경로 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="52428800" />
-		<property name="maxInMemorySize" value="1000000" />
-		<property name="defaultEncoding" value="utf-8" />
-	</bean>
+	<!-- multipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
 
 	<!-- 사용자지정 -->
 	<!-- java의 공통 패키지 -->

@@ -18,7 +18,7 @@
    </resultMap>
 
    <select id="selectAllOrdersList" resultMap="ordersList" parameterType="OrdersVO">
-       select * from orders order by orders_id DESC;    
+       select * from orders WHERE id = #{id} ORDER BY orders_id DESC;    
    </select>   
     
     <insert id="insertOrders" parameterType="OrdersVO">

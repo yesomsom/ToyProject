@@ -42,7 +42,7 @@
 		password=#{password}
 	</select>
 
-	<update id="memberUpdate" parameterType="MemberVO">
+	<update id="updateMember" parameterType="MemberVO">
 		update member set
 		name =
 		#{name},
@@ -55,7 +55,7 @@
 		#{id}
 	</update>
 
-	<delete id="memberDelete" parameterType="MemberVO">
+	<delete id="deleteMember" parameterType="String">
 		delete from member
 		where
 		id = #{id}

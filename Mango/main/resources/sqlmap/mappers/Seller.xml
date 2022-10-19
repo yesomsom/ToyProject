@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SellerMapper">
+	<resultMap type="SellerVO" id="sellerList">
+		<result property="sellerId" column="seller_id" />
+		<result property="sellerPassword" column="seller_password" />
+		<result property="sellerName" column="seller_name" />
+		<result property="ownerName" column="owner_name" />
+		<result property="businessNumber" column="business_number" />
+		<result property="managerName" column="manager_name" />
+		<result property="managerPhone" column="manager_phone" />
+		<result property="managerEmail" column="manager_email" />		
+		<result property="address" column="address" />
+		<result property="zipNo" column="zipno" />
+		<result property="sellerLogo" column="seller_logo" />
+		<result property="auth" column="auth" />
+		<result property="registerDate" column="registerdate" />		
+		
+	</resultMap>
+
+	<select id="getSellerId" resultType="String" parameterType="String">
+		select *
+		from seller where seller_id = #{sellerId}
+	</select>
+
+	<insert id="register" parameterType="SellerVO">
+		insert into seller(seller_id, seller_password, seller_name, owner_name, business_number, manager_name, manager_phone, manager_email, address, zipNo, seller_logo, auth, registerDate)
+		values(#{sellerId}, #{sellerPassword}, #{sellerName}, #{ownerName},#{businessNumber}, #{managerName}, #{managerPhone}, #{managerEmail}, #{address}, #{zipNo}, #{sellerLogo}, 2, SYSDATE(6))
+	</insert>
+
+	<select id="login" resultType="SellerVO"
+		parameterType="SellerVO">
+		select * from seller
+		where seller_id=#{sellerId} and
+		seller_password=#{sellerPassword}
+	</select>
+	
+<!-- 
+	<update id="sellerUpdate" parameterType="SellerVO">
+		update member set
+		name =
+		#{name},
+		password = #{password},
+		phone = #{phone},
+		email = #{email},
+		address = #{address},
+		zipno = #{zipNo}
+		where id =
+		#{id}
+	</update> -->
+
+	<!-- <delete id="sellerDelete" parameterType="SellerVO">
+		delete from seller
+		where
+		seller_id = #{sellerId}
+	</delete> -->
+	
+
+
+</mapper>
