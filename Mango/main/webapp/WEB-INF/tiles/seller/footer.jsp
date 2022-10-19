@@ -7,24 +7,7 @@
 <meta charset="UTF-8">
 <title>footer</title>
 <style type="text/css">
-
-.footer_nav ul {
-	display: flex;
-}
-
-.footer_nav ul li {
-	list-style: none;
-	flex: 1;
-}
-
-.footer_nav ul li a {
-	text-decoration: none;
-	color: black;
-}
-
-.footer_detail {
-	line-height: 1.5;
-}</style>
+</style>
 </head>
 <body>
    <div class="footer_container">

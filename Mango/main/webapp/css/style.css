@@ -132,6 +132,22 @@ input {
 	margin-bottom: 25px;
 }
 
+.register_div {
+	display: flex;
+}
+
+#register_btn {
+	width: 138px !important;
+	margin: 10px !important;
+	color: white;
+	text-decoration: none;
+}
+
+#register_btn>a {
+	color: white !important;
+	text-decoration: none !important;
+}
+
 .form-control::-webkit-input-placeholder {
 	font-size: 13px;
 	color: black;
@@ -232,7 +248,7 @@ input {
 	width: 70px;
 	height: 20px;
 	border-radius: 15px;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .idCheckButton {
@@ -243,18 +259,18 @@ input {
 	width: 70px;
 	height: 20px;
 	border-radius: 15px;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .pnCheckButton {
 	position: absolute;
-	font-weight:bold;	
+	font-weight: bold;
 	top: -35px;
 	right: 5px;
 	font-size: 8px;
 	width: 70px;
 	height: 20px;
-	border-radius: 15px;	
+	border-radius: 15px;
 }
 
 .idCheckButton:active {
@@ -310,96 +326,65 @@ button:hover i, button:focus i, button:active i {
 	animation-iteration-count: 1;
 }
 
-@
--webkit-keyframes hvr-icon-wobble-horizontal { 16.65% {
+@-webkit-keyframes hvr-icon-wobble-horizontal { 
+	16.65% {
 	-webkit-transform: translateX(6px);
 	transform: translateX(6px);
 }
 
-33
-.3 % {
-	-webkit-transform: translateX(-5px);
-	transform: translateX(-5px);
+	33.3%{
+	-webkit-transform:translateX(-5px);	
+	transform:translateX(-5px);
 }
 
-49
-.95 % {
-	-webkit-transform: translateX(4px);
-	transform: translateX(4px);
+	49.95%{
+	-webkit-transform:translateX(4px);	
+	transform:translateX(4px);
 }
 
-66
-.6 % {
-	-webkit-transform: translateX(-2px);
-	transform: translateX(-2px);
+	66.6%{
+	-webkit-transform:translateX(-2px);
+	transform:translateX(-2px);
 }
 
-83
-.25 % {
-	-webkit-transform: translateX(1px);
-	transform: translateX(1px);
+	83.25%{
+	-webkit-transform:translateX(1px);	
+	transform:translateX(1px);
+}
+	100%{
+	-webkit-transform:translateX(0);
+	transform:translateX(0);
+}
 }
 
-100
-%
-{
--webkit-transform
-:
-translateX(
-0
-);
-transform
-:
-translateX(
-0
-);
-}
-}
-@
-keyframes hvr-icon-wobble-horizontal { 16.65% {
+@keyframes hvr-icon-wobble-horizontal { 16.65% {
 	-webkit-transform: translateX(6px);
 	transform: translateX(6px);
 }
+	33.3%{
+	-webkit-transform:translateX(-5px);
+	transform:translateX(-5px);
 
-33
-.3 % {
-	-webkit-transform: translateX(-5px);
-	transform: translateX(-5px);
 }
-
-49
-.95 % {
-	-webkit-transform: translateX(4px);
+	49.95%{
+	-webkit-transform:translateX(4px);	
 	transform: translateX(4px);
 }
-
-66
-.6 % {
+	66.6%{
 	-webkit-transform: translateX(-2px);
 	transform: translateX(-2px);
-}
 
-83
-.25 % {
-	-webkit-transform: translateX(1px);
+}
+	83.25%{
+	-webkit-transform:translateX(1px);	
 	transform: translateX(1px);
 }
+	100%{
+	-webkit-transform :translateX(0);
+	transform:translateX(0);
+}
+}
 
-100
-%
-{
--webkit-transform
-:
-translateX(
-0
-);
-transform
-:
-translateX(
-0
-);
-}
-}
 @media ( max-width : 1199px) {
 	.wrapper {
 		background-position: right center;

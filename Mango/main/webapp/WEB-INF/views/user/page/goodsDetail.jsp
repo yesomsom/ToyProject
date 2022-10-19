@@ -126,9 +126,8 @@ if (login != null)
 	<form id="orders_direct" action="/page/orders/insert.do" method="post">
 		<input class="id_submit" type="hidden" name="id"
 			value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
-		<input class="goods_name_submit"
-			type="hidden" name="goodsAllName" value="${goods.goodsName}">
-		<input class="name_submit"
+		<input class="goods_name_submit" type="hidden" name="goodsAllName"
+			value="${goods.goodsName}"> <input class="name_submit"
 			type="hidden" name="name"
 			value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
 		<input class="receiver_name_submit" type="hidden" name="receiverName"
@@ -143,8 +142,8 @@ if (login != null)
 			name="receiverAddress"
 			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
 		<input type="hidden" class="goods_totalPrice_submit" name="totalPrice"
-			value="${goods.goodsPrice + goods.deliveryPrice}">
-		<input type="hidden" name="payment" value="카카오페이">
+			value="${goods.goodsPrice + goods.deliveryPrice}"> <input
+			type="hidden" name="payment" value="카카오페이">
 	</form>
 
 	<script src="${path}/js/goodsDetail.js"></script>

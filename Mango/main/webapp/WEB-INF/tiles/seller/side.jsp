@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,12 +10,14 @@
 <body>
 <div class="side_Container">
 	<div class=seller_logo>
-		<img alt="로고" src="#">
-		<span>회사명</span>
+		<a href="/seller/main.do">
+			<img alt="로고" src="#">
+			<span>회사명</span>
+		</a>
 	</div>
-    <div><a href="#">상품 등록</a></div>
-    <div><a href="#">상품 등록 내역</a></div>
-    <div><a href="#">매출 내역</a></div>
+    <div><a href="/page/uploadGoods.do">상품 등록</a></div>
+    <div><a href="/page/goodsList.do">상품 등록 내역</a></div>
+    <div><a href="/page/salesDetails.do">매출 내역</a></div>
   </div>
 </body>
 </html>

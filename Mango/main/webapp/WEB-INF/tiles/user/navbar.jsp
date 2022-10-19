@@ -31,6 +31,9 @@ if (login != null)
 			<div class="inner-button">
 				<a href="/page/logout.do"><button>로그아웃</button></a>
 			</div>
+			<div class="inner-button">
+            <a href="/page/memberModify.do"><button>회원정보 수정</button></a>
+         </div>
 			<%
 			} else {
 			%>

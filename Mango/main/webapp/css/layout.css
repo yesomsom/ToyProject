@@ -179,7 +179,7 @@ background-repeat: repeat-x; */
     padding: 10px;
     }
 .side_Container>div{
-	padding-bottom:20px;
+	padding:15px;
 }
 .seller_logo{
 	padding:26px !important;
@@ -188,6 +188,11 @@ background-repeat: repeat-x; */
 	font-size:24px !important;	
 }
 /* footer */
+.footer_container{
+	z-index:999999;
+	position:absolute;
+top:2000px;
+}
 .footer_nav ul {
 	display: flex;
 }

@@ -1,21 +1,21 @@
 <%@page import="mango.mango.model.OrdersPayVO"%>
 <%@page import="mango.mango.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 <%
 MemberVO login = (MemberVO) session.getAttribute("login");
 if (login != null) {
-	System.out.println(login.toString());
+   System.out.println(login.toString());
 }
 OrdersPayVO pay = (OrdersPayVO) request.getAttribute("ordersPay");
 
 String stringOrdersPayMoney = "";
 int OrdersPayMoney = 0;
 if (pay != null) {
-	stringOrdersPayMoney = pay.getOrdersPayMoney();
-	System.out.println(stringOrdersPayMoney + "test");
-	OrdersPayMoney = Integer.parseInt(stringOrdersPayMoney);
+   stringOrdersPayMoney = pay.getOrdersPayMoney();
+   System.out.println(stringOrdersPayMoney + "test");
+   OrdersPayMoney = Integer.parseInt(stringOrdersPayMoney);
 }
 %>
 <!DOCTYPE html>
@@ -24,12 +24,12 @@ if (pay != null) {
 <meta charset="UTF-8">
 <title>kakao</title>
 <script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"
-	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+   src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-	<script>
+   <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
         IMP.init('imp23418340'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용

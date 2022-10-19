@@ -44,12 +44,9 @@ body {
    border-bottom: 2px solid black;
 }
 
-.wrapper_content {
-   margin-top: 8px;
-}
-
-.wrapper_content_title {
-   font-size: 12px;
+.information_wrapper {
+   margin-top: 10px;
+   text-align: center;
 }
 
 .orders_info {
@@ -65,22 +62,32 @@ body {
 }
 
 .goods_name {
-	font-weight: 900 !important;	
+   font-weight: 900 !important;   
 }
 
-.information_wrapper {
-   margin-top: 10px;
-   text-align: center;
+.wrapper_content {
+   margin-top: 8px;
 }
-.information_wrapper_{
-	border: 1px solid #ccc;
-	margin: 15px 20px;
-	text-align: center;
-	padding: 10px;
+
+.wrapper_content_title {
+   text-align: center;;
+}
+
+.information_wrapper_receiver {
+   border: 1px solid #ccc;
+   margin: 15px 40px;
+   padding: 10px;
 }
 .toggle_hidden {
-	display: none;
+   display: none;
+   border-top: 1px solid #ccc;
 }
+
+.content_bold {
+   font-weight: 900 !important;
+   margin-top: 3px;   
+}
+
 .barcode-wrapper {
    margin-top: 10px;
    text-align: center;

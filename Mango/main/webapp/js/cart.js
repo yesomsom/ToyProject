@@ -22,39 +22,39 @@ $(document).ready(function() {
    });
    
 /* order 유무 - 미완 */
-/*	$(".btn").on("click", function(){
-		if($(".chk").is(":checked")) {
-			let cId = $(this).data("cartid");
-			alert(cId);
-			$(".updateYN_cartId").val(cId);
-			alert(cId);
+/*   $(".btn").on("click", function(){
+      if($(".chk").is(":checked")) {
+         let cId = $(this).data("cartid");
+         alert(cId);
+         $(".updateYN_cartId").val(cId);
+         alert(cId);
 
-		} else {
-		
-		}
-	});
-	$(".chk").change(function() {
-	alert("");
-		if($(".chk").is(":checked")) {
-			let cId = $(this).data("cartid");
-			alert(cId);
-			$(".updateYN_cartId").val(cId);
-			alert(cId);
+      } else {
+      
+      }
+   });
+   $(".chk").change(function() {
+   alert("");
+      if($(".chk").is(":checked")) {
+         let cId = $(this).data("cartid");
+         alert(cId);
+         $(".updateYN_cartId").val(cId);
+         alert(cId);
 
-		} else {
-		
-		}
-	});
-		$(".orderYN_form").submit();
-		alert("수정완료");
-	});*/
+      } else {
+      
+      }
+   });
+      $(".orderYN_form").submit();
+      alert("수정완료");
+   });*/
    
 /* order 유무 변경 - 미완성 */ 
-	$(".btn").on("click", function(index){
-		$(".chk:checked").each(function(index){
-			index = $(this).index();
-		})
-	});
+   $(".btn").on("click", function(index){
+      $(".chk:checked").each(function(index){
+         index = $(this).index();
+      })
+   });
       
 /* 장바구니 개별 삭제 버튼 */
    $(".delete_btn").on("click", function(){
@@ -63,19 +63,19 @@ $(document).ready(function() {
       $(".quantity_delete_form").submit();
    });
 /* 장바구니 다중 선택 삭제 버튼 - 미완 */
-/*	$(".delete_goods").on("click", function(){
-		let delArr = new Array();
-		$(".chk:checked").each(function(){
-			delArr.push($(".chk").index(this));
-		});
-		for(let i = 0; i < delArr.length; i++) {
-			document.querySelector(".check_delete").innerHTML = '<input type="text" name="cartList['+delArr[i]+'].cartId" value="'+delArr[i]+'">'
-			alert("df");
-		}
-		
+   $(".delete_goods").on("click", function(){
+      let delArr = new Array();
+      $(".chk:checked").each(function(){
+         delArr.push($(".chk").index(this));
+      });
+      for(let i = 0; i < delArr.length; i++) {
+         document.querySelector(".check_delete").innerHTML = '<input type="text" name="cartList['+delArr[i]+'].cartId" value="'+delArr[i]+'">'
+         alert(delArr[i]);
+      }
+      
          $(".check_delete_form").submit();
 
-   }); */  
+   });
 
 /* 전체 체크박스 설정 및 해제 */
    $(".chk_all").click(function() {
@@ -103,28 +103,28 @@ $(document).ready(function() {
    });
    
 /* 체크된 것 선택해서 -미완 */   
-/*	ordersCheck();
-	function ordersCheck() {
-		let ordersArr = new Array();
-		$(".chk:checked").each(function() {
-		ordersArr.push($(".chk").index(this));
-		});
-		for(let i = 0; i < ordersArr.length; i++) {
-			let ordersObj = new Object();
+/*   ordersCheck();
+   function ordersCheck() {
+      let ordersArr = new Array();
+      $(".chk:checked").each(function() {
+      ordersArr.push($(".chk").index(this));
+      });
+      for(let i = 0; i < ordersArr.length; i++) {
+         let ordersObj = new Object();
 
-		}
-		
-	}*/
+      }
+      
+   }*/
    
 /* 총 상품 이름 */
-	totalName();
-	function totalName() {
-		let nameArr = new Array();
-		$(".chk:checked").each(function(){
-			nameArr.push($(this).data("gn"));
-		})
-		$('input[name=goodsAllName]').attr('value', nameArr);
-	}   
+   totalName();
+   function totalName() {
+      let nameArr = new Array();
+      $(".chk:checked").each(function(){
+         nameArr.push($(this).data("gn"));
+      })
+      $('input[name=goodsAllName]').attr('value', nameArr);
+   }   
 /* 장바구니 총액 계산 */   
    function itemSum() {
       let str = "";
@@ -141,5 +141,4 @@ $(document).ready(function() {
       }
       
 });
-
 

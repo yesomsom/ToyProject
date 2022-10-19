@@ -33,7 +33,7 @@
    margin-right: 20px;
 }
 .margin_left {
-	margin-left: 10px;
+   margin-left: 10px;
 }
 .border_bottom {
    border-bottom: 1px solid #fce8ac;
@@ -72,38 +72,38 @@
     top: 25px;
 }
 .pay_submit {
-	margin-left: 560px;
+   margin-left: 560px;
 }
 .comma_price {
-	font-size: 26px !important;
+   font-size: 26px !important;
     font-weight: 900 !important;
 }
 
 /* button */
 .btn {
-	position: relative;
-	top: 14px;
+   position: relative;
+   top: 14px;
 }
 .orders_pay {
-	font-size: 22px !important;
-	font-weight: 900 !important;
-	margin-right: 10px;
+   font-size: 22px !important;
+   font-weight: 900 !important;
+   margin-right: 10px;
 }
 .md_btn {
-	background: #ccc;
-	margin-left: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+   background: #ccc;
+   margin-left: 10px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
 }
 .modify_orders_btn {
-	width: 120px;
-	height: 40px;
-	border: 1px solid #fce8ac;
-	border-radius: 10px;
-	background: #fce8ac;
-	position: relative;
-	left: 500px;
-	margin-top: 20px;
-	font-size: 12px !important;
-	font-weight: 900 !important;   
+   width: 120px;
+   height: 40px;
+   border: 1px solid #fce8ac;
+   border-radius: 10px;
+   background: #fce8ac;
+   position: relative;
+   left: 500px;
+   margin-top: 20px;
+   font-size: 12px !important;
+   font-weight: 900 !important;   
 }
