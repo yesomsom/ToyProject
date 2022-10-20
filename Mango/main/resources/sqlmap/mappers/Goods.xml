@@ -8,7 +8,6 @@
       <result property="goodsCategory" column="goods_category" />
       <result property="goodsName" column="goods_name" />
       <result property="sellerName" column="seller_name" />
-      <result property="goodsImgPath" column="goods_img_path" />
       <result property="goodsState" column="goods_state" />
       <result property="goodsDetail" column="goods_detail" />
       <result property="goodsPrice" column="goods_price" />
@@ -35,7 +34,7 @@
    </select>
 
    <insert id="insertGoods" parameterType="GoodsVO">
-      insert into goods (goods_category, goods_name, seller_name, goods_img_path, goods_state, goods_detail, goods_price, goods_stock, delivery_price, goods_discount, gno)values
-      (#{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsImgPath}, #{goodsState}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, #{gno})
+      insert into goods (goods_category, goods_name, seller_name, goods_state, goods_detail, goods_price, goods_stock, delivery_price, goods_discount, gno)
+      values (#{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsState}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, #{gno})
    </insert>
 </mapper>
