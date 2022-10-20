@@ -21,6 +21,17 @@ if (login != null)
 </head>
 <body>
    <div>
+   	<!-- 사이드바 -->
+     <aside class="sideBar">
+       <div class="side_head"><a href="${path}/page/myPage.do">MY HOME</a></div>
+       <div class="side_body">
+         <div><a href="${path}/page/myReserve.do">예매 목록</a></div>
+         <div><a href="${path}/page/myOrdersPage.do">구매 목록</a></div>
+         <div><a href="${path}/page/myAskList.do">문의 목록</a></div>
+         <div><a href="${path}/page/memberModify.do">회원정보수정</a></div>
+       </div>
+     </aside> 
+   
       <div class="myOrderspage_container">
          <div class="myOrderspage_wrapper">
          <!-- 상단 헤드 -->

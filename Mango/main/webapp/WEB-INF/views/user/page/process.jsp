@@ -42,11 +42,34 @@
    if (type.equals("login")) {
       if (isSuccess) {
          String name = (String) request.getAttribute("name");
+         int auth = (int) request.getAttribute("auth");
+         if (auth == 3) {
    %>
-   <script>
-      alert("<%=name%>" + "님 환영합니다");
-      location.href = "/main.do"
-   </script>
+   <!-- 일반 회원 로그인 -->
+        	   <script>
+        	      alert("<%=name%>" + "님 환영합니다");
+        	      location.href = "/main.do"
+        	   </script>  
+   <%      	          	 
+         } else if (auth == 2) {
+   %>
+   <!-- 사업자 회원 로그인 -->
+        	   <script>
+        	      alert("<%=name%>" + "님 환영합니다");
+        	      location.href = "/seller/main.do"
+        	   </script>       
+   <%
+         } else {
+	%>
+	<!-- 관리자 로그인 -->
+		   		<script>
+			      alert("<%=name%>" + "님 환영합니다");
+			      location.href = "/main.do"
+			   </script>	
+	<%        	 
+         }
+   %>
+
    <%
    } else {
    %>

@@ -98,7 +98,7 @@
          <div>
             <form class="seatForm" action="seat.do" method="post">
                <input type="hidden" class="title" name="title"> <input
-                  type="hidden" class="movieAge" name="movieAge"> <input
+                  type="hidden" class="movieName" name="movieName"> <input
                   type="hidden" class="selectedTheater" name="selectedTheater">
                <input type="hidden" class="theaterKind" name="theaterKind"
                   value="CGV"> <input type="hidden" class="reserveDate"

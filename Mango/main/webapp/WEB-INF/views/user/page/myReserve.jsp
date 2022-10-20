@@ -21,7 +21,18 @@ List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
    src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 </head>
 <body>
-   <div>
+	<!-- 사이드바 -->
+     <aside class="sideBar">
+       <div class="side_head"><a href="${path}/page/myPage.do">MY HOME</a></div>
+       <div class="side_body">
+         <div><a href="${path}/page/myReserve.do">예매 목록</a></div>
+         <div><a href="${path}/page/myOrdersPage.do">구매 목록</a></div>
+         <div><a href="${path}/page/myAskList.do">문의 목록</a></div>
+         <div><a href="${path}/page/memberModify.do">회원정보수정</a></div>
+       </div>
+     </aside> 
+   <div class="myPage_wrap">
+
       <div class="my-page-container">
          <div class="my-page-wrapper">
             <div class="my-page-header">예약한 영화 목록</div>
