@@ -41,13 +41,11 @@ public class SellerController {
 
 	// 상품등록 페이지
 	@RequestMapping(value = "/uploadGoods/insert", method = RequestMethod.POST)
-	@ResponseBody
-	public String insertuploadGoods(@ModelAttribute("GoodsVO") GoodsVO gVO, ModelMap model, Criteria cri, HttpServletRequest request) throws Exception {
-		
+	public String insertuploadGoods(ModelMap model, Criteria cri, GoodsVO gVO, HttpServletRequest request) throws Exception {
 		gVO.setGno(EgovWebUtil.getUUID());
 		GoodsService.insertGoods(gVO);
 
-		return "/seller/page/uploadGoods";
+		return "/seller/main";
 
 	}
 

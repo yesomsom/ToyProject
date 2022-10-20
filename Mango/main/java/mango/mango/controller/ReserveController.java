@@ -19,12 +19,14 @@ import com.google.gson.Gson;
 
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
+import mango.mango.model.AskVO;
 import mango.mango.model.InfoDTO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.OrdersVO;
 import mango.mango.model.PayVO;
 import mango.mango.model.ReserveVO;
 import mango.mango.model.TheaterVO;
+import mango.mango.service.AskService;
 import mango.mango.service.InfoService;
 import mango.mango.service.OrdersService;
 import mango.mango.service.PayService;
@@ -34,169 +36,171 @@ import mango.mango.service.TheaterService;
 @Controller
 @RequestMapping(value = UserURLValue.MANGO_BASIC)
 public class ReserveController {
-   
-   @Resource(name = "ReserveService")
-   private ReserveService reserveService;
-   @Resource(name = "PayService")
-   private PayService payService;
-   @Resource(name = "TheaterService")
-   private TheaterService theaterService;
-   @Resource(name = "InfoService")
-   private InfoService infoService;
-   @Resource(name = "OrdersService")
-   private OrdersService ordersService;
 
-   private static Logger logger = LoggerFactory.getLogger(InfoController.class);
+	@Resource(name = "ReserveService")
+	private ReserveService reserveService;
+	@Resource(name = "PayService")
+	private PayService payService;
+	@Resource(name = "TheaterService")
+	private TheaterService theaterService;
+	@Resource(name = "InfoService")
+	private InfoService infoService;
+	@Resource(name = "OrdersService")
+	private OrdersService ordersService;
 
-   @RequestMapping(value = "/reserve")
-   public String reserve(ModelMap model, Criteria cri) throws Exception {
-      logger.info("reserve");
+	@Resource(name = "askService")
+	private AskService askService;
 
-      TheaterVO tvo = new TheaterVO();
+	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 
-      List<TheaterVO> CGVTheaterList = theaterService.selectCGVTheaterList(tvo);
-      model.addAttribute("CGVTheaterList", CGVTheaterList);
+	@RequestMapping(value = "/reserve")
+	public String reserve(ModelMap model, Criteria cri) throws Exception {
+		logger.info("reserve");
 
-      List<TheaterVO> LotteTheaterList = theaterService.selectLotteTheaterList(tvo);
-      model.addAttribute("LotteTheaterList", LotteTheaterList);
+		TheaterVO tvo = new TheaterVO();
 
-      List<TheaterVO> MegaTheaterList = theaterService.selectMegaTheaterList(tvo);
-      model.addAttribute("MegaTheaterList", MegaTheaterList);
+		List<TheaterVO> CGVTheaterList = theaterService.selectCGVTheaterList(tvo);
+		model.addAttribute("CGVTheaterList", CGVTheaterList);
 
-      InfoDTO infodto = new InfoDTO();
-      List<InfoDTO> movieListKo = infoService.selectTheaterListKo(infodto);
-      model.addAttribute("movieListKo", movieListKo);
+		List<TheaterVO> LotteTheaterList = theaterService.selectLotteTheaterList(tvo);
+		model.addAttribute("LotteTheaterList", LotteTheaterList);
 
-      tvo.setGroupData("1");
-      List<TheaterVO> theaterList = theaterService.selectCGVList(tvo);
-      model.addAttribute("TheaterList", theaterList);
+		List<TheaterVO> MegaTheaterList = theaterService.selectMegaTheaterList(tvo);
+		model.addAttribute("MegaTheaterList", MegaTheaterList);
 
-      return "/user/page/reserve";
-   }
+		InfoDTO infodto = new InfoDTO();
+		List<InfoDTO> movieListKo = infoService.selectTheaterListKo(infodto);
+		model.addAttribute("movieListKo", movieListKo);
 
-   @RequestMapping(value = "/reserve_ajax", produces = "application/text;charset=UTF-8")
-   public ResponseEntity<String> theaterAjax(ModelMap model, Criteria cri, TheaterVO tVO) throws Exception {
-      HttpHeaders responseHeaders = new HttpHeaders();
-      responseHeaders.add("Content-Type", "text/html;charset=UTF-8");
+		tvo.setGroupData("1");
+		List<TheaterVO> theaterList = theaterService.selectCGVList(tvo);
+		model.addAttribute("TheaterList", theaterList);
 
-      List<TheaterVO> dataList = theaterService.selectCGVList(tVO);
-      model.addAttribute("dataList", dataList);
+		return "/user/page/reserve";
+	}
 
-      String gson = new Gson().toJson(dataList);
+	@RequestMapping(value = "/reserve_ajax", produces = "application/text;charset=UTF-8")
+	public ResponseEntity<String> theaterAjax(ModelMap model, Criteria cri, TheaterVO tVO) throws Exception {
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html;charset=UTF-8");
 
-      return new ResponseEntity<String>(gson, responseHeaders, HttpStatus.CREATED);
-   }
+		List<TheaterVO> dataList = theaterService.selectCGVList(tVO);
+		model.addAttribute("dataList", dataList);
 
-   @RequestMapping(value = "/seat")
-   public String seat(ModelMap model, Criteria cri, ReserveVO rVO) throws Exception {
+		String gson = new Gson().toJson(dataList);
 
-      System.out.println(rVO.toString());
-      logger.info("seat");
-      model.addAttribute("reserve", rVO);
+		return new ResponseEntity<String>(gson, responseHeaders, HttpStatus.CREATED);
+	}
 
-      return "/user/page/seat";
-   }
+	@RequestMapping(value = "/seat")
+	public String seat(ModelMap model, Criteria cri, ReserveVO rVO) throws Exception {
 
-   @RequestMapping(value = "/kakao")
-   public String Kakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session) throws Exception {
+		System.out.println(rVO.toString());
+		logger.info("seat");
+		model.addAttribute("reserve", rVO);
 
-      return "/user/page/kakao";
-   }
+		return "/user/page/seat";
+	}
 
-   @RequestMapping(value = "/kakao/insert", method = RequestMethod.POST)
-   public String insertKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
-         throws Exception {
-      System.out.println(rVO.toString());
-      logger.info("Kakao");
-      MemberVO login = (MemberVO) session.getAttribute("login");
+	@RequestMapping(value = "/kakao")
+	public String Kakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session) throws Exception {
 
-      rVO.setId(login.getId());
+		return "/user/page/kakao";
+	}
 
-      int isSuccess = reserveService.Reserve(rVO);
+	@RequestMapping(value = "/kakao/insert", method = RequestMethod.POST)
+	public String insertKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
+			throws Exception {
+		System.out.println(rVO.toString());
+		logger.info("Kakao");
+		MemberVO login = (MemberVO) session.getAttribute("login");
 
-      System.out.println(isSuccess);
+		rVO.setId(login.getId());
 
-      model.addAttribute("reserve", rVO);
-      model.addAttribute("pay", pVO);
+		int isSuccess = reserveService.Reserve(rVO);
 
-      if (isSuccess != 1) {
+		System.out.println(isSuccess);
 
-         return "redirect:/main.do";
-      }
-      return "/user/page/kakao";
-   }
+		model.addAttribute("reserve", rVO);
+		model.addAttribute("pay", pVO);
 
-   @RequestMapping(value = "/payKakao")
-   public String payKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
-         throws Exception {
-      logger.info("Kakao");
-      MemberVO login = (MemberVO) session.getAttribute("login");
+		if (isSuccess != 1) {
 
-      rVO.setId(login.getId());
+			return "redirect:/main.do";
+		}
+		return "/user/page/kakao";
+	}
 
-      List<ReserveVO> list = reserveService.getReserve(rVO);
+	@RequestMapping(value = "/payKakao")
+	public String payKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
+			throws Exception {
+		logger.info("Kakao");
+		MemberVO login = (MemberVO) session.getAttribute("login");
 
-      pVO.setId(list.get(0).getId());
-      pVO.setReserveSequence(list.get(0).getReserveSequence());
-      System.out.println(list);
-      System.out.println(pVO.toString());
-      int isSuccess = payService.payTicket(pVO);
-      System.out.println(isSuccess);
+		rVO.setId(login.getId());
 
-      if (isSuccess != 1) {
-         System.out.println("결제오류");
-         return "redirect:/main.do";
-      }
-      model.addAttribute("type", "reserve");
-      model.addAttribute("isSuccess", isSuccess);
+		List<ReserveVO> list = reserveService.getReserve(rVO);
 
-      return "redirect:/page/myReserve.do";
-   }
+		pVO.setId(list.get(0).getId());
+		pVO.setReserveSequence(list.get(0).getReserveSequence());
+		System.out.println(list);
+		System.out.println(pVO.toString());
+		int isSuccess = payService.payTicket(pVO);
+		System.out.println(isSuccess);
 
+		if (isSuccess != 1) {
+			System.out.println("결제오류");
+			return "redirect:/main.do";
+		}
+		model.addAttribute("type", "reserve");
+		model.addAttribute("isSuccess", isSuccess);
 
-   @RequestMapping(value = "/myReserve")
-   public String Main(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
-         throws Exception {
-      MemberVO login = (MemberVO) session.getAttribute("login");
+		return "redirect:/page/myReserve.do";
+	}
 
-      rVO.setId(login.getId());
-      List<ReserveVO> list = reserveService.selectMapping(rVO);
+	@RequestMapping(value = "/myReserve")
+	public String Main(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session) throws Exception {
+		MemberVO login = (MemberVO) session.getAttribute("login");
 
-      if (list != null) {
-         for (ReserveVO listvo : list) {
-            System.out.println(listvo.toString());
-            model.addAttribute("reserveList", list);
-         }
-      } else {
-         System.out.println("오류발생");
-      }
-      return "/user/page/myReserve";
-   }
-   
-   @RequestMapping(value = "/myPage")
-   public String myPage(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, OrdersVO oVO,HttpSession session)
-         throws Exception {
-      MemberVO login = (MemberVO) session.getAttribute("login");
+		rVO.setId(login.getId());
+		List<ReserveVO> list = reserveService.selectMapping(rVO);
 
-      rVO.setId(login.getId());
-      List<ReserveVO> list = reserveService.selectMapping(rVO);
+		if (list != null) {
+			for (ReserveVO listvo : list) {
+				System.out.println(listvo.toString());
+				model.addAttribute("reserveList", list);
+			}
+		} else {
+			System.out.println("오류발생");
+		}
+		return "/user/page/myReserve";
+	}
 
-        oVO.setId(login.getId());
-        List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
-        model.addAttribute("ordersList", ordersList);
-        System.out.println("ordersList " + ordersList);
-        
-      if (list != null) {
-         for (ReserveVO listvo : list) {
-            System.out.println(listvo.toString());
-            model.addAttribute("reserveList", list);
-         }
-      } else {
-         System.out.println("오류발생");
-      }
-      
-      
-      return "/user/page/myPage";
-   }
-   
+	@RequestMapping(value = "/myPage")
+	public String myPage(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, OrdersVO oVO, AskVO aVO,
+			HttpSession session) throws Exception {
+		MemberVO login = (MemberVO) session.getAttribute("login");
+
+		rVO.setId(login.getId());
+		List<ReserveVO> reserveList = reserveService.selectMapping(rVO);
+		model.addAttribute("reserveList", reserveList);
+
+		pVO.setId(login.getId());
+		List<PayVO> payList = payService.selectAllPayList(pVO);
+		model.addAttribute("payList", payList);
+
+		oVO.setId(login.getId());
+		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
+		model.addAttribute("ordersList", ordersList);
+		System.out.println("ordersList " + ordersList);
+
+		
+		aVO.setId(login.getId()); 
+		List<AskVO> askList = askService.selectAllAskList(aVO); 
+		model.addAttribute("askList", askList);
+		 
+
+		return "/user/page/myPage";
+	}
+
 }

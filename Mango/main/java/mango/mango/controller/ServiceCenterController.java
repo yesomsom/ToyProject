@@ -3,6 +3,7 @@ package mango.mango.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import mango.common.service.Criteria;
 import mango.common.service.PageMakerDTO;
 import mango.common.util.UserURLValue;
 import mango.mango.model.AskVO;
+import mango.mango.model.MemberVO;
 import mango.mango.model.NoticeVO;
 import mango.mango.model.QaVO;
 import mango.mango.service.AskService;
@@ -67,9 +69,10 @@ public class ServiceCenterController {
 
 	// 1:1문의사항 조회
 	@RequestMapping(value = "/myAskList")
-	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO,
+	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO, HttpSession session,
 			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
-
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		aVO.setId(login.getId());
 		int askListTotal = askService.selectAllAskCount(aVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, askListTotal);

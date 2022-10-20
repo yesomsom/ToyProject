@@ -12,7 +12,7 @@ public class ReserveVO implements Serializable {
 	private String ticketNumber;
 	private String selectedSeat;
 	private String selectedTheater;
-	private String movieAge;
+	private String movieName;
 
 	private PayVO PayVO;
 
@@ -92,12 +92,12 @@ public class ReserveVO implements Serializable {
 		this.selectedTheater = selectedTheater;
 	}
 
-	public String getMovieAge() {
-		return movieAge;
+	public String getMovieName() {
+		return movieName;
 	}
 
-	public void setMovieAge(String movieAge) {
-		this.movieAge = movieAge;
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 	public PayVO getPayVO() {
@@ -109,7 +109,7 @@ public class ReserveVO implements Serializable {
 	}
 
 	public ReserveVO(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String reserveDate, String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
+			String reserveDate, String ticketNumber, String selectedSeat, String selectedTheater, String movieName,
 			PayVO pVO) {
 		super();
 		this.id = id;
@@ -121,7 +121,7 @@ public class ReserveVO implements Serializable {
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
-		this.movieAge = movieAge;
+		this.movieName = movieName;
 		this.PayVO = pVO;
 	}
 
@@ -130,7 +130,7 @@ public class ReserveVO implements Serializable {
 		return "ReserveVO [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title + ", runningTime="
 				+ runningTime + ", movieDate=" + movieDate + ", reserveDate=" + reserveDate + ", ticketNumber="
 				+ ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater=" + selectedTheater
-				+ ", movieAge=" + movieAge + "]";
+				+ ", movieName=" + movieName + "]";
 	}
 
 }

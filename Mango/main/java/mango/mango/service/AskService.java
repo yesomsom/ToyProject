@@ -12,4 +12,6 @@ public interface AskService {
       List<AskVO> selectAskList(AskVO aVO) throws Exception;
 
       Integer selectAllAskCount(AskVO aVO) throws Exception;
+      
+      List<AskVO> selectAllAskList(AskVO aVO) throws Exception;
 }

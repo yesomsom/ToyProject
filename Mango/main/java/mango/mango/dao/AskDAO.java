@@ -23,5 +23,8 @@ public class AskDAO extends ComAbstractDAO {
       return selectOne("AskMapper.selectAllAskCount", aVO);
    }
    
-
+   //마이페이지에서 최신순 문의 출력
+   public List<AskVO> selectAllAskList(AskVO aVO) throws Exception {
+	      return selectList("AskMapper.selectAllAskList", aVO);
+	   }
 }

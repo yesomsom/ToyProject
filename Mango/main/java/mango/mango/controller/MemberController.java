@@ -49,11 +49,8 @@ public class MemberController {
 			model.addAttribute("isSuccess", true);
 			model.addAttribute("name", login.getName());			
 			model.addAttribute("auth", login.getAuth());			
-			model.addAttribute("login", login);
 			
-			session.setAttribute("login", login);
-			session.setAttribute("auth", login.getAuth());
-			
+			session.setAttribute("login", login);	
 		} else {
 			model.addAttribute("isSuccess", false);
 			return "/user/page/process";

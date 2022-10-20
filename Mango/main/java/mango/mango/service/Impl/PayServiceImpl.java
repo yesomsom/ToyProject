@@ -1,5 +1,7 @@
 package mango.mango.service.Impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -21,6 +23,12 @@ public class PayServiceImpl extends EgovAbstractServiceImpl implements PayServic
       
       return payDAO.payTicket(pVO);
    }
+
+
+	@Override
+	public List<PayVO> selectAllPayList(PayVO pVO) throws Exception {
+		return payDAO.selectAllPayList(pVO);
+	}
    
    
 

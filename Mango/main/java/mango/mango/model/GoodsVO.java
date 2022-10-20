@@ -9,7 +9,6 @@ public class GoodsVO {
    private int goodsId;
    private String goodsCategory;
    private String goodsName;
-   private String goodsImgPath;
    private String goodsState;
    private String sellerName;
    private String goodsDetail;   
@@ -53,12 +52,6 @@ public String getSellerName() {
    }
    public void setGoodsName(String goodsName) {
       this.goodsName = goodsName;
-   }
-   public String getGoodsImgPath() {
-      return goodsImgPath;
-   }
-   public void setGoodsImgPath(String goodsImgPath) {
-      this.goodsImgPath = goodsImgPath;
    }
    public String getGoodsState() {
       return goodsState;

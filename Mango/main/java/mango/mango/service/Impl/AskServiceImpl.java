@@ -18,8 +18,6 @@ public class AskServiceImpl extends EgovAbstractServiceImpl implements AskServic
    
    @Override
    public int insertAsk(AskVO aVO) throws Exception {
-      
-      
       return askDAO.insertAsk(aVO);
    }
 
@@ -33,4 +31,10 @@ public class AskServiceImpl extends EgovAbstractServiceImpl implements AskServic
       return askDAO.selectAllAskCount(aVO);
    }
 
+	@Override
+	public List<AskVO> selectAllAskList(AskVO aVO) throws Exception {
+	      return askDAO.selectAllAskList(aVO);
+	}
+
+   
 }
