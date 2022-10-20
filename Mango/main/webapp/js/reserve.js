@@ -11,7 +11,7 @@ const inputReserveDate = document.querySelector('.reserveDate');
 const inputRunningTime = document.querySelector('.runningTime');
 const seatForm = document.querySelector('.seatForm');
 const seatButton = document.querySelector('.seatButton');
-const movieAge = document.querySelector('.movieAge');
+const movieName = document.querySelector('.movieName');
 
 let movieListAge = '';
 let year = 0;
@@ -48,7 +48,7 @@ function add() {
                     console.log(li.parentElement);
                     console.log(li.parentElement.childNodes[1].innerHTML);
                     //form에 넘기기 위한
-                    movieAge.value = li.parentElement.childNodes[1].innerHTML;
+                    movieName.value = li.parentElement.childNodes[1].innerHTML;
                     inputTitle.value = li.innerHTML;
                 });
             });
@@ -83,37 +83,6 @@ function getMovieList(item) {
 </div>`;
 }
 
-/*function setListKo(data) {
-    document.querySelector('.movie-list-wrapper-ko').innerHTML = JSON.parse(
-        data
-    ).reduce((html = '', item, index = 0) => {
-        html += getMovieListKo(item);
-
-        return html;
-    }, ' ');
-}*/
-
-/*function getMovieListKo(item) {
-    console.log(item);
-    var List = [];
-    for (let i=0; i<item.length; i++){
-       List += ${item.movieTitle};
-       
-       }
-    
-    let sortList = List.sort();
-    return `<div class="movie-list-korean">
-    <div class="movie-list-age">${item.movieAge}</div>
-    <button class="movie-list-title">${item.movieTitle}</button>
-</div>`;
-}*/
-
-/*function getMovieListKo(item) {
-    console.log(item);
-    return `<div class="movie-list-korean">
-    <button class="movie-list-title">${item.movieTitle}</button>
-</div>`;
-}*/
 movieListTitle.forEach(list => {
     list.addEventListener('click', function() {
         const movieListTitleWrapper = document.querySelectorAll(
