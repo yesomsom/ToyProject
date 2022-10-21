@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import mango.common.service.Criteria;
+import mango.common.util.SHA256;
 import mango.common.util.UserURLValue;
 import mango.mango.model.MemberVO;
 import mango.mango.service.MemberService;
@@ -24,7 +25,7 @@ import mango.sms.Coolsms;
 @Controller
 @RequestMapping(value = UserURLValue.MANGO_BASIC)
 public class MemberController {
-
+		
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
 	
@@ -39,8 +40,11 @@ public class MemberController {
 
 	@RequestMapping(value = "/login/insert", method = { RequestMethod.POST })
 	public String insertLogin(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session) throws Exception {
-		logger.info("register");
-
+		SHA256 sha256 = new SHA256(); //암호화 유틸 불러오기
+		
+		String encryPassword = sha256.encrypt(mVO.getPassword()); // 비밀번호 암호화
+		mVO.setPassword(encryPassword);	//암호화 된 비밀번호 넣기
+		
 		MemberVO login = MemberService.login(mVO);
 		
 		model.addAttribute("type", "login");
@@ -80,10 +84,15 @@ public class MemberController {
 
 	@RequestMapping(value = "/register/insert", method = RequestMethod.POST)
 	public String registerinsert(ModelMap model, Criteria cri, MemberVO mVO, String id) throws Exception {
+		SHA256 sha256 = new SHA256(); //암호화 유틸 불러오기
+		
+		String encryPassword = sha256.encrypt(mVO.getPassword()); // 비밀번호 암호화
+		mVO.setPassword(encryPassword);	//암호화 된 비밀번호 넣기
+		
 		MemberService.register(mVO);
 		String getId = MemberService.getId(id);
 		model.addAttribute("type", "register");
-
+		
 		if (id != null) {
 			model.addAttribute("isSuccess", true);
 		} else {
@@ -102,15 +111,23 @@ public class MemberController {
 	   }
 
 	   // 회원 정보 수정
-	   @RequestMapping(value = "/memberModify/update", method = RequestMethod.POST)
-	   public String updateModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
-	         throws Exception {
-
-	      System.out.println("업데이트 완료");
-	      MemberService.updateMember(mVO);
-	      session.invalidate();
-	      return "redirect:/page/login.do";
-	   }
+	      @RequestMapping(value = "/memberModify/update", method = RequestMethod.POST)
+	      public String updateModifyForm(ModelMap model, Criteria cri, MemberVO mVO, HttpSession session, String id)
+	            throws Exception {
+	    	  SHA256 sha256 = new SHA256(); //암호화 유틸 불러오기
+	                  
+	    	  String encryPassword = sha256.encrypt(mVO.getPassword()); // 비밀번호 암호화
+	        
+	    	  mVO.setPassword(encryPassword);   //암호화 된 비밀번호 넣기
+	        
+	    	  MemberService.updateMember(mVO);
+	         
+	    	  System.out.println("업데이트 완료");
+	         
+	    	  session.invalidate();
+	         
+	         return "redirect:/page/login.do";
+	      }
 
 	   // 회원 정보 삭제
 	   @RequestMapping(value = "/memberModify/delete", method = RequestMethod.POST)
