@@ -142,12 +142,11 @@ function checks() {
 }
 
 function changepw() {
-	if (confirm("비밀번호를 변경하시겠습니까?\n(조건 미충족시 개인정보 수정이 불가능합니다.)")) {
-		document.getElementById("password").value = '';
-		document.getElementById("passwordRepeat").value = '';
-		document.getElementById("passwordRepeat").disabled = false;
-		document.getElementById("password").disabled = false;
-	}
+   if (confirm("비밀번호를 변경하시겠습니까?\n(조건 미충족시 개인정보 수정이 불가능합니다.)")) {
+   
+      document.getElementById("passwordRepeat").style.display = "block";
+   
+   }
 }
 
 function delmember() {
