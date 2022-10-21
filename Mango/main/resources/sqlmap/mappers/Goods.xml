@@ -14,7 +14,9 @@
       <result property="goodsStock" column="goods_stock" />
       <result property="deliveryPrice" column="delivery_price" />
       <result property="goodsDiscount" column="goods_discount" />
+      <result property="regDate" column="regdate" />
       <result property="gno" column="gno" />
+      <result property="id" column="id" />
    </resultMap>
    
    <select id="selectAllGoodsList" resultMap="goodsList"
@@ -34,7 +36,30 @@
    </select>
 
    <insert id="insertGoods" parameterType="GoodsVO">
-      insert into goods (goods_category, goods_name, seller_name, goods_state, goods_detail, goods_price, goods_stock, delivery_price, goods_discount, gno)
-      values (#{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsState}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, #{gno})
+      insert into goods (goods_category, goods_name, seller_name, goods_state, goods_detail, goods_price, goods_stock, delivery_price, goods_discount, regdate, gno, id)
+      values (#{goodsCategory}, #{goodsName}, #{sellerName}, "승인대기", #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, SYSDATE(6), #{gno}, #{id})
    </insert>
+
+<!-- seller별 goodsList 출력 -->   
+   <select id="selectSellerGoodsList" resultMap="goodsList"
+      parameterType="GoodsVO">
+      select * from goods where id = #{id} ORDER BY regdate DESC
+      limit #{skip}, #{amount}      
+   </select>
+
+<!-- seller goods count -->  
+   <select id="selectSellerGoodsCount" resultType="Integer"
+      parameterType="GoodsVO">
+      select count(*) from goods where id = #{id}
+   </select>
+   
+<!-- 상품 삭제 -->  
+   <delete id="deleteGoods" parameterType="GoodsVO">
+      delete from goods where goods_id = #{goodsId}
+   </delete> 
+   
+<!-- 상품 수정 -->
+   <update id="modifyGoods" parameterType="GoodsVO">
+      UPDATE goods SET goods_name = #{goodsName},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},goods_stock=#{goodsStock},delivery_price=#{deliveryPrice} WHERE goods_id = #{goodsId};
+   </update>   
 </mapper>
