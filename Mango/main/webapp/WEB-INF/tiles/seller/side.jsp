@@ -1,6 +1,10 @@
 <%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="mango.mango.model.MemberVO" %>
+<% MemberVO login = (MemberVO) session.getAttribute("login");
+if (login != null)
+	System.out.println(login.toString()); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +15,8 @@
 <div class="side_Container">
 	<div class=seller_logo>
 		<a href="/seller/main.do">
-			<img alt="로고" src="#">
-			<span>회사명</span>
+			<img src="<%=login.getLogoImg()%>">
+			<span><%=login.getSellerName() %></span>
 		</a>
 	</div>
     <div><a href="/page/uploadGoods.do">상품 등록</a></div>

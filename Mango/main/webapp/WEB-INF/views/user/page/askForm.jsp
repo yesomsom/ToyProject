@@ -54,8 +54,8 @@ String id = request.getParameter("id");
                   </tr>
                   <tr>
                      <th scope="row" class="cols1">분&nbsp;&nbsp;&nbsp;류</th>
-                     <td><select title="문의 내용 분류 선택" name="askCat"
-                        class="selBox">
+                     <td>
+                     <select title="문의 내용 분류 선택" name="askCat" class="selBox">
                            <option value="0" selected>분류 선택</option>
                            <option value="영화관">영화관</option>
                            <option value="영화">영화</option>
@@ -63,34 +63,39 @@ String id = request.getParameter("id");
                            <option value="결제">이벤트</option>
                            <option value="개인정보">개인정보</option>
                            <option value="분실물">분실물</option>
-                     </select> <select title="문의내용 종류" name="askCatDetail" class="selBox">
+                     </select> 
+                     <select title="문의내용 종류" name="askCatDetail" class="selBox">
                            <option value="0" selected>문의 종류</option>
                            <option value="문의">문의</option>
                            <option value="건의">건의</option>
-                     </select></td>
+                     </select>
+                     </td>
                   </tr>
 
                   <tr>
                      <th scope="row" class="cols1">종&nbsp;&nbsp;&nbsp;류</th>
-                     <td><input type="radio" name="rdo00" id="rdo01" checked>
-                        <label for="rdo01" class="rdoT1">영화관문의</label> <span> <select
-                           name="ask_type" id="askType" class="selBox"
-                           onChange="cat1_change(this.value,aks_typeDetail)">
-                              <option value="0" selected>영화관 선택</option>
-                              <option value="1">서울</option>
-                              <option value="2">경기/인천</option>
-                              <option value="3">충청/대전</option>
-                              <option value="4">전라/광주</option>
-                              <option value="5">경북/대구</option>
-                              <option value="6">경남/부산/울산</option>
-                              <option value="7">강원</option>
-                              <option value="8">제주</option>
-                        </select> <select name="askTypeDetail" id="aks_typeDetail"
-                           class="selBox">
-                              <option>-선택-</option>
-                        </select>
-                     </span> <input type="radio" name="rdo00" id="rdo02"> <label
-                        for="rdo02">기타문의</label></td>
+                     <td>
+                        <input type="radio" name="rdo00" id="rdo01" checked>
+                        <label for="rdo01" class="rdoT1">영화관문의</label> 
+                           <span> 
+                              <select name="ask_type" id="askType" class="selBox" onChange="cat1_change(this.value,aks_typeDetail)">
+                                    <option value="0" selected>영화관 선택</option>
+                                    <option value="1">서울</option>
+                                    <option value="2">경기/인천</option>
+                                    <option value="3">충청/대전</option>
+                                    <option value="4">전라/광주</option>
+                                    <option value="5">경북/대구</option>
+                                    <option value="6">경남/부산/울산</option>
+                                    <option value="7">강원</option>
+                                    <option value="8">제주</option>
+                              </select>
+                              <select name="askTypeDetail" id="aks_typeDetail" class="selBox">
+                                   <option value="0">-선택-</option>
+                              </select>
+                           </span> 
+                        <input type="radio" name="rdo00" id="rdo02"> 
+                        <label for="rdo02">기타문의</label>
+                     </td>
                   </tr>
 
                   <tr>
@@ -112,8 +117,8 @@ String id = request.getParameter("id");
 
 
                   <div>
-                     <!--             <table summary="고객정보작성 테이블"> -->
-                     <!--                <tbody> -->
+                     <!-- <table summary="고객정보작성 테이블"> -->
+                    <tbody>
                      <tr>
                         <td id="none">
                            <h1 class="t_head">고객정보</h1>
@@ -134,7 +139,7 @@ String id = request.getParameter("id");
                      <tr>
                         <th scope="row" class="cols1">이메일</th>
                         <td><input type="email" name="askEmail"
-                           placeholder="이메일을 입력해 주세요" > 
+                           placeholder="이메일을 입력해 주세요" required > 
                            <span>답변 등록시 해당 이메일로 자동 발송 됩니다.</span></td>
                               <input type="hidden" name="id" value="${login.getId()}" />
                      </tr>

@@ -21,7 +21,7 @@
 			</div>
 			<form action="sellerRegister/insert.do" id="registerForm" method="post">
 				<p class="register-title">
-					<img src="${path }/images/mangoLogo.png"> <span>회원가입</span>
+					<a href="${path }/main.do"><img src="${path }/images/mangoLogo.png"></a> <span>회원가입</span>
 				</p>
 				<div class="form-wrapper form-wrapper-id">
 					<div class="id-wrapper">

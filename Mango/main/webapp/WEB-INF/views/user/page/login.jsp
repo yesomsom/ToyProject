@@ -25,7 +25,7 @@
 			</div>
 			<form action="/page/login/insert.do" id="loginForm" method="post">
 				<p class="register-title">
-					<img src="${path }/images/mangoLogo.png"> <span>로그인</span>
+					<a href="${path }/main.do"><img src="${path }/images/mangoLogo.png"></a> <span>로그인</span>
 				</p>
 				<div class="form-wrapper form-wrapper-id">
 					<div class="id-wrapper">

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="mango.mango.model.MemberVO"%>
 <%@ include file="/WEB-INF/views/taglib.jsp"%>
+<%
+MemberVO login = (MemberVO) session.getAttribute("login");
+if (login != null)
+   System.out.println(login.toString());
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,10 +112,11 @@
 			</div> -->
 
 			<!-- 상품상세 -->
-		<!-- 	<div class="goods_detail">
+			<div class="goods_detail">
 				<textarea name="goodsDetail" id="editor"></textarea>
-			</div> -->
-				<input type="hidden" name="sellerName" value="abc">
+			</div>
+			<input type="hidden" name="sellerName" value="<%if (login != null) {%><%=login.getSellerName()%><%} else {%><%}%>">
+			<input type="hidden" name="id" value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
 		</form>
 
 		<div class="btn_section">
@@ -126,7 +133,14 @@
     });
 	
 	</script>
-
-
+	<script>
+		ClassicEditor
+		    .create( document.querySelector( '#editor' ), {
+		        toolbar: [ 'bold', 'italic', 'link', 'undo', 'redo', 'numberedList', 'bulletedList' ]
+		    } )
+		    .catch( error => {
+		        console.log( error );
+		    } );
+</script>
 </body>
 </html>

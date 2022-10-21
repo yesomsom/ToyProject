@@ -33,17 +33,17 @@ if (login != null)
 			<div class="Goods_introL">
 				<!--상품이미지-->
 				<div class="goods_img">
-					<img src="${goods.goodsImgPath}"
+					<img src="${path}/images/에나벨인형3.JPG"
 						style="width: 350px; height: 350px;" alt="">
 				</div>
 				<div class="thums_img">
-					<img src="${goods.goodsImgPath}" style="width: 50px; height: 50px;"
-						alt=""> <img src="${goods.goodsImgPath}"
+					<img src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
+						alt=""> <img src="${path}/images/에나벨인형3.JPG"
 						style="width: 50px; height: 50px;" alt=""> <img
-						src="${goods.goodsImgPath}" style="width: 50px; height: 50px;"
-						alt=""> <img src="${goods.goodsImgPath}"
+						src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
+						alt=""> <img src="${path}/images/에나벨인형3.JPG"
 						style="width: 50px; height: 50px;" alt=""> <img
-						src="${goods.goodsImgPath}" style="width: 50px; height: 50px;"
+						src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
 						alt="">
 				</div>
 
@@ -84,6 +84,19 @@ if (login != null)
 				<div class="recommend_goods_wrap">
 					<a class="recommend_a1"
 						href="${path}/page/goodsDetail.do?goodsId=${goodsList[5].goodsId}"><img
+						class="" src="${path}/images/에나벨인형3.JPG"
+						style="width: 85px; height: 85px;" alt=""></a> <a
+						class="recommend_a1"
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[2].goodsId}"><img
+						class="" src="${path}/images/에나벨인형3.JPG"
+						style="width: 85px; height: 85px;" alt=""></a> <a
+						class="recommend_a1"
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}"><img
+						class="" src="${path}/images/에나벨인형3.JPG"
+						style="width: 85px; height: 85px;" alt=""></a>
+						
+<%-- 						<a class="recommend_a1"
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[5].goodsId}"><img
 						class="" src="${goodsList[5].goodsImgPath}"
 						style="width: 85px; height: 85px;" alt=""></a> <a
 						class="recommend_a1"
@@ -93,15 +106,15 @@ if (login != null)
 						class="recommend_a1"
 						href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}"><img
 						class="" src="${goodsList[7].goodsImgPath}"
-						style="width: 85px; height: 85px;" alt=""></a>
+						style="width: 85px; height: 85px;" alt=""></a> --%>
 				</div>
 			</div>
 		</div>
 
 		<div class="Detail_Content">
-			<img src="${goods.goodsImgPath}" style="width: 755px;" alt="">
-			<img src="${goods.goodsImgPath}" style="width: 755px;" alt="">
-			<img src="${goods.goodsImgPath}" style="width: 755px;" alt="">
+			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
+			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
+			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
 		</div>
 	</div>
 
@@ -117,7 +130,7 @@ if (login != null)
 			name="deliveryPrice" value="${goods.deliveryPrice}"> <input
 			class="seller_submit" type="hidden" name="sellerName"
 			value="${goods.sellerName}"> <input class="goods_img_submit"
-			type="hidden" name="goodsImg" value="${goods.goodsImgPath}">
+			type="hidden" name="goodsImg" value="${path}/images/에나벨인형3.JPG">
 		<input class="goods_name_submit" type="hidden" name="goodsName"
 			value="${goods.goodsName}">
 	</form>

@@ -21,7 +21,8 @@
          </div>
          <form action="register/insert.do" id="registerForm" method="post" >
             <p class="register-title">
-               <img  src="${path }/images/mangoLogo.png">
+              <a href="${path }/main.do"><img  src="${path }/images/mangoLogo.png"></a>
+              
                <span>회원가입</span>
             </p>
             <div class="form-wrapper form-wrapper-id">
@@ -79,7 +80,7 @@
             	<!-- 회원가입시 유효성 검사를 진행한 후 일치하면 submit실행 -->
             <div class="register_div">
             	<!-- <button type="button" id="register_btn"><a href="/page/sellerRegister.do">사업주 회원가입</a></button> -->
-            	<button type="button" id="register_btn" onclick="sellerRegister()">사업주 회원가입</button>
+            	<a href="${path }/page/sellerRegister.do"><button type="button" id="register_btn">사업주 회원가입</button></a>
             	<button type="button" id="register_btn" onclick="checks()">회원가입</button>
             </div>
 
