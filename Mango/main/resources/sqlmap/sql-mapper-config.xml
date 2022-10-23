@@ -18,5 +18,6 @@
 		<typeAlias alias="QaVO" type="mango.mango.model.QaVO"/>
 		<typeAlias alias="OrdersVO" type="mango.mango.model.OrdersVO"/>
 		<typeAlias alias="OrdersPayVO" type="mango.mango.model.OrdersPayVO"/>
+		<typeAlias alias="GoodsFileVO" type="mango.mango.model.GoodsFileVO"/>
     </typeAliases>
 </configuration>
