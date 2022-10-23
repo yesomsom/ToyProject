@@ -47,11 +47,13 @@ public class GoodsController {
 	}
 
 	@RequestMapping(value = "/goodsDetail")
-	public String goodsDetail(ModelMap model, Criteria cri, GoodsVO gVO, int goodsId) throws Exception {
+	public String goodsDetail(ModelMap model, Criteria cri, GoodsVO gVO, String goodsId) throws Exception {
 		gVO = goodsService.selectGoodsDetailList(goodsId);
+		
 		model.addAttribute("goods", gVO);
 
 		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+		
 		model.addAttribute("goodsList", goodsList);
 
 		return "/user/page/goodsDetail";

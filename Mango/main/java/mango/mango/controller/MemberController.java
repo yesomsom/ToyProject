@@ -53,6 +53,7 @@ public class MemberController {
 			model.addAttribute("isSuccess", true);
 			model.addAttribute("name", login.getName());			
 			model.addAttribute("auth", login.getAuth());			
+			model.addAttribute("login", login.getSellerName());			
 			
 			session.setAttribute("login", login);	
 		} else {
