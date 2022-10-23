@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- 호스트:                          127.0.0.1
+-- 호스트:                          localhost
 -- 서버 버전:                        10.6.8-MariaDB - mariadb.org binary distribution
 -- 서버 OS:                        Win64
 -- HeidiSQL 버전:                  11.3.0.6295
@@ -132,30 +132,30 @@ CREATE TABLE IF NOT EXISTS `crawling` (
   `movie_rate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_openDate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=31370 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33726 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.crawling:~19 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `crawling` DISABLE KEYS */;
 INSERT IGNORE INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
-	(31351, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '31.0%', '2022.10.19 개봉'),
-	(31352, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '6.5%', '2022.10.19 개봉'),
-	(31353, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '6.0%', '2022.09.07 개봉'),
-	(31354, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '4.8%', '2022.10.12 개봉'),
-	(31355, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '4.3%', '2022.09.28 개봉'),
-	(31356, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '2.7%', '2022.09.28 개봉'),
-	(31357, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86276/86276_320.jpg', '오펀-천사의 탄생', '2.4%', '2022.10.12 개봉'),
-	(31358, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86268/86268_320.jpg', '낮과 달', '1.3%', '2022.10.20 개봉'),
-	(31359, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86191/86191_320.jpg', '정직한 후보2', '1.3%', '2022.09.28 개봉'),
-	(31360, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86274/86274_320.jpg', '엑스칼리버 더 뮤지컬 다큐멘터리: 도겸의 찬란한 여정', '1.2%', '2022.10.05 개봉'),
-	(31361, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86371/86371_320.jpg', '그 남자, 좋은 간호사', '1.2%', '2022.10.19 개봉'),
-	(31362, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '1.1%', '2022.10.19 개봉'),
-	(31363, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86201/86201_320.jpg', '극장판 5등분의 신부', '1.0%', '2022.09.22 개봉'),
-	(31364, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86275/86275_320.jpg', '대무가', '0.6%', '2022.10.12 개봉'),
-	(31365, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86282/86282_320.jpg', '티켓 투 파라다이스', '0.5%', '2022.10.12 개봉'),
-	(31366, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85603/85603_320.jpg', '극장판 주술회전 0', '0.4%', '2022.02.17 개봉'),
-	(31367, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.3%', '2022.10.13 개봉'),
-	(31368, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86283/86283_320.jpg', '나를 죽여줘', '0.3%', '2022.10.19 개봉'),
-	(31369, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86300/86300_320.jpg', '4DX 문유', '0.2%', '2022.10.12 개봉');
+	(33707, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '25.8%', '2022.10.19 개봉'),
+	(33708, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '6.8%', '2022.10.12 개봉'),
+	(33709, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '5.8%', '2022.09.07 개봉'),
+	(33710, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '4.7%', '2022.10.19 개봉'),
+	(33711, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '4.2%', '2022.09.28 개봉'),
+	(33712, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '2.7%', '2022.09.28 개봉'),
+	(33713, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86276/86276_320.jpg', '오펀-천사의 탄생', '2.1%', '2022.10.12 개봉'),
+	(33714, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '1.1%', '2022.10.22 재개봉'),
+	(33715, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86191/86191_320.jpg', '정직한 후보2', '1.0%', '2022.09.28 개봉'),
+	(33716, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86268/86268_320.jpg', '낮과 달', '0.9%', '2022.10.20 개봉'),
+	(33717, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.7%', '2022.10.19 개봉'),
+	(33718, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.7%', '2022.10.22 재개봉'),
+	(33719, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.7%', '2022.10.22 재개봉'),
+	(33720, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86371/86371_320.jpg', '그 남자, 좋은 간호사', '0.6%', '2022.10.19 개봉'),
+	(33721, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86275/86275_320.jpg', '대무가', '0.6%', '2022.10.12 개봉'),
+	(33722, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86282/86282_320.jpg', '티켓 투 파라다이스', '0.5%', '2022.10.12 개봉'),
+	(33723, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77356/77356_320.jpg', '어벤져스: 에이지 오브 울트론', '0.5%', '2022.10.22 재개봉'),
+	(33724, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.4%', '2022.10.13 개봉'),
+	(33725, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86201/86201_320.jpg', '극장판 5등분의 신부', '0.4%', '2022.09.22 개봉');
 /*!40000 ALTER TABLE `crawling` ENABLE KEYS */;
 
 -- 테이블 mangodb.goods 구조 내보내기
@@ -176,40 +176,28 @@ CREATE TABLE IF NOT EXISTS `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goods:~12 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goods:~1 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
 INSERT IGNORE INTO `goods` (`goods_id`, `id`, `goods_category`, `goods_name`, `seller_name`, `goods_state`, `goods_detail`, `goods_price`, `goods_stock`, `delivery_price`, `goods_discount`, `gno`, `regdate`) VALUES
-	('19917e93d06441318d9ee6d4228e473d', 'son123', '피규어', '123', '망고', '승인대기', '<p>123</p>', 123, 123, 123, 123, NULL, '2022-10-21 16:33:06.094454'),
-	('520891da651c4e2183c82d030559c288', 'son123', '인형', '123', '망고', '승인대기', '<p>123</p>', 123, 123, 3123, 123, NULL, '2022-10-21 16:51:49.800343'),
-	('5b6a447d1f04405b8da5dfaeace8465d', 'son123', '피규어', '123', '망고', '승인대기', '<p>213</p>', 12, 123, 123, 123, NULL, '2022-10-21 16:42:19.815584'),
-	('6f5f15f215934841a2997954aa82b22f', 'son123', '인형', '123', '망고', '승인대기', '<p>123</p>', 123, 123, 3123, 123, NULL, '2022-10-21 16:49:20.977539'),
-	('70abe37a9a6e4abf8bee2c6c196e6181', 'son123', '키링', '123', '망고', '승인대기', '<p>123</p>', 123, 123, 123, 213, NULL, '2022-10-21 16:27:46.973787'),
-	('7235b8bf45aa49208d4b4b65bc9e99c2', 'son123', '인형', '123', '망고', '승인대기', '<p>123</p>', 532, 21312, 3123, 312, NULL, '2022-10-21 16:52:57.331107'),
-	('95db62ff06b04a89a904e25c67819fab', 'son123', '인형', '123', '망고', '승인대기', '<p>3123</p>', 124, 123, 12312, 123, NULL, '2022-10-21 16:36:13.803170'),
-	('a74d947ad8bc4bdaaf6203ff60479f29', 'son123', '인형', '123', '망고', '승인대기', '<p>123</p>', 123, 123, 123, 123, NULL, '2022-10-21 16:35:31.467648'),
-	('a7e0b93ae5854c9b9ac80ccc3363add3', 'son123', '피규어', '123', '망고', '승인대기', '<p>123213</p>', 123, 123, 123, 123, NULL, '2022-10-21 16:36:56.719507'),
-	('b405fa7718b54fcf8af1a9d8c9c24870', 'son123', '인형', '123', '망고', '승인대기', '<p>123</p>', 123, 12, 3123, 312, NULL, '2022-10-21 16:29:25.750978'),
-	('ba211c9e6a044a08a5bdec51b350228d', 'son123', '인형', '12', '망고', '승인대기', '<p>123</p>', 123, 123, 123, 123, NULL, '2022-10-21 16:32:40.791053'),
-	('e85552fb9f344f5d8f80abd5b284e5c6', 'son123', '피규어', '123', '망고', '승인대기', '<p>123</p>', 213, 123, 123, 123, NULL, '2022-10-21 16:48:32.780997');
+	('b1550f05d84a45ab86d10ca146981513', '123asdf2', '피규어', '2312', '망고', '승인대기', '<p>123</p>', 31, 2312, 23123, 31, NULL, '2022-10-23 02:35:55.710186');
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 
 -- 테이블 mangodb.goodsfile 구조 내보내기
 CREATE TABLE IF NOT EXISTS `goodsfile` (
   `id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `goods_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `originname` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `extension` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `size` int(11) NOT NULL DEFAULT 0,
-  `path` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `regdate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
+  `goods_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `originname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `extension` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `realpath` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `regdate` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `filesize` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goodsfile:~3 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goodsfile:~2 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `goodsfile` DISABLE KEYS */;
-INSERT IGNORE INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `size`, `path`, `regdate`) VALUES
-	('son123', '6f5f15f215934841a2997954aa82b22f', '22-10-16-49-20-886_minus_icon1.png', 'file', 22593, '22-10-16-49-20-886_minus_icon1.png', '2022-10-21 16:49:20.982693'),
-	('son123', '520891da651c4e2183c82d030559c288', '22-10-16-51-49-799_minus_icon1.png', 'file', 22593, '22-10-16-51-49-799_minus_icon1.png', '2022-10-21 16:51:49.803892'),
-	('son123', '7235b8bf45aa49208d4b4b65bc9e99c2', '22-10-16-52-57-328_tor.png', 'file', 235179, '22-10-16-52-57-328_tor.png', '2022-10-21 16:52:57.335830');
+INSERT IGNORE INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `realpath`, `regdate`, `filesize`) VALUES
+	('123asdf2', 'b1550f05d84a45ab86d10ca146981513', 'mangoLogo.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-02-35-55-692_mangoLogo.png', '2022-10-23 02:35:55.701498', 3421),
+	('123asdf2', 'b1550f05d84a45ab86d10ca146981513', 'minus_icon1.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-02-35-55-692_minus_icon1.png', '2022-10-23 02:35:55.703816', 22593);
 /*!40000 ALTER TABLE `goodsfile` ENABLE KEYS */;
 
 -- 테이블 mangodb.member 구조 내보내기
@@ -231,14 +219,12 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.member:~5 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.member:~3 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
 INSERT IGNORE INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `address`, `zipno`, `registerdate`, `unregisterdate`, `ownername`, `businessnumber`, `sellername`, `logoimg`) VALUES
-	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
-	('hong', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '홍길동', '0101112222', 'hong@naver.com', 3, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
-	('son1', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '111', '1111111', 'sd@nsd.com', 3, '갈마동1', 11, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
-	('son123', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 1111(갈마동)', 35273, '2022-10-19', NULL, '망고쟁이', '1351321654', '망고', 'bg-registration-form-1.jpg'),
-	('son2', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL);
+	('123asdf', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 23(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', 'ggg', 'c:\\upload\\logoImg\\ggg\\22-10-02-30-09-22_fullHeart.png'),
+	('123asdf2', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', '망고', 'http://localhost:8080/img/logoImg/망고/22-10-02-32-58-642_fullHeart.png'),
+	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 
 -- 테이블 mangodb.notice 구조 내보내기
@@ -441,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `theater` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.theater:~317 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.theater:~334 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `theater` DISABLE KEYS */;
 INSERT IGNORE INTO `theater` (`id`, `poi_nm`, `branch_nm`, `mcate_cd`, `sido_nm`, `sgg_nm`, `bemd_nm`, `beonji`, `x`, `y`) VALUES
 	('KCDMTPO21N000000001', '메가박스', '대전점', '3', '대전광역시', '서구', '탄방동', '746', '127.3879894', '36.34759506'),
