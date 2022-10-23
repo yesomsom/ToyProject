@@ -182,10 +182,10 @@ if (login != null)
    </form>
    
       <!-- checked 삭제 form -->
-<!--    <form action="/page/cart/delete.do" method="post"
+   <form action="/page/cart/delete.do" method="post"
       class="check_delete_form">
       <div class="check_delete"></div>
-   </form> -->
+   </form>
    
    <!-- order 유무 변경 form -->
 <!--    <form action="/page/cart/updateYN.do" method="post" class="orderYN_form">

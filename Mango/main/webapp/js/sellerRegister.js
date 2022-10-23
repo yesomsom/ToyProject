@@ -115,7 +115,7 @@ function passwordValidate() {
 
 function checks(){
    
-   var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/); // 아이디, 비밀번호 정규식
+   /*var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/); // 아이디, 비밀번호 정규식
    var getName= RegExp(/^[가-힣a-zA-Z]{2,20}$/);
    
    toastr.options = {
@@ -188,7 +188,7 @@ function checks(){
         });
         return false;
    }
-   
+   */
    // 유효성검사가 모두 끝난뒤에 정보전달
    //button="button"으로 설정하여 submit을 함수로 작동하게 함
    $("#registerForm").submit();

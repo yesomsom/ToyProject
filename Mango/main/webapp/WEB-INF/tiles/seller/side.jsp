@@ -15,7 +15,7 @@ if (login != null)
 <div class="side_Container">
 	<div class=seller_logo>
 		<a href="/seller/main.do">
-			<img src="<%=login.getLogoImg()%>">
+			<img src="<%=login.getLogoImg()%>" style="width:40px;">
 			<span><%=login.getSellerName() %></span>
 		</a>
 	</div>

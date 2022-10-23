@@ -10,56 +10,19 @@ if (login != null)
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="${path}/css/uploadGoods.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!--editor-->
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
-<style>
-.uploadForm_Container {
-	position: absolute;
-	top: 168px;
-	left: 470px;
-	padding: 20px;
-	width: 843px;
-}
-
-.goods_detail #editor {
-	height: 400px;
-}
-
-.ck-editor__editable {
-	min-height: 300px;
-}
-
-.form_wrapper {
-	margin-bottom: 20px;
-	display: flex;
-}
-
-.form_wrapper>input {
-	width: 300px;
-	height: 30px;
-	position: relative;
-}
-
-.form_wrapper>select {
-	width: 300px;
-	height: 30px;
-}
-
-.div_wrapper {
-	width: 120px;
-}
-</style>
 </head>
 <body>
 	<div class="uploadForm_Container">
 
 		<!-- 상품 등록폼 -->
-		<form action="uploadGoods/insert.do" method="post"
-			id="uploadGoodsForm">
+		<form action="uploadGoods/insert.do" method="post" id="uploadGoodsForm" enctype="multipart/form-data">
 			<!-- 카테고리 -->
 			<div class="goods_category form_wrapper">
 				<div class="div_wrapper">카테고리</div>
@@ -110,13 +73,20 @@ if (login != null)
 					<div class="file-List"></div>
 				</div>
 			</div> -->
+			<div class="goods_img_path">
+				<div class="div_wrapper">상품 이미지</div>
+				<div>
+					<input type="file" name="multiFile" accept=".jpg, .png"multiple style="height: 30px;">
+				</div>
+			</div>
+			
 
 			<!-- 상품상세 -->
 			<div class="goods_detail">
 				<textarea name="goodsDetail" id="editor"></textarea>
 			</div>
-			<input type="hidden" name="sellerName" value="<%if (login != null) {%><%=login.getSellerName()%><%} else {%><%}%>">
-			<input type="hidden" name="id" value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
+				<input type="hidden" name="sellerName" value="<%if (login != null) {%><%=login.getSellerName()%><%} else {%><%}%>">
+				<input type="hidden" name="id" value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
 		</form>
 
 		<div class="btn_section">

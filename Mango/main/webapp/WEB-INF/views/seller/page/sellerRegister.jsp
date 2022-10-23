@@ -19,7 +19,7 @@
 			<div class="image-holder">
 				<img id="poster" src="" alt="">
 			</div>
-			<form action="sellerRegister/insert.do" id="registerForm" method="post">
+			<form action="sellerRegister/insert.do" id="registerForm" method="post" enctype="multipart/form-data">
 				<p class="register-title">
 					<a href="${path }/main.do"><img src="${path }/images/mangoLogo.png"></a> <span>회원가입</span>
 				</p>
@@ -106,7 +106,7 @@
 
 				<!-- 회사로고 등록  -->
 				<div class="form-wrapper">
-					<input class="form-control" type="file" placeholder="로고 등록" id="sellerLogo" name="logoImg" /> <i class="zmdi  zmdi-phone"></i>
+					<input class="form-control" type="file" id="sellerLogo" name="file" /> <i class="zmdi  zmdi-phone"></i>
 				</div>
 
 				<!-- 회원가입시 유효성 검사를 진행한 후 일치하면 submit실행 -->

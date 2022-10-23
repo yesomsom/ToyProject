@@ -9,15 +9,14 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">관리자 <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Modificar</a></li>
-						<li><a href="#">Reportar</a></li>
-						<li><a href="#">Separated link</a></li>
-						<li><a href="#">Informes</a></li>
+						<li><a href="#">회원 관리</a></li>
+						<li><a href="#">사업주 회원 관리</a></li>
+						<li><a href="#">상품 관리</a></li>
+						<li><a href="#">매출 내역 조회</a></li>						
 					</ul>
 				</li>
 				<li><a href="/admin/board/list.do">게시판<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-				<li><a href="#">관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+			<!-- 	<li><a href="#">관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li> -->
 			</ul>
 		</div>
 	</div>

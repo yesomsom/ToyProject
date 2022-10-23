@@ -22,7 +22,7 @@ if (login != null)
       <div class="left_Container">
          <div class="Left_F_Container">
             <div class="title">
-               <img src="<%=login.getLogoImg()%>">
+               <img src="<%=login.getLogoImg()%>" style="width:80px;">
                <%=login.getSellerName()%></div>
             <a href="/page/uploadGoods.do" class="f_Btn">상품 등록</a>
          </div>

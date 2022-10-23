@@ -64,7 +64,7 @@
 	<!-- 관리자 로그인 -->
 		   		<script>
 			      alert("<%=name%>" + "님 환영합니다");
-			      location.href = "/main.do"
+			      location.href = "/admin/main.do"
 			   </script>	
 	<%        	 
          }

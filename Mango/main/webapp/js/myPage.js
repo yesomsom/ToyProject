@@ -7,7 +7,4 @@ $(document).ready(function() {
          });
       }
    })
-   
-   
-   
 });

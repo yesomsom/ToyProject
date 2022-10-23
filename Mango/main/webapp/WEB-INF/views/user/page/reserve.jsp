@@ -40,7 +40,7 @@
          </div>
       </div>
       <div class="theater-part">
-         <div class="reserve-title">극장</div>
+         <div class="reserve-title theater-title">극장</div>
          <div class="theater-container">
             <div class="theater-wrapper">
                <ul class="theater-location-wrapper tabs1">

@@ -38,7 +38,7 @@ if (login != null)
 				</div>
 				<div class="thums_img">
 					<img src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
-						alt=""> <img src="${path}/images/에나벨인형3.JPG"
+						alt=""> <img src="<%= %>"
 						style="width: 50px; height: 50px;" alt=""> <img
 						src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
 						alt=""> <img src="${path}/images/에나벨인형3.JPG"
