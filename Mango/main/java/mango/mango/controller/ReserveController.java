@@ -182,22 +182,46 @@ public class ReserveController {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 
 		rVO.setId(login.getId());
-		List<ReserveVO> reserveList = reserveService.selectMapping(rVO);
-		model.addAttribute("reserveList", reserveList);
+		List<ReserveVO> list = reserveService.selectMapping(rVO);
+		System.out.println("list" + list);
+		if (list != null) {
+			for (ReserveVO listvo : list) {
+				System.out.println(listvo.toString());
+				System.out.println("reserveList" + list);
+				model.addAttribute("reserveList", list);
+			}
+		} else {
+			System.out.println("오류발생");
+		}
 
-		pVO.setId(login.getId());
-		List<PayVO> payList = payService.selectAllPayList(pVO);
-		model.addAttribute("payList", payList);
-
+		
 		oVO.setId(login.getId());
 		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
-		model.addAttribute("ordersList", ordersList);
-		System.out.println("ordersList " + ordersList);
+		
+		if (ordersList != null) {
+			for (OrdersVO oListvo : ordersList) {
+				System.out.println(oListvo.toString());
+				model.addAttribute("ordersList", ordersList);
+				System.out.println("ordersList" + ordersList);
+			}
+		} else {
+			System.out.println("오류발생");
+		}
 
 		
 		aVO.setId(login.getId()); 
 		List<AskVO> askList = askService.selectAllAskList(aVO); 
-		model.addAttribute("askList", askList);
+		
+		if (askList != null) {
+			for (AskVO aListvo : askList) {
+				System.out.println(aListvo.toString());
+				model.addAttribute("askList", askList);
+				System.out.println("askList" + askList);
+			}
+		} else {
+			System.out.println("오류발생");
+		}		
+		
 		 
 
 		return "/user/page/myPage";

@@ -22,10 +22,19 @@ public class GoodsVO {
 	private Date regDate;
 	private String gno;
 	private String id;
-
+	private String realPath;
+	
 	/* 페이징 */
 	private int amount = 8; // 한 페이지 당 보여질 게시물 갯수
 	private int skip; // 스킵 할 게시물 수( (pageNum-1) * amount )
+
+	public String getRealPath() {
+		return realPath;
+	}
+
+	public void setRealPath(String realPath) {
+		this.realPath = realPath;
+	}
 
 	public Date getRegDate() {
 		return regDate;

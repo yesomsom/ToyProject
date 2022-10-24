@@ -120,10 +120,18 @@ public class OrdersController {
       MemberVO login = (MemberVO) session.getAttribute("login");
       model.addAttribute("type", "myOrdersPage");
       if (login != null) {
-         oVO.setId(login.getId());
-         List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
-         model.addAttribute("ordersList", ordersList);
-         System.out.println("ordersList " + ordersList);
+  		oVO.setId(login.getId());
+  		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
+  		
+  		if (ordersList != null) {
+  			for (OrdersVO oListvo : ordersList) {
+  				System.out.println(oListvo.toString());
+  				model.addAttribute("ordersList", ordersList);
+  				System.out.println("ordersList" + ordersList);
+  			}
+  		} else {
+  			System.out.println("오류발생");
+  		}
       } else {
          model.addAttribute("isSuccess", false);
          return "/user/page/process";

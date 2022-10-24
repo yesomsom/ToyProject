@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mango.common.service.Criteria;
 import mango.common.service.PageMakerDTO;
 import mango.common.util.UserURLValue;
+import mango.mango.model.GoodsFileVO;
 import mango.mango.model.GoodsVO;
+import mango.mango.model.OrdersVO;
+import mango.mango.service.GoodsFileService;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
 
@@ -25,6 +28,9 @@ public class GoodsController {
 
 	@Resource(name = "GoodsService")
 	private GoodsService goodsService;
+	
+	@Resource(name = "GoodsFileService")
+	private GoodsFileService goodsFileService;
 
 	@RequestMapping(value = "/goods")
 	public String goods(ModelMap model, Criteria cri, GoodsVO gVO,
@@ -47,14 +53,21 @@ public class GoodsController {
 	}
 
 	@RequestMapping(value = "/goodsDetail")
-	public String goodsDetail(ModelMap model, Criteria cri, GoodsVO gVO, String goodsId) throws Exception {
-		gVO = goodsService.selectGoodsDetailList(goodsId);
+	public String goodsDetail(ModelMap model, Criteria cri, GoodsVO gVO, String goodsId, GoodsFileVO gfVO) throws Exception {
 		
-		model.addAttribute("goods", gVO);
-
-		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
-		
-		model.addAttribute("goodsList", goodsList);
+		  gVO = goodsService.selectGoodsDetailList(goodsId);
+		  
+		  gfVO.setGoodsId(goodsId);
+		  List<GoodsFileVO> goodsFileList = goodsFileService.selectAllGoodsFileList(gfVO);
+		  model.addAttribute("goodsFileList", goodsFileList);
+			
+			  model.addAttribute("goods", gVO);
+			  
+			  List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+			  
+			  model.addAttribute("goodsList", goodsList);
+			 
+		 
 
 		return "/user/page/goodsDetail";
 	}

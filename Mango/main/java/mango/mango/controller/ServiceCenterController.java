@@ -64,7 +64,7 @@ public class ServiceCenterController {
 
 		askService.insertAsk(aVO);
 
-		return "/user/page/serviceCenter";
+		return "redirect:/page/myAskList.do";
 	}
 
 	// 1:1문의사항 조회
