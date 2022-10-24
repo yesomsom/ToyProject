@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- 호스트:                          localhost
+-- 호스트:                          127.0.0.1
 -- 서버 버전:                        10.6.8-MariaDB - mariadb.org binary distribution
 -- 서버 OS:                        Win64
 -- HeidiSQL 버전:                  11.3.0.6295
@@ -33,19 +33,20 @@ CREATE TABLE IF NOT EXISTS `ask` (
   `ask_status` int(20) DEFAULT 0,
   `ask_date` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ask_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.ask:~32 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.ask:~40 rows (대략적) 내보내기
+DELETE FROM `ask`;
 /*!40000 ALTER TABLE `ask` DISABLE KEYS */;
-INSERT IGNORE INTO `ask` (`ask_id`, `id`, `ask_name`, `ask_email`, `ask_phone`, `ask_type`, `ask_typeDetail`, `ask_cat`, `ask_catDetail`, `ask_subject`, `ask_content`, `ask_status`, `ask_date`) VALUES
-	(1, 'hong', '안유진', 'youu@test.com', '01111112222', 0, 0, '영화', NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
-	(2, 'hong', '장원영', 'd@test.com', '01111112222', 0, 0, '영화', NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
-	(3, 'hong', '테스트', 'f@test.com', '01000001111', 0, 0, '영화관', NULL, '해당 영화관 운영 하나요', '영화관 운영 하는건가요??', 0, '2022-10-01 14:42:33'),
-	(4, NULL, '안유진', 'youu@test.com', '01111112222', 0, 0, '영화', NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
-	(5, NULL, '장원영', 'd@test.com', '01111112222', 0, 0, NULL, NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
-	(6, NULL, '테스트', 'f@test.com', '01000001111', 0, 0, NULL, NULL, '해당 영화관 운영 하나요', '영화관 운영 하는건가요??', 0, '2022-10-01 14:42:33'),
-	(7, NULL, '안유진', 'youu@test.com', '01111112222', 0, 0, NULL, NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
-	(8, NULL, '장원영', 'd@test.com', '01111112222', 0, 0, NULL, NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
+INSERT INTO `ask` (`ask_id`, `id`, `ask_name`, `ask_email`, `ask_phone`, `ask_type`, `ask_typeDetail`, `ask_cat`, `ask_catDetail`, `ask_subject`, `ask_content`, `ask_status`, `ask_date`) VALUES
+	(1, 'hong1', '안유진', 'youu@test.com', '01111112222', 0, 0, '영화', NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
+	(2, 'hong1', '장원영', 'd@test.com', '01111112222', 0, 0, '영화', NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
+	(3, 'hong1', '테스트', 'f@test.com', '01000001111', 0, 0, '영화관', NULL, '해당 영화관 운영 하나요', '영화관 운영 하는건가요??', 0, '2022-10-01 14:42:33'),
+	(4, 'hong1', '안유진', 'youu@test.com', '01111112222', 0, 0, '영화', NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
+	(5, 'hong1', '장원영', 'd@test.com', '01111112222', 0, 0, NULL, NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
+	(6, 'hong1', '테스트', 'f@test.com', '01000001111', 0, 0, NULL, NULL, '해당 영화관 운영 하나요', '영화관 운영 하는건가요??', 0, '2022-10-01 14:42:33'),
+	(7, 'hong1', '안유진', 'youu@test.com', '01111112222', 0, 0, NULL, NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
+	(8, 'hong1', '장원영', 'd@test.com', '01111112222', 0, 0, NULL, NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
 	(9, NULL, '테스트', 'f@test.com', '01000001111', 0, 0, NULL, NULL, '해당 영화관 운영 하나요', '영화관 운영 하는건가요??', 0, '2022-10-01 14:42:33'),
 	(10, NULL, '안유진', 'youu@test.com', '01111112222', 0, 0, NULL, NULL, '이번에 영화 나오나요', '이번에 무슨 영화 나오냐오', 0, '2022-10-01 14:36:36'),
 	(11, NULL, '장원영', 'd@test.com', '01111112222', 0, 0, NULL, NULL, '공포영화 리스트', '알려주세요', 0, '2022-10-01 14:37:26'),
@@ -68,8 +69,16 @@ INSERT IGNORE INTO `ask` (`ask_id`, `id`, `ask_name`, `ask_email`, `ask_phone`, 
 	(42, NULL, '444', '34534534@431', '44', 0, 42, '100', '2', '213', '213', 0, '2022-10-19 11:59:56'),
 	(43, 'son1', '111', 'asd@314', '1111111', 0, 22, '100', '2', '123', '123', 0, '2022-10-19 12:04:45'),
 	(44, 'son1', '111', 'asd@314', '1111111', 0, 22, '100', '2', '123', '123', 0, '2022-10-19 12:05:14'),
-	(45, 'son1', '111', '34534534@431', '1111111', 0, 22, '300', '1', '문의드립니다', '문의요', 0, '2022-10-19 12:05:34'),
-	(46, 'hong', '홍길동', 'd@naaa.com', '0101112222', 0, 20, '예매/결제', '문의', '영화 예매 관련 문의합니다.', '영화 예매하려고 하는데, 결제가 계속 오류나요.', 0, '2022-10-20 13:00:27');
+	(45, 'hong', '111', '34534534@431', '1111111', 0, 22, '300', '1', '문의드립니다', '문의요', 0, '2022-10-19 12:05:34'),
+	(46, 'hong', '홍길동', 'd@naaa.com', '0101112222', 0, 20, '예매/결제', '문의', '영화 예매 관련 문의합니다.', '영화 예매하려고 하는데, 결제가 계속 오류나요.', 0, '2022-10-20 13:00:27'),
+	(47, '123asdf', '손규동', 'son@naver.com', '01023143970', 0, 20, '영화관', '문의', '영화관 문의', '문의합니다.', 0, '2022-10-24 14:36:44'),
+	(48, 'hong1', '홍길동', 'son@naver.com', '01038285683', 0, 0, '영화관', '문의', '문의합니다.', '문의내용', 0, '2022-10-24 15:27:06'),
+	(49, 'hong1', '홍길동', 'son@naver.com', '01038285683', 0, 0, '영화관', '문의', '문의합니다.', '문의내용', 0, '2022-10-24 15:28:51'),
+	(50, 'hong1', '홍길동', 'hong@naver.com', '01038285683', 0, 21, '영화', '건의', '문의', '영화문의합니다.', 0, '2022-10-24 15:29:21'),
+	(51, 'hong1', '홍길동', 'hong@naver.com', '01038285683', 0, 21, '영화', '건의', '문의', '영화문의합니다.', 0, '2022-10-24 15:29:25'),
+	(52, 'hong1', '홍길동', 'hong@naver.com', '01038285683', 0, 21, '영화', '건의', '문의', '영화문의합니다.', 0, '2022-10-24 15:30:11'),
+	(53, 'hong1', '홍길동', 'hong@naver.com', '01038285683', 0, 20, '예매/결제', '문의', '예매문의', '예매가 안돼요.', 0, '2022-10-24 15:30:39'),
+	(54, '123asdf2', '손규동', 'qwe@wdeq.efr', '01023143970', 0, 20, '영화관', '문의', 'weqwe', 'qweqe', 0, '2022-10-24 17:58:29');
 /*!40000 ALTER TABLE `ask` ENABLE KEYS */;
 
 -- 테이블 mangodb.board 구조 내보내기
@@ -88,8 +97,9 @@ CREATE TABLE IF NOT EXISTS `board` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.board:~2 rows (대략적) 내보내기
+DELETE FROM `board`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT IGNORE INTO `board` (`board_id`, `board_type`, `title`, `contents`, `writer`, `writer_id`, `num`, `notice`, `secret`, `reg_date`) VALUES
+INSERT INTO `board` (`board_id`, `board_type`, `title`, `contents`, `writer`, `writer_id`, `num`, `notice`, `secret`, `reg_date`) VALUES
 	('b2b4526ccc784f03a3fde81291cf7dd4', NULL, '123', '123', '123', NULL, NULL, NULL, NULL, '2022-10-21 12:49:59'),
 	('e4e7501ea4c34596b560e11726a94c60', NULL, '123', '123', '123', NULL, NULL, NULL, NULL, '2022-10-21 12:50:20');
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
@@ -97,7 +107,7 @@ INSERT IGNORE INTO `board` (`board_id`, `board_type`, `title`, `contents`, `writ
 -- 테이블 mangodb.cart 구조 내보내기
 CREATE TABLE IF NOT EXISTS `cart` (
   `cart_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '장바구니 번호',
-  `goods_id` int(11) NOT NULL DEFAULT 0 COMMENT '상품 번호',
+  `goods_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '상품 번호',
   `goods_price` int(11) NOT NULL COMMENT '상품 가격',
   `id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '고객 아이디',
   `goods_qty` int(11) NOT NULL COMMENT '상품 수량',
@@ -110,17 +120,20 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`cart_id`),
   KEY `id` (`id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=291 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=294 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.cart:~6 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.cart:~8 rows (대략적) 내보내기
+DELETE FROM `cart`;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT IGNORE INTO `cart` (`cart_id`, `goods_id`, `goods_price`, `id`, `goods_qty`, `delivery_price`, `seller_name`, `goods_img`, `goods_name`, `cart_date`, `orderYN`) VALUES
-	(284, 233, 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-13', '\'N\''),
-	(285, 233, 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-14', '\'N\''),
-	(286, 231, 10000, 'son1', 1, 0, '굿즈샵', 'http://openimage.interpark.com/goods_image_big/6/7/8/7/9099316787_l.jpg', '해리포터', '2022-10-18', 'N'),
-	(287, 233, 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-18', 'N'),
-	(288, 6, 73000, 'hong', 1, 3000, '마블샵', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FYy_nFskWiVlznUADNi2jdntO61LjXfxug&amp;usqp=CAU', '아이언맨 가면', '2022-10-20', 'N'),
-	(289, 7, 73000, 'hong', 1, 3000, '굿즈샵', 'http://www.greenpostkorea.co.kr/news/photo/201911/110954_109646_238.jpg', '겨울왕국', '2022-10-20', 'N');
+INSERT INTO `cart` (`cart_id`, `goods_id`, `goods_price`, `id`, `goods_qty`, `delivery_price`, `seller_name`, `goods_img`, `goods_name`, `cart_date`, `orderYN`) VALUES
+	(284, '233', 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-13', '\'N\''),
+	(285, '233', 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-14', '\'N\''),
+	(286, '231', 10000, 'son1', 1, 0, '굿즈샵', 'http://openimage.interpark.com/goods_image_big/6/7/8/7/9099316787_l.jpg', '해리포터', '2022-10-18', 'N'),
+	(287, '233', 4000, 'son1', 1, 2500, '굿즈샵', 'https://m.upinews.kr/data/upi/image/20190502/p1065586937092904_555_thum.jpg', '애나벨', '2022-10-18', 'N'),
+	(288, '6', 73000, 'hong', 1, 3000, '마블샵', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FYy_nFskWiVlznUADNi2jdntO61LjXfxug&amp;usqp=CAU', '아이언맨 가면', '2022-10-20', 'N'),
+	(289, '7', 73000, 'hong', 1, 3000, '굿즈샵', 'http://www.greenpostkorea.co.kr/news/photo/201911/110954_109646_238.jpg', '겨울왕국', '2022-10-20', 'N'),
+	(292, '902b9c0ab6fa44719b21df5dcbcf825d', 5000, 'hong1', 1, 0, '홍샵', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-40-08-591_디즈니공주인형1.JPG', '디즈니인형', '2022-10-24', 'N'),
+	(293, '902b9c0ab6fa44719b21df5dcbcf825d', 5000, 'hong1', 1, 0, '홍샵', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-40-08-591_디즈니공주인형1.JPG', '디즈니인형', '2022-10-24', 'N');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 
 -- 테이블 mangodb.crawling 구조 내보내기
@@ -132,30 +145,31 @@ CREATE TABLE IF NOT EXISTS `crawling` (
   `movie_rate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_openDate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=33726 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36462 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.crawling:~19 rows (대략적) 내보내기
+DELETE FROM `crawling`;
 /*!40000 ALTER TABLE `crawling` DISABLE KEYS */;
-INSERT IGNORE INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
-	(33707, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '25.8%', '2022.10.19 개봉'),
-	(33708, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '6.8%', '2022.10.12 개봉'),
-	(33709, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '5.8%', '2022.09.07 개봉'),
-	(33710, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '4.7%', '2022.10.19 개봉'),
-	(33711, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '4.2%', '2022.09.28 개봉'),
-	(33712, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '2.7%', '2022.09.28 개봉'),
-	(33713, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86276/86276_320.jpg', '오펀-천사의 탄생', '2.1%', '2022.10.12 개봉'),
-	(33714, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '1.1%', '2022.10.22 재개봉'),
-	(33715, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86191/86191_320.jpg', '정직한 후보2', '1.0%', '2022.09.28 개봉'),
-	(33716, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86268/86268_320.jpg', '낮과 달', '0.9%', '2022.10.20 개봉'),
-	(33717, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.7%', '2022.10.19 개봉'),
-	(33718, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.7%', '2022.10.22 재개봉'),
-	(33719, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.7%', '2022.10.22 재개봉'),
-	(33720, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86371/86371_320.jpg', '그 남자, 좋은 간호사', '0.6%', '2022.10.19 개봉'),
-	(33721, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86275/86275_320.jpg', '대무가', '0.6%', '2022.10.12 개봉'),
-	(33722, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86282/86282_320.jpg', '티켓 투 파라다이스', '0.5%', '2022.10.12 개봉'),
-	(33723, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77356/77356_320.jpg', '어벤져스: 에이지 오브 울트론', '0.5%', '2022.10.22 재개봉'),
-	(33724, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.4%', '2022.10.13 개봉'),
-	(33725, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86201/86201_320.jpg', '극장판 5등분의 신부', '0.4%', '2022.09.22 개봉');
+INSERT INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
+	(36443, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '11.3%', '2022.10.19 개봉'),
+	(36444, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '7.9%', '2022.10.19 개봉'),
+	(36445, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '6.6%', '2022.10.12 개봉'),
+	(36446, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '4.4%', '2022.09.07 개봉'),
+	(36447, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '2.2%', '2022.09.28 개봉'),
+	(36448, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '1.2%', '2022.09.28 개봉'),
+	(36449, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '1.1%', '2022.10.22 재개봉'),
+	(36450, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86276/86276_320.jpg', '오펀-천사의 탄생', '1.0%', '2022.10.12 개봉'),
+	(36451, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.8%', '2022.10.22 재개봉'),
+	(36452, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86268/86268_320.jpg', '낮과 달', '0.8%', '2022.10.20 개봉'),
+	(36453, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.7%', '2022.10.19 개봉'),
+	(36454, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.7%', '2022.10.22 재개봉'),
+	(36455, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86371/86371_320.jpg', '그 남자, 좋은 간호사', '0.5%', '2022.10.19 개봉'),
+	(36456, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86275/86275_320.jpg', '대무가', '0.5%', '2022.10.12 개봉'),
+	(36457, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77356/77356_320.jpg', '어벤져스: 에이지 오브 울트론', '0.5%', '2022.10.22 재개봉'),
+	(36458, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.4%', '2022.10.13 개봉'),
+	(36459, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86201/86201_320.jpg', '극장판 5등분의 신부', '0.4%', '2022.09.22 개봉'),
+	(36460, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86191/86191_320.jpg', '정직한 후보2', '0.3%', '2022.09.28 개봉'),
+	(36461, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86333/86333_320.jpg', '에반게리온 신극장판-Q', '0.3%', '2022.10.14 개봉');
 /*!40000 ALTER TABLE `crawling` ENABLE KEYS */;
 
 -- 테이블 mangodb.goods 구조 내보내기
@@ -176,10 +190,13 @@ CREATE TABLE IF NOT EXISTS `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goods:~1 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goods:~3 rows (대략적) 내보내기
+DELETE FROM `goods`;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
-INSERT IGNORE INTO `goods` (`goods_id`, `id`, `goods_category`, `goods_name`, `seller_name`, `goods_state`, `goods_detail`, `goods_price`, `goods_stock`, `delivery_price`, `goods_discount`, `gno`, `regdate`) VALUES
-	('b1550f05d84a45ab86d10ca146981513', '123asdf2', '피규어', '2312', '망고', '승인대기', '<p>123</p>', 31, 2312, 23123, 31, NULL, '2022-10-23 02:35:55.710186');
+INSERT INTO `goods` (`goods_id`, `id`, `goods_category`, `goods_name`, `seller_name`, `goods_state`, `goods_detail`, `goods_price`, `goods_stock`, `delivery_price`, `goods_discount`, `gno`, `regdate`) VALUES
+	('070bab14febe4088a4ee66897d8b1842', 'hong1', '인형', '닥터스트레인지 인형', '홍샵', '승인대기', '<p>닥터스트레인지 인형입니다.</p>', 10000, 11, 0, 20, NULL, '2022-10-24 15:48:12.198003'),
+	('0a576b0e7181476b882a96a591dd7bef', 'hong1', '키링', '마블손키링', '홍샵', '승인대기', '&lt;p&gt;마블 손 키링입니다.&lt;/p&gt;', 5000, 69, 2500, 10, NULL, '2022-10-24 17:42:23.681088'),
+	('902b9c0ab6fa44719b21df5dcbcf825d', 'hong1', '인형', '디즈니인형', '홍샵', '승인대기', '<p>디즈니인형입니다.</p>', 5000, 34, 0, 10, NULL, '2022-10-24 15:40:08.601632');
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 
 -- 테이블 mangodb.goodsfile 구조 내보내기
@@ -193,11 +210,28 @@ CREATE TABLE IF NOT EXISTS `goodsfile` (
   `filesize` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goodsfile:~2 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goodsfile:~18 rows (대략적) 내보내기
+DELETE FROM `goodsfile`;
 /*!40000 ALTER TABLE `goodsfile` DISABLE KEYS */;
-INSERT IGNORE INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `realpath`, `regdate`, `filesize`) VALUES
+INSERT INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `realpath`, `regdate`, `filesize`) VALUES
 	('123asdf2', 'b1550f05d84a45ab86d10ca146981513', 'mangoLogo.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-02-35-55-692_mangoLogo.png', '2022-10-23 02:35:55.701498', 3421),
-	('123asdf2', 'b1550f05d84a45ab86d10ca146981513', 'minus_icon1.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-02-35-55-692_minus_icon1.png', '2022-10-23 02:35:55.703816', 22593);
+	('123asdf2', 'b1550f05d84a45ab86d10ca146981513', 'minus_icon1.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-02-35-55-692_minus_icon1.png', '2022-10-23 02:35:55.703816', 22593),
+	('123asdf', '2328cbaae05f4f178d7c91414f45b713', '삼겹살.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/ggg/22-10-10-58-15-69_삼겹살.jpg', '2022-10-24 10:58:15.158487', 45173),
+	('123asdf', '2328cbaae05f4f178d7c91414f45b713', '와플.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/ggg/22-10-10-58-15-69_와플.jpg', '2022-10-24 10:58:15.163261', 108413),
+	('123asdf', '2328cbaae05f4f178d7c91414f45b713', '쭈구미 볶음밥.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/ggg/22-10-10-58-15-69_쭈구미 볶음밥.jpg', '2022-10-24 10:58:15.164872', 138832),
+	('hong', '67b6fcb68433401fb35aafd814fa0ed6', '스티치1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg//22-10-15-18-50-773_스티치1.JPG', '2022-10-24 15:18:50.777191', 57781),
+	('hong', '67b6fcb68433401fb35aafd814fa0ed6', '스티치2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg//22-10-15-18-50-773_스티치2.JPG', '2022-10-24 15:18:50.778736', 48960),
+	('hong', '67b6fcb68433401fb35aafd814fa0ed6', '스티치3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg//22-10-15-18-50-773_스티치3.JPG', '2022-10-24 15:18:50.780289', 44355),
+	('hong', 'bfc7cdff074d44ffb29be9cef2d12f14', '마블손키링7.JPG', '.JPG', 'http://localhost:8080/img/goodsImg//22-10-15-20-03-922_마블손키링7.JPG', '2022-10-24 15:20:03.923321', 29858),
+	('hong', 'bfc7cdff074d44ffb29be9cef2d12f14', '마블손키링8.JPG', '.JPG', 'http://localhost:8080/img/goodsImg//22-10-15-20-03-922_마블손키링8.JPG', '2022-10-24 15:20:03.924661', 29956),
+	('hong1', '902b9c0ab6fa44719b21df5dcbcf825d', '디즈니공주인형1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-40-08-591_디즈니공주인형1.JPG', '2022-10-24 15:40:08.595607', 54493),
+	('hong1', '902b9c0ab6fa44719b21df5dcbcf825d', '디즈니공주인형2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-40-08-591_디즈니공주인형2.JPG', '2022-10-24 15:40:08.597239', 35974),
+	('hong1', '902b9c0ab6fa44719b21df5dcbcf825d', '디즈니공주인형3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-40-08-591_디즈니공주인형3.JPG', '2022-10-24 15:40:08.598822', 57771),
+	('hong1', '070bab14febe4088a4ee66897d8b1842', '닥터스트레인지인형1.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/홍샵/22-10-15-48-12-195_닥터스트레인지인형1.jpg', '2022-10-24 15:48:12.196040', 36682),
+	('hong1', '0a576b0e7181476b882a96a591dd7bef', '마블손키링1.png', '.png', 'http://localhost:8080/img/goodsImg/홍샵/22-10-17-42-23-671_마블손키링1.png', '2022-10-24 17:42:23.674896', 197120),
+	('hong1', '0a576b0e7181476b882a96a591dd7bef', '마블손키링2.png', '.png', 'http://localhost:8080/img/goodsImg/홍샵/22-10-17-42-23-671_마블손키링2.png', '2022-10-24 17:42:23.676832', 198703),
+	('hong1', '0a576b0e7181476b882a96a591dd7bef', '마블손키링3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/홍샵/22-10-17-42-23-671_마블손키링3.JPG', '2022-10-24 17:42:23.678174', 49135),
+	('hong1', '85f0417eb92d4764a67d60255cef61f7', '마블카넘버키홀더4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/홍샵/22-10-17-43-27-617_마블카넘버키홀더4.JPG', '2022-10-24 17:43:27.618556', 31546);
 /*!40000 ALTER TABLE `goodsfile` ENABLE KEYS */;
 
 -- 테이블 mangodb.member 구조 내보내기
@@ -219,12 +253,15 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.member:~3 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.member:~5 rows (대략적) 내보내기
+DELETE FROM `member`;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT IGNORE INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `address`, `zipno`, `registerdate`, `unregisterdate`, `ownername`, `businessnumber`, `sellername`, `logoimg`) VALUES
-	('123asdf', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 23(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', 'ggg', 'c:\\upload\\logoImg\\ggg\\22-10-02-30-09-22_fullHeart.png'),
+INSERT INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `address`, `zipno`, `registerdate`, `unregisterdate`, `ownername`, `businessnumber`, `sellername`, `logoimg`) VALUES
+	('123asdf', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대구광역시 동구 동부로21길 37, 22(신천동, 반호프빌라)', 41228, '2022-10-23', NULL, '손망고', '1325132', 'ggg', 'c:\\upload\\logoImg\\ggg\\22-10-02-30-09-22_fullHeart.png'),
 	('123asdf2', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', '망고', 'http://localhost:8080/img/logoImg/망고/22-10-02-32-58-642_fullHeart.png'),
-	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL);
+	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
+	('hong', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '홍길동', '0102223333', 'hong3@naver.com', 3, '대전광역시 갈마동 1234', 1111, '2022-10-24', NULL, '', NULL, NULL, NULL),
+	('hong1', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '홍홍', '01038285683', 'hong@naver.com', 2, '대전광역시 서구 갈마역로25번길 17-15, 12(갈마동)', 35231, '2022-10-24', NULL, '홍길동', '111111111', '홍샵', 'http://localhost:8080/img/logoImg/홍샵/22-10-14-53-54-995_fullHeart.png');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 
 -- 테이블 mangodb.notice 구조 내보내기
@@ -240,8 +277,9 @@ CREATE TABLE IF NOT EXISTS `notice` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.notice:~24 rows (대략적) 내보내기
+DELETE FROM `notice`;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT IGNORE INTO `notice` (`noti_id`, `noti_num`, `id`, `noti_subject`, `noti_content`, `noti_fileName`, `noti_date`) VALUES
+INSERT INTO `notice` (`noti_id`, `noti_num`, `id`, `noti_subject`, `noti_content`, `noti_fileName`, `noti_date`) VALUES
 	(1, 1, '관리자', '영화관람권 가격 변경 안내', '테스트 공지입니다1', NULL, '2022-10-05 00:00:00'),
 	(2, 2, '관리자', '2D 일반 관람권 활용 스페셜관 이용 안내', '테스트 공지입니다2', NULL, '2022-10-05 00:00:00'),
 	(3, 3, '관리자', '	V3 백신 엔진 악성코드 오진 안내', '테스트 공지입니다3', NULL, '2022-10-05 00:00:00'),
@@ -282,18 +320,18 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `total_price` int(11) NOT NULL DEFAULT 0,
   `creDate` date NOT NULL DEFAULT sysdate(6) COMMENT '주문 일자',
   PRIMARY KEY (`orders_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.orders:~7 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.orders:~6 rows (대략적) 내보내기
+DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT IGNORE INTO `orders` (`orders_id`, `id`, `name`, `goods_all_name`, `receiver_name`, `receiver_phone`, `receiver_zipno`, `receiver_address`, `payment`, `total_price`, `creDate`) VALUES
-	(35, 'son1', '홍길동', '마블', '홍길동', '0102223333', 6711, '서울특별시 서초구 반포대로 3, 11(서초동)', '카카오페이', 28000, '2022-10-19'),
-	(36, 'hong', '홍길동', '마블', '홍길동', '0102223333', 6719, '서울특별시 서초구 반포대로 4, 111(서초동)', '카카오페이', 28000, '2022-10-19'),
-	(37, 'hong', '홍길동', '겨울왕국', '홍길동', '0102223333', 0, 'null', '카카오페이', 76000, '2022-10-19'),
-	(38, 'hong', '홍길동', '겨울왕국,마블', '홍길동', '0102223333', 0, 'null', '카카오페이', 104000, '2022-10-19'),
-	(39, 'hong', '홍길동', '겨울왕국,마블', '홍길동', '0102223333', 1234, '대전광역시 서구 갈마동 1234', '카카오페이', 104000, '2022-10-19'),
-	(40, 'hong', '홍길동', '해리포터', '김길동', '0101112222', 6649, '서울특별시 서초구 반포대로 88, 11(서초동)', '카카오페이', 10000, '2022-10-20'),
-	(41, 'hong', '홍길동', '겨울왕국,아이언맨 가면', '홍길동', '0101112222', 35273, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', '카카오페이', 152000, '2022-10-20');
+INSERT INTO `orders` (`orders_id`, `id`, `name`, `goods_all_name`, `receiver_name`, `receiver_phone`, `receiver_zipno`, `receiver_address`, `payment`, `total_price`, `creDate`) VALUES
+	(42, 'hong1', '홍홍', '닥터스트레인지 인형', '홍홍', '01038285683', 35231, '대전광역시 서구 갈마역로25번길 17-15, 11(갈마동)', '카카오페이', 10000, '2022-10-24'),
+	(43, 'hong1', '홍홍', '닥터스트레인지 인형', '홍홍', '01038285683', 6711, '서울특별시 서초구 반포대로 3, 11(서초동)', '카카오페이', 10000, '2022-10-24'),
+	(44, 'hong1', '홍홍', '디즈니인형,디즈니인형', '홍홍', '01038285683', 35231, '대전광역시 서구 갈마역로25번길 17-15, 12(갈마동)', '카카오페이', 10000, '2022-10-24'),
+	(45, 'hong1', '홍홍', '닥터스트레인지 인형', '홍홍', '01038285683', 35231, '대전광역시 서구 갈마역로25번길 17-15, 12(갈마동)', '카카오페이', 10000, '2022-10-24'),
+	(46, 'hong', '홍길동', '닥터스트레인지 인형', '홍홍', '0102223333', 6711, '서울특별시 서초구 반포대로 3, 11(서초동)', '카카오페이', 10000, '2022-10-24'),
+	(47, '123asdf2', '손규동', '닥터스트레인지 인형', '손규동', '01023143970', 35273, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', '카카오페이', 10000, '2022-10-24');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 mangodb.orderspay 구조 내보내기
@@ -305,14 +343,14 @@ CREATE TABLE IF NOT EXISTS `orderspay` (
   PRIMARY KEY (`orders_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.orderspay:~5 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.orderspay:~4 rows (대략적) 내보내기
+DELETE FROM `orderspay`;
 /*!40000 ALTER TABLE `orderspay` DISABLE KEYS */;
-INSERT IGNORE INTO `orderspay` (`id`, `orders_id`, `orders_pay_date`, `orders_pay_money`) VALUES
-	('son1', 32, '2022-10-18 18:53:16.759773', '6500'),
-	('son1', 33, '2022-10-18 18:54:12.743793', '6500'),
-	('son1', 34, '2022-10-18 18:54:46.679795', '6500'),
-	('hong', 40, '2022-10-20 09:33:34.645090', '10000'),
-	('hong', 41, '2022-10-20 09:35:06.016412', '152000');
+INSERT INTO `orderspay` (`id`, `orders_id`, `orders_pay_date`, `orders_pay_money`) VALUES
+	('hong1', 43, '2022-10-24 17:17:45.058496', '10000'),
+	('hong1', 44, '2022-10-24 17:27:32.348958', '10000'),
+	('hong1', 45, '2022-10-24 17:28:06.760094', '10000'),
+	('hong', 46, '2022-10-24 17:45:40.084292', '10000');
 /*!40000 ALTER TABLE `orderspay` ENABLE KEYS */;
 
 -- 테이블 mangodb.pay 구조 내보내기
@@ -326,11 +364,12 @@ CREATE TABLE IF NOT EXISTS `pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.pay:~3 rows (대략적) 내보내기
+DELETE FROM `pay`;
 /*!40000 ALTER TABLE `pay` DISABLE KEYS */;
-INSERT IGNORE INTO `pay` (`id`, `reserve_seq`, `pay_date`, `pay_money`) VALUES
-	('hong', 1, '2022-10-20', '11000'),
-	('hong', 2, '2022-10-20', '11000'),
-	('hong', 3, '2022-10-20', '20000');
+INSERT INTO `pay` (`id`, `reserve_seq`, `pay_date`, `pay_money`) VALUES
+	('hong', 4, '2022-10-24', '11000'),
+	('hong', 5, '2022-10-24', '8000'),
+	('hong1', 6, '2022-10-24', '11000');
 /*!40000 ALTER TABLE `pay` ENABLE KEYS */;
 
 -- 테이블 mangodb.qa 구조 내보내기
@@ -346,8 +385,9 @@ CREATE TABLE IF NOT EXISTS `qa` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.qa:~20 rows (대략적) 내보내기
+DELETE FROM `qa`;
 /*!40000 ALTER TABLE `qa` DISABLE KEYS */;
-INSERT IGNORE INTO `qa` (`qa_id`, `qa_num`, `qa_cat`, `qa_subject`, `qa_content`, `qa_fileName`, `qa_date`) VALUES
+INSERT INTO `qa` (`qa_id`, `qa_num`, `qa_cat`, `qa_subject`, `qa_content`, `qa_fileName`, `qa_date`) VALUES
 	(1, 1, '예매', '영화티켓 예매 및 취소는 어떻게 하나요?', '테스트1', NULL, '2022-10-06 10:31:22'),
 	(2, 2, '할인', '2D 일반 관람권 활용 스페셜관 이용 안내', '테스트1', NULL, '2022-10-06 10:29:45'),
 	(3, 3, '스토어', '비회원도 스토어 이용이 가능한가요?', '테스트1', NULL, '2022-10-06 10:30:31'),
@@ -387,11 +427,12 @@ CREATE TABLE IF NOT EXISTS `reserve` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.reserve:~3 rows (대략적) 내보내기
+DELETE FROM `reserve`;
 /*!40000 ALTER TABLE `reserve` DISABLE KEYS */;
-INSERT IGNORE INTO `reserve` (`id`, `reserve_seq`, `title`, `running_time`, `movie_name`, `movie_date`, `reserve_date`, `ticket_number`, `selected_seat`, `selected_theater`) VALUES
-	('hong', 1, '블랙 아담', '12:20', '블랙 아담', '2022.10.20(목)', '2022-10-20', 1, 'A1', 'CGV 강남점 4관\r\n							6층'),
-	('hong', 2, '에브리씽 에브리웨어 올 앳 원스', '18:20', '에브리씽 에브리웨어 올 앳 원스', '2022.10.24(월)', '2022-10-20', 1, 'A1', '메가박스 검단점 4관\r\n							6층'),
-	('hong', 3, '블랙 아담', '12:20', '블랙 아담', '2022.10.21(금)', '2022-10-20', 1, 'A2', '롯데시네마 광주첨단점 4관\r\n							6층');
+INSERT INTO `reserve` (`id`, `reserve_seq`, `title`, `running_time`, `movie_name`, `movie_date`, `reserve_date`, `ticket_number`, `selected_seat`, `selected_theater`) VALUES
+	('hong', 4, '캡틴 아메리카: 윈터 솔져', '18:20', '캡틴 아메리카: 윈터 솔져', '2022.10.26(수)', '2022-10-24', 1, 'A1', '메가박스 강남점 4관\r\n							6층'),
+	('hong', 5, '귀못', '18:20', '귀못', '2022.10.27(목)', '2022-10-24', 1, 'A2', '메가박스 검단점 4관\r\n							6층'),
+	('hong1', 6, '블랙 아담', '12:20', '블랙 아담', '2022.10.26(수)', '2022-10-24', 1, 'A2', '메가박스 강남점 4관\r\n							6층');
 /*!40000 ALTER TABLE `reserve` ENABLE KEYS */;
 
 -- 테이블 mangodb.reserve_seq 구조 내보내기
@@ -407,9 +448,10 @@ CREATE TABLE IF NOT EXISTS `reserve_seq` (
 ) ENGINE=InnoDB SEQUENCE=1;
 
 -- 테이블 데이터 mangodb.reserve_seq:~1 rows (대략적) 내보내기
+DELETE FROM `reserve_seq`;
 /*!40000 ALTER TABLE `reserve_seq` DISABLE KEYS */;
-INSERT IGNORE INTO `reserve_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-	(1, 1, 99999999, 1, 1, 1000, 0, 0);
+INSERT INTO `reserve_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
+	(1001, 1, 99999999, 1, 1, 1000, 0, 0);
 /*!40000 ALTER TABLE `reserve_seq` ENABLE KEYS */;
 
 -- 테이블 mangodb.theater 구조 내보내기
@@ -428,8 +470,9 @@ CREATE TABLE IF NOT EXISTS `theater` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.theater:~334 rows (대략적) 내보내기
+DELETE FROM `theater`;
 /*!40000 ALTER TABLE `theater` DISABLE KEYS */;
-INSERT IGNORE INTO `theater` (`id`, `poi_nm`, `branch_nm`, `mcate_cd`, `sido_nm`, `sgg_nm`, `bemd_nm`, `beonji`, `x`, `y`) VALUES
+INSERT INTO `theater` (`id`, `poi_nm`, `branch_nm`, `mcate_cd`, `sido_nm`, `sgg_nm`, `bemd_nm`, `beonji`, `x`, `y`) VALUES
 	('KCDMTPO21N000000001', '메가박스', '대전점', '3', '대전광역시', '서구', '탄방동', '746', '127.3879894', '36.34759506'),
 	('KCDMTPO21N000000002', 'CGV', '광주첨단점', '1', '광주광역시', '광산구', '쌍암동', '694-35', '126.8507207', '35.21637788'),
 	('KCDMTPO21N000000003', '롯데시네마', '서귀포점', '2', '제주특별자치도', '서귀포시', '법환동', '914', '126.508319', '33.24588502'),
