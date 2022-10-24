@@ -70,22 +70,22 @@ body {
 /*나의 예매 목록 box*/
 .reserveList_wrap {
   width: 980px;
-  height: 300px;
+  height: 290px;
   border: 5px solid  #fce8ac;
   border-radius: 15px;
   margin-bottom: 30px;
   padding: 20px;
-  display: flex;
-}
-
-.reserveList_wrap div {
-  flex: 1;
+  display:inline-block;
+  overflow: hidden;
 }
 
 .reserveList_card {
    border: 1px solid #ccc;
-   margin: 10px 20px;
+   margin: 10px 20px 25px 20px;
    border-radius: 10px;
+   width: 268px;
+   height: 218.5px;
+   float: left;
 }
 
 .reserveId_title {
@@ -139,21 +139,22 @@ body {
 /*나의 구매 목록 box*/
 .ordersList_wrap {
   width: 980px;
+  height: 290px;
   border: 5px solid  #fce8ac;
   border-radius: 15px;
   margin-bottom: 30px;
   padding: 20px;
-  display: flex;
-}
-
-.ordersList_wrap div {
-  flex: 1;
+  display:inline-block;
+  overflow: hidden;
 }
 
 .ordersList_card {
    border: 1px solid #ccc;
-   margin: 10px 20px;
+   margin: 10px 20px 25px 20px;
    border-radius: 10px;
+   width: 268px;
+   height: 218.5px;
+   float: left;
 }
 
 .ordersId_title {
