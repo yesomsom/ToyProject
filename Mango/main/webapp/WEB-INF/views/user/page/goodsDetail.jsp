@@ -33,18 +33,12 @@ if (login != null)
 			<div class="Goods_introL">
 				<!--상품이미지-->
 				<div class="goods_img">
-					<img src="${path}/images/에나벨인형3.JPG"
-						style="width: 350px; height: 350px;" alt="">
+					<img src="${goodsFileList[0].realPath}" style="width: 350px; height: 350px;"/>
 				</div>
 				<div class="thums_img">
-					<img src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
-						alt=""> <img src="<%= %>"
-						style="width: 50px; height: 50px;" alt=""> <img
-						src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
-						alt=""> <img src="${path}/images/에나벨인형3.JPG"
-						style="width: 50px; height: 50px;" alt=""> <img
-						src="${path}/images/에나벨인형3.JPG" style="width: 50px; height: 50px;"
-						alt="">
+					<c:forEach var="thumb" items="${goodsFileList}">
+						<img src="${thumb.realPath}" style="width: 50px; height: 50px;"/>
+					</c:forEach>
 				</div>
 
 			</div>
@@ -130,7 +124,7 @@ if (login != null)
 			name="deliveryPrice" value="${goods.deliveryPrice}"> <input
 			class="seller_submit" type="hidden" name="sellerName"
 			value="${goods.sellerName}"> <input class="goods_img_submit"
-			type="hidden" name="goodsImg" value="${path}/images/에나벨인형3.JPG">
+			type="hidden" name="goodsImg" value="${goodsFileList[0].realPath}">
 		<input class="goods_name_submit" type="hidden" name="goodsName"
 			value="${goods.goodsName}">
 	</form>

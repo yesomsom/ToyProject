@@ -31,7 +31,7 @@
 					<ul class="Goods_list">
 						<c:forEach var="goods" items="${goodsList}">
 							<li><a href="goodsDetail.do?goodsId=${goods.goodsId }">
-									<img src="${path}/images/에나벨인형3.JPG" width="220px" height="220px">
+									<img src="${goods.realPath }" width="220px" height="220px">
 									<div>${goods.goodsId}</div>
 									<div>${goods.goodsName}</div>
 									<div>${goods.goodsDetail}</div> 
