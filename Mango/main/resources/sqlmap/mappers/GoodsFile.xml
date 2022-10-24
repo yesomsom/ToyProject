@@ -14,8 +14,7 @@
    </resultMap>
    
    <select id="selectAllGoodsFileList" resultMap="goodsFileList" parameterType="GoodsFileVO">
-      select * from goodsfile
-      limit #{skip}, #{amount}
+      select * from goodsfile WHERE goods_id = #{goodsId}
    </select>
 
    <insert id="insertGoodsFile" parameterType="GoodsFileVO">

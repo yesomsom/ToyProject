@@ -20,10 +20,14 @@
 	</resultMap>
 
 	<select id="selectAllGoodsList" resultMap="goodsList"
-		parameterType="GoodsVO">
-		select * from goods
-		limit #{skip}, #{amount}
-	</select>
+      parameterType="GoodsVO">
+      SELECT A.*, B.realpath
+      FROM goods A, goodsfile B
+      WHERE A.goods_id = B.goods_id
+      GROUP BY A.goods_id
+      
+      limit #{skip}, #{amount}
+   </select>
 
 	<select id="selectAllGoodsCount" resultType="Integer"
 		parameterType="GoodsVO">

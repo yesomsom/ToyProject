@@ -22,12 +22,8 @@
    </select>
 
    <insert id="insertCart" parameterType="CartVO">
-      insert into cart(cart_id, goods_id, goods_price, id, goods_qty,
-      delivery_price, seller_name, goods_img,
-      goods_name, orderYN)
-      values(#{cartId}, #{goodsId}, #{goodsPrice},
-      #{id}, #{goodsQty}, #{deliveryPrice}, #{sellerName}, #{goodsImg},
-      #{goodsName},"N")
+      insert into cart(cart_id, goods_id, goods_price, id, goods_qty, delivery_price, seller_name, goods_img, goods_name, orderYN)
+      values(#{cartId}, #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{deliveryPrice}, #{sellerName}, #{goodsImg}, #{goodsName},"N")
    </insert>
 
    <update id="modifyCount" parameterType="CartVO">
