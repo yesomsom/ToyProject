@@ -194,10 +194,9 @@ public class ReserveController {
 			System.out.println("오류발생");
 		}
 
-		
 		oVO.setId(login.getId());
 		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
-		
+
 		if (ordersList != null) {
 			for (OrdersVO oListvo : ordersList) {
 				System.out.println(oListvo.toString());
@@ -208,10 +207,9 @@ public class ReserveController {
 			System.out.println("오류발생");
 		}
 
-		
-		aVO.setId(login.getId()); 
-		List<AskVO> askList = askService.selectAllAskList(aVO); 
-		
+		aVO.setId(login.getId());
+		List<AskVO> askList = askService.selectAllAskList(aVO);
+
 		if (askList != null) {
 			for (AskVO aListvo : askList) {
 				System.out.println(aListvo.toString());
@@ -220,11 +218,8 @@ public class ReserveController {
 			}
 		} else {
 			System.out.println("오류발생");
-		}		
-		
-		 
+		}
 
 		return "/user/page/myPage";
 	}
-
 }

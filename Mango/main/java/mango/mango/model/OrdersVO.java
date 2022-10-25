@@ -6,104 +6,113 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OrdersVO {
-   private int ordersId;
-   private String id;
-   private String goodsAllName;
-   private String name;
-   private String receiverName;
-   private String receiverPhone;
-   private int receiverZipno;
-   private String receiverAddress;
-   private String payment;
-   private String creDate;
-   private int totalPrice;   
+	private int ordersId;
+	private String id;
+	private String goodsAllName;
+	private String name;
+	private String receiverName;
+	private String receiverPhone;
+	private int receiverZipno;
+	private String receiverAddress;
+	private String payment;
+	private String creDate;
+	private String sellerName;
+	private int totalPrice;
 
-   public int getOrdersId() {
-      return ordersId;
-   }
-   
-   public void setOrdersId(int ordersId) {
-      this.ordersId = ordersId;
-   }
-   
-   public String getId() {
-         return id;
-   }
+	public String getSellerName() {
+		return sellerName;
+	}
 
-   public void setId(String id) {
-      this.id = id;
-   }
-   
-   public String getGoodsAllName() {
-      return goodsAllName;
-   }
-   
-   public void setGoodsAllName(String goodsAllName) {
-      this.goodsAllName = goodsAllName;
-   }
-   
-   public String getName() {
-         return name;
-   }
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
 
-   public void setName(String name) {
-      this.name = name;
-   }
+	public int getOrdersId() {
+		return ordersId;
+	}
 
-   public String getReceiverName() {
-      return receiverName;
-   }
+	public void setOrdersId(int ordersId) {
+		this.ordersId = ordersId;
+	}
 
-   public void setReceiverName(String receiverName) {
-      this.receiverName = receiverName;
-   }
+	public String getId() {
+		return id;
+	}
 
-   public String getReceiverPhone() {
-      return receiverPhone;
-   }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-   public void setReceiverPhone(String receiverPhone) {
-      this.receiverPhone = receiverPhone;
-   }
-   
-   public int getReceiverZipno() {
-      return receiverZipno;
-   }
-   
-   public void setReceiverZipno(int receiverZipno) {
-      this.receiverZipno = receiverZipno;
-   }
+	public String getGoodsAllName() {
+		return goodsAllName;
+	}
 
-   public String getReceiverAddress() {
-      return receiverAddress;
-   }
+	public void setGoodsAllName(String goodsAllName) {
+		this.goodsAllName = goodsAllName;
+	}
 
-   public void setReceiverAddress(String receiverAddress) {
-      this.receiverAddress = receiverAddress;
-   }
+	public String getName() {
+		return name;
+	}
 
-   public String getPayment() {
-      return payment;
-   }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   public void setPayment(String payment) {
-      this.payment = payment;
-   }
+	public String getReceiverName() {
+		return receiverName;
+	}
 
-   public String getCreDate() {
-      return creDate;
-   }
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
 
-   public void setCreDate(String creDate) {
-      this.creDate = creDate;
-   }
+	public String getReceiverPhone() {
+		return receiverPhone;
+	}
 
-   public int getTotalPrice() {
-      return totalPrice;
-   }
+	public void setReceiverPhone(String receiverPhone) {
+		this.receiverPhone = receiverPhone;
+	}
 
-   public void setTotalPrice(int totalPrice) {
-      this.totalPrice = totalPrice;
-   }
-   
+	public int getReceiverZipno() {
+		return receiverZipno;
+	}
+
+	public void setReceiverZipno(int receiverZipno) {
+		this.receiverZipno = receiverZipno;
+	}
+
+	public String getReceiverAddress() {
+		return receiverAddress;
+	}
+
+	public void setReceiverAddress(String receiverAddress) {
+		this.receiverAddress = receiverAddress;
+	}
+
+	public String getPayment() {
+		return payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+	public String getCreDate() {
+		return creDate;
+	}
+
+	public void setCreDate(String creDate) {
+		this.creDate = creDate;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 }

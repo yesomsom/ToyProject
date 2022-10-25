@@ -16,7 +16,7 @@ public class Criteria {
 	private String type;		// 검색 타입
 	private String[] typeArr;	// 검색 타입 배열
 	
-	public Criteria() { // 기본 생성자 -> 기본 세팅 : pageNum = 1, amount = 10
+	public Criteria() { // 기본 생성자 -> 기본 세팅 : pageNum = 1, amount = 8
 		this(1,8);
 		this.skip = 0;
 	}

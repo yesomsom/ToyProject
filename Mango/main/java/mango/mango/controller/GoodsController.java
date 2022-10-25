@@ -14,8 +14,6 @@ import mango.common.service.PageMakerDTO;
 import mango.common.util.UserURLValue;
 import mango.mango.model.GoodsFileVO;
 import mango.mango.model.GoodsVO;
-import mango.mango.model.OrdersVO;
-import mango.mango.service.GoodsFileService;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
 
@@ -28,9 +26,6 @@ public class GoodsController {
 
 	@Resource(name = "GoodsService")
 	private GoodsService goodsService;
-	
-	@Resource(name = "GoodsFileService")
-	private GoodsFileService goodsFileService;
 
 	@RequestMapping(value = "/goods")
 	public String goods(ModelMap model, Criteria cri, GoodsVO gVO,
@@ -45,29 +40,30 @@ public class GoodsController {
 		gVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
 		gVO.setAmount(cri.getAmount());
 
-		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+		List<GoodsVO> goodsList = goodsService.selectOneGoods(gVO);
+				
+		/*
+		 * List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+		 */				
 		model.addAttribute("goodsList", goodsList);
+		
 		model.put("pageMaker", pageMaker);
 		return "/user/page/goods";
 		
 	}
 
 	@RequestMapping(value = "/goodsDetail")
-	public String goodsDetail(ModelMap model, Criteria cri, GoodsVO gVO, String goodsId, GoodsFileVO gfVO) throws Exception {
-		
-		  gVO = goodsService.selectGoodsDetailList(goodsId);
-		  
-		  gfVO.setGoodsId(goodsId);
-		  List<GoodsFileVO> goodsFileList = goodsFileService.selectAllGoodsFileList(gfVO);
-		  model.addAttribute("goodsFileList", goodsFileList);
+	public String goodsDetail(ModelMap model, Criteria cri, GoodsFileVO gfVO, GoodsVO gVO, String goodsId) throws Exception {
+		gVO = goodsService.selectGoodsDetailList(goodsId);
+		gfVO.setGoodsId(goodsId);
+		model.addAttribute("goods", gVO);
+
+		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
 			
-			  model.addAttribute("goods", gVO);
-			  
-			  List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
-			  
-			  model.addAttribute("goodsList", goodsList);
-			 
-		 
+		List<GoodsFileVO> goodsFileList = goodsService.selectAllGoodsFileList(gfVO);
+		
+		model.addAttribute("goodsList", goodsList);
+		model.addAttribute("goodsFileList",goodsFileList);
 
 		return "/user/page/goodsDetail";
 	}

@@ -17,17 +17,20 @@ public class PageMakerDTO {
 	public PageMakerDTO(Criteria cri, int total) { // 생성자
 		this.cri = cri;
 		this.total = total;
-		this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0))*10; // 마지막 페이지
-		this.startPage = this.endPage - 9; // 시작페이지
-		int realEnd = (int)(Math.ceil(total * 1.0/cri.getAmount())); // 전체 마지막 페이지
 		
-		if(realEnd < this.endPage) { // 전체 마지막 페이지(realend)가 화면에 보이는 마지막페이지(endPage)보다 작은 경우, 보이는 페이지(endPage) 값 조정
+		//시작페이지, 마지막페이지 계산
+		this.endPage = (int)(Math.ceil(cri.getPageNum() / 10.0)) * 10;
+		this.startPage = this.endPage -9;
+		
+		int realEnd = (int) (Math.ceil(total * 1.0) / cri.getAmount());
+		
+		if(realEnd < this.endPage) {
 			this.endPage = realEnd;
 		}
 		
-		this.prev = this.startPage > 1; // 시작 페이지(startPage)값이 1보다 큰 경우 true
-		this.next = this.endPage < realEnd; // 마지막 페이지(endPage)값이 1보다 큰 경우 true
-		
+		//이전, 다음 버튼 표출 여부 결정
+		this.prev = this.startPage > 1;
+		this.next = this.endPage < realEnd;
 	}
 
 	@Override

@@ -27,5 +27,10 @@ public class OrdersDAO extends ComAbstractDAO {
    // 주문 수정
    public int modifyOrders(OrdersVO oVO) throws Exception {
       return update("ordersMapper.modifyOrders", oVO);
+   }
+   
+   // 7일 단위 매출내역 조회
+   public List<OrdersVO> countOders(OrdersVO oVO) throws Exception {
+	   return selectList("ordersMapper.countOders", oVO);
    }   
 }

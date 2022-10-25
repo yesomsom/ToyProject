@@ -9,4 +9,5 @@ public interface OrdersService {
    void insertOrders(OrdersVO oVO) throws Exception;
    OrdersVO selectOrders(OrdersVO oVO) throws Exception;
    int modifyOrders(OrdersVO oVO) throws Exception;
+   List<OrdersVO> countOders(OrdersVO oVO) throws Exception;
 }

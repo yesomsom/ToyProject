@@ -13,6 +13,11 @@ public class GoodsDAO extends ComAbstractDAO {
    public List<GoodsVO> selectAllGoodsList(GoodsVO gVO) throws Exception {
       return selectList("goodsMapper.selectAllGoodsList", gVO);
    }
+   
+   public List<GoodsVO> selectOneGoods(GoodsVO gVO) throws Exception {
+	   return selectList("goodsMapper.selectOneGoods", gVO);
+
+   }
 
    public Integer selectAllGoodsCount(GoodsVO gVO) throws Exception {
       return selectOne("goodsMapper.selectAllGoodsCount", gVO);
@@ -21,7 +26,11 @@ public class GoodsDAO extends ComAbstractDAO {
    public GoodsVO selectGoodsDetailList(String goodsId) {
       return selectOne("goodsMapper.selectGoodsDetailList", goodsId);
    }
-
+   
+   public List<GoodsFileVO> selectAllGoodsFileList(GoodsFileVO gfVO) throws Exception{
+	   return selectList("goodsFileMapper.selectAllGoodsFileList", gfVO);
+   }
+   
    // 상품 등록
    public void insertGoods(GoodsVO gVO) throws Exception {
       insert("goodsMapper.insertGoods", gVO);

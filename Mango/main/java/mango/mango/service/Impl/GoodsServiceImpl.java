@@ -21,7 +21,17 @@ public class GoodsServiceImpl extends EgovAbstractServiceImpl implements GoodsSe
    public List<GoodsVO> selectAllGoodsList(GoodsVO gVO) throws Exception {
       return goodsDAO.selectAllGoodsList(gVO);
    }
-
+   
+   @Override
+   public List<GoodsVO> selectOneGoods(GoodsVO gVO) throws Exception {
+	   return goodsDAO.selectOneGoods(gVO);
+   }
+   
+   @Override
+   public List<GoodsFileVO> selectAllGoodsFileList(GoodsFileVO gfVO) throws Exception{
+	   return goodsDAO.selectAllGoodsFileList(gfVO);
+   }
+   
    @Override
    public Integer selectAllGoodsCount(GoodsVO gVO) throws Exception {
       return goodsDAO.selectAllGoodsCount(gVO);

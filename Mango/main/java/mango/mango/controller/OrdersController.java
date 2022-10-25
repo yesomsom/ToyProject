@@ -36,15 +36,7 @@ public class OrdersController {
          throws Exception {
 
       MemberVO login = (MemberVO) session.getAttribute("login");
-      /*
-       * OrdersVO ordersVO = ordersService.selectOrders(oVO);
-       * model.addAttribute("orders", ordersVO); System.out.println("ordersVO " +
-       * ordersVO);
-       */
-
-      /*
-       * cartService.modifyYN(cVO); System.out.println("cVO " + cVO);
-       */
+  
       model.addAttribute("type", "Orders");
       if (login != null) {
          oVO.setId(login.getId());
@@ -120,18 +112,18 @@ public class OrdersController {
       MemberVO login = (MemberVO) session.getAttribute("login");
       model.addAttribute("type", "myOrdersPage");
       if (login != null) {
-  		oVO.setId(login.getId());
-  		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
-  		
-  		if (ordersList != null) {
-  			for (OrdersVO oListvo : ordersList) {
-  				System.out.println(oListvo.toString());
-  				model.addAttribute("ordersList", ordersList);
-  				System.out.println("ordersList" + ordersList);
-  			}
-  		} else {
-  			System.out.println("오류발생");
-  		}
+        oVO.setId(login.getId());
+        List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
+        
+        if (ordersList != null) {
+           for (OrdersVO oListvo : ordersList) {
+              System.out.println(oListvo.toString());
+              model.addAttribute("ordersList", ordersList);
+              System.out.println("ordersList" + ordersList);
+           }
+        } else {
+           System.out.println("오류발생");
+        }
       } else {
          model.addAttribute("isSuccess", false);
          return "/user/page/process";
@@ -139,4 +131,5 @@ public class OrdersController {
 
       return "/user/page/myOrdersPage";
    }
+   
 }

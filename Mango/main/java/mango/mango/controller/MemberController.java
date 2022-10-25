@@ -43,7 +43,6 @@ public class MemberController {
 		SHA256 sha256 = new SHA256(); //암호화 유틸 불러오기
 		
 		String encryPassword = sha256.encrypt(mVO.getPassword()); // 비밀번호 암호화
-		System.out.println(mVO.getPassword());
 		mVO.setPassword(encryPassword);	//암호화 된 비밀번호 넣기
 		
 		MemberVO login = MemberService.login(mVO);

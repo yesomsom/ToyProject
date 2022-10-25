@@ -17,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -30,8 +31,10 @@ import mango.mango.controller.InfoController;
 import mango.mango.model.GoodsFileVO;
 import mango.mango.model.GoodsVO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.OrdersVO;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
+import mango.mango.service.OrdersService;
 
 @Controller
 @RequestMapping(value = SellerURLValue.MANGO_SELLER)
@@ -43,6 +46,9 @@ public class SellerController {
 
 	@Resource(name = "GoodsService")
 	private GoodsService GoodsService;
+	
+	@Resource(name = "OrdersService")
+	private OrdersService OrderService;
 
 	@Resource(name = "fileUtil")
 	private FileUtil fileUtil;
@@ -97,8 +103,8 @@ public class SellerController {
 			gfVO.setGoodsId(UUID); // goodsid 난수설정
 			gfVO.setFileSize(fileSize); // 파일 사이즈
 
-			GoodsService.insertGoodsFile(gfVO); // gfVO에 넣어준 값들을 insertGoodsFile에 담아줌
-
+			GoodsService.insertGoodsFile(gfVO); // gfVO에 넣어준 값들을 insertGoodsFile에 담아줌			
+			
 			File fileCheck = new File(uploadPath);
 
 			if (!fileCheck.exists()) // uploadPath가 있는지 확인 후 없으면 폴더 생성
@@ -114,7 +120,8 @@ public class SellerController {
 				multiFileList.get(i).transferTo(uploadFile); // uploadFile에 multiFileList를 각각 저장
 
 				System.out.println("다중 파일 업로드 성공");
-
+				
+				model.addAttribute("isSuccess", true);
 			}
 		} catch (IllegalStateException | IOException e) {
 			System.out.println("다중 파일 업로드 실패");
@@ -123,12 +130,14 @@ public class SellerController {
 				new File(uploadPath).delete();
 			}
 			e.printStackTrace();
+			model.addAttribute("isSuccess", false);
 		}
 
 		gVO.setGoodsId(UUID); // gVO goodsid 난수설정
 		GoodsService.insertGoods(gVO);
-
-		return "/seller/page/uploadGoods";
+		model.addAttribute("type", "uploadGoods");
+	
+		return "/user/page/process";
 	}
 
 	// 사업주 회원가입 페이지
@@ -237,8 +246,14 @@ public class SellerController {
 	}
 
 	// 매출내역 페이지
-	@RequestMapping(value = "/salesDetails")
-	public String salesDetails(ModelMap model, Criteria cri) throws Exception {
+	@RequestMapping(value = "/salesDetails", method = RequestMethod.GET, produces = "text/plain;charset=utf-8")	
+	public String countOders(ModelMap model, Criteria cri, OrdersVO oVO, HttpSession session) throws Exception {
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		oVO.setId(login.getId());
+		System.out.println(login.getSellerName());
+		List<OrdersVO> count = OrderService.countOders(oVO);
+		model.addAttribute("countOders",oVO);
+		
 		return "/seller/page/salesDetails";
 	}
 
