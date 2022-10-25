@@ -33,11 +33,12 @@ if (login != null)
 			<div class="Goods_introL">
 				<!--상품이미지-->
 				<div class="goods_img">
-					<img src="${goodsFileList[0].realPath}" style="width: 350px; height: 350px;"/>
+					<img src="${goodsFileList[0].realPath}"
+						style="width: 350px; height: 350px;" />
 				</div>
 				<div class="thums_img">
 					<c:forEach var="thumb" items="${goodsFileList}">
-						<img src="${thumb.realPath}" style="width: 50px; height: 50px;"/>
+						<img src="${thumb.realPath}" style="width: 50px; height: 50px;" />
 					</c:forEach>
 				</div>
 
@@ -77,38 +78,26 @@ if (login != null)
 				</div>
 				<div class="recommend_goods_wrap">
 					<a class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[5].goodsId}"><img
-						class="" src="${path}/images/에나벨인형3.JPG"
-						style="width: 85px; height: 85px;" alt=""></a> <a
-						class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[2].goodsId}"><img
-						class="" src="${path}/images/에나벨인형3.JPG"
-						style="width: 85px; height: 85px;" alt=""></a> <a
-						class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}"><img
-						class="" src="${path}/images/에나벨인형3.JPG"
-						style="width: 85px; height: 85px;" alt=""></a>
-						
-<%-- 						<a class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[5].goodsId}"><img
-						class="" src="${goodsList[5].goodsImgPath}"
-						style="width: 85px; height: 85px;" alt=""></a> <a
-						class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[2].goodsId}"><img
-						class="" src="${goodsList[2].goodsImgPath}"
-						style="width: 85px; height: 85px;" alt=""></a> <a
-						class="recommend_a1"
-						href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}"><img
-						class="" src="${goodsList[7].goodsImgPath}"
-						style="width: 85px; height: 85px;" alt=""></a> --%>
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[1].goodsId}">
+						<img src="${goodsList[1].realPath }"
+						style="width: 85px; height: 85px;">
+					</a> <a class="recommend_a1"
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}">
+						<img src="${goodsList[7].realPath }"
+						style="width: 85px; height: 85px;">
+					</a> <a class="recommend_a1"
+						href="${path}/page/goodsDetail.do?goodsId=${goodsList[4].goodsId}">
+						<img src="${goodsList[4].realPath }"
+						style="width: 85px; height: 85px;">
+					</a>
 				</div>
 			</div>
 		</div>
 
 		<div class="Detail_Content">
-			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
-			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
-			<img src="${path}/images/에나벨인형3.JPG" style="width: 755px;" alt="">
+			<c:forEach var="thumb1" items="${goodsFileList}">
+				<img src="${thumb1.realPath}">
+			</c:forEach>
 		</div>
 	</div>
 
@@ -133,6 +122,8 @@ if (login != null)
 	<form id="orders_direct" action="/page/orders/insert.do" method="post">
 		<input class="id_submit" type="hidden" name="id"
 			value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
+		<input class="sellerName_submit" type="hidden" name="sellerName"
+			value="${goods.sellerName}">
 		<input class="goods_name_submit" type="hidden" name="goodsAllName"
 			value="${goods.goodsName}"> <input class="name_submit"
 			type="hidden" name="name"

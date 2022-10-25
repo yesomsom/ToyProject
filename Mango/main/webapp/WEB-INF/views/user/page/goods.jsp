@@ -29,10 +29,9 @@
 			<ul>
 				<li>
 					<ul class="Goods_list">
-						<c:forEach var="goods" items="${goodsList}">
+						<c:forEach var="goods" items="${goodsList}" >
 							<li><a href="goodsDetail.do?goodsId=${goods.goodsId }">
-									<img src="${goods.realPath }" width="220px" height="220px">
-									<div>${goods.goodsId}</div>
+									<img src="${goods.realPath}" width="220px" height="220px">									
 									<div>${goods.goodsName}</div>
 									<div>${goods.goodsDetail}</div> 
 							</a></li>

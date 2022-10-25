@@ -72,9 +72,7 @@
 		</div>
 
 	</div>
-	<div id="map">
-		<button id="gps_check" onclick="gps_tracking();">현위치</button>
-	</div>
+	<div id="map"></div>
 
 	<!-- gps 권한js -->
 	<script type="text/javascript" src="${path }/js/gpsmap.js"></script>

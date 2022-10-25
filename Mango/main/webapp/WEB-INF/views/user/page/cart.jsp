@@ -150,6 +150,7 @@ if (login != null)
          name="receiverAddress"
          value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
       <input type="hidden" name="payment" value="카카오페이">
+      <input type="hidden" name="sellerName" value="${cart.sellerName}">
          <span class="total_price_title">총 주문금액</span> 
          <span class="total_price font_bold_big"> 
 <%--             <c:set var="total" value="0" /> 

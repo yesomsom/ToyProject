@@ -18,6 +18,6 @@
 	<tiles:insertAttribute name="side" />
 	<tiles:insertAttribute name="navbar" />
 	<tiles:insertAttribute name="content" ignore="true" />
-	<tiles:insertAttribute name="footer" />
+	<%-- <tiles:insertAttribute name="footer" /> --%>
 </body>
 </html>

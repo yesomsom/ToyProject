@@ -8,7 +8,6 @@
 <title>goodsList</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="${path}/css/seller/goodsList.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
    <div class="goodsList_wrap">
@@ -41,11 +40,11 @@
             <td class="table_content">${goods.goodsCategory}</td>
                <td class="table_content"><input class="gName" type="text" value="${goods.goodsName}"></td>
                <td class="table_content txt_center">${goods.goodsState}</td>
-               <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}"></td>
+               <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
                <td class="table_content"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
-               <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}"></td>
-               <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}"></td>
-               <td class="table_content"><input class="input_num gDiscount" type="text" value="${goods.goodsDiscount}"></td>
+               <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
+               <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>
+               <td class="table_content"><input class="input_num gDiscount" type="text" value="${goods.goodsDiscount}">%</td>
                <td class="table_content txt_center regDateForm"><fmt:formatDate value="${goods.regDate}" pattern="yyyy-MM-dd" /></td>
                <td class="table_content txt_center"><button class="btn modify_btn" data-goodsid="${goods.goodsId}">수정</button></td>
                <td class="table_content txt_center"><button class="btn delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>

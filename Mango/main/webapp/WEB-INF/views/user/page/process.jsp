@@ -16,7 +16,7 @@
    }
    %>
 
-
+<!-- 회원가입 -->
    <%
    if (type.equals("register")) {
       if (isSuccess) {
@@ -122,19 +122,19 @@
    %>
    
    <%
-   if (type.equals("bbsWrite")) {
+   if (type.equals("uploadGoods")) {
       if (isSuccess) {
    %>
    <script>
-      alert("글 작성이 완료되었습니다");
-      location.href = "bbsList.do"
+      alert("상품 등록이 완료되었습니다\n상품 리스트로 이동합니다.");
+      location.href = "/page/goodsList.do"
    </script>
    <%
    } else {
    %>
    <script>
-      alert("글 작성에 실패하였습니다");
-      location.href = "bbsList.do"
+      alert("상품 등록이 실패하였습니다");
+      location.href = "/page/uploadGoods.do"
    </script>
    <%
    }

@@ -51,25 +51,25 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
          
          <!-- 예매 전체 묶음 -->
          <div class="reserveList_wrap">
-			 <%
-			 if (list == null) {
-			 %>
-			 <div>예약한 영화가 없습니다</div>
-			 <%
-			 } else {
-			 for (int i = 0; i < list.size(); i++) {
-			    ReserveVO reserveVO = list.get(i);
-			 %>
+          <%
+          if (list == null) {
+          %>
+          <div>예약한 영화가 없습니다</div>
+          <%
+          } else {
+          for (int i = 0; i < list.size(); i++) {
+             ReserveVO reserveVO = list.get(i);
+          %>
              <div class="reserveList_card">
                 <div class="reserveId_title"><a href="${path}/page/myReserve.do">예매번호 : <%=reserveVO.getReserveSequence()%></a></div>   
                 <div class="information_wrapper">
                    <div class="wrapper_content">
                       <div class="reserve_info"><%=reserveVO.getTitle()%></div>
-                      	<div class="reserve_pos">
-	                      <div class="reserve_content"><%=reserveVO.getSelectedTheater()%></div>
-	                      <div class="reserve_content">자리 : <%=reserveVO.getSelectedSeat()%></div>
-	                      <div class="reserve_content">일시 : <%=reserveVO.getMovieDate()%> <%=reserveVO.getRunningTime()%></div>
-                      	</div>
+                         <div class="reserve_pos">
+                         <div class="reserve_content"><%=reserveVO.getSelectedTheater()%></div>
+                         <div class="reserve_content">자리 : <%=reserveVO.getSelectedSeat()%></div>
+                         <div class="reserve_content">일시 : <%=reserveVO.getMovieDate()%> <%=reserveVO.getRunningTime()%></div>
+                         </div>
                    </div>
                 </div>  
                               
@@ -83,7 +83,7 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                    &nbsp;/&nbsp;
                    <div class="reserve_content"><%=reserveVO.getPayVO().getPayMoney()%>원</div>
                 </div>
-           	</div>
+              </div>
                <%
                }
                %>
@@ -99,15 +99,15 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
          
          <!-- 구매 상품 전체 묶음 -->
          <div class="ordersList_wrap">
-			 <%
-			 if (ordersList == null) {
-			 %>
-			 <div>구매한 상품이 없습니다</div>
-			 <%
-			 } else {
-			 for (int i = 0; i < ordersList.size(); i++) {
-				 OrdersVO ordersVO = ordersList.get(i);
-			 %>         
+          <%
+          if (ordersList == null) {
+          %>
+          <div>구매한 상품이 없습니다</div>
+          <%
+          } else {
+          for (int i = 0; i < ordersList.size(); i++) {
+             OrdersVO ordersVO = ordersList.get(i);
+          %>         
              <div class="ordersList_card">
                 <div class="ordersId_title"><a href="${path}/page/myOrdersPage.do">주문번호 : <%=ordersVO.getOrdersId()%></a></div>   
                 <div class="information_wrapper">
@@ -166,15 +166,15 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
          
          <!-- 문의 전체 묶음 -->
          <div class="ordersList_wrap">
- 			 <%
-			 if (askList == null) {
-			 %>
-			 <div>문의 내역이 없습니다</div>
-			 <%
-			 } else {
-			 for (int i = 0; i < askList.size(); i++) {
-				 AskVO askVO = askList.get(i);
-			 %>          
+           <%
+          if (askList == null) {
+          %>
+          <div>문의 내역이 없습니다</div>
+          <%
+          } else {
+          for (int i = 0; i < askList.size(); i++) {
+             AskVO askVO = askList.get(i);
+          %>          
              <div class="ordersList_card">
                 <div class="ordersId_title"><a href="${path}/page/myAskList.do">문의 번호 : <%=askVO.getAskId()%></a></div>   
                 <div class="information_wrapper">

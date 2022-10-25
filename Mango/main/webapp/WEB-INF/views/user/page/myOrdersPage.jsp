@@ -26,7 +26,7 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
 </head>
 <body>
    <div>
-   	<!-- 사이드바 -->
+      <!-- 사이드바 -->
      <aside class="sideBar">
        <div class="side_head"><a href="${path}/page/myPage.do">MY HOME</a></div>
        <div class="side_body">
@@ -44,15 +44,15 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
             <!-- 리스트 전체 -->
             <div class="myOrderspage_list">
             <!-- 개별 구매 목록 -->
-			 <%
-			 if (ordersList == null) {
-			 %>
-			 <div>구매한 상품이 없습니다</div>
-			 <%
-			 } else {
-			 for (int i = 0; i < ordersList.size(); i++) {
-				 OrdersVO ordersVO = ordersList.get(i);
-			 %> 
+          <%
+          if (ordersList == null) {
+          %>
+          <div>구매한 상품이 없습니다</div>
+          <%
+          } else {
+          for (int i = 0; i < ordersList.size(); i++) {
+             OrdersVO ordersVO = ordersList.get(i);
+          %> 
                   <div class="orders_card">
                      <div class="ordersId_title">주문번호 : <%=ordersVO.getOrdersId()%></div>   
                      <div class="information_wrapper">

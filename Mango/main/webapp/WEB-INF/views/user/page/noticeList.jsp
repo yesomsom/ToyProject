@@ -59,17 +59,16 @@
 			<div class="pageInfo_area">
 				<ul id="pageInfo" class="pageInfo">
 					<c:if test="${pageMaker.prev}">
-						<li class="pageInfo_btn previous"><a
-							href="${pageMaker.startPage-1}">Previous</a></li>
+						<li class="pageInfo_btn previous">
+						<a	href="${pageMaker.startPage-1}">Previous</a></li>
 					</c:if>
-					<c:forEach var="num" begin="${pageMaker.startPage}"
-						end="${pageMaker.endPage}">
-						<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-							href="${num}">${num}</a></li>
+					<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+						<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? 'active' : '' }">
+						<a	href="${num}">${num}</a></li>
 					</c:forEach>
 					<c:if test="${pageMaker.next}">
-						<li class="pageInfo_btn next"><a
-							href="${pageMaker.endPage + 1 }">Next</a></li>
+						<li class="pageInfo_btn next">
+						<a href="${pageMaker.endPage + 1 }">Next</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -82,7 +81,7 @@
 	</div>
 
 	<script>
-		$(".pageInfo a").on("click", function(e) {
+		$(".pageInfo_btn a").on("click", function(e) {
 			e.preventDefault();
 			$("#pageNum").val($(this).attr("href"));
 			$("#noticeForm").submit();
