@@ -55,7 +55,9 @@
 .Goods_content {
    margin-bottom: 20px;
 }
-
+.Detail_Content>img{
+	width:716px;
+}
 .qty_position {
    position: relative;
    left: -135px;

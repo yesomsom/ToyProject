@@ -1,53 +1,70 @@
-var gps_use = null; //gps의 사용가능 여부
-		var gps_lat = null; // 위도
-		var gps_lng = null; // 경도
-		var gps_position; // gps 위치 객체
 
-		gps_check();
-		// gps가 이용가능한지 체크하는 함수이며, 이용가능하다면 show location 함수를 불러온다.
-		// 만약 작동되지 않는다면 경고창을 띄우고, 에러가 있다면 errorHandler 함수를 불러온다.
-		// timeout을 통해 시간제한을 둔다.
-		function gps_check() {
-			if (navigator.geolocation) {
-				var options = {
-					timeout : 60000
-				};
-				navigator.geolocation.getCurrentPosition(showLocation,
-						errorHandler, options);
-			} else {
-				alert("GPS_추적이 불가합니다.");
-				gps_use = false;
-			}
-		}
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+		level: 2 // 지도의 확대 레벨 
+	};
 
-		// gps 이용 가능 시, 위도와 경도를 반환하는 showlocation함수.
-		function showLocation(position) {
-			gps_use = true;
-			gps_lat = position.coords.latitude;
-			gps_lng = position.coords.longitude;
-		}
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-		// error발생 시 에러의 종류를 알려주는 함수.
-		function errorHandler(error) {
-			if (error.code == 1) {
-				alert("접근차단");
-			} else if (err.code == 2) {
-				alert("위치를 반환할 수 없습니다.");
-			}
-			gps_use = false;
-		}
-		function gps_tracking() {
-			if (gps_use) {
-				map.panTo(new kakao.maps.LatLng(gps_lat, gps_lng));
-				var gps_content = '<div><img class="pulse" draggable="false" unselectable="on" src="https://ssl.pstatic.net/static/maps/m/pin_rd.png" alt=""></div>';
-				var currentOverlay = new kakao.maps.CustomOverlay({
-					position : new kakao.maps.LatLng(gps_lat, gps_lng),
-					content : gps_content,
-					map : map
-				});
-				currentOverlay.setMap(map);
-			} else {
-				alert("접근차단하신 경우 새로고침, 아닌 경우 잠시만 기다려주세요.");
-				gps_check();
-			}
-		}
+// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+if (navigator.geolocation) {
+
+	// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+	navigator.geolocation.getCurrentPosition(function(position) {
+
+		var lat = position.coords.latitude, // 위도
+			lon = position.coords.longitude; // 경도
+
+		var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			message = '<div class="info_window">현재 위치는 이 곳 입니다.</div>'; // 인포윈도우에 표시될 내용입니다
+
+		// 마커와 인포윈도우를 표시합니다
+		displayMarker(locPosition, message);
+
+	});
+
+} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+	var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
+		message = 'geolocation을 사용할수 없어요..'
+
+	displayMarker(locPosition, message);
+}
+
+	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+	function displayMarker(locPosition, message) {
+
+	// 마커 이미지의 주소
+	var markerImageUrl = 'https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/344/external-Mango-fruit-smashingstocks-flat-smashing-stocks.png', markerImageSize = new kakao.maps.Size(
+		40, 42), // 마커 이미지의 크기
+		markerImageOptions = {
+			offset: new kakao.maps.Point(20, 42)
+			// 마커 좌표에 일치시킬 이미지 안의 좌표
+		};
+
+	// 마커 이미지를 생성한다
+	var markerImage = new kakao.maps.MarkerImage(markerImageUrl,
+		markerImageSize, markerImageOptions);
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+		map: map,
+		position: locPosition,
+		image : markerImage
+	});
+
+	var iwContent = message, // 인포윈도우에 표시할 내용
+		iwRemoveable = true;
+
+	// 인포윈도우를 생성합니다
+	var infowindow = new kakao.maps.InfoWindow({
+		content: iwContent,
+		removable: iwRemoveable
+	});
+
+	// 인포윈도우를 마커위에 표시합니다 
+	infowindow.open(map, marker);
+
+	// 지도 중심좌표를 접속위치로 변경합니다
+	map.setCenter(locPosition);
+}  

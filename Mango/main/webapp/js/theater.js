@@ -96,7 +96,6 @@ html = `<tr><td  onclick="bra_click(this)" data-x="`+data.x+`" data-y="`+data.y+
 return html
 }
 
-
 	function bra_click(_this){		
 		var container = $("#map")[0];
 		var location_x = $(_this).data("y");

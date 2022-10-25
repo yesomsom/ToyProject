@@ -4,8 +4,8 @@ body {
 
 /* 전체 묶음 */
 .myPage_wrap {
-	position: absolute;
-	top: 120px;
+   position: absolute;
+   top: 120px;
 }
 /*사이드 바*/
 .sideBar {
@@ -113,8 +113,8 @@ body {
 }
 
 .reserve_pos {
-	position: relative;
-	top: 3px;
+   position: relative;
+   top: 3px;
 }
 
 .reserve_content {
