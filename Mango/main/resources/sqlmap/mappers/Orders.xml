@@ -3,37 +3,46 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ordersMapper">
-   <resultMap type="OrdersVO" id="ordersList">
-      <result property="ordersId" column="orders_id" />
-      <result property="id" column="id" />
-      <result property="goodsAllName" column="goods_all_name" /> 
-      <result property="name" column="name" />
-      <result property="receiverName" column="receiver_name" />
-      <result property="receiverPhone" column="receiver_phone" />
-      <result property="receiverZipno" column="receiver_zipno" />
-      <result property="receiverAddress" column="receiver_address" />
-      <result property="payment" column="payment" />      
-      <result property="creDate" column="creDate" />
-      <result property="totalPrice" column="total_price" />    
-   </resultMap>
+	<resultMap type="OrdersVO" id="ordersList">
+		<result property="ordersId" column="orders_id" />
+		<result property="id" column="id" />
+		<result property="goodsAllName" column="goods_all_name" />
+		<result property="name" column="name" />
+		<result property="receiverName" column="receiver_name" />
+		<result property="receiverPhone" column="receiver_phone" />
+		<result property="receiverZipno" column="receiver_zipno" />
+		<result property="receiverAddress" column="receiver_address" />
+		<result property="payment" column="payment" />
+		<result property="creDate" column="creDate" />
+		<result property="sellerName" column="seller_name" />
+		<result property="totalPrice" column="total_price" />
+	</resultMap>
+	
+	<select id="countOders" resultMap="ordersList" parameterType="OrdersVO">
+		SELECT * FROM orders
+		WHERE seller_name=#{sellerName}
+		AND creDate BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()
+		ORDER BY creDate;
+	</select>
+	
+	<select id="selectAllOrdersList" resultMap="ordersList"	parameterType="OrdersVO">
+		select * from orders WHERE id = #{id} ORDER BY orders_id DESC;
+	</select>
 
-   <select id="selectAllOrdersList" resultMap="ordersList" parameterType="OrdersVO">
-       select * from orders WHERE id = #{id} ORDER BY orders_id DESC;    
-   </select>   
-    
-    <insert id="insertOrders" parameterType="OrdersVO">
-      insert into orders(orders_id,id,goods_all_name,name,receiver_name,receiver_phone,receiver_zipno,receiver_address,payment,creDate,total_price)
-      values(#{ordersId},#{id},#{goodsAllName},#{name},#{receiverName},#{receiverPhone},#{receiverZipno},#{receiverAddress},#{payment},SYSDATE(6),#{totalPrice})
-   </insert>  
-   
-   <select id="selectOrders" resultType="OrdersVO"
-      parameterType="OrdersVO">
+	<insert id="insertOrders" parameterType="OrdersVO">
+		insert into orders(orders_id, seller_name, id, goods_all_name, name, receiver_name, receiver_phone, receiver_zipno, receiver_address, payment, creDate, total_price)
+		values(#{ordersId}, #{sellerName}, #{id}, #{goodsAllName}, #{name}, #{receiverName}, #{receiverPhone}, #{receiverZipno}, #{receiverAddress}, #{payment}, SYSDATE(6), #{totalPrice})
+	</insert>
+
+	<select id="selectOrders" resultType="OrdersVO"	parameterType="OrdersVO">
    <![CDATA[
       select * from orders
       ]]>
-   </select>
-   
-   <update id="modifyOrders" parameterType="OrdersVO">
-      UPDATE orders SET receiver_name = #{receiverName},receiver_phone = #{receiverPhone},receiver_zipno=#{receiverZipno},receiver_address=#{receiverAddress} WHERE orders_id = #{ordersId};
-   </update>  
+	</select>
+
+	<update id="modifyOrders" parameterType="OrdersVO">
+		UPDATE orders SET receiver_name = #{receiverName},receiver_phone =
+		#{receiverPhone},receiver_zipno=#{receiverZipno},receiver_address=#{receiverAddress}
+		WHERE orders_id = #{ordersId};
+	</update>
 </mapper>

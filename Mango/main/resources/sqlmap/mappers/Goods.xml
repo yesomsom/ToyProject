@@ -18,16 +18,23 @@
 		<result property="gno" column="gno" />
 		<result property="id" column="id" />
 	</resultMap>
-
+	
+	<select id="selectOneGoods" resultMap="goodsList"
+		parameterType="GoodsVO">
+		SELECT A.*, B.realpath
+		FROM goods A, goodsfile B
+		WHERE A.goods_id = B.goods_id
+		GROUP BY A.goods_id
+	</select>
+	
 	<select id="selectAllGoodsList" resultMap="goodsList"
-      parameterType="GoodsVO">
-      SELECT A.*, B.realpath
-      FROM goods A, goodsfile B
-      WHERE A.goods_id = B.goods_id
-      GROUP BY A.goods_id
-      
-      limit #{skip}, #{amount}
-   </select>
+		parameterType="GoodsVO">
+		SELECT A.*, B.realpath
+		FROM goods A, goodsfile B
+		WHERE A.goods_id = B.goods_id
+
+		limit #{skip}, #{amount}
+	</select>
 
 	<select id="selectAllGoodsCount" resultType="Integer"
 		parameterType="GoodsVO">
@@ -40,18 +47,23 @@
 	</select>
 
 	<insert id="insertGoods" parameterType="GoodsVO">
-		insert into goods (goods_id, goods_category, goods_name, seller_name,
-		goods_state, goods_detail, goods_price, goods_stock, delivery_price,
+		insert into goods
+		(goods_id, goods_category, goods_name, seller_name,
+		goods_state,
+		goods_detail, goods_price, goods_stock, delivery_price,
 		goods_discount, regdate, id)
-		values (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, "승인대기",
-		#{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice},
+		values (#{goodsId}, #{goodsCategory},
+		#{goodsName}, #{sellerName}, "승인대기",
+		#{goodsDetail}, #{goodsPrice},
+		#{goodsStock}, #{deliveryPrice},
 		#{goodsDiscount}, SYSDATE(6), #{id})
 	</insert>
 
 	<!-- seller별 goodsList 출력 -->
 	<select id="selectSellerGoodsList" resultMap="goodsList"
 		parameterType="GoodsVO">
-		select * from goods where id = #{id} ORDER BY regdate DESC
+		select * from goods where id = #{id} ORDER BY regdate
+		DESC
 		limit #{skip}, #{amount}
 	</select>
 
@@ -63,7 +75,8 @@
 
 	<!-- 상품 삭제 -->
 	<delete id="deleteGoods" parameterType="GoodsVO">
-		delete from goods where goods_id = #{goodsId}
+		delete from goods where
+		goods_id = #{goodsId}
 	</delete>
 
 	<!-- 상품 수정 -->

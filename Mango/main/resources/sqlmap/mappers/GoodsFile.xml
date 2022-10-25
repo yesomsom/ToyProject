@@ -14,7 +14,9 @@
    </resultMap>
    
    <select id="selectAllGoodsFileList" resultMap="goodsFileList" parameterType="GoodsFileVO">
-      select * from goodsfile WHERE goods_id = #{goodsId}
+      select * from goodsfile
+      where goods_id = #{goodsId}      
+      limit 5
    </select>
 
    <insert id="insertGoodsFile" parameterType="GoodsFileVO">
