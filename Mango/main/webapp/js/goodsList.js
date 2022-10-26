@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
 /* 페이징 */
-   $(".pageInfo a").on("click", function(e) {
-      e.preventDefault();
-      $("#pageNum").val($(this).attr("href"));
-      $("#goodsListForm").submit();
-   })
+	$(".pageInfo a").on("click", function(e){
+		e.preventDefault();
+		$("#pageNum").val($(this).attr("href"));
+		$("#boardForm").submit();
+	})
 
 /* 상품 수정 버튼 */
    $(".modify_btn").on("click", function(){
@@ -24,6 +24,13 @@ $(document).ready(function() {
       $(".update_goodsPrice").val(gPrice);
       $(".update_deliveryPrice").val(gDePrice);
       $(".update_goodsDiscount").val(gDiscount);
+
+	$("select[name=goodsCategory]").change(function(){
+		let selectVal = $(this).val();
+		alert(selectVal);
+		$(".update_goodsCategory").val(selectVal);
+		alert($(".update_goodsCategory").val());
+	});  
       
       $(".goods_update_form").submit();         
    });
@@ -33,5 +40,13 @@ $(document).ready(function() {
       const goodsId = $(this).data("goodsid");
       $(".delete_goodsId").val(goodsId);
       $(".goods_delete_form").submit();
-   });      
+   }); 
+   
+/* option selected 값으로 변경해서 전달 */ 
+	$("select[name=goodsCategory]").change(function(){
+		let selectVal = $(this).val();
+		alert(selectVal);
+		$(".update_goodsCategory").val(selectVal);
+		alert($(".update_goodsCategory").val());
+	});  
 });
