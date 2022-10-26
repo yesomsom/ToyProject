@@ -37,7 +37,15 @@
            <c:forEach items="${goodsList}" var="goods">
              <tr>
                <td class="table_content txt_center">${goods.goodsId}</td>
-            <td class="table_content">${goods.goodsCategory}</td>
+               <td class="table_content">
+	               	<select name="goodsCategory">
+	               		<option value="${goods.goodsCategory}" selected disabled hidden>${goods.goodsCategory}</option>
+						<option value="키링">키링</option>
+						<option value="인형">인형</option>
+						<option value="피규어">피규어</option>
+						<option value="기타">기타</option>
+					</select>
+               </td>
                <td class="table_content"><input class="gName" type="text" value="${goods.goodsName}"></td>
                <td class="table_content txt_center">${goods.goodsState}</td>
                <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
@@ -54,25 +62,21 @@
        </table>
        
 <!-- 페이징  -->   
-   <div class="pageInfo_wrap">
-         <div class="pageInfo_area">
-            <ul id="pageInfo" class="pageInfo">
-               <c:if test="${pageMaker.prev}">
-                  <li class="pageInfo_btn previous"><a
-                     href="${pageMaker.startPage-1}">Previous</a></li>
-               </c:if>
-               <c:forEach var="num" begin="${pageMaker.startPage}"
-                  end="${pageMaker.endPage}">
-                  <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-                     href="${num}">${num}</a></li>
-               </c:forEach>
-               <c:if test="${pageMaker.next}">
-                  <li class="pageInfo_btn next"><a
-                     href="${pageMaker.endPage + 1 }">Next</a></li>
-               </c:if>
-            </ul>
-         </div>
-      </div>
+		<div class="pageInfo_wrap">
+			<div class="pageInfo_area">
+				<ul id="pageInfo" class="pageInfo">
+					<c:if test="${pageMaker.prev}">
+						<li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+					</c:if>
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+					</c:forEach>
+					<c:if test="${pageMaker.next}">
+						<li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>  
+				</ul>
+			</div>
+		</div>
       <form id="goodsListForm" method="get" action="/page/goodsList.do">
          <input type="hidden" name="pageNumCri" id="pageNum"
             value="${pageMaker.cri.pageNum}"> <input type="hidden"
@@ -81,6 +85,7 @@
 
 <!-- 수정 form -->
       <form action="/page/goodsList/update.do" method="post" class="goods_update_form">
+         <input type="hidden" name="goodsCategory" class="update_goodsCategory">
          <input type="hidden" name="goodsId" class="update_goodsId"> 
          <input type="hidden" name="goodsName" class="update_goodsName">
          <input type="hidden" name="goodsStock" class="update_goodsStock">

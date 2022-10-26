@@ -83,7 +83,8 @@ if (login != null)
 
 			<!-- 상품상세 -->
 			<div class="goods_detail">
-				<textarea name="goodsDetail" id="editor"></textarea>
+				<textarea id="editor"></textarea>
+				<input type="hidden" name="goodsDetail" class="goodsDetail_value">
 			</div>
 				<input type="hidden" name="sellerName" value="<%if (login != null) {%><%=login.getSellerName()%><%} else {%><%}%>">
 				<input type="hidden" name="id" value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
@@ -108,9 +109,25 @@ if (login != null)
 		    .create( document.querySelector( '#editor' ), {
 		        toolbar: [ 'bold', 'italic', 'link', 'undo', 'redo', 'numberedList', 'bulletedList' ]
 		    } )
+		    .then( editor => {
+            console.log( 'Editor was initialized', editor );
+            myEditor = editor;
+        	} )
 		    .catch( error => {
 		        console.log( error );
 		    } );
-</script>
+	</script>
+	<script>
+		$(document).ready(function() {
+		/* p태그 삭제 */  
+		   $('#upload_Btn').on("click", function() {
+			   
+				let detailStr = myEditor.getData();			
+				let modDetailStr = detailStr.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
+
+				$('.goodsDetail_value').val(modDetailStr);				
+		   })
+		});
+	</script>
 </body>
 </html>
