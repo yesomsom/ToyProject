@@ -23,14 +23,7 @@ $(document).ready(function() {
       $(".update_goodsDetail").val(gDetail);
       $(".update_goodsPrice").val(gPrice);
       $(".update_deliveryPrice").val(gDePrice);
-      $(".update_goodsDiscount").val(gDiscount);
-
-	$("select[name=goodsCategory]").change(function(){
-		let selectVal = $(this).val();
-		alert(selectVal);
-		$(".update_goodsCategory").val(selectVal);
-		alert($(".update_goodsCategory").val());
-	});  
+      $(".update_goodsDiscount").val(gDiscount); 
       
       $(".goods_update_form").submit();         
    });
@@ -44,9 +37,7 @@ $(document).ready(function() {
    
 /* option selected 값으로 변경해서 전달 */ 
 	$("select[name=goodsCategory]").change(function(){
-		let selectVal = $(this).val();
-		alert(selectVal);
-		$(".update_goodsCategory").val(selectVal);
-		alert($(".update_goodsCategory").val());
+		let selectVal = $(this).val();		
+		$(".update_goodsCategory").val(selectVal);		
 	});  
 });

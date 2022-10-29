@@ -8,7 +8,7 @@ const checkSaveId = document.querySelector('#checkSaveId');
 const register = document.querySelector('.register');
 const main = document.querySelector('.main');
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function(){
     add();
 });
 
@@ -38,7 +38,8 @@ function setData(data) {
 
 // 로그인 버튼 클릭시에 동작하는 함수
 
-loginButton.addEventListener('click', () => {
+
+function resForm(){
     if (id.value.trim() === '') {
        toastr.error('아이디를 입력해 주십시오', '경고', {
             timeOut: 3000,
@@ -52,20 +53,27 @@ loginButton.addEventListener('click', () => {
     } else {
         loginForm.submit();
     }
-});
+};
+
+//엔터키 이벤트
+function enterkey(){
+	if(window.event.keyCode == 13){
+	resForm()
+	}
+}
 
 // 회원가입 창으로 이동
-register.addEventListener('click', () => {
+function regMove(){
     location.href = '/page/register.do';
-});
+};
 
 // 메인 홈페이지로 이동
-main.addEventListener('click', () => {
+function HomeMove(){
     location.href = '/main.do';
-});
+};
 
 // 쿠키 처리 부분
-let userId = $.cookie('userId');
+var userId = $.cookie('userId');
 if (userId != null) {
     // 지정한 쿠키가 있을 때
     // alert("쿠키 있음");
@@ -75,7 +83,7 @@ if (userId != null) {
     checkSaveId.setAttribute('checked', 'checked');
 }
 
-checkSaveId.addEventListener('click', () => {
+function saveId(){
     if (checkSaveId.checked === true) {
         if (id.value.trim() === '') {
             alert('id를 입력해 주십시오');            
@@ -94,4 +102,4 @@ checkSaveId.addEventListener('click', () => {
             path: './',
         });
     }
-});
+};

@@ -147,6 +147,38 @@ background-repeat: repeat-x; */
 	font-size: 10px !important;
 	border: 0;
 }
+.dropdown {
+	display: inline-block;
+}
+
+.dropdown_btn {
+	/* width: 200px; */
+	/* padding: 10px; */
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown_submenu {
+	width: 200px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+	display: none;
+	position: absolute;
+}
+
+.dropdown_submenu a {
+	display: block;
+	padding: 7px;
+	text-align: center;
+}
+
+.dropdown_submenu a hover {
+	background-color: #eee;
+}
+
+.dropdown:hover .dropdown_submenu {
+	display: block;
+}
 
 ::-webkit-scrollbar {
 	width: 0;
