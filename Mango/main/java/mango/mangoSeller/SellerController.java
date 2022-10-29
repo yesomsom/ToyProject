@@ -246,13 +246,11 @@ public class SellerController {
 	}
 
 	// 매출내역 페이지
-	@RequestMapping(value = "/salesDetails", method = RequestMethod.GET, produces = "text/plain;charset=utf-8")	
+	@RequestMapping(value = "/salesDetails")	
 	public String countOders(ModelMap model, Criteria cri, OrdersVO oVO, HttpSession session) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
+		
 		oVO.setId(login.getId());
-		System.out.println(login.getSellerName());
-		List<OrdersVO> count = OrderService.countOders(oVO);
-		model.addAttribute("countOders",oVO);
 		
 		return "/seller/page/salesDetails";
 	}

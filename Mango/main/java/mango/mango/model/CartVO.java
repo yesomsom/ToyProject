@@ -6,95 +6,104 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartVO {
-   private int cartId;
-   private String goodsId;
-   private int goodsPrice;
-   private String id;
-   private int goodsQty;
-   private int deliveryPrice;
-   private String sellerName;
-   private String goodsImg;
-   private String goodsName;
-   private String orderYN;
+	private String cartId;
+	private String goodsId;
+	private int goodsPrice;
+	private String id;
+	private int goodsQty;
+	private int deliveryPrice;
+	private String sellerName;
+	private String goodsImg;
+	private String goodsName;
+	private String goodsCategory;
+	private String realPath;
 
-   public int getCartId() {
-      return cartId;
-   }
+	public String getRealPath() {
+		return realPath;
+	}
 
-   public void setCartId(int cartId) {
-      this.cartId = cartId;
-   }
+	public void setRealPath(String realPath) {
+		this.realPath = realPath;
+	}
 
-   public String getGoodsId() {
-      return goodsId;
-   }
+	public String getGoodsCategory() {
+		return goodsCategory;
+	}
 
-   public void setGoodsId(String goodsId) {
-      this.goodsId = goodsId;
-   }
+	public void setGoodsCategory(String goodsCategory) {
+		this.goodsCategory = goodsCategory;
+	}
 
-   public int getGoodsPrice() {
-      return goodsPrice;
-   }
+	public String getCartId() {
+		return cartId;
+	}
 
-   public void setGoodsPrice(int goodsPrice) {
-      this.goodsPrice = goodsPrice;
-   }
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
+	}
 
-   public String getId() {
-      return id;
-   }
+	public String getGoodsId() {
+		return goodsId;
+	}
 
-   public void setId(String id) {
-      this.id = id;
-   }
+	public void setGoodsId(String goodsId) {
+		this.goodsId = goodsId;
+	}
 
-   public int getGoodsQty() {
-      return goodsQty;
-   }
+	public int getGoodsPrice() {
+		return goodsPrice;
+	}
 
-   public void setGoodsQty(int goodsQty) {
-      this.goodsQty = goodsQty;
-   }
+	public void setGoodsPrice(int goodsPrice) {
+		this.goodsPrice = goodsPrice;
+	}
 
-   public int getDeliveryPrice() {
-      return deliveryPrice;
-   }
+	public String getId() {
+		return id;
+	}
 
-   public void setDeliveryPrice(int deliveryPrice) {
-      this.deliveryPrice = deliveryPrice;
-   }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-   public String getSellerName() {
-      return sellerName;
-   }
+	public int getGoodsQty() {
+		return goodsQty;
+	}
 
-   public void setSellerName(String sellerName) {
-      this.sellerName = sellerName;
-   }
+	public void setGoodsQty(int goodsQty) {
+		this.goodsQty = goodsQty;
+	}
 
-   public String getGoodsImg() {
-      return goodsImg;
-   }
+	public int getDeliveryPrice() {
+		return deliveryPrice;
+	}
 
-   public void setGoodsImg(String goodsImg) {
-      this.goodsImg = goodsImg;
-   }
+	public void setDeliveryPrice(int deliveryPrice) {
+		this.deliveryPrice = deliveryPrice;
+	}
 
-   public String getGoodsName() {
-      return goodsName;
-   }
+	public String getSellerName() {
+		return sellerName;
+	}
 
-   public void setGoodsName(String goodsName) {
-      this.goodsName = goodsName;
-   }
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
 
-   public String getOrderYN() {
-      return orderYN;
-   }
-   
-   public void setOrderYN(String orderYN) {
-      this.orderYN = orderYN;
-   }
+	public String getGoodsImg() {
+		return goodsImg;
+	}
+
+	public void setGoodsImg(String goodsImg) {
+		this.goodsImg = goodsImg;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
 
 }

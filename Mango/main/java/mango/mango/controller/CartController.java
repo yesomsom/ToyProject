@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import mango.common.EgovWebUtil;
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
 import mango.mango.model.CartVO;
@@ -38,6 +39,10 @@ public class CartController {
 
    @RequestMapping(value = "/cart/insert")
    public String insertCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+		EgovWebUtil uuid = new EgovWebUtil();
+		String UUID = uuid.getUUID();
+		cVO.setCartId(UUID);
+	  
       cartService.insertCart(cVO);
       List<CartVO> cartList = cartService.selectAllCartList(cVO);
       model.addAttribute("cartList", cartList);
@@ -54,17 +59,10 @@ public class CartController {
       return "redirect:/page/cart.do";
    }
    
-   @RequestMapping(value = "/cart/updateYN")
-   public String updateCartYN(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
-      cartService.modifyYN(cVO);
-
-      List<CartVO> cartList = cartService.selectAllCartList(cVO);
-      model.addAttribute("cartList", cartList);
-      return "redirect:/page/cart.do";
-   }
-
+  
    @RequestMapping(value = "/cart/delete")
    public String deletCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+	   
       cartService.deleteCart(cVO.getCartId());
 
       return "redirect:/page/cart.do";

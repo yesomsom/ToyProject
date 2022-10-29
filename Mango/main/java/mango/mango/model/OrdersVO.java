@@ -6,18 +6,88 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OrdersVO {
-	private int ordersId;
+	private String ordersId;
 	private String id;
-	private String goodsAllName;
 	private String name;
 	private String receiverName;
 	private String receiverPhone;
 	private int receiverZipno;
 	private String receiverAddress;
-	private String payment;
 	private String creDate;
 	private String sellerName;
-	private int totalPrice;
+	private String totalPrice;
+	private int deliveryPrice;
+	private int goodsPrice;
+	private String goodsName;
+	private int goodsStock;
+	private String realPath;
+	private String goodsCategory;
+	private String goodsId;
+	private String cartId;
+
+	public String getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
+	}
+
+	public int getDeliveryPrice() {
+		return deliveryPrice;
+	}
+
+	public void setDeliveryPrice(int deliveryPrice) {
+		this.deliveryPrice = deliveryPrice;
+	}
+
+	public int getGoodsPrice() {
+		return goodsPrice;
+	}
+
+	public void setGoodsPrice(int goodsPrice) {
+		this.goodsPrice = goodsPrice;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public int getGoodsStock() {
+		return goodsStock;
+	}
+
+	public void setGoodsStock(int goodsStock) {
+		this.goodsStock = goodsStock;
+	}
+
+	public String getRealPath() {
+		return realPath;
+	}
+
+	public void setRealPath(String realPath) {
+		this.realPath = realPath;
+	}
+
+	public String getGoodsCategory() {
+		return goodsCategory;
+	}
+
+	public void setGoodsCategory(String goodsCategory) {
+		this.goodsCategory = goodsCategory;
+	}
+
+	public String getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(String goodsId) {
+		this.goodsId = goodsId;
+	}
 
 	public String getSellerName() {
 		return sellerName;
@@ -27,11 +97,11 @@ public class OrdersVO {
 		this.sellerName = sellerName;
 	}
 
-	public int getOrdersId() {
+	public String getOrdersId() {
 		return ordersId;
 	}
 
-	public void setOrdersId(int ordersId) {
+	public void setOrdersId(String ordersId) {
 		this.ordersId = ordersId;
 	}
 
@@ -41,14 +111,6 @@ public class OrdersVO {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getGoodsAllName() {
-		return goodsAllName;
-	}
-
-	public void setGoodsAllName(String goodsAllName) {
-		this.goodsAllName = goodsAllName;
 	}
 
 	public String getName() {
@@ -91,14 +153,6 @@ public class OrdersVO {
 		this.receiverAddress = receiverAddress;
 	}
 
-	public String getPayment() {
-		return payment;
-	}
-
-	public void setPayment(String payment) {
-		this.payment = payment;
-	}
-
 	public String getCreDate() {
 		return creDate;
 	}
@@ -107,11 +161,11 @@ public class OrdersVO {
 		this.creDate = creDate;
 	}
 
-	public int getTotalPrice() {
+	public String getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

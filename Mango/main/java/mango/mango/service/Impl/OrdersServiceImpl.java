@@ -36,8 +36,4 @@ public class OrdersServiceImpl extends EgovAbstractServiceImpl implements Orders
       return ordersDAO.modifyOrders(oVO);
    }
    
-   @Override
-   public List<OrdersVO> countOders(OrdersVO oVO) throws Exception {
-      return ordersDAO.countOders(oVO);
-   }
-}
+ }

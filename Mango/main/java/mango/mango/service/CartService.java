@@ -7,7 +7,7 @@ import mango.mango.model.CartVO;
 public interface CartService {
    List<CartVO> selectAllCartList(CartVO cVO) throws Exception;
    void insertCart(CartVO cVO) throws Exception;
-   int modifyCount(CartVO cVO) throws Exception;
-   int modifyYN(CartVO cVO) throws Exception;
-   int deleteCart(int cartId) throws Exception;
+   void modifyCount(CartVO cVO) throws Exception;   
+   void deleteCart(String cartId) throws Exception;
+   public String getCartId(String cartId) throws Exception;
 }
