@@ -48,15 +48,8 @@
 
 	<insert id="insertGoods" parameterType="GoodsVO">
 		insert into goods
-		(goods_id, goods_category, goods_name, seller_name,
-		goods_state,
-		goods_detail, goods_price, goods_stock, delivery_price,
-		goods_discount, regdate, id)
-		values (#{goodsId}, #{goodsCategory},
-		#{goodsName}, #{sellerName}, "승인대기",
-		#{goodsDetail}, #{goodsPrice},
-		#{goodsStock}, #{deliveryPrice},
-		#{goodsDiscount}, SYSDATE(6), #{id})
+		(goods_id, goods_category, goods_name, seller_name,	goods_detail, goods_price, goods_stock, delivery_price,	goods_discount, regdate, id)
+		values (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, SYSDATE(6), #{id})
 	</insert>
 
 	<!-- seller별 goodsList 출력 -->

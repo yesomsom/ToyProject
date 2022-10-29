@@ -9,35 +9,34 @@
       <result property="goodsPrice" column="goods_price" />
       <result property="id" column="id" />
       <result property="goodsQty" column="goods_qty" />
+      <result property="goodsCategory" column="goods_category" />
       <result property="deliveryPrice" column="delivery_price" />
-      <result property="sellerName" column="seller_name" />
-      <result property="goodsImg" column="goods_img" />
-      <result property="goodsName" column="goods_name" />
-      <result property="orderYN" column="orderYN" />
+      <result property="sellerName" column="seller_name" />      
+      <result property="goodsName" column="goods_name" />      
    </resultMap>
 
-   <select id="selectAllCartList" resultMap="cartList"
-      parameterType="CartVO">
-      select * from cart WHERE id = #{id} AND orderYN = "N" ORDER BY cart_id DESC;
+   <select id="selectAllCartList" resultMap="cartList" parameterType="CartVO">         
+      	SELECT A.*, B.realpath
+		FROM cart A, goodsfile B
+		WHERE A.goods_id = B.goods_id
+		AND A.id = #{id}
+		ORDER BY A.cart_id DESC;
+		
    </select>
-
+	
+	<select id="getCartId" resultType="String" parameterType="String">
+		select * from cart where cart_id = #{cartId}
+	</select>
+	
    <insert id="insertCart" parameterType="CartVO">
-      insert into cart(cart_id, goods_id, goods_price, id, goods_qty,
-      delivery_price, seller_name, goods_img,
-      goods_name, orderYN)
-      values(#{cartId}, #{goodsId}, #{goodsPrice},
-      #{id}, #{goodsQty}, #{deliveryPrice}, #{sellerName}, #{goodsImg},
-      #{goodsName},"N")
+      insert into cart(cart_id, goods_id, goods_price, id, goods_qty, goods_category, delivery_price, seller_name, goods_name)
+      values(#{cartId}, #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{goodsCategory}, #{deliveryPrice}, #{sellerName}, #{goodsName})
    </insert>
 
    <update id="modifyCount" parameterType="CartVO">
-      UPDATE cart SET goods_qty = #{goodsQty} WHERE cart_id = #{cartId};
+      update cart set goods_qty = #{goodsQty} where cart_id = #{cartId};
    </update>
    
-   <update id="modifyYN" parameterType="CartVO">
-      UPDATE cart SET orderYN = #{orderYN} WHERE cart_id = #{cartId};
-   </update>
-
    <delete id="deleteCart" parameterType="CartVO">
       delete from cart where cart_id = #{cartId}
    </delete>
