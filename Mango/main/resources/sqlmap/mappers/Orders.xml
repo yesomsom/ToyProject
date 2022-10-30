@@ -14,10 +14,11 @@
 		<result property="receiverAddress" column="receiver_address" />
 		<result property="creDate" column="creDate" />
 		<result property="totalPrice" column="total_price" />	
+		<result property="cno" column="cno" />
 	</resultMap>
 		
 	<select id="selectAllOrdersList" resultMap="ordersList"	parameterType="OrdersVO">
-		select * from orders WHERE id = #{id} ORDER BY orders_id DESC;
+		select * from orders WHERE id = #{id} ORDER BY cno DESC
 	</select>
 
 	<insert id="insertOrders" parameterType="OrdersVO">

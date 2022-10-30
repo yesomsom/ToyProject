@@ -5,23 +5,23 @@
   
   
 <mapper namespace="ordersPayMapper">
-	<resultMap type="OrdersPayVO" id="ordersPayList">
-		<result property="id" column="id" />
-		<result property="ordersId" column="orders_id" />
-		<result property="ordersPayDate" column="orders_pay_date" />
-		<result property="ordersPayMoney" column="orders_pay_money" />
-	</resultMap> 
-	
-	<insert id="insertOrdersPay" parameterType="OrdersPayVO">
+   <resultMap type="OrdersPayVO" id="ordersPayList">
+      <result property="id" column="id" />
+      <result property="ordersId" column="orders_id" />
+      <result property="ordersPayDate" column="orders_pay_date" />
+      <result property="ordersPayMoney" column="orders_pay_money" />
+   </resultMap> 
+   
+   <insert id="insertOrdersPay" parameterType="OrdersPayVO">
      <![CDATA[
         insert into orderspay(id,orders_id,orders_pay_date,orders_pay_money)
-        values(#{id}, #{ordersId}, SYSDATE(6), #{ordersPayMoney})
+        values(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney})
      ]]>
-	</insert>
+   </insert>
   
-	<select id="getOrdersPayData" resultType="OrdersPayVO">
-		SELECT id, ordersId, ordersPayDate, ordersPayMoney FROM orderspay WHERE ID = #{id}
-	</select>
+   <select id="getOrdersPayData" resultType="OrdersPayVO">
+      SELECT id, ordersId, ordersPayDate, ordersPayMoney FROM orderspay WHERE ID = #{id}
+   </select>
  
  
 </mapper>
