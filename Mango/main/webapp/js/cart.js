@@ -25,7 +25,8 @@
       $(".delete_cartId").val(cartId);
       $(".quantity_delete_form").submit();
    });
-/* 장바구니 다중 선택 삭제 버튼 - 미완 */
+   
+/* 장바구니 다중 선택 삭제 버튼 - 미완 
    $(".delete_btn").on("click", function(){
       var delArr = new Array();
       $(".chk:checked").each(function(){
@@ -39,6 +40,7 @@
          $(".check_delete_form").submit();
 
    });
+   */
 
 /* 전체 체크박스 설정 및 해제 */
    $(".chk_all").click(function() {
