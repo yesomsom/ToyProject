@@ -35,9 +35,10 @@ CREATE TABLE IF NOT EXISTS `ask` (
   PRIMARY KEY (`ask_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.ask:~30 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.ask:~32 rows (대략적) 내보내기
+DELETE FROM `ask`;
 /*!40000 ALTER TABLE `ask` DISABLE KEYS */;
-INSERT IGNORE INTO `ask` (`ask_id`, `id`, `ask_name`, `ask_email`, `ask_phone`, `ask_type`, `ask_typeDetail`, `ask_cat`, `ask_catDetail`, `ask_subject`, `ask_content`, `ask_status`, `ask_date`) VALUES
+INSERT INTO `ask` (`ask_id`, `id`, `ask_name`, `ask_email`, `ask_phone`, `ask_type`, `ask_typeDetail`, `ask_cat`, `ask_catDetail`, `ask_subject`, `ask_content`, `ask_status`, `ask_date`) VALUES
 	(43, 'son1', '111', 'asd@314', '1111111', 0, 22, '100', '2', '123', '123', 0, '2022-10-19 12:04:45'),
 	(44, 'son1', '111', 'asd@314', '1111111', 0, 22, '100', '2', '123', '123', 0, '2022-10-19 12:05:14'),
 	(45, 'son1', '111', '34534534@431', '1111111', 0, 22, '300', '1', '문의드립니다', '문의요', 0, '2022-10-19 12:05:34'),
@@ -88,8 +89,9 @@ CREATE TABLE IF NOT EXISTS `board` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.board:~2 rows (대략적) 내보내기
+DELETE FROM `board`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT IGNORE INTO `board` (`board_id`, `board_type`, `title`, `contents`, `writer`, `writer_id`, `num`, `notice`, `secret`, `reg_date`) VALUES
+INSERT INTO `board` (`board_id`, `board_type`, `title`, `contents`, `writer`, `writer_id`, `num`, `notice`, `secret`, `reg_date`) VALUES
 	('b2b4526ccc784f03a3fde81291cf7dd4', NULL, '123', '123', '123', NULL, NULL, NULL, NULL, '2022-10-21 12:49:59'),
 	('e4e7501ea4c34596b560e11726a94c60', NULL, '123', '123', '123', NULL, NULL, NULL, NULL, '2022-10-21 12:50:20');
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
@@ -111,11 +113,9 @@ CREATE TABLE IF NOT EXISTS `cart` (
   KEY `goods_id` (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.cart:~2 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.cart:~3 rows (대략적) 내보내기
+DELETE FROM `cart`;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT IGNORE INTO `cart` (`cart_id`, `goods_id`, `goods_price`, `goods_category`, `id`, `goods_qty`, `delivery_price`, `seller_name`, `goods_name`, `cart_date`) VALUES
-	('63b9d8e43d1946eb9b2f7232e0257053', '40d1c297e68f4fda985edd6bcfcb347b', 213, '기타', 'son1', 1, 123, 'mango', '234', '2022-10-28'),
-	('6dc41b57763b4c3693eb6018fc60f855', '3874013fe1d84a6b86a3809b03f01380', 333, '피규어', 'son1', 5, 33, 'mango', '333', '2022-10-28');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 
 -- 테이블 mangodb.crawling 구조 내보내기
@@ -127,30 +127,31 @@ CREATE TABLE IF NOT EXISTS `crawling` (
   `movie_rate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_openDate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=36842 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37431 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.crawling:~19 rows (대략적) 내보내기
+DELETE FROM `crawling`;
 /*!40000 ALTER TABLE `crawling` DISABLE KEYS */;
-INSERT IGNORE INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
-	(36823, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86271/86271_320.jpg', '리멤버', '20.2%', '2022.10.26 개봉'),
-	(36824, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86216/86216_320.jpg', '자백', '12.9%', '2022.10.26 개봉'),
-	(36825, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '10.3%', '2022.10.19 개봉'),
-	(36826, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '8.6%', '2022.10.12 개봉'),
-	(36827, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86008/86008_320.jpg', '명탐정 코난-할로윈의 신부', '4.5%', '2022.10.28 재개봉'),
-	(36828, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '2.6%', '2022.09.28 개봉'),
-	(36829, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '2.5%', '2022.10.19 개봉'),
-	(36830, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '2.5%', '2022.09.28 개봉'),
-	(36831, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '2.0%', '2022.09.07 개봉'),
-	(36832, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86304/86304_320.jpg', '스타게이저: 아스트로스코프', '2.0%', '2022.10.27 개봉'),
-	(36833, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86337/86337_320.jpg', '낮에는 덥고 밤에는 춥고', '1.5%', '2022.10.27 개봉'),
-	(36834, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '0.7%', '2022.10.22 재개봉'),
-	(36835, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.6%', '2022.10.19 개봉'),
-	(36836, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86158/86158_320.jpg', '아인보-아마존의 전설', '0.6%', '2022.10.26 개봉'),
-	(36837, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86201/86201_320.jpg', '극장판 5등분의 신부', '0.5%', '2022.09.22 개봉'),
-	(36838, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79313/79313_320.jpg', '너의 이름은.', '0.5%', '2022.10.28 재개봉'),
-	(36839, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86333/86333_320.jpg', '에반게리온 신극장판-Q', '0.4%', '2022.10.14 개봉'),
-	(36840, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86332/86332_320.jpg', '에반게리온 신극장판-파', '0.4%', '2022.10.14 개봉'),
-	(36841, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86142/86142_320.jpg', '[씨네뮤지엄] 빈센트 반 고흐, 세상에서 가장 빛나는 별', '0.3%', '2022.10.27 개봉');
+INSERT INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
+	(37412, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86216/86216_320.jpg', '자백', '12.3%', '2022.10.26 개봉'),
+	(37413, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86271/86271_320.jpg', '리멤버', '11.0%', '2022.10.26 개봉'),
+	(37414, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '7.6%', '2022.10.12 개봉'),
+	(37415, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '6.5%', '2022.10.19 개봉'),
+	(37416, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '2.7%', '2022.10.19 개봉'),
+	(37417, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '2.3%', '2022.09.28 개봉'),
+	(37418, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '1.9%', '2022.09.07 개봉'),
+	(37419, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86337/86337_320.jpg', '낮에는 덥고 밤에는 춥고', '1.4%', '2022.10.27 개봉'),
+	(37420, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86008/86008_320.jpg', '명탐정 코난-할로윈의 신부', '1.4%', '2022.10.28 재개봉'),
+	(37421, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86304/86304_320.jpg', '스타게이저: 아스트로스코프', '0.9%', '2022.10.27 개봉'),
+	(37422, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '0.9%', '2022.09.28 개봉'),
+	(37423, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '0.8%', '2022.10.22 재개봉'),
+	(37424, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.5%', '2022.10.19 개봉'),
+	(37425, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.5%', '2022.10.13 개봉'),
+	(37426, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86305/86305_320.jpg', '녹색 광선', '0.4%', '2022.10.13 개봉'),
+	(37427, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.3%', '2022.10.22 재개봉'),
+	(37428, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.3%', '2022.10.22 재개봉'),
+	(37429, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86310/86310_320.jpg', '겨울 이야기', '0.3%', '2022.10.13 개봉'),
+	(37430, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86294/86294_320.jpg', '극장판 이세계 콰르텟-어나더 월드', '0.3%', '2022.10.13 개봉');
 /*!40000 ALTER TABLE `crawling` ENABLE KEYS */;
 
 -- 테이블 mangodb.goods 구조 내보내기
@@ -171,7 +172,8 @@ CREATE TABLE IF NOT EXISTS `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goods:~0 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goods:~1 rows (대략적) 내보내기
+DELETE FROM `goods`;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 
@@ -186,81 +188,9 @@ CREATE TABLE IF NOT EXISTS `goodsfile` (
   `filesize` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goodsfile:~72 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goodsfile:~73 rows (대략적) 내보내기
+DELETE FROM `goodsfile`;
 /*!40000 ALTER TABLE `goodsfile` DISABLE KEYS */;
-INSERT IGNORE INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `realpath`, `regdate`, `filesize`) VALUES
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'background.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_background.jpg', '2022-10-25 03:52:46.134917', 70978),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'barcode.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_barcode.png', '2022-10-25 03:52:46.137238', 3740),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'bgg.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_bgg.jpg', '2022-10-25 03:52:46.138855', 52716),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'bg-registration-form-1.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_bg-registration-form-1.jpg', '2022-10-25 03:52:46.140506', 118120),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'cgv.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_cgv.png', '2022-10-25 03:52:46.142753', 3851),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'cgvLogo.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_cgvLogo.png', '2022-10-25 03:52:46.144758', 67079),
-	('son1', '20b76201d31049cf998bb5d58a8c2393', 'delete_icon1.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-03-52-46-125_delete_icon1.png', '2022-10-25 03:52:46.146559', 26512),
-	('son1', '57b819e4c9cb46deab19ba02846f0b7c', 'background.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-04-31-00-394_background.jpg', '2022-10-25 04:31:00.402764', 70978),
-	('son1', '57b819e4c9cb46deab19ba02846f0b7c', 'barcode.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-04-31-00-394_barcode.png', '2022-10-25 04:31:00.405276', 3740),
-	('son1', '57b819e4c9cb46deab19ba02846f0b7c', 'bgg.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-04-31-00-394_bgg.jpg', '2022-10-25 04:31:00.407351', 52716),
-	('son1', '5052149143924849b377fbdb6dda4c3a', 'movie_icon1.png', '.png', 'http://localhost:8080/img/goodsImg/망고/22-10-04-31-45-869_movie_icon1.png', '2022-10-25 04:31:45.870229', 3881),
-	('son1', '0ecfb945ad1349d796af8f4d324ef787', 'bg-registration-form-1.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-04-32-06-396_bg-registration-form-1.jpg', '2022-10-25 04:32:06.397228', 118120),
-	('son1', '4081c0e6a35b4360ad01b0b358f18a83', 'bgg.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/망고/22-10-04-32-55-444_bgg.jpg', '2022-10-25 04:32:55.445080', 52716),
-	('son2', 'a47292abd033444f8c26fc8b0fe784fc', '마블토르피규어1.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-30-48-149_마블토르피규어1.png', '2022-10-25 09:30:48.152846', 314775),
-	('son2', 'a47292abd033444f8c26fc8b0fe784fc', '마블토르피규어2.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-30-48-149_마블토르피규어2.png', '2022-10-25 09:30:48.154482', 235179),
-	('son2', 'a47292abd033444f8c26fc8b0fe784fc', '마블토르피규어3.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-30-48-149_마블토르피규어3.png', '2022-10-25 09:30:48.155880', 134640),
-	('son2', 'a47292abd033444f8c26fc8b0fe784fc', '마블토르피규어4.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-30-48-149_마블토르피규어4.png', '2022-10-25 09:30:48.157758', 171635),
-	('son2', '1ecace20ae54421c8848a6422f286672', '마블토르피규어1.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-35-39-527_마블토르피규어1.png', '2022-10-25 09:35:39.528213', 314775),
-	('son2', '1ecace20ae54421c8848a6422f286672', '마블토르피규어2.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-35-39-527_마블토르피규어2.png', '2022-10-25 09:35:39.529638', 235179),
-	('son2', '1ecace20ae54421c8848a6422f286672', '마블토르피규어3.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-35-39-527_마블토르피규어3.png', '2022-10-25 09:35:39.530916', 134640),
-	('son2', '1ecace20ae54421c8848a6422f286672', '마블토르피규어4.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-35-39-527_마블토르피규어4.png', '2022-10-25 09:35:39.532373', 171635),
-	('son2', '0eaedccb26f342fc8814c193ec6faec3', '해리포터_스니치_1.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-36-23-116_해리포터_스니치_1.png', '2022-10-25 09:36:23.117534', 263719),
-	('son2', '0eaedccb26f342fc8814c193ec6faec3', '해리포터_스니치_2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-36-23-116_해리포터_스니치_2.JPG', '2022-10-25 09:36:23.118920', 59425),
-	('son2', '0eaedccb26f342fc8814c193ec6faec3', '해리포터_스니치_3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-36-23-116_해리포터_스니치_3.JPG', '2022-10-25 09:36:23.120299', 49482),
-	('son2', '0eaedccb26f342fc8814c193ec6faec3', '해리포터_스니치_4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-36-23-116_해리포터_스니치_4.JPG', '2022-10-25 09:36:23.121694', 59313),
-	('son2', '0eaedccb26f342fc8814c193ec6faec3', '해리포터_스니치_5.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-36-23-116_해리포터_스니치_5.JPG', '2022-10-25 09:36:23.123391', 36754),
-	('son2', '26a61224fe9e4426b5529d3c39ea156e', '테드피규어1.png', '.png', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-03-235_테드피규어1.png', '2022-10-25 09:37:03.236721', 239497),
-	('son2', '26a61224fe9e4426b5529d3c39ea156e', '테드피규어2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-03-235_테드피규어2.JPG', '2022-10-25 09:37:03.238081', 82646),
-	('son2', '26a61224fe9e4426b5529d3c39ea156e', '테드피규어3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-03-235_테드피규어3.JPG', '2022-10-25 09:37:03.240504', 90026),
-	('son2', '26a61224fe9e4426b5529d3c39ea156e', '테드피규어4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-03-235_테드피규어4.JPG', '2022-10-25 09:37:03.242122', 79775),
-	('son2', '26a61224fe9e4426b5529d3c39ea156e', '테드피규어5.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-03-235_테드피규어5.JPG', '2022-10-25 09:37:03.243651', 69085),
-	('son2', 'c0bad1af934f4e42846bee3d15de1142', '겨울왕국울라프1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-52-875_겨울왕국울라프1.JPG', '2022-10-25 09:37:52.876325', 82498),
-	('son2', 'c0bad1af934f4e42846bee3d15de1142', '겨울왕국울라프2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-37-52-875_겨울왕국울라프2.JPG', '2022-10-25 09:37:52.877648', 66996),
-	('son2', 'f5cbf51323ab4a70af2c1a00d8e5868e', '디즈니공주인형1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-38-16-302_디즈니공주인형1.JPG', '2022-10-25 09:38:16.303080', 54493),
-	('son2', 'f5cbf51323ab4a70af2c1a00d8e5868e', '디즈니공주인형2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-38-16-302_디즈니공주인형2.JPG', '2022-10-25 09:38:16.304657', 35974),
-	('son2', 'f5cbf51323ab4a70af2c1a00d8e5868e', '디즈니공주인형3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-38-16-302_디즈니공주인형3.JPG', '2022-10-25 09:38:16.306179', 57771),
-	('son2', '0110b5094c2e497eb0e017f693ad7cc6', '라푼젤인형1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-02-242_라푼젤인형1.JPG', '2022-10-25 09:39:02.243956', 40604),
-	('son2', '0110b5094c2e497eb0e017f693ad7cc6', '라푼젤인형2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-02-242_라푼젤인형2.JPG', '2022-10-25 09:39:02.245652', 39279),
-	('son2', '0110b5094c2e497eb0e017f693ad7cc6', '라푼젤인형3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-02-242_라푼젤인형3.JPG', '2022-10-25 09:39:02.247495', 28724),
-	('son2', 'ed99bad76d5f4b429720f4531ed0425f', '에나벨인형1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형1.JPG', '2022-10-25 09:39:34.381181', 60687),
-	('son2', 'ed99bad76d5f4b429720f4531ed0425f', '에나벨인형2.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형2.JPG', '2022-10-25 09:39:34.382484', 56923),
-	('son2', 'ed99bad76d5f4b429720f4531ed0425f', '에나벨인형3.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형3.JPG', '2022-10-25 09:39:34.384207', 53115),
-	('son2', 'ed99bad76d5f4b429720f4531ed0425f', '에나벨인형4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형4.JPG', '2022-10-25 09:39:34.386223', 65616),
-	('son2', 'd', '에나벨인형4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형4.JPG', '2022-10-25 09:39:34.386223', 65616),
-	('son2', 'e', '에나벨인형4.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-09-39-34-380_에나벨인형4.JPG', '2022-10-25 09:39:34.386223', 65616),
-	('son1', '9380c924d38743ea971718be27d09bd1', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-14-40-47-131_KakaoTalk.png', '2022-10-27 14:40:47.136419', 2307),
-	('son1', '40d1c297e68f4fda985edd6bcfcb347b', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-16-11-03-477_KakaoTalk.png', '2022-10-27 16:11:03.480959', 2307),
-	('son1', '3874013fe1d84a6b86a3809b03f01380', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-09-27-12-510_KakaoTalk.png', '2022-10-28 09:27:12.517084', 2307),
-	('son1', 'e54565aff30049528d39ff2f7aedfbe6', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-23-49-947_KakaoTalk.png', '2022-10-28 18:23:49.950088', 2307),
-	('son1', '9bf4bdc0ae9a4d3e8126b5fa8ca8d91b', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-35-35-307_KakaoTalk.png', '2022-10-28 18:35:35.307827', 2307),
-	('son1', 'ec9add9fb304499c9431659692218548', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-36-03-576_KakaoTalk.png', '2022-10-28 18:36:03.577217', 2307),
-	('son1', '9ab0e6fe0fc04484bc4bda48be0a53dd', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-36-36-333_KakaoTalk.png', '2022-10-28 18:36:36.333808', 2307),
-	('son1', '7af33359f83944b089e9c630598a11c3', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-41-39-913_KakaoTalk.png', '2022-10-28 18:41:39.914339', 2307),
-	('son1', 'dc874f69d162475e81fdd52f920fec48', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-41-57-113_KakaoTalk.png', '2022-10-28 18:41:57.114391', 2307),
-	('son1', 'b2052bcc8b444b829475ee29a2decf56', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-42-55-593_KakaoTalk.png', '2022-10-28 18:42:55.595178', 2307),
-	('son1', '6438ff9fe95c47f596df2e37c2ccedbb', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-43-14-698_KakaoTalk.png', '2022-10-28 18:43:14.699034', 2307),
-	('son1', '1ff8d44db16f4130ad315cea32774621', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-44-10-498_KakaoTalk.png', '2022-10-28 18:44:10.498898', 2307),
-	('son1', 'cdd3038c2e7c4ee7bda8bb7ae280704b', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-45-27-873_KakaoTalk.png', '2022-10-28 18:45:27.874341', 2307),
-	('son1', 'c1202145908e4c8bb1b47df4d7904770', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-46-18-474_KakaoTalk.png', '2022-10-28 18:46:18.475305', 2307),
-	('son1', 'd25e42d0538a45fc860b861da5abadb9', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-46-58-539_KakaoTalk.png', '2022-10-28 18:46:58.540037', 2307),
-	('son1', '15dc52ed1f824181bba203ad876d0887', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-18-47-59-331_KakaoTalk.png', '2022-10-28 18:47:59.332401', 2307),
-	('son1', '748fadb481cb4d6283f9242a539be6f4', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-03-35-707_KakaoTalk.png', '2022-10-28 19:03:35.711162', 2307),
-	('son1', '2a791ca61c9345229e28c15c41fefed7', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-10-59-161_KakaoTalk.png', '2022-10-28 19:10:59.163233', 2307),
-	('son1', '339af1bb7e0d45059180b6f4c734136e', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-12-30-106_KakaoTalk.png', '2022-10-28 19:12:30.107661', 2307),
-	('son1', '5df492cbdfc64ffd82173fdae67f4a91', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-13-13-251_KakaoTalk.png', '2022-10-28 19:13:13.252055', 2307),
-	('son1', '35849050515d4a34b3c3d8752139d82a', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-14-37-60_KakaoTalk.png', '2022-10-28 19:14:37.061060', 2307),
-	('son1', 'f297624be501436282e2e8932ac218b9', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-15-53-681_KakaoTalk.png', '2022-10-28 19:15:53.682475', 2307),
-	('son1', 'c5a97bc80f7e45929cf88f562300d6f0', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-16-24-180_KakaoTalk.png', '2022-10-28 19:16:24.181486', 2307),
-	('son1', '463b83a75c2c4725be0b81902793938e', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-18-16-952_KakaoTalk.png', '2022-10-28 19:18:16.954339', 2307),
-	('son1', 'f2c1e76275e440289107b693e19b564f', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-20-20-08_KakaoTalk.png', '2022-10-28 19:20:20.009539', 2307),
-	('son1', '441a7d9ac8384c78bae4f0b226e17360', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-22-27-561_KakaoTalk.png', '2022-10-28 19:22:27.664434', 2307),
-	('son1', '87acb0bf617f47a784670851fac19096', 'KakaoTalk.png', '.png', 'http://localhost:8080/img/goodsImg/mango/22-10-19-23-58-362_KakaoTalk.png', '2022-10-28 19:23:58.362985', 2307);
 /*!40000 ALTER TABLE `goodsfile` ENABLE KEYS */;
 
 -- 테이블 mangodb.member 구조 내보내기
@@ -283,8 +213,9 @@ CREATE TABLE IF NOT EXISTS `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.member:~6 rows (대략적) 내보내기
+DELETE FROM `member`;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT IGNORE INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `address`, `zipno`, `registerdate`, `unregisterdate`, `ownername`, `businessnumber`, `sellername`, `logoimg`) VALUES
+INSERT INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `address`, `zipno`, `registerdate`, `unregisterdate`, `ownername`, `businessnumber`, `sellername`, `logoimg`) VALUES
 	('123asdf', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 23(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', 'ggg', 'c:\\upload\\logoImg\\ggg\\22-10-02-30-09-22_fullHeart.png'),
 	('123asdf2', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', '망고', 'http://localhost:8080/img/logoImg/망고/22-10-02-32-58-642_fullHeart.png'),
 	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
@@ -306,8 +237,9 @@ CREATE TABLE IF NOT EXISTS `notice` (
 ) ENGINE=InnoDB AUTO_INCREMENT=219 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.notice:~218 rows (대략적) 내보내기
+DELETE FROM `notice`;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT IGNORE INTO `notice` (`noti_id`, `noti_num`, `id`, `noti_subject`, `noti_content`, `noti_fileName`, `noti_date`) VALUES
+INSERT INTO `notice` (`noti_id`, `noti_num`, `id`, `noti_subject`, `noti_content`, `noti_fileName`, `noti_date`) VALUES
 	(1, 1, '관리자', '영화관람권 가격 변경 안내', '테스트 공지입니다1', NULL, '2022-10-05 00:00:00'),
 	(2, 2, '관리자', '2D 일반 관람권 활용 스페셜관 이용 안내', '테스트 공지입니다2', NULL, '2022-10-05 00:00:00'),
 	(3, 3, '관리자', '	V3 백신 엔진 악성코드 오진 안내', '테스트 공지입니다3', NULL, '2022-10-05 00:00:00'),
@@ -543,22 +475,25 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `receiver_address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '수령인 주소',
   PRIMARY KEY (`cno`),
   KEY `cart_id` (`cart_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.orders:~0 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.orders:~46 rows (대략적) 내보내기
+DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 mangodb.orderspay 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orderspay` (
-  `id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `orders_id` int(11) NOT NULL,
+  `opno` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `orders_pay_date` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `orders_pay_money` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`orders_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `orders_pay_money` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `orders_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`opno`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.orderspay:~0 rows (대략적) 내보내기
+DELETE FROM `orderspay`;
 /*!40000 ALTER TABLE `orderspay` DISABLE KEYS */;
 /*!40000 ALTER TABLE `orderspay` ENABLE KEYS */;
 
@@ -573,10 +508,8 @@ CREATE TABLE IF NOT EXISTS `pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.pay:~0 rows (대략적) 내보내기
+DELETE FROM `pay`;
 /*!40000 ALTER TABLE `pay` DISABLE KEYS */;
-INSERT IGNORE INTO `pay` (`id`, `reserve_seq`, `pay_date`, `pay_money`) VALUES
-	('son3', 2, '2022-10-25', '11000'),
-	('son1', 1, '2022-10-27', '11000');
 /*!40000 ALTER TABLE `pay` ENABLE KEYS */;
 
 -- 테이블 mangodb.qa 구조 내보내기
@@ -592,8 +525,9 @@ CREATE TABLE IF NOT EXISTS `qa` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.qa:~20 rows (대략적) 내보내기
+DELETE FROM `qa`;
 /*!40000 ALTER TABLE `qa` DISABLE KEYS */;
-INSERT IGNORE INTO `qa` (`qa_id`, `qa_num`, `qa_cat`, `qa_subject`, `qa_content`, `qa_fileName`, `qa_date`) VALUES
+INSERT INTO `qa` (`qa_id`, `qa_num`, `qa_cat`, `qa_subject`, `qa_content`, `qa_fileName`, `qa_date`) VALUES
 	(1, 1, '예매', '영화티켓 예매 및 취소는 어떻게 하나요?', '테스트1', NULL, '2022-10-06 10:31:22'),
 	(2, 2, '할인', '2D 일반 관람권 활용 스페셜관 이용 안내', '테스트1', NULL, '2022-10-06 10:29:45'),
 	(3, 3, '스토어', '비회원도 스토어 이용이 가능한가요?', '테스트1', NULL, '2022-10-06 10:30:31'),
@@ -633,10 +567,8 @@ CREATE TABLE IF NOT EXISTS `reserve` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.reserve:~0 rows (대략적) 내보내기
+DELETE FROM `reserve`;
 /*!40000 ALTER TABLE `reserve` DISABLE KEYS */;
-INSERT IGNORE INTO `reserve` (`id`, `reserve_seq`, `title`, `running_time`, `movie_name`, `movie_date`, `reserve_date`, `ticket_number`, `selected_seat`, `selected_theater`) VALUES
-	('son1', 1, '자백', '12:20', '자백', '2022.10.29(토)', '2022-10-27', 1, 'A5', 'CGV 강변점 4관\r\n							6층'),
-	('son3', 2, '에브리씽 에브리웨어 올 앳 원스', '18:20', '에브리씽 에브리웨어 올 앳 원스', '2022.10.27(목)', '2022-10-25', 1, 'A2', '메가박스 강남점 4관\r\n							6층');
 /*!40000 ALTER TABLE `reserve` ENABLE KEYS */;
 
 -- 테이블 mangodb.reserve_seq 구조 내보내기
@@ -652,8 +584,9 @@ CREATE TABLE IF NOT EXISTS `reserve_seq` (
 ) ENGINE=InnoDB SEQUENCE=1;
 
 -- 테이블 데이터 mangodb.reserve_seq:~1 rows (대략적) 내보내기
+DELETE FROM `reserve_seq`;
 /*!40000 ALTER TABLE `reserve_seq` DISABLE KEYS */;
-INSERT IGNORE INTO `reserve_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
+INSERT INTO `reserve_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
 	(1001, 1, 99999999, 1, 1, 1000, 0, 0);
 /*!40000 ALTER TABLE `reserve_seq` ENABLE KEYS */;
 
@@ -673,8 +606,9 @@ CREATE TABLE IF NOT EXISTS `theater` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.theater:~334 rows (대략적) 내보내기
+DELETE FROM `theater`;
 /*!40000 ALTER TABLE `theater` DISABLE KEYS */;
-INSERT IGNORE INTO `theater` (`id`, `poi_nm`, `branch_nm`, `mcate_cd`, `sido_nm`, `sgg_nm`, `bemd_nm`, `beonji`, `x`, `y`) VALUES
+INSERT INTO `theater` (`id`, `poi_nm`, `branch_nm`, `mcate_cd`, `sido_nm`, `sgg_nm`, `bemd_nm`, `beonji`, `x`, `y`) VALUES
 	('KCDMTPO21N000000001', '메가박스', '대전점', '3', '대전광역시', '서구', '탄방동', '746', '127.3879894', '36.34759506'),
 	('KCDMTPO21N000000002', 'CGV', '광주첨단점', '1', '광주광역시', '광산구', '쌍암동', '694-35', '126.8507207', '35.21637788'),
 	('KCDMTPO21N000000003', '롯데시네마', '서귀포점', '2', '제주특별자치도', '서귀포시', '법환동', '914', '126.508319', '33.24588502'),
