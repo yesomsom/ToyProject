@@ -36,7 +36,8 @@ public class OrdersController {
 	private CartService cartService;
 
 	@RequestMapping(value = "/orders")
-	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, CartVO cVO, HttpSession session) throws Exception {
+	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, CartVO cVO, HttpSession session)
+			throws Exception {
 
 		MemberVO login = (MemberVO) session.getAttribute("login");
 
@@ -53,44 +54,69 @@ public class OrdersController {
 		return "/user/page/orders";
 	}
 
-	   @RequestMapping(value = "/orders/insert", method = RequestMethod.POST)
-	   @ResponseBody
-	   public String insertOrders(ModelMap model, Criteria cri, MemberVO mVO, @RequestParam(value = "cartIdList") String cartIdList, @RequestParam(value = "sellerNameList") String sellerNameList, @RequestParam(value = "totalPriceList") String totalPriceList, @RequestParam(value = "memberId",required = false) String memberId, @RequestParam(value = "memberName",required = false) String memberName,  HttpSession session) throws Exception {	
-		   EgovWebUtil uuid = new EgovWebUtil();
-		   String UUID = uuid.getUUID();
-		   
-		   
-		  String[] cartId = cartIdList.split(",");
-		  String[] sellerName = sellerNameList.split(",");
-		  String[] totalPrice= totalPriceList.split(",");
-		  List<OrdersVO> cartList = new ArrayList<OrdersVO>();
-		  
-		  		  
-	      MemberVO login = (MemberVO) session.getAttribute("login");	      
-	      model.addAttribute("type", "orders");
-	      if (login != null) {
-	         mVO.setId(login.getId());
-	         for(int i = 0; i < cartId.length; i++) {
-				  if(!cartId[i].equals("")) {
-					  OrdersVO oVO = new OrdersVO();
-					  oVO.setCartId(cartId[i]);
-					  oVO.setSellerName(sellerName[i]);
-					  oVO.setTotalPrice(totalPrice[i]);
-					  oVO.setId(memberId);
-					  oVO.setName(memberName);				  
-							  
-					  cartList.add(oVO);
-					  oVO.setOrdersId(UUID);
-					  ordersService.insertOrders(oVO);
-				  }
-			  }
-	         
-	      } else {
-	         model.addAttribute("isSuccess", false);
-	         return "/user/page/process";
-	      }
-	      return "success";
-	   }
+	@RequestMapping(value = "/directorders/insert", method = RequestMethod.POST)
+	public String insertDirectOrders(ModelMap model, Criteria cri, MemberVO mVO, OrdersVO oVO, HttpSession session)
+			throws Exception {
+		EgovWebUtil uuid = new EgovWebUtil();
+		String UUID = uuid.getUUID();
+		String UUID2 = uuid.getUUID();
+
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		model.addAttribute("type", "orders");
+		if (login != null) {
+			mVO.setId(login.getId());
+			oVO.setOrdersId(UUID);
+			oVO.setCartId(UUID2);
+			ordersService.insertOrders(oVO);
+		} else {
+			model.addAttribute("isSuccess", false);
+			return "/user/page/process";
+		}
+		return "/user/page/orders";
+	}
+
+	@RequestMapping(value = "/orders/insert", method = RequestMethod.POST)
+	@ResponseBody
+	public String insertOrders(ModelMap model, Criteria cri, MemberVO mVO,
+			@RequestParam(value = "cartIdList") String cartIdList,
+			@RequestParam(value = "sellerNameList") String sellerNameList,
+			@RequestParam(value = "totalPriceList") String totalPriceList,
+			@RequestParam(value = "memberId", required = false) String memberId,
+			@RequestParam(value = "memberName", required = false) String memberName, HttpSession session)
+			throws Exception {
+		EgovWebUtil uuid = new EgovWebUtil();
+		String UUID = uuid.getUUID();
+
+		String[] cartId = cartIdList.split(",");
+		String[] sellerName = sellerNameList.split(",");
+		String[] totalPrice = totalPriceList.split(",");
+		List<OrdersVO> cartList = new ArrayList<OrdersVO>();
+
+		MemberVO login = (MemberVO) session.getAttribute("login");
+		model.addAttribute("type", "orders");
+		if (login != null) {
+			mVO.setId(login.getId());
+			for (int i = 0; i < cartId.length; i++) {
+				if (!cartId[i].equals("")) {
+					OrdersVO oVO = new OrdersVO();
+					oVO.setCartId(cartId[i]);
+					oVO.setSellerName(sellerName[i]);
+					oVO.setTotalPrice(totalPrice[i]);
+					oVO.setId(memberId);
+					oVO.setName(memberName);
+
+					cartList.add(oVO);
+					oVO.setOrdersId(UUID);
+					ordersService.insertOrders(oVO);
+				}
+			}
+
+		} else {
+			model.addAttribute("isSuccess", false);
+			return "/user/page/process";
+		}
+		return "success";
+	}
 
 	@RequestMapping(value = "/orders/update")
 	public String updateOrders(ModelMap model, Criteria cri, OrdersVO oVO) throws Exception {
