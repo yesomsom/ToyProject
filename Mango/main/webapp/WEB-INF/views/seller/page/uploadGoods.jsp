@@ -11,12 +11,15 @@ if (login != null)
 <html>
 <head>
 <link rel="stylesheet" href="${path}/css/uploadGoods.css">
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!--editor-->
-<script
-	src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+<script	src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+
 </head>
 <body>
 	<div class="uploadForm_Container">
@@ -26,8 +29,8 @@ if (login != null)
 			<!-- 카테고리 -->
 			<div class="goods_category form_wrapper">
 				<div class="div_wrapper">카테고리</div>
-				<select name="goodsCategory">
-					<option value="0" selected>카테고리</option>
+				<select name="goodsCategory" id="goodsCategory">
+					<option value="" selected>카테고리</option>
 					<option value="키링">키링</option>
 					<option value="인형">인형</option>
 					<option value="피규어">피규어</option>
@@ -37,46 +40,37 @@ if (login != null)
 			<!-- 상품명 -->
 			<div class="goods_name form_wrapper">
 				<div class="div_wrapper">상품명</div>
-				<input name="goodsName" type="text">
+				<input name="goodsName" type="text" id ="goodsName">
 			</div>
 
 			<!-- 상품가격 -->
 			<div class="goods_price form_wrapper">
 				<div class="div_wrapper">상품 가격</div>
-				<input name="goodsPrice" type="text">
+				<input name="goodsPrice" type="text" id ="goodsPrice">
 			</div>
 
 			<!-- 상품재고 -->
 			<div class="goods_stock form_wrapper">
 				<div class="div_wrapper">상품 재고</div>
-				<input name="goodsStock" type="number">
+				<input name="goodsStock" type="number" id ="goodsStock">
 			</div>
 
 			<!-- 상품할인 -->
 			<div class="goods_discount form_wrapper">
 				<div class="div_wrapper">상품 할인률</div>
-				<input name="goodsDiscount" type="number">
+				<input name="goodsDiscount" type="number" id="goodsDiscount">
 			</div>
 
 			<!-- 상품배송비 -->
 			<div class="delivery_price form_wrapper">
 				<div class="div_wrapper">상품 배송비</div>
-				<input name="deliveryPrice" type="text">
+				<input name="deliveryPrice" type="text" id="deliveryPrice">
 			</div>
 
-			<!-- 임시 이미지 -->
-		<!-- 	<div class="goods_img_path">
-				<div class="div_wrapper">상품 이미지</div>
-				<div>
-					<input type="file" multiple onchange="addFile(this);"
-						name="goodsImgPath" style="height: 30px;">
-					<div class="file-List"></div>
-				</div>
-			</div> -->
 			<div class="goods_img_path">
 				<div class="div_wrapper">상품 이미지</div>
 				<div>
-					<input type="file" name="multiFile" accept=".jpg, .png"multiple style="height: 30px;">
+					<input type="file" name="multiFile" accept=".jpg, .png"multiple style="height: 30px;" id="multifile">
 				</div>
 			</div>
 			
@@ -84,50 +78,19 @@ if (login != null)
 			<!-- 상품상세 -->
 			<div class="goods_detail">
 				<textarea id="editor"></textarea>
-				<input type="hidden" name="goodsDetail" class="goodsDetail_value">
+				<input type="hidden" name="goodsDetail" id="goodsDetail" class="goodsDetail_value">
 			</div>
-				<input type="hidden" name="sellerName" value="<%if (login != null) {%><%=login.getSellerName()%><%} else {%><%}%>">
-				<input type="hidden" name="id" value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
+				<input type="hidden" name="sellerName" value="<%=login.getSellerName()%>">
+				<input type="hidden" name="id" value="<%=login.getId()%>">
 		</form>
 
 		<div class="btn_section">
-			<button type="button" id="cancle_Btn">취소</button>
-			<button type="submit" form="uploadGoodsForm" id="upload_Btn">상품등록</button>
-		</div>
-
+         <button type="button" id="cancle_Btn">취소</button>
+         <button type="button" form="uploadGoodsForm" id="upload_Btn">상품등록</button>
+      </div>
 	</div>
 
-	<script>	
+<script src="${path }/js/uploadGoods.js"></script>
 
-	$('#cancle_Btn').on("click", function() {
-		location.href="/seller/main.do"	
-    });
-	
-	</script>
-	<script>
-		ClassicEditor
-		    .create( document.querySelector( '#editor' ), {
-		        toolbar: [ 'bold', 'italic', 'link', 'undo', 'redo', 'numberedList', 'bulletedList' ]
-		    } )
-		    .then( editor => {
-            console.log( 'Editor was initialized', editor );
-            myEditor = editor;
-        	} )
-		    .catch( error => {
-		        console.log( error );
-		    } );
-	</script>
-	<script>
-		$(document).ready(function() {
-		/* p태그 삭제 */  
-		   $('#upload_Btn').on("click", function() {
-			   
-				let detailStr = myEditor.getData();			
-				let modDetailStr = detailStr.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
-
-				$('.goodsDetail_value').val(modDetailStr);				
-		   })
-		});
-	</script>
 </body>
 </html>

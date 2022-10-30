@@ -103,45 +103,34 @@ if (login != null)
 
 	<!-- cart/insert로 값 전달 & 데이터 저장 -->
 	<form id="cart_direct" action="/page/cart/insert.do" method="post">
-		<input class="goods_id_submit" type="hidden" name="goodsId"
-			value="${goods.goodsId}"> <input class="goods_price_submit"
-			type="hidden" name="goodsPrice" value="${goods.goodsPrice}">
-		<input class="id_submit" type="hidden" name="id"
-			value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
-		<input class="goods_qty_submit" type="hidden" name="goodsQty"
-			value="1"> <input class="goods_delivery_submit" type="hidden"
-			name="deliveryPrice" value="${goods.deliveryPrice}"> <input
-			class="seller_submit" type="hidden" name="sellerName"
-			value="${goods.sellerName}"> <input class="goods_img_submit"
-			type="hidden" name="goodsImg" value="${goodsFileList[0].realPath}">
-		<input class="goods_name_submit" type="hidden" name="goodsName"
-			value="${goods.goodsName}">
+		<input class="goods_id_submit" type="hidden" name="goodsId" value="${goods.goodsId}">
+		<input class="goods_price_submit" type="hidden" name="goodsPrice" value="${goods.goodsPrice}">
+		<input class="id_submit" type="hidden" name="id" value="<%=login.getId()%>">
+		<input class="goods_qty_submit" type="hidden" name="goodsQty" value="1">
+		<input class="goods_delivery_submit" type="hidden" name="deliveryPrice" value="${goods.deliveryPrice}">
+		<input class="seller_submit" type="hidden" name="sellerName" value="${goods.sellerName}">				
+		<input class="goods_name_submit" type="hidden" name="goodsName" value="${goods.goodsName}">
+		<input class="goods_category_submit" type="hidden" name="goodsCategory" value="${goods.goodsCategory}">
 	</form>
 
 	<!-- orders로 값 전달 -->
-	<form id="orders_direct" action="/page/orders/insert.do" method="post">
-		<input class="id_submit" type="hidden" name="id"
-			value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
-		<input class="sellerName_submit" type="hidden" name="sellerName"
-			value="${goods.sellerName}">
-		<input class="goods_name_submit" type="hidden" name="goodsAllName"
-			value="${goods.goodsName}"> <input class="name_submit"
-			type="hidden" name="name"
-			value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
-		<input class="receiver_name_submit" type="hidden" name="receiverName"
-			value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
-		<input class="receiver_phone_submit" type="hidden"
-			name="receiverPhone"
-			value="<%if (login != null) {%><%=login.getPhone()%><%} else {%><%}%>">
-		<input class="receiver_zipno_submit" type="hidden"
-			name="receiverZipno"
-			value="<%if (login != null) {%><%=login.getZipNo()%><%} else {%><%}%>">
-		<input class="receiver_address_submit" type="hidden"
-			name="receiverAddress"
-			value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
-		<input type="hidden" class="goods_totalPrice_submit" name="totalPrice"
-			value="${goods.goodsPrice + goods.deliveryPrice}"> <input
-			type="hidden" name="payment" value="카카오페이">
+	<form id="orders_direct" action="directorders/insert.do" method="post">
+		<input class="id_submit" type="hidden" name="id" value="<%=login.getId()%>">
+		<input class="sellerName_submit" type="hidden" name="sellerName" value="${goods.sellerName}">			 
+		<input class="name_submit" type="hidden" name="name" value="<%=login.getName()%>">
+		<input class="goods_category_submit" type="hidden" name="goodsCategory" value="${goods.goodsCategory}">
+		<input class="goods_name_submit" type="hidden" name="goodsName" value="${goods.goodsName}">
+		<input class="goods_stock_submit" type="hidden" name="goodsStock" value="${goods.goodsStock}">
+		<input class="goods_img_submit" type="hidden" name="goodsImg" value="${goodsFileList[0].realPath}">
+		<input class="goods_delivery_submit" type="hidden" name="deliveryPrice" value="${goods.deliveryPrice}">
+		<input class="goods_qty_submit" type="hidden" name="goodsQty" value="1">
+		<input class="goods_id_submit" type="hidden" name="goodsId" value="${goods.goodsId}">
+		<input class="goods_price_submit" type="hidden" name="goodsPrice" value="${goods.goodsPrice}">
+		<input class="receiver_name_submit" type="hidden" name="receiverName" value="<%=login.getName()%>">
+		<input class="receiver_phone_submit" type="hidden" name="receiverPhone" value="<%=login.getPhone()%>">
+		<input class="receiver_zipno_submit" type="hidden" name="receiverZipno" value="<%=login.getZipNo()%>">
+		<input class="receiver_address_submit" type="hidden" name="receiverAddress" value="<%=login.getAddress()%>">
+		<input type="hidden" class="goods_totalPrice_submit" name="totalPrice" value="${goods.goodsPrice + goods.deliveryPrice}"> 
 	</form>
 
 	<script src="${path}/js/goodsDetail.js"></script>

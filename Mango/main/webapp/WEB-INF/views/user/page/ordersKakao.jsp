@@ -39,7 +39,7 @@ if (pay != null) {
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'MANGO Clone 테스트 결제',
+            name : 'MANGO 테스트 결제',
              amount : <%=OrdersPayMoney%>,
           <%--   buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',

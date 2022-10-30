@@ -30,8 +30,16 @@ if (login != null)
 			</div>
 			<div class="inner-button">
 				<a href="/page/logout.do"><button>로그아웃</button></a>
-			</div>
+			</div>		
+				<%
+				if (login.getAuth() == 2) {
+				%>
+				<div class="inner-button">
+					<a href="/seller/main.do"><button>사업자 페이지</button></a>
+				</div>
 			<%
+				}
+
 			} else {
 			%>
 			<div class="inner-button">

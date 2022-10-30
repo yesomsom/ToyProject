@@ -36,24 +36,23 @@
 
 				<div class="form-wrapper">
 					<input type="password" name="password" placeholder="비밀번호"
-						id="password" class="form-control"> <i
+						id="password" class="form-control"  onkeyup="enterkey()"> <i
 						class="zmdi zmdi-lock"></i>
 				</div>
 
 				<div class="sort1">
-					<input type="checkbox" id="checkSaveId"> <span>아이디
-						저장</span>
+					<input type="checkbox" id="checkSaveId" onclick="saveId()"> <span>아이디 저장</span>
 				</div>
 
 
-				<button type="button" class="loginButton">
+				<button type="button" class="loginButton" onclick="resForm()">
 					<span>로그인 하기</span> <i class="zmdi zmdi-arrow-right"></i>
 				</button>
-				<button type="button" class="register" style="margin-top: 10px;">
+				<button type="button" class="register" onclick="regMove()" style="margin-top: 10px;">
 					<span>회원가입 하기</span> <i class="zmdi zmdi-arrow-right"></i>
 				</button>
 
-				<button type="button" class="main" style="margin-top: 10px;">
+				<button type="button" class="main" onclick="HomeMove()" style="margin-top: 10px;">
 					<span>메인 홈페이지</span> <i class="zmdi zmdi-arrow-right"></i>
 				</button>
 			</form>

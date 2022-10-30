@@ -7,6 +7,8 @@ MemberVO login = (MemberVO) session.getAttribute("login");
 if (login != null)
    System.out.println(login.toString());
 %>
+<%
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +34,14 @@ if (login != null)
          </div>
       </div>
       <div class="order_card_serveral">
-      <!-- 장바구니에 넣어 놓은 상품 -->
+      
+         <!-- 장바구니에 넣어 놓은 상품 -->
          <c:forEach var="cart" items="${cartList}">
             <div class="order_card">
                <div class="cart_product_top">
                   <div>
-                     <input type="checkbox" class="chk"
-                        value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}"
-                        data-cartid="${cart.cartId}" data-gn="${cart.goodsName}"> <span
-                        class="font_bold_big seller_name">${cart.sellerName}</span>
+                     <input type="checkbox" class="chk" value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}" data-cartid="${cart.cartId}" data-tp="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}">
+                     <span class="font_bold_big seller_name">${cart.sellerName}</span>
                   </div>
                   <div>
                      <button class="delete_btn" data-cartid="${cart.cartId}">
@@ -51,23 +52,23 @@ if (login != null)
 
                <div class="cart_product_middle">
                   <div class="cart_product_img">
-                     <img class="cart_product_img" src="${cart.goodsImg}">
+                     <img class="cart_product_img" src="${cart.realPath}">
                   </div>
                   <div class="cart_product_name font_bold_big">${cart.goodsName}</div>
                   <div class="cart_product_price">
                      <div>상품금액</div>
                      <div class="font_bold_big">
-                        <fmt:formatNumber pattern="###,###,###"
-                           value="${cart.goodsPrice}" />
+                        <fmt:formatNumber pattern="###,###,###" value="${cart.goodsPrice}" />
                         원
                      </div>
                   </div>
-              <!-- 장바구니 수량 & 수량 변경 버튼 -->
+                  
+              	  <!-- 장바구니 수량 & 수량 변경 버튼 -->
                   <div class="cart_product_qty">
                      <div>
                         <div class="cart_product_qty_pos">
-                           수량 <input class="cart_product_qty_input quantity_input"
-                              type="text" value="${cart.goodsQty}" disabled> <span>개</span>
+                           수량 <input class="cart_product_qty_input quantity_input" type="text" value="${cart.goodsQty}" disabled>
+                        <span>개</span>
                         </div>
                         <button class="quantity_btn plus_btn">
                            <img class="btn_img" src="${path}/images/plus_icon1.png">
@@ -75,26 +76,26 @@ if (login != null)
                         <button class="quantity_btn minus_btn">
                            <img class="btn_img" src="${path}/images/minus_icon1.png">
                         </button>
-                        <button class="quantity_modify_btn" data-cartId="${cart.cartId}">변경</button>
+                        <button class="quantity_modify_btn" data-cartid="${cart.cartId}">변경</button>
                      </div>
                   </div>
+                  
                   <!-- 배송비 -->
                   <div>
                      <div>배송비</div>
                      <div class="font_bold_big">
-                        <fmt:formatNumber pattern="###,###,###"
-                           value="${cart.deliveryPrice}" />
+                        <fmt:formatNumber pattern="###,###,###" value="${cart.deliveryPrice}" />
                         원
                      </div>
                   </div>
                </div>
+               
                <!-- 장바구니 총액 계산 부분 -->
                <div class="cart_product_bottom">
                   <div>
                      <div>선택상품금액</div>
                      <div class="font_bold_big">
-                        <fmt:formatNumber pattern="###,###,###"
-                           value="${cart.goodsPrice}" />
+                        <fmt:formatNumber pattern="###,###,###" value="${cart.goodsPrice}" />
                         원
                      </div>
                   </div>
@@ -110,92 +111,72 @@ if (login != null)
                   <div class="cart_total_delivery">
                      <div>총배송비</div>
                      <div class="font_bold_big">
-                        <fmt:formatNumber pattern="###,###,###"
-                           value="${cart.deliveryPrice}" />
+                        <fmt:formatNumber pattern="###,###,###" value="${cart.deliveryPrice}" />
                         원
                      </div>
                   </div>
                   <!-- 상품 총액 계산 -->
                   <div class="order_price_all">
-                     <span class="order_price_all_title">주문금액</span> <span
-                        class="font_bold_big"><fmt:formatNumber
-                           pattern="###,###,###"
-                           value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}" />원</span>
-                  </div>
+                     <span class="order_price_all_title">주문금액</span> 
+                     <span class="font_bold_big">
+                        <fmt:formatNumber pattern="###,###,###" value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}" />원</span>                        
+                  </div>               
                </div>
-            </div>
+            </div>            
          </c:forEach>
-
       </div>
       <br> <br> <br> <br> <br> <br>
    </div>
 
    <!-- 하단 결제하기 바 -->
    <div class="total_price_wrapper">
-      <form name="" class="cartForm" action="/page/orders/insert.do" method="post">
-         <input type="hidden" class="id" name="id"
-            value="<%if (login != null) {%><%=login.getId()%><%} else {%><%}%>">
-         <input type="hidden" name="name"
-            value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
-         <input type="hidden" name="goodsAllName">
-         <input class="receiver_name_submit" type="hidden" name="receiverName"
-         value="<%if (login != null) {%><%=login.getName()%><%} else {%><%}%>">
-      <input class="receiver_phone_submit" type="hidden"
-         name="receiverPhone"
-         value="<%if (login != null) {%><%=login.getPhone()%><%} else {%><%}%>">
-      <input class="receiver_zipno_submit" type="hidden"
-         name="receiverZipno"
-         value="<%if (login != null) {%><%=login.getZipNo()%><%} else {%><%}%>">
-      <input class="receiver_address_submit" type="hidden"
-         name="receiverAddress"
-         value="<%if (login != null) {%><%=login.getAddress()%><%} else {%><%}%>">
-      <input type="hidden" name="payment" value="카카오페이">
-      <input type="hidden" name="sellerName" value="${cart.sellerName}">
-         <span class="total_price_title">총 주문금액</span> 
-         <span class="total_price font_bold_big"> 
-<%--             <c:set var="total" value="0" /> 
-            <c:forEach var="cart" items="${cartList}">
-            <c:set var="total" value="${total + ((cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice)}" />
-            </c:forEach> <fmt:formatNumber pattern="###,###,###" value="${total}" /> --%> 
-            
-            0
-         </span>
-         <span class="font_bold_big">원</span>
-         <input type="hidden" class="totalPrice" name="totalPrice" value=""> 
-                        
-            <button class="btn">주문하기</button>
-            <!-- <input class="btn" type="submit" value="주문하기"> -->
-      </form>
+      <!-- <form name="" class="cartForm" action="/page/orders/insert.do" method="post"> -->
+      	<input type="hidden" class="id" id="memberId" name="id" value="<%=login.getId()%>">
+		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">
+		<%-- <c:forEach var="cart" items="${cartList}"></c:forEach> --%>
+		
+		
+		
+		
+		
+		<!-- <input type="hidden" class="totalPrice" name="totalPrice" value="">  
+		<input type="hidden" name="sellerName" value="test"> -->
+		<!-- <input class="submit_cartId" type="hidden" name="cartId" value="test"> -->				         
+<%-- 	<input class="receiver_name_submit" type="hidden" name="receiverName" value="<%=login.getName()%>">
+		<input class="receiver_phone_submit" type="hidden" name="receiverPhone" value="<%=login.getPhone()%>">
+		<input class="receiver_zipno_submit" type="hidden" name="receiverZipno" value="<%=login.getZipNo()%>">
+		<input class="receiver_address_submit" type="hidden" name="receiverAddress" value="<%=login.getAddress()%>">
+ --%>        
+ 		<span class="total_price_title">총 주문금액</span> 
+        <span class="total_price font_bold_big">0</span>
+		<span class="font_bold_big">원</span>
+		                      
+		       
+
+		<!-- <button type="button" class="btn" onclick="order_ajax()">주문하기</button> -->
+		<a onclick="order_ajax()">버튼</a>		
+		
+		<!-- <input type="submit" value="이게submit"> -->
+      <!-- </form> -->
    </div>
 
-
    <!-- 수량 조정 form -->
-   <form action="/page/cart/update.do" method="post"
-      class="quantity_update_form">
-      <input type="hidden" name="cartId" class="update_cartId"> <input
-         type="hidden" name="goodsQty" class="update_goodsQty">
+   <form action="/page/cart/update.do" method="post" class="quantity_update_form">
+      <input type="hidden" name="cartId" class="update_cartId">
+      <input type="hidden" name="goodsQty" class="update_goodsQty">
    </form>
 
    <!-- 삭제 form -->
-   <form action="/page/cart/delete.do" method="post"
-      class="quantity_delete_form">
+   <form action="/page/cart/delete.do" method="post" class="quantity_delete_form">
       <input type="hidden" name="cartId" class="delete_cartId">
    </form>
    
       <!-- checked 삭제 form -->
-   <form action="/page/cart/delete.do" method="post"
-      class="check_delete_form">
+   <form action="/page/cart/delete.do" method="post" class="check_delete_form">
       <div class="check_delete"></div>
    </form>
-   
-   <!-- order 유무 변경 form -->
-<!--    <form action="/page/cart/updateYN.do" method="post" class="orderYN_form">
-      <input type="hidden" name="cartId" class="updateYN_cartId"> 
-      <input type="hidden" name="orderYN" class="updateYN_order" value="Y"> 
-   </form> -->
 
    <script src="${path}/js/cart.js"></script>
-
 
 </body>
 </html>

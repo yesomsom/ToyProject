@@ -58,7 +58,7 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
                      <div class="information_wrapper">
                         <div class="wrapper_content">
                            <div class="wrapper_content_title">주문 상품</div>
-                           <div class="orders_info"><%=ordersVO.getGoodsAllName()%></div>
+                           <div class="orders_info"></div>
                         </div>
                      </div>
                      
@@ -70,7 +70,7 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
                      <div class="orders_content_wrapper">
                         <div class="font_size">결제 수단</div>
                         &nbsp;/&nbsp;
-                        <div class="goods_name"><%=ordersVO.getPayment()%></div>
+                        <div class="goods_name">카카오페이</div>
                      </div>
                      <div class="orders_content_wrapper">
                         <div class="font_size">결제 비용</div>

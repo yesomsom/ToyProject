@@ -12,40 +12,6 @@ if (login != null)
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-.dropdown {
-	display: inline-block;
-}
-
-.dropdown_btn {
-	/* width: 200px; */
-	/* padding: 10px; */
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-
-.dropdown_submenu {
-	width: 200px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
-	display: none;
-	position: absolute;
-}
-
-.dropdown_submenu a {
-	display: block;
-	padding: 7px;
-	text-align: center;
-}
-
-.dropdown_submenu a hover {
-	background-color: #eee;
-}
-
-.dropdown:hover .dropdown_submenu {
-	display: block;
-}
-</style>
 </head>
 <body>
 	<div class="header-nav-wrapper">
@@ -64,11 +30,13 @@ if (login != null)
 			<div class="inner-button">
 				<a href="/page/logout.do"><button>로그아웃</button></a>
 			</div>
-			<div class="inner-button">
-				<a href="/page/memberModify.do"><button>회원정보 수정</button></a>
-			</div>
-			<%
-			} else {
+				<%if(login.getAuth() == 2){ %>
+					<div class="inner-button">
+					<a href="/seller/main.do"><button>사업자 페이지</button></a>
+					</div>
+				<%
+			}
+				} else {
 			%>
 			<div class="inner-button">
 				<a href="/page/login.do"><button>로그인</button></a>

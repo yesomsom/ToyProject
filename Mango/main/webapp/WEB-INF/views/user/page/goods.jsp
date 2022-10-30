@@ -60,9 +60,8 @@
 			</div>
 		</div>
 		<form id="goodsForm" method="get" action="/page/goods.do">
-			<input type="hidden" name="pageNumCri" id="pageNum"
-				value="${pageMaker.cri.pageNum}"> <input type="hidden"
-				name="amount" value="${pageMaker.cri.amount }">
+			<input type="hidden" name="pageNumCri" id="pageNum" value="${pageMaker.cri.pageNum}"> 
+				<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 		</form>
 	</div>
 	

@@ -113,7 +113,7 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                 <div class="information_wrapper">
                    <div class="wrapper_content">
                       <div class="wrapper_content_title">주문 상품</div>
-                      <div class="orders_info"><%=ordersVO.getGoodsAllName()%></div>
+                      <div class="orders_info"></div>
                    </div>
                 </div>
                 
@@ -125,31 +125,13 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                 <div class="orders_content_wrapper">
                    <div class="font_size">결제 수단</div>
                    &nbsp;/&nbsp;
-                   <div class="goods_name"><%=ordersVO.getPayment()%></div>
+                   <div class="goods_name">카카오페이</div>
                 </div>
                 <div class="orders_content_wrapper">
                    <div class="font_size">결제 비용</div>
                    &nbsp;/&nbsp;
                    <div class="goods_name"><%=ordersVO.getTotalPrice()%>원</div>
-                </div>
-                <!-- 수령인 정보 (toggle) -->
-<%--                 <div class="information_wrapper_receiver">
-                   <div class="wrapper_content_title w_0">수령인 정보 보기</div>
-                   <div class="toggle_hidden t_0">
-                      <div class="wrapper_content">
-                         <div>이름</div>
-                         <div class="content_bold"><%=ordersVO.getReceiverName()%></div>
-                      </div>
-                      <div class="wrapper_content">
-                         <div>전화번호</div>
-                         <div class="content_bold"><%=ordersVO.getReceiverPhone()%></div>
-                      </div>
-                      <div class="wrapper_content">
-                         <div>주소</div>
-                         <div class="content_bold"><%=ordersVO.getReceiverAddress()%></div>
-                      </div>                        
-                   </div>   
-                </div> --%>      
+                </div>     
            </div> 
                <%
                }
@@ -192,16 +174,7 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                    <div class="font_size">문의일</div>
                    &nbsp;/&nbsp;
                    <div class="goods_name"><%=askVO.getAskDate()%></div>
-                </div>
-                <!-- 문의 내용 (toggle) -->
-<%--                 <div class="information_wrapper_receiver">
-                   <div class="wrapper_content_title w_3">문의 내용</div>
-                   <div class="toggle_hidden t_3">
-                      <div class="wrapper_content">
-                         <div class="content_bold"><%=askVO.getAskContent()%></div>
-                      </div>                       
-                   </div>   
-                </div> --%>      
+                </div>     
            </div> 
                <%
                }
