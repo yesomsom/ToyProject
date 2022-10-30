@@ -2,23 +2,33 @@ package mango.mango.model;
 
 public class OrdersPayVO {
    private String id;
-   private int ordersId;
+   private String ordersId;
    private String ordersPayDate;
    private String ordersPayMoney;
-   public String getId() {
-      return id;
+   private int opno;
+   
+   
+   public int getOpno() {
+		return opno;
+	}
+	public void setOpno(int opno) {
+		this.opno = opno;
+	}
+	public String getId() {
+	      return id;
    }
    public void setId(String id) {
       this.id = id;
    }
-   public int getOrdersId() {
-      return ordersId;
-   }
-   public void setOrdersId(int ordersId) {
-      this.ordersId = ordersId;
-   }
-   public String getOrdersPayDate() {
-      return ordersPayDate;
+
+   public String getOrdersId() {
+		return ordersId;
+	}
+	public void setOrdersId(String ordersId) {
+		this.ordersId = ordersId;
+	}
+	public String getOrdersPayDate() {
+	      return ordersPayDate;
    }
    public void setOrdersPayDate(String ordersPayDate) {
       this.ordersPayDate = ordersPayDate;

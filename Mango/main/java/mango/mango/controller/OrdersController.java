@@ -134,9 +134,7 @@ public class OrdersController {
 	@RequestMapping(value = "/ordersKakao/insert", method = RequestMethod.POST)
 	public String insertOrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session)
 			throws Exception {
-		EgovWebUtil uuid = new EgovWebUtil();
-		String UUID = uuid.getUUID();
-
+		
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		opVO.setId(login.getId());
 

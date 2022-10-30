@@ -24,6 +24,17 @@ public class OrdersVO {
 	private String goodsCategory;
 	private String goodsId;
 	private String cartId;
+	private int cno;
+	
+	
+
+	public int getCno() {
+		return cno;
+	}
+
+	public void setCno(int cno) {
+		this.cno = cno;
+	}
 
 	public String getCartId() {
 		return cartId;
