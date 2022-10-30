@@ -35,25 +35,25 @@ if (login != null)
             <form action="/page/orders/update.do" method="post">
                   <div class="modify_orders">
                      <div>수령인 이름: </div>
-                     <div><input name="receiverName" type="text" value="${ordersList[0].receiverName}"></div>
+                     <div><input name="receiverName" type="text" value="<%=login.getName()%>"></div>
                      <div></div>
                   </div>
                   <div class="modify_orders">
                      <div>핸드폰 번호: </div>
-                     <div><input id="phone" name="receiverPhone" type="text" value="${ordersList[0].receiverPhone}"></div>
+                     <div><input id="phone" name="receiverPhone" type="text" value="<%=login.getPhone()%>"></div>
                      <div><button class="md_btn" id="ph" class="pnCheckButton" type="button" onClick="opensms();">번호인증</button></div>
                   </div>
                   <div class="modify_orders">
                      <div>우편 번호: </div>
-                     <div><input name="receiverZipno" id="zipNo" type="text" value="${ordersList[0].receiverZipno}"></div>
+                     <div><input name="receiverZipno" id="zipNo" type="text" value="<%=login.getZipNo()%>"></div>
                      <div><button class="md_btn" id="jusoCheck" type="button" onclick="goPopup();">주소검색</button></div>         
                   </div>
                   <div class="modify_orders">
                      <div>도로명 주소: </div>
-                     <div><input name="receiverAddress" id="address" type="text" value="${ordersList[0].receiverAddress}"></div>
+                     <div><input name="receiverAddress" id="address" type="text" value="<%=login.getAddress()%>"></div>
                      <div></div>         
                   </div>
-                  <input type="hidden" name="ordersId" value="${ordersList[0].ordersId}">
+                  <input type="text" name="ordersId" value="${ordersList[0].ordersId}">
                   <input class="modify_orders_btn" type="submit" value="수정 저장">
                </form>
          </div>
@@ -64,8 +64,8 @@ if (login != null)
          <div class="pay_submit">
             <form action="/page/ordersKakao/insert.do" method="post">
                <span class="orders_pay">결제하기</span>
-               <input type="hidden" name="OrdersId" value="${ordersList[0].ordersId}">
-               <input type="hidden" name="OrdersPayMoney" value="${ordersList[0].totalPrice}">
+               <input type="text" name="ordersId" value="${ordersList[0].ordersId}">
+               <input type="hidden" name="OrdersPayMoney" value="1000">
                <button type="submit"><img class="btn" src="${path }/images/payment_icon_yellow_medium.png"></button>
             </form>
          </div> 
