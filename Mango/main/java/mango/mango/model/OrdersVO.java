@@ -9,10 +9,6 @@ public class OrdersVO {
 	private String ordersId;
 	private String id;
 	private String name;
-	private String receiverName;
-	private String receiverPhone;
-	private int receiverZipno;
-	private String receiverAddress;
 	private String creDate;
 	private String sellerName;
 	private String totalPrice;
@@ -130,38 +126,6 @@ public class OrdersVO {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getReceiverName() {
-		return receiverName;
-	}
-
-	public void setReceiverName(String receiverName) {
-		this.receiverName = receiverName;
-	}
-
-	public String getReceiverPhone() {
-		return receiverPhone;
-	}
-
-	public void setReceiverPhone(String receiverPhone) {
-		this.receiverPhone = receiverPhone;
-	}
-
-	public int getReceiverZipno() {
-		return receiverZipno;
-	}
-
-	public void setReceiverZipno(int receiverZipno) {
-		this.receiverZipno = receiverZipno;
-	}
-
-	public String getReceiverAddress() {
-		return receiverAddress;
-	}
-
-	public void setReceiverAddress(String receiverAddress) {
-		this.receiverAddress = receiverAddress;
 	}
 
 	public String getCreDate() {

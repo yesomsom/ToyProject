@@ -6,9 +6,39 @@ public class OrdersPayVO {
    private String ordersPayDate;
    private String ordersPayMoney;
    private int opno;
+	private String receiverName;
+	private String receiverPhone;
+	private int receiverZipno;
+	private String receiverAddress;
+	
+	
    
    
-   public int getOpno() {
+   public String getReceiverName() {
+		return receiverName;
+	}
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+	public String getReceiverPhone() {
+		return receiverPhone;
+	}
+	public void setReceiverPhone(String receiverPhone) {
+		this.receiverPhone = receiverPhone;
+	}
+	public int getReceiverZipno() {
+		return receiverZipno;
+	}
+	public void setReceiverZipno(int receiverZipno) {
+		this.receiverZipno = receiverZipno;
+	}
+	public String getReceiverAddress() {
+		return receiverAddress;
+	}
+	public void setReceiverAddress(String receiverAddress) {
+		this.receiverAddress = receiverAddress;
+	}
+public int getOpno() {
 		return opno;
 	}
 	public void setOpno(int opno) {

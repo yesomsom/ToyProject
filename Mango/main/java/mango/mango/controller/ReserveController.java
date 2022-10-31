@@ -22,12 +22,14 @@ import mango.common.util.UserURLValue;
 import mango.mango.model.AskVO;
 import mango.mango.model.InfoDTO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
 import mango.mango.model.PayVO;
 import mango.mango.model.ReserveVO;
 import mango.mango.model.TheaterVO;
 import mango.mango.service.AskService;
 import mango.mango.service.InfoService;
+import mango.mango.service.OrdersPayService;
 import mango.mango.service.OrdersService;
 import mango.mango.service.PayService;
 import mango.mango.service.ReserveService;
@@ -47,6 +49,8 @@ public class ReserveController {
 	private InfoService infoService;
 	@Resource(name = "OrdersService")
 	private OrdersService ordersService;
+	@Resource(name = "OrdersPayService")
+	private OrdersPayService ordersPayService;
 
 	@Resource(name = "askService")
 	private AskService askService;
@@ -109,8 +113,7 @@ public class ReserveController {
 	}
 
 	@RequestMapping(value = "/kakao/insert", method = RequestMethod.POST)
-	public String insertKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
-			throws Exception {
+	public String insertKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session) throws Exception {
 		System.out.println(rVO.toString());
 		logger.info("Kakao");
 		MemberVO login = (MemberVO) session.getAttribute("login");
@@ -132,8 +135,7 @@ public class ReserveController {
 	}
 
 	@RequestMapping(value = "/payKakao")
-	public String payKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session)
-			throws Exception {
+	public String payKakao(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, HttpSession session) throws Exception {
 		logger.info("Kakao");
 		MemberVO login = (MemberVO) session.getAttribute("login");
 
@@ -177,8 +179,7 @@ public class ReserveController {
 	}
 
 	@RequestMapping(value = "/myPage")
-	public String myPage(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, OrdersVO oVO, AskVO aVO,
-			HttpSession session) throws Exception {
+	public String myPage(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, OrdersVO oVO, OrdersPayVO opVO, AskVO aVO, HttpSession session) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 
 		rVO.setId(login.getId());
@@ -219,6 +220,8 @@ public class ReserveController {
 		} else {
 			System.out.println("오류발생");
 		}
+
+		opVO.setId(login.getId());
 
 		return "/user/page/myPage";
 	}

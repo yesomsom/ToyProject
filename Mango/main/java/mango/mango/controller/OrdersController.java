@@ -54,7 +54,7 @@ public class OrdersController {
 		return "/user/page/orders";
 	}
 
-	@RequestMapping(value = "/directorders/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/directOrders/insert", method = RequestMethod.POST)
 	public String insertDirectOrders(ModelMap model, Criteria cri, MemberVO mVO, OrdersVO oVO, HttpSession session)
 			throws Exception {
 		EgovWebUtil uuid = new EgovWebUtil();
@@ -72,7 +72,7 @@ public class OrdersController {
 			model.addAttribute("isSuccess", false);
 			return "/user/page/process";
 		}
-		return "/user/page/orders";
+		return "redirect:/page/orders.do";
 	}
 
 	@RequestMapping(value = "/orders/insert", method = RequestMethod.POST)
@@ -110,6 +110,8 @@ public class OrdersController {
 					ordersService.insertOrders(oVO);
 				}
 			}
+			
+			
 
 		} else {
 			model.addAttribute("isSuccess", false);
