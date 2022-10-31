@@ -113,9 +113,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
   KEY `goods_id` (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.cart:~3 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.cart:~4 rows (대략적) 내보내기
 DELETE FROM `cart`;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` (`cart_id`, `goods_id`, `goods_price`, `goods_category`, `id`, `goods_qty`, `delivery_price`, `seller_name`, `goods_name`, `cart_date`) VALUES
+	('1492f3a5127a4f20bf4cad0ab693ce3d', 'dbe8ebee62f54c9bad98ec12ddccfb90', 11, '키링', 'son2', 1, 11, '손샵', '11', '2022-10-31'),
+	('302e7e7e222146519d459444994ad85a', '75177524f8374c3cabda295fa4c8481b', 22, '인형', 'son2', 1, 22, '손샵', '22', '2022-10-31'),
+	('6ece5f8d474f4400924c22c4f3909bdd', 'dbe8ebee62f54c9bad98ec12ddccfb90', 11, '키링', 'son2', 1, 11, '손샵', '11', '2022-10-31'),
+	('d98af6bcce5143a78963b7ed41e4e599', '75177524f8374c3cabda295fa4c8481b', 22, '인형', 'son2', 1, 22, '손샵', '22', '2022-10-31');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 
 -- 테이블 mangodb.crawling 구조 내보내기
@@ -127,31 +132,31 @@ CREATE TABLE IF NOT EXISTS `crawling` (
   `movie_rate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_openDate` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`seq`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=37431 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38020 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.crawling:~19 rows (대략적) 내보내기
 DELETE FROM `crawling`;
 /*!40000 ALTER TABLE `crawling` DISABLE KEYS */;
 INSERT INTO `crawling` (`seq`, `rank`, `img`, `movie_title`, `movie_rate`, `movie_openDate`) VALUES
-	(37412, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86216/86216_320.jpg', '자백', '12.3%', '2022.10.26 개봉'),
-	(37413, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86271/86271_320.jpg', '리멤버', '11.0%', '2022.10.26 개봉'),
-	(37414, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '7.6%', '2022.10.12 개봉'),
-	(37415, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '6.5%', '2022.10.19 개봉'),
-	(37416, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86267/86267_320.jpg', '귀못', '2.7%', '2022.10.19 개봉'),
-	(37417, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '2.3%', '2022.09.28 개봉'),
-	(37418, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '1.9%', '2022.09.07 개봉'),
-	(37419, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86337/86337_320.jpg', '낮에는 덥고 밤에는 춥고', '1.4%', '2022.10.27 개봉'),
-	(37420, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86008/86008_320.jpg', '명탐정 코난-할로윈의 신부', '1.4%', '2022.10.28 재개봉'),
-	(37421, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86304/86304_320.jpg', '스타게이저: 아스트로스코프', '0.9%', '2022.10.27 개봉'),
-	(37422, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '0.9%', '2022.09.28 개봉'),
-	(37423, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '0.8%', '2022.10.22 재개봉'),
-	(37424, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86215/86215_320.jpg', '미혹', '0.5%', '2022.10.19 개봉'),
-	(37425, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.5%', '2022.10.13 개봉'),
-	(37426, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86305/86305_320.jpg', '녹색 광선', '0.4%', '2022.10.13 개봉'),
-	(37427, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.3%', '2022.10.22 재개봉'),
-	(37428, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.3%', '2022.10.22 재개봉'),
-	(37429, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86310/86310_320.jpg', '겨울 이야기', '0.3%', '2022.10.13 개봉'),
-	(37430, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86294/86294_320.jpg', '극장판 이세계 콰르텟-어나더 월드', '0.3%', '2022.10.13 개봉');
+	(38001, 'No.1', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86271/86271_320.jpg', '리멤버', '17.7%', '2022.10.26 개봉'),
+	(38002, 'No.2', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86216/86216_320.jpg', '자백', '9.9%', '2022.10.26 개봉'),
+	(38003, 'No.3', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86205/86205_320.jpg', '에브리씽 에브리웨어 올 앳 원스', '7.1%', '2022.10.12 개봉'),
+	(38004, 'No.4', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86323/86323_320.jpg', '블랙 아담', '5.1%', '2022.10.19 개봉'),
+	(38005, 'No.5', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83821/83821_320.jpg', '인생은 아름다워', '2.6%', '2022.09.28 개봉'),
+	(38006, 'No.6', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86194/86194_320.jpg', '극장판 짱구는 못말려-수수께끼! 꽃피는 천하떡잎학교', '1.6%', '2022.09.28 개봉'),
+	(38007, 'No.7', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg', '공조2-인터내셔날', '1.5%', '2022.09.07 개봉'),
+	(38008, 'No.8', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86008/86008_320.jpg', '명탐정 코난-할로윈의 신부', '1.4%', '2022.10.28 재개봉'),
+	(38009, 'No.9', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86337/86337_320.jpg', '낮에는 덥고 밤에는 춥고', '0.9%', '2022.10.27 개봉'),
+	(38010, 'No.10', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86304/86304_320.jpg', '스타게이저: 아스트로스코프', '0.9%', '2022.10.27 개봉'),
+	(38011, 'No.11', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82012/82012_320.jpg', '엑시트', '0.5%', '2022.10.31 재개봉'),
+	(38012, 'No.12', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000077/77571/77571_320.jpg', '캡틴 아메리카: 윈터 솔져', '0.5%', '2022.10.22 재개봉'),
+	(38013, 'No.13', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83421/83421_320.jpg', '부산행', '0.5%', '2022.10.31 재개봉'),
+	(38014, 'No.14', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86312/86312_320.jpg', '내 여자친구의 남자친구', '0.5%', '2022.10.13 개봉'),
+	(38015, 'No.15', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86305/86305_320.jpg', '녹색 광선', '0.4%', '2022.10.13 개봉'),
+	(38016, 'No.16', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78670/78670_320.jpg', '캡틴 아메리카: 시빌 워', '0.4%', '2022.10.22 재개봉'),
+	(38017, 'No.17', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86309/86309_320.jpg', '가을 이야기', '0.3%', '2022.10.13 개봉'),
+	(38018, 'No.18', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76249/76249_320.jpg', '어벤져스', '0.3%', '2022.10.22 재개봉'),
+	(38019, 'No.19', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000083/83160/83160_320.jpg', '반도', '0.3%', '2022.10.31 재개봉');
 /*!40000 ALTER TABLE `crawling` ENABLE KEYS */;
 
 -- 테이블 mangodb.goods 구조 내보내기
@@ -172,9 +177,12 @@ CREATE TABLE IF NOT EXISTS `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goods:~1 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goods:~2 rows (대략적) 내보내기
 DELETE FROM `goods`;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
+INSERT INTO `goods` (`goods_id`, `id`, `goods_category`, `goods_name`, `seller_name`, `goods_state`, `goods_detail`, `goods_price`, `goods_stock`, `delivery_price`, `goods_discount`, `gno`, `regdate`) VALUES
+	('75177524f8374c3cabda295fa4c8481b', 'son2', '인형', '22', '손샵', '승인대기', '22', 22, 22, 22, 22, NULL, '2022-10-31 13:08:37.030517'),
+	('dbe8ebee62f54c9bad98ec12ddccfb90', 'son2', '키링', '11', '손샵', '승인대기', '11', 11, 11, 11, 11, NULL, '2022-10-31 13:08:21.892395');
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 
 -- 테이블 mangodb.goodsfile 구조 내보내기
@@ -188,9 +196,12 @@ CREATE TABLE IF NOT EXISTS `goodsfile` (
   `filesize` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.goodsfile:~73 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.goodsfile:~2 rows (대략적) 내보내기
 DELETE FROM `goodsfile`;
 /*!40000 ALTER TABLE `goodsfile` DISABLE KEYS */;
+INSERT INTO `goodsfile` (`id`, `goods_id`, `originname`, `extension`, `realpath`, `regdate`, `filesize`) VALUES
+	('son2', 'dbe8ebee62f54c9bad98ec12ddccfb90', '겨울왕국울라프1.JPG', '.JPG', 'http://localhost:8080/img/goodsImg/손샵/22-10-13-08-21-884_겨울왕국울라프1.JPG', '2022-10-31 13:08:21.888508', 82498),
+	('son2', '75177524f8374c3cabda295fa4c8481b', '닥터스트레인지인형1.jpg', '.jpg', 'http://localhost:8080/img/goodsImg/손샵/22-10-13-08-37-27_닥터스트레인지인형1.jpg', '2022-10-31 13:08:37.028556', 36682);
 /*!40000 ALTER TABLE `goodsfile` ENABLE KEYS */;
 
 -- 테이블 mangodb.member 구조 내보내기
@@ -219,8 +230,9 @@ INSERT INTO `member` (`id`, `password`, `name`, `phone`, `email`, `auth`, `addre
 	('123asdf', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 23(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', 'ggg', 'c:\\upload\\logoImg\\ggg\\22-10-02-30-09-22_fullHeart.png'),
 	('123asdf2', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', 35273, '2022-10-23', NULL, '손망고', '1325132', '망고', 'http://localhost:8080/img/logoImg/망고/22-10-02-32-58-642_fullHeart.png'),
 	('admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '관리자', '01023143970', 'sgd3970@naver.com', 1, '대전광역시 서구 갈마중로50번길 61, 1234(갈마동)', 35273, '2022-10-19', NULL, NULL, NULL, NULL, NULL),
+	('hong1', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '홍길동', '01038285683', '', 3, '서울특별시 서초구 반포대로 3, 11(서초동)', 6711, '2022-10-31', NULL, NULL, NULL, NULL, NULL),
 	('son1', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '손규동', '01023143970', 'sgd3970@naver.com', 2, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)', 35273, '2022-10-25', NULL, '손망고', '1325132', 'mango', 'http://localhost:8080/img/logoImg/망고/22-10-03-51-33-559_fullHeart.png'),
-	('son2', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '손손', '01038285683', 'son@test.com', 2, '대전광역시 서구 갈마역로25번길 17-15, 11(갈마동)', 35231, '2022-10-25', NULL, '손손', '11111', '손샵', 'http://localhost:8080/img/logoImg/손샵/22-10-09-28-14-983_fullHeart.png'),
+	('son2', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '손손', '0102223333', 'son@test.com', 2, '대전광역시 서구 갈마역로25번길 17-15, 11(갈마동)', 35231, '2022-10-25', NULL, '손손', '11111', '손샵', 'http://localhost:8080/img/logoImg/손샵/22-10-09-28-14-983_fullHeart.png'),
 	('son3', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', '손규', '01038285683', 'son@test.com', 3, '서울특별시 서초구 반포대로 3, 11(서초동)', 6711, '2022-10-25', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 
@@ -463,38 +475,86 @@ INSERT INTO `notice` (`noti_id`, `noti_num`, `id`, `noti_subject`, `noti_content
 -- 테이블 mangodb.orders 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orders` (
   `cno` int(11) NOT NULL AUTO_INCREMENT,
-  `orders_id` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '주문 번호',
+  `orders_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '주문 번호',
   `cart_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '장바구니 번호',
   `id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '0' COMMENT '고객 아이디',
   `name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '고객 이름',
   `total_price` int(11) DEFAULT 0 COMMENT '총 금액',
   `creDate` date DEFAULT sysdate(6) COMMENT '주문 일자',
-  `receiver_name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '수령인 이름',
-  `receiver_phone` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '수령인 전화번호',
-  `receiver_zipno` int(11) DEFAULT NULL COMMENT '수령인 우편 번호',
-  `receiver_address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '수령인 주소',
   PRIMARY KEY (`cno`),
   KEY `cart_id` (`cart_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 테이블 데이터 mangodb.orders:~46 rows (대략적) 내보내기
+-- 테이블 데이터 mangodb.orders:~28 rows (대략적) 내보내기
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`cno`, `orders_id`, `cart_id`, `id`, `name`, `total_price`, `creDate`) VALUES
+	(150, '26b748c53b6f478f9be9d6780f1f3516', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(151, '26b748c53b6f478f9be9d6780f1f3516', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(152, 'd3a5116abcdc43549de6dbadc4b83209', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(153, 'd3a5116abcdc43549de6dbadc4b83209', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(154, 'f3bb88b994544f0babefd531cbad9f33', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(155, 'f3bb88b994544f0babefd531cbad9f33', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(156, 'f3bb88b994544f0babefd531cbad9f33', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(157, '394a28f6f97a47ea86da2b0c32aa0e8a', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(158, '394a28f6f97a47ea86da2b0c32aa0e8a', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(159, '394a28f6f97a47ea86da2b0c32aa0e8a', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(160, '4172a4d378d94b23abd923e0c498e947', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(161, '4172a4d378d94b23abd923e0c498e947', '6ece5f8d474f4400924c22c4f3909bdd', 'son2', '손손', 22, '2022-10-31'),
+	(162, '4172a4d378d94b23abd923e0c498e947', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(163, '4172a4d378d94b23abd923e0c498e947', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(164, '407e9b71e9c74e07a9c92f8a380ca236', '31ae1b40fc7641b48c84dc976c870f7c', 'son2', '손손', 44, '2022-10-31'),
+	(165, 'd3d6490797d342ac995b6225789aa0d4', 'f766bc58a0db4a3d8e4c387ab5f71dfd', 'son2', '손손', 44, '2022-10-31'),
+	(166, '6c6f4d2dfd4944bc909a5311991d47a0', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(167, '6c6f4d2dfd4944bc909a5311991d47a0', '6ece5f8d474f4400924c22c4f3909bdd', 'son2', '손손', 22, '2022-10-31'),
+	(168, '6c6f4d2dfd4944bc909a5311991d47a0', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(169, '6c6f4d2dfd4944bc909a5311991d47a0', '1492f3a5127a4f20bf4cad0ab693ce3d', 'son2', '손손', 22, '2022-10-31'),
+	(170, '97a5c450d1cb42d094868529c1c8893a', 'b674b6e695a549a98360f810e6dfc8e3', 'son2', '손손', 44, '2022-10-31'),
+	(171, '3325d714a6e242b5b9d781bfde05b5b9', '430364b7b79848bf9bf4e26ada0fc1d6', 'son2', '손손', 132, '2022-10-31'),
+	(172, '33cce65789bd467e8ef7316cb5dc2008', '2b3e71cf52844b9994c52ac038e6c203', 'son2', '손손', 220, '2022-10-31'),
+	(173, '2a5d14d7273e4ac9a53a7862512324a8', 'd510a0fa734f481fa8dc3202c39c21bf', 'son2', '손손', 44, '2022-10-31'),
+	(174, '2cad32b7758c44278c7d0a3ee4706704', '19c77be8fdcb4e2b91bffa73a4575402', 'son2', '손손', 66, '2022-10-31'),
+	(175, '986b1371fbc74028a587e6215f005b75', '7ee708233a544b25a136d0aa30e0bd32', 'son2', '손손', 44, '2022-10-31'),
+	(176, 'e9b224717c3243889065382f6ac128b9', '3d325e216723474fa82860aa3431bbd6', 'son2', '손손', 44, '2022-10-31'),
+	(177, 'd446eb2b397649119085ae1603dda522', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(178, 'e3a2f150ec494625bc8a2eb923384d28', '6892295c5d9f48c0baa3b28cfde2d6c6', 'son2', '손손', 44, '2022-10-31'),
+	(179, '35fc62b371c94844ab95785ed7036c7a', '91380fb891c8412db28778443ca52eb8', 'son2', '손손', 44, '2022-10-31'),
+	(180, '611a9dc8f45040b9b8d62426bc14f371', '9e1d6533fce64f03ba28e3918b2f7271', 'son2', '손손', 44, '2022-10-31'),
+	(181, '63b8bac8b1a848f9ab354c8809f3bcb1', '0abc51e6845b49ee8cfc6a6a9e71b368', 'son2', '손손', 44, '2022-10-31'),
+	(182, '28fc7dbce8974d14bd962d77951cef1f', '41f65b7aa0ac4944b929055398a7c2bb', 'son2', '손손', 44, '2022-10-31'),
+	(183, '18b7e48dfa1e451e8d2b786cedb871ae', '0871c9e279db46d1b469ebf19e3334a9', 'son2', '손손', 44, '2022-10-31'),
+	(184, 'f708e7b66aa24b3da16cc8ce9909e764', '796da57495be4092a8979022af4f823d', 'son2', '손손', 44, '2022-10-31'),
+	(185, '5fea4abae686414facb25a900109be85', '8915216a1eed485899232bc5e58867b3', 'son2', '손손', 22, '2022-10-31'),
+	(186, '9f92eaada71e42c5a211b6f130ec2536', '10ba7b2a79c14148b06643b5213834a3', 'son2', '손손', 44, '2022-10-31'),
+	(187, 'b526fecd460b42bbba9788a38da539e2', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(188, 'b526fecd460b42bbba9788a38da539e2', '6ece5f8d474f4400924c22c4f3909bdd', 'son2', '손손', 22, '2022-10-31'),
+	(189, '96f922a51f10447791ab1528a920157b', 'd98af6bcce5143a78963b7ed41e4e599', 'son2', '손손', 44, '2022-10-31'),
+	(190, '96f922a51f10447791ab1528a920157b', '6ece5f8d474f4400924c22c4f3909bdd', 'son2', '손손', 22, '2022-10-31'),
+	(191, '96f922a51f10447791ab1528a920157b', '302e7e7e222146519d459444994ad85a', 'son2', '손손', 44, '2022-10-31'),
+	(192, 'a560f239662142d5b68e150bf7e56c12', 'e8e6c6cf6a5846268ec7754ddb3ffef9', 'son1', '손규동', 44, '2022-10-31');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 mangodb.orderspay 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orderspay` (
   `opno` int(11) NOT NULL AUTO_INCREMENT,
-  `id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `orders_pay_date` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `orders_pay_money` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `orders_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '회원 아이디',
+  `orders_pay_date` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '결제 날짜',
+  `orders_pay_money` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '결제 총 금액',
+  `orders_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '주문 번호',
+  `receiver_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '수령인 이름',
+  `receiver_phone` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '수령인 전화번호',
+  `receiver_zipno` int(11) NOT NULL DEFAULT 0 COMMENT '수령인 우편번호',
+  `receiver_address` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '수령인 도로명주소',
   PRIMARY KEY (`opno`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 테이블 데이터 mangodb.orderspay:~0 rows (대략적) 내보내기
 DELETE FROM `orderspay`;
 /*!40000 ALTER TABLE `orderspay` DISABLE KEYS */;
+INSERT INTO `orderspay` (`opno`, `id`, `orders_pay_date`, `orders_pay_money`, `orders_id`, `receiver_name`, `receiver_phone`, `receiver_zipno`, `receiver_address`) VALUES
+	(21, 'son2', '2022-10-31 16:41:21.152577', '44', '35fc62b371c94844ab95785ed7036c7a,35fc62b371c94844ab95785ed7036c7a', '손djd', '01038285683', 35231, '대전광역시 서구 갈마역로25번길 17-15, 11(갈마동)'),
+	(22, 'son2', '2022-10-31 17:18:39.301734', '110', '96f922a51f10447791ab1528a920157b,96f922a51f10447791ab1528a920157b', '손손', '0102223333', 35231, '대전광역시 서구 갈마역로25번길 17-15, 11(갈마동)'),
+	(23, 'son1', '2022-10-31 17:36:10.202806', '44', 'a560f239662142d5b68e150bf7e56c12,a560f239662142d5b68e150bf7e56c12', '손규동', '01038285683', 35273, '대전광역시 서구 갈마중로50번길 61, 123(갈마동)');
 /*!40000 ALTER TABLE `orderspay` ENABLE KEYS */;
 
 -- 테이블 mangodb.pay 구조 내보내기
@@ -587,7 +647,7 @@ CREATE TABLE IF NOT EXISTS `reserve_seq` (
 DELETE FROM `reserve_seq`;
 /*!40000 ALTER TABLE `reserve_seq` DISABLE KEYS */;
 INSERT INTO `reserve_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-	(1001, 1, 99999999, 1, 1, 1000, 0, 0);
+	(1, 1, 99999999, 1, 1, 1000, 0, 0);
 /*!40000 ALTER TABLE `reserve_seq` ENABLE KEYS */;
 
 -- 테이블 mangodb.theater 구조 내보내기
