@@ -83,15 +83,15 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
                         <div class="toggle_hidden t_<%=i%>">
                            <div class="wrapper_content">
                               <div>이름</div>
-                              <div class="content_bold"><%=ordersVO.getReceiverName()%></div>
+                              <div class="content_bold"></div>
                            </div>
                            <div class="wrapper_content">
                               <div>전화번호</div>
-                              <div class="content_bold"><%=ordersVO.getReceiverPhone()%></div>
+                              <div class="content_bold"></div>
                            </div>
                            <div class="wrapper_content">
                               <div>주소</div>
-                              <div class="content_bold"><%=ordersVO.getReceiverAddress()%></div>
+                              <div class="content_bold"></div>
                            </div>                        
                         </div>   
 

@@ -133,11 +133,7 @@ if (login != null)
       <!-- <form name="" class="cartForm" action="/page/orders/insert.do" method="post"> -->
       	<input type="hidden" class="id" id="memberId" name="id" value="<%=login.getId()%>">
 		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">
-		<%-- <c:forEach var="cart" items="${cartList}"></c:forEach> --%>
-		
-		
-		
-		
+	
 		
 		<!-- <input type="hidden" class="totalPrice" name="totalPrice" value="">  
 		<input type="hidden" name="sellerName" value="test"> -->
