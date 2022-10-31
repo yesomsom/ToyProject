@@ -79,22 +79,8 @@
       }
       var sumComma = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
          $(".total_price").text(sumComma);
-         $('input[name=totalPrice]').attr('value', sum);
+         $('input[name=allTotalPrice]').attr('value', sum);
       }
-/*function sendForm(){
-	$(".submit_cartId").val($(".cartIdHid").val());
-}      */
-
-
-
-
-
-
-
-
-
-
-
 
 
 // 주문하기 버튼 클릭 시
