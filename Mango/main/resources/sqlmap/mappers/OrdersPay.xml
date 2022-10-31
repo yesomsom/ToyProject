@@ -5,23 +5,27 @@
   
   
 <mapper namespace="ordersPayMapper">
-   <resultMap type="OrdersPayVO" id="ordersPayList">
-      <result property="id" column="id" />
-      <result property="ordersId" column="orders_id" />
-      <result property="ordersPayDate" column="orders_pay_date" />
-      <result property="ordersPayMoney" column="orders_pay_money" />
-   </resultMap> 
+	<resultMap type="OrdersPayVO" id="ordersPayList">
+		<result property="id" column="id" />
+		<result property="ordersId" column="orders_id" />
+		<result property="ordersPayDate" column="orders_pay_date" />
+		<result property="ordersPayMoney" column="orders_pay_money" />
+		<result property="receiverName" column="receiver_name" />
+		<result property="receiverPhone" column="receiver_phone" />
+		<result property="receiverZipno" column="receiver_zipno" />
+		<result property="receiverAddress" column="receiver_address" />      
+	</resultMap> 
    
-   <insert id="insertOrdersPay" parameterType="OrdersPayVO">
-     <![CDATA[
-        insert into orderspay(id,orders_id,orders_pay_date,orders_pay_money)
-        values(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney})
-     ]]>
-   </insert>
+	<insert id="insertOrdersPay" parameterType="OrdersPayVO">
+		<![CDATA[
+			insert into orderspay(id,orders_id,orders_pay_date,orders_pay_money,receiver_name,receiver_phone,receiver_zipno,receiver_address)
+			values(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney},#{receiverName},#{receiverPhone},#{receiverZipno},#{receiverAddress})
+		]]>
+	</insert>
   
-   <select id="getOrdersPayData" resultType="OrdersPayVO">
-      SELECT id, ordersId, ordersPayDate, ordersPayMoney FROM orderspay WHERE ID = #{id}
-   </select>
+	<select id="getOrdersPayData" resultType="OrdersPayVO">
+		SELECT * FROM orderspay WHERE ID = #{id}
+	</select>
  
  
 </mapper>

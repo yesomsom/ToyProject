@@ -8,10 +8,6 @@
 		<result property="cartId" column="cart_id" />
 		<result property="id" column="id" />
 		<result property="name" column="name" />
-		<result property="receiverName" column="receiver_name" />
-		<result property="receiverPhone" column="receiver_phone" />
-		<result property="receiverZipno" column="receiver_zipno" />
-		<result property="receiverAddress" column="receiver_address" />
 		<result property="creDate" column="creDate" />
 		<result property="totalPrice" column="total_price" />	
 		<result property="cno" column="cno" />
@@ -22,8 +18,8 @@
 	</select>
 
 	<insert id="insertOrders" parameterType="OrdersVO">
-		insert into orders(orders_id, cart_id, id, name, receiver_name, receiver_phone, receiver_zipno, receiver_address, creDate, total_price)
-		values(#{ordersId}, #{cartId}, #{id}, #{name}, #{receiverName}, #{receiverPhone}, #{receiverZipno}, #{receiverAddress}, SYSDATE(6), #{totalPrice})
+		insert into orders(orders_id, cart_id, id, name, creDate, total_price)
+		values(#{ordersId}, #{cartId}, #{id}, #{name}, SYSDATE(6), #{totalPrice})
 	</insert>
 
 	<select id="selectOrders" resultType="OrdersVO"	parameterType="OrdersVO">
@@ -32,9 +28,9 @@
       ]]>
 	</select>
 
-	<update id="modifyOrders" parameterType="OrdersVO">
+<!-- 	<update id="modifyOrders" parameterType="OrdersVO">
 		UPDATE orders SET receiver_name = #{receiverName},receiver_phone =
 		#{receiverPhone},receiver_zipno=#{receiverZipno},receiver_address=#{receiverAddress}
 		WHERE orders_id = #{ordersId};
-	</update>
+	</update> -->
 </mapper>
