@@ -23,10 +23,5 @@ public class OrdersDAO extends ComAbstractDAO {
    public OrdersVO selectOrders(OrdersVO oVO) throws Exception {
       return selectOne("ordersMapper.selectOrders", oVO);
    }
-   
-   // 주문 수정
-   public int modifyOrders(OrdersVO oVO) throws Exception {
-      return update("ordersMapper.modifyOrders", oVO);
-   }
       
 }

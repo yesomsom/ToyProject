@@ -69,17 +69,22 @@ public class ServiceCenterController {
 
 	// 1:1문의사항 조회
 	@RequestMapping(value = "/myAskList")
-	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO, HttpSession session,
-			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
+	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO, HttpSession session, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		aVO.setId(login.getId());
 		int askListTotal = askService.selectAllAskCount(aVO);
-		// 페이징
-		PageMakerDTO pageMaker = new PageMakerDTO(cri, askListTotal);
-		if (pageNumCri == null) {
-			pageNumCri = "1";
+		
+		if (pageNum == null) {
+			pageNum = "1";
 		}
-		aVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
+		
+		if(pageNum != null){
+			cri.setPageNum(Integer.parseInt(pageNum));
+		}
+		
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, askListTotal);
+				
+		aVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		aVO.setAmount(cri.getAmount());
 
 		List<AskVO> askList = askService.selectAskList(aVO);
@@ -92,16 +97,15 @@ public class ServiceCenterController {
 
 	// 공지사항 리스트
 	@RequestMapping(value = "/noticeList")
-	public String selectQaList(ModelMap model, Criteria cri, NoticeVO nVO,
-			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
+	public String selectQaList(ModelMap model, Criteria cri, NoticeVO nVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		int noticeTotal = noticeService.selectAllNoticeCount(nVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, noticeTotal);
-		if (pageNumCri == null) {
-			pageNumCri = "1";
+		if (pageNum == null) {
+			pageNum = "1";
 		}
-		nVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
+		nVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		nVO.setAmount(cri.getAmount());
 
 		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
@@ -110,19 +114,22 @@ public class ServiceCenterController {
 
 		return "/user/page/noticeList";
 	}
-
+	@RequestMapping(value = "/tracking")
+	public String tracking() {
+		
+		return "user/page/tracking";
+	}
 	// q&a 리스트
 	@RequestMapping(value = "/qaList")
-	public String selectQaList(ModelMap model, Criteria cri, QaVO qVO,
-			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
+	public String selectQaList(ModelMap model, Criteria cri, QaVO qVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		int qaListTotal = qaService.selectAllQaCount(qVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, qaListTotal);
-		if (pageNumCri == null) {
-			pageNumCri = "1";
+		if (pageNum == null) {
+			pageNum = "1";
 		}
-		qVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
+		qVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		qVO.setAmount(cri.getAmount());
 
 		List<QaVO> qaList = qaService.selectAllQaList(qVO);

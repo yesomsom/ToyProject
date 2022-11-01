@@ -16,7 +16,12 @@ import mango.mango.service.GoodsService;
 public class GoodsServiceImpl extends EgovAbstractServiceImpl implements GoodsService {
    @Resource(name = "GoodsDAO")
    private GoodsDAO goodsDAO;
-
+   
+   @Override
+   public List<GoodsVO> selectCatList(GoodsVO gVO) throws Exception{
+	   return goodsDAO.selectCatList(gVO);
+   }
+   
    @Override
    public List<GoodsVO> selectAllGoodsList(GoodsVO gVO) throws Exception {
       return goodsDAO.selectAllGoodsList(gVO);

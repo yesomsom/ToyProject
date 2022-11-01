@@ -36,8 +36,7 @@ public class OrdersController {
 	private CartService cartService;
 
 	@RequestMapping(value = "/orders")
-	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, CartVO cVO, HttpSession session)
-			throws Exception {
+	public String orders(ModelMap model, Criteria cri, OrdersVO oVO, MemberVO mVO, CartVO cVO, HttpSession session) throws Exception {
 
 		MemberVO login = (MemberVO) session.getAttribute("login");
 
@@ -55,8 +54,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "/directOrders/insert", method = RequestMethod.POST)
-	public String insertDirectOrders(ModelMap model, Criteria cri, MemberVO mVO, OrdersVO oVO, HttpSession session)
-			throws Exception {
+	public String insertDirectOrders(ModelMap model, Criteria cri, MemberVO mVO, OrdersVO oVO, HttpSession session) throws Exception {
 		EgovWebUtil uuid = new EgovWebUtil();
 		String UUID = uuid.getUUID();
 		String UUID2 = uuid.getUUID();
@@ -77,12 +75,9 @@ public class OrdersController {
 
 	@RequestMapping(value = "/orders/insert", method = RequestMethod.POST)
 	@ResponseBody
-	public String insertOrders(ModelMap model, Criteria cri, MemberVO mVO,
-			@RequestParam(value = "cartIdList") String cartIdList,
-			@RequestParam(value = "sellerNameList") String sellerNameList,
-			@RequestParam(value = "totalPriceList") String totalPriceList,
-			@RequestParam(value = "memberId", required = false) String memberId,
-			@RequestParam(value = "memberName", required = false) String memberName, HttpSession session)
+	public String insertOrders(ModelMap model, Criteria cri, MemberVO mVO, @RequestParam(value = "cartIdList") String cartIdList,
+			@RequestParam(value = "sellerNameList") String sellerNameList, @RequestParam(value = "totalPriceList") String totalPriceList,
+			@RequestParam(value = "memberId", required = false) String memberId, @RequestParam(value = "memberName", required = false) String memberName, HttpSession session)
 			throws Exception {
 		EgovWebUtil uuid = new EgovWebUtil();
 		String UUID = uuid.getUUID();
@@ -110,8 +105,6 @@ public class OrdersController {
 					ordersService.insertOrders(oVO);
 				}
 			}
-			
-			
 
 		} else {
 			model.addAttribute("isSuccess", false);
@@ -120,23 +113,14 @@ public class OrdersController {
 		return "success";
 	}
 
-	@RequestMapping(value = "/orders/update")
-	public String updateOrders(ModelMap model, Criteria cri, OrdersVO oVO) throws Exception {
-		ordersService.modifyOrders(oVO);
-
-		return "redirect:/page/orders.do";
-	}
-
 	@RequestMapping(value = "/ordersKakao")
-	public String OrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session)
-			throws Exception {
+	public String OrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
 		return "/user/page/ordersKakao";
 	}
 
 	@RequestMapping(value = "/ordersKakao/insert", method = RequestMethod.POST)
-	public String insertOrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session)
-			throws Exception {
-		
+	public String insertOrdersKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
+
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		opVO.setId(login.getId());
 
@@ -151,8 +135,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "/ordersPayKakao")
-	public String ordersPayKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session)
-			throws Exception {
+	public String ordersPayKakao(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		opVO.setId(login.getId());
 
@@ -160,7 +143,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "/myOrdersPage")
-	public String myOrdersPage(ModelMap model, Criteria cri, OrdersVO oVO, HttpSession session) throws Exception {
+	public String myOrdersPage(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
 
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		model.addAttribute("type", "myOrdersPage");
@@ -177,6 +160,18 @@ public class OrdersController {
 			} else {
 				System.out.println("오류발생");
 			}
+			opVO.setId(login.getId());
+			List<OrdersPayVO> ordersPayList = ordersPayService.selectAllOrdersPayList(opVO);
+			if (ordersPayList != null) {
+				for (OrdersPayVO opListvo : ordersPayList) {
+					System.out.println(opListvo.toString());
+					model.addAttribute("ordersPayList", ordersPayList);
+					System.out.println("ordersPayList" + ordersPayList);
+				}
+			} else {
+				System.out.println("오류발생");
+			}
+
 		} else {
 			model.addAttribute("isSuccess", false);
 			return "/user/page/process";

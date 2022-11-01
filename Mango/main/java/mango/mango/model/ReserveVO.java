@@ -1,8 +1,11 @@
 package mango.mango.model;
 
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ReserveVO implements Serializable {
+@Getter
+@Setter
+public class ReserveVO {
 	private String id;
 	private int reserveSequence;
 	private String title;
@@ -20,97 +23,8 @@ public class ReserveVO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public int getReserveSequence() {
-		return reserveSequence;
-	}
-
-	public void setReserveSequence(int reserveSequence) {
-		this.reserveSequence = reserveSequence;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getRunningTime() {
-		return runningTime;
-	}
-
-	public void setRunningTime(String runningTime) {
-		this.runningTime = runningTime;
-	}
-
-	public String getMovieDate() {
-		return movieDate;
-	}
-
-	public void setMovieDate(String movieDate) {
-		this.movieDate = movieDate;
-	}
-
-	public String getReserveDate() {
-		return reserveDate;
-	}
-
-	public void setReserveDate(String reserveDate) {
-		this.reserveDate = reserveDate;
-	}
-
-	public String getTicketNumber() {
-		return ticketNumber;
-	}
-
-	public void setTicketNumber(String ticketNumber) {
-		this.ticketNumber = ticketNumber;
-	}
-
-	public String getSelectedSeat() {
-		return selectedSeat;
-	}
-
-	public void setSelectedSeat(String selectedSeat) {
-		this.selectedSeat = selectedSeat;
-	}
-
-	public String getSelectedTheater() {
-		return selectedTheater;
-	}
-
-	public void setSelectedTheater(String selectedTheater) {
-		this.selectedTheater = selectedTheater;
-	}
-
-	public String getMovieName() {
-		return movieName;
-	}
-
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
-	}
-
-	public PayVO getPayVO() {
-		return PayVO;
-	}
-
-	public void setPayVO(PayVO pVO) {
-		this.PayVO = pVO;
-	}
-
-	public ReserveVO(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String reserveDate, String ticketNumber, String selectedSeat, String selectedTheater, String movieName,
-			PayVO pVO) {
+	public ReserveVO(String id, int reserveSequence, String title, String runningTime, String movieDate, String reserveDate, String ticketNumber, String selectedSeat,
+			String selectedTheater, String movieName, PayVO pVO) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -127,10 +41,8 @@ public class ReserveVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ReserveVO [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title + ", runningTime="
-				+ runningTime + ", movieDate=" + movieDate + ", reserveDate=" + reserveDate + ", ticketNumber="
-				+ ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater=" + selectedTheater
-				+ ", movieName=" + movieName + "]";
+		return "ReserveVO [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title + ", runningTime=" + runningTime + ", movieDate=" + movieDate + ", reserveDate="
+				+ reserveDate + ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater=" + selectedTheater + ", movieName=" + movieName + "]";
 	}
 
 }

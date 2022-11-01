@@ -51,7 +51,6 @@ public class ReserveController {
 	private OrdersService ordersService;
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService ordersPayService;
-
 	@Resource(name = "askService")
 	private AskService askService;
 
@@ -207,7 +206,19 @@ public class ReserveController {
 		} else {
 			System.out.println("오류발생");
 		}
-
+		
+		opVO.setId(login.getId());
+		List<OrdersPayVO> ordersPayList = ordersPayService.selectAllOrdersPayList(opVO);
+		if (ordersPayList != null) {
+			for (OrdersPayVO opListvo : ordersPayList) {
+				System.out.println(opListvo.toString());
+				model.addAttribute("ordersPayList", ordersPayList);
+				System.out.println("ordersPayList" + ordersPayList);
+			}
+		} else {
+			System.out.println("오류발생");
+		}
+		
 		aVO.setId(login.getId());
 		List<AskVO> askList = askService.selectAllAskList(aVO);
 
@@ -220,8 +231,6 @@ public class ReserveController {
 		} else {
 			System.out.println("오류발생");
 		}
-
-		opVO.setId(login.getId());
 
 		return "/user/page/myPage";
 	}
