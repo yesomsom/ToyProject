@@ -26,22 +26,6 @@
       $(".quantity_delete_form").submit();
    });
    
-/* 장바구니 다중 선택 삭제 버튼 - 미완 
-   $(".delete_btn").on("click", function(){
-      var delArr = new Array();
-      $(".chk:checked").each(function(){
-         delArr.push($(".chk").index(this));
-      });
-      for(var i = 0; i < delArr.length; i++) {
-         document.querySelector(".check_delete").innerHTML = '<input type="text" name="cartList['+delArr[i]+'].cartId" value="'+delArr[i]+'">'
-         alert(delArr[i]);
-      }
-      
-         $(".check_delete_form").submit();
-
-   });
-   */
-
 /* 전체 체크박스 설정 및 해제 */
    $(".chk_all").click(function() {
       var chk = $(".chk_all").prop("checked");
@@ -55,6 +39,7 @@
          //totalName();
       }
    });
+
    $(".chk").click(function() {
       itemSum();
       //totalName();
@@ -79,9 +64,8 @@
       }
       var sumComma = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
          $(".total_price").text(sumComma);
-         $('input[name=allTotalPrice]').attr('value', sum);
+         $('input[name=totalPrice]').attr('value', sum);
       }
-
 
 // 주문하기 버튼 클릭 시
 function order_ajax(){
@@ -99,11 +83,10 @@ function order_ajax(){
 			var tp = $(this).data("tp");
 			cartIdList += cartId+",";
 			sellerNameList += sellerName +",";
-			totalPriceList += tp + ",";
-			//var cartData = {cartId : cartId, sellerName : sellerName};
-			//cartList.data.push(cartData);
+			totalPriceList += tp + ",";			
 		}
 	})
+	
 	$.ajax({
         url: '/page/orders/insert.do',
         type: 'post',
@@ -119,11 +102,4 @@ function order_ajax(){
             location.href="/page/orders.do";
         },
     });
-	
-
 }
-
-
-
-
-

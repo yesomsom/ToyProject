@@ -39,10 +39,6 @@ function cat1_change(key, sel) {
 	// name 변수인데 만약 키가 1이면 cat_2name[1]로 첫번째 cat2_name을 갖고옴 그 후에 변수에 저장
 	var val = cat2_num[key];
 	// val 변수인데 만약 키가 1이면 cat_2num[1]로 첫번째 cat2_name을 갖고옴 그 후에 변수에 저장
-	 
-	
-	
-	
 	
 	//sel.option[i] -> 미리 공간 만들기
 	//
@@ -57,7 +53,6 @@ function cat1_change(key, sel) {
 		sel.options[i + 1] = new Option(name[i], val[i]);
 	}
 }
-
 
 //핸드폰 번호_입력 값이 숫자가 아니면 입력x
 function uncomma(str) {
@@ -84,7 +79,6 @@ function doOpenCheck(chk){
     }
 }
 
-
 //동의 선택 시 확 가능
 function fnConfirm(obj) {
 	if (obj === 'y') {
@@ -103,15 +97,3 @@ function fnConfirm(obj) {
 	}
 	return false;
 }
-
-
-
-//라디오버튼
-/*function fnConfirm(){
-    if($('input:radio[id=rdo02]').is(':checked')){
-        $('input:select[id=area]').hide();
-    }else{
-        $('input:select[id=area]').show();
-    }
-}
-*/

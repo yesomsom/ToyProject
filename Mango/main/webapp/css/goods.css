@@ -22,9 +22,21 @@ ul li {
 	display: inline-flex;
 }
 
-.pageInfo {
-	display: flex;
-}
+.pageInfo{
+      list-style : none;
+      display: inline-block;
+    margin: 50px 0 0 100px;      
+  }
+  .pageInfo li{
+      float: left;
+    font-size: 20px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
 
 .pageInfo a {
 	margin:10px;
@@ -35,7 +47,7 @@ ul li {
 .pageInfo_wrap {
 	position: absolute;
 	top: 820px;
-	left: 850px;
+	left: 540px;
 }
 #allCate {
 	width: 90px;

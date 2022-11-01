@@ -7,9 +7,9 @@ const poster = document.querySelector('#poster');
 let idFlag = false;
 let psFlag = false;
 
-document.addEventListener('DOMContentLoaded', () => {    
-    add();   
-});
+$(document).ready(function(){
+	add();
+})
 
 function add() {
     $.ajax({

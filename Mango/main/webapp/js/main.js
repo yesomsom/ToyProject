@@ -6,9 +6,10 @@ const movieInformationWrapper = document.querySelector(
 
 const reserveButton = document.querySelector('.reserveButton');
 // $( document ).ready()와 유사한 코드
-document.addEventListener('DOMContentLoaded', () => {
-    add();
-});
+
+$(document).ready(function(){
+	add();
+})
 
 // 데이터 가져오기
 function add() {
@@ -62,8 +63,8 @@ function reserve(list, index) {
 }
 
 function getList(data, index) {
-    return `<form action="/page/reserve.do" method="post" class="movie-informaion" id="${index}">
-    
+    return `
+<form action="/page/reserve.do" method="post" class="movie-informaion" id="${index}">    
     <div class="movie-rank">${data.rank}</div>
     <div class="poster-wrapper"><img src="${data.img}"></div>
     <div>
@@ -71,10 +72,14 @@ function getList(data, index) {
         <div class="movie-rate"><span>예매율</span><span style="margin-left: 10px;">${data.movieRate}</span></div>
         <div class="movie-date">${data.movieOpenDate}</div>
         <div class="like-reserve-wrapper">
-            <div><button type="button" class="movie-like"><img class="likeButton"
-                        src="/images/heart.png"></button>
+            <div>
+				<button type="button" class="movie-like">
+					<img class="likeButton" src="/images/heart.png">
+				</button>
             </div>
-            <button type="button" class="reserveButton" id="reserve${index}"><img src="/images/reserv_icon6.png"></button>
+            <button type="button" class="reserveButton" id="reserve${index}">
+				<img src="/images/reserv_icon6.png">
+			</button>
         </div>
     </div>
     <input type="hidden" name="rank" value=${data.rank}>

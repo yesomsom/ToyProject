@@ -3,12 +3,12 @@ body {
 }
 /*사이드 바*/
 .sideBar {
-  width: 170px;
-  margin-left: 40px;
-  text-align: center;
-  position: absolute;
-  top: -20px;
-  left: 30px;
+   width: 170px;
+   margin-left: 40px;
+   text-align: center;
+   position: absolute;
+   top: -20px;
+   left: 30px;
 }
 
 .side_head {
@@ -52,10 +52,13 @@ body {
 
 #h_div {
    position: relative;
-   bottom: 40px;
-   right: 265px;
-   font-size: 30px;
-   font-weight: bold;
+   right: 435px;
+   top: 12px;
+}
+
+#h_div>h1 {
+   font-size: 26px !important;
+   font-weight: bold !important;
 }
 
 .filter {
@@ -67,7 +70,6 @@ body {
    font-size: 15px;
    float: left;
    margin: 10px 0;
-
 }
 
 /*필터*/
@@ -80,6 +82,12 @@ body {
 /*테이블*/
 table {
    margin-top: 20px;
+   border-collapse: collapse;
+   width: 1000px;
+}
+
+tr, td {
+   padding: 10px;
 }
 
 table td {
@@ -88,11 +96,12 @@ table td {
 }
 
 thead>tr {
-   background-color: lightgray;
+   background-color: #fce8ac;
+   font-weight: bold !important;
 }
 
-tbody td {
-   background-color: white;
+tr:nth-child(2n) {
+  background-color: #fcf7e6;
 }
 
 thead .td:nth-child(1) {
@@ -115,7 +124,6 @@ thead .td:nth-child(5) {
    width: 150px;
 }
 
-
 tbody .td:nth-child(1) {
    width: 70px;
 }
@@ -137,38 +145,23 @@ tbody .td:nth-child(5) {
 }
 
 /*페이징*/
-  .pageInfo {
+.pageInfo {
    display: flex;
-   margin: 70px 0 0 640px;
 }
 
 .pageInfo a {
-   margin:10px;
-}
-.pageInfo a:hover {
-   color:aqua;
-}
-.pageInfo_wrap {
-   position: RELATIVE;
-    top: 15px;
-    left: 236px;
+   margin: 10px;
 }
 
-/*모달*/
-/* .modal_button {
+.pageInfo a:hover {
+   color: rgb(247, 173, 63) !important;
+}
+
+.pageInfo_wrap {
    position: absolute;
-   top: 500px;
-   left: 650px;
-   width: 120px;
-   height: 30px;
-   margin-top: -15px;
-   margin-left: -60px;
-   line-height: 15px;
-   cursor: pointer;
-   background: rgba(0, 0, 0, 0);
-   border: 0;
-   font-weight: 600;
-} */
+    top: 620px;
+    left: 540px;
+}
 
 .modal {
    position: fixed;
@@ -178,9 +171,8 @@ tbody .td:nth-child(5) {
    top: 0;
    left: 0;
    display: none;
-   z-index:9998;
+   z-index: 9998;
 }
-
 
 .modal_content {
    width: 400px;

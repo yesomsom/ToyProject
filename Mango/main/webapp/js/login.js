@@ -8,10 +8,9 @@ const checkSaveId = document.querySelector('#checkSaveId');
 const register = document.querySelector('.register');
 const main = document.querySelector('.main');
 
-window.addEventListener('DOMContentLoaded', function(){
-    add();
-});
-
+$(document).ready(function(){
+	add();
+})
 
 // 데이터 가져오기
  function add() {

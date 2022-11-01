@@ -5,68 +5,73 @@
     text-align: center;
     font-size:20px;
   }
-  #h_div{
-    position: relative;
-    bottom:40px;
-    right: 265px;
-    font-size:30px;
-    font-weight:bold;
-  }
-  thead>tr{
-  background-color:lightgray;
-  }
-  tbody>tr{
-  background-color:white;
-  }
+#h_div {
+   position: relative;
+   right: 400px;
+   top: 12px;
+   font-size: 26px !important;
+   font-weight: bold !important;   
+}
+/*테이블*/
+table {
+   margin-top: 40px;
+   border-collapse: collapse;
+   width: 1000px;
+}
+
+tr, td {
+   padding: 10px;
+}
+
+thead>tr {
+   background-color: #fce8ac;
+   font-weight: bold !important;
+}
+
+tr:nth-child(2n) {
+  background-color: #fcf7e6;
+}
+
+table td {
+   text-align: center;
+   cursor: pointer;
+}
   
-  #td:nth-child(1){
-    
-    width: 70px;
-  }
-  #td:nth-child(2){
-    
-    width: 75px;
-  }
-  #td:nth-child(3){
-    
-    width: 445px;
-  }
-  #td:nth-child(4){
-    
-    width: 150px;
-  }
-  .pageInfo {
+#td:nth-child(1){
+  
+  width: 70px;
+}
+#td:nth-child(2){
+  
+  width: 75px;
+}
+#td:nth-child(3){
+  
+  width: 445px;
+}
+#td:nth-child(4){
+  
+  width: 150px;
+}
+
+/* 페이징 */
+.pageInfo {
    display: flex;
 }
 
 .pageInfo a {
-   margin:10px;
+   margin: 10px;
 }
+
 .pageInfo a:hover {
-   color:aqua;
+   color: rgb(247, 173, 63) !important;
 }
+
 .pageInfo_wrap {
-   position: RELATIVE;
-    top: 15px;
-    left: 236px;
-}
-
-
-/*모달*/
-/* .modal_button {
    position: absolute;
-   top: 500px;
-   left: 650px;
-   width: 120px;
-   height: 30px;
-   margin-top: -15px;
-   margin-left: -60px;
-   line-height: 15px;
-   cursor: pointer;
-   background: rgba(0, 0, 0, 0);
-   border: 0;
-   font-weight: 600;
-} */
+    top: 400px;
+    left: 25px;
+}
 
 .modal {
    position: fixed;

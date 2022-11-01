@@ -30,14 +30,11 @@ const selectNumberOld = document.querySelectorAll('.select-number-old');
 
 //예약 관련
 const selectedMovie = document.querySelector('.selected-movie');
-const selectedTheaterPlaceInfo = document.querySelectorAll(
-    '.selected-theater-place-info'
-);
+const selectedTheaterPlaceInfo = document.querySelectorAll('.selected-theater-place-info');
 const theaterTime = document.querySelector('.theater-time');
 const theaterDate = document.querySelector('.theater-date');
 const ticketPrice = document.querySelector('.ticket-price');
 const payMoney = document.querySelector('.payMoney');
-
 const seatForm = document.querySelector('.seatForm');
 const reserveButton = document.querySelector('.reserve-button');
 const title = document.querySelector('.title');
@@ -76,7 +73,6 @@ function initList(list, li) {
         console.log(selectSeatListUlActive);
         selectListUiFunction(selectSeatListUlActive);
         console.log('머니머니' + allMoney);
-
         console.log(normalNumber);
         console.log(teenNumber);
         console.log(oldNumber);
@@ -131,7 +127,6 @@ function selectListUiFunction(selectSeatListUlActive) {
                 ticketPrice.innerHTML = allMoney + '원';
             }
         }
-
         // allNumber = normalNumber + teenNumber + oldNumber;
         // allMoney = normalMoney + teenMoney + oldMoney;
         console.log(allNumber + '뭥미');
@@ -179,9 +174,7 @@ for (let i = 0; i < 10; i++) {
     allSeat.innerHTML = seat.length;
 }
 
-seat.forEach(data => {
-    //console.log(data.value.substring(1, data.value.length));
-    // console.log(data.value.substring(0, data.value.length - 1));
+seat.forEach(data => {   
     //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
     if (data.value.substring(1, data.value.length) === '2') {
         data.classList.add('left-margin');

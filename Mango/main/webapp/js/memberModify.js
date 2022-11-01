@@ -7,9 +7,9 @@ const poster = document.querySelector('#poster');
 let idFlag = false;
 let psFlag = true;
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(function(){
 	add();
-});
+})
 
 function add() {
 	$.ajax({
@@ -63,10 +63,7 @@ function passwordValidate() {
 	}
 }
 
-
-
 function checks() {
-
 	var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 아이디, 비밀번호 정규식
 	var getName = RegExp(/^[가-힣a-zA-Z]{2,20}$/);
 
@@ -75,7 +72,6 @@ function checks() {
 		progressBar: true,
 		timeOut: 1000,
 	};
-
 
 	if ($("#password").val() == "") {
 		toastr.error('비밀번호를 입력해주세요.', '비밀번호 확인', {
@@ -143,32 +139,25 @@ function checks() {
 
 function changepw() {
    if (confirm("비밀번호를 변경하시겠습니까?\n(조건 미충족시 개인정보 수정이 불가능합니다.)")) {
-   
-      document.getElementById("passwordRepeat").style.display = "block";
-   
+         document.getElementById("passwordRepeat").style.display = "block";   
    }
 }
 
-function delmember() {
-	
+function delmember() {	
 	if (confirm("삭제하시겠습니까?\n삭제한 정보는 다시 되돌릴수 없습니다.")) {
 		$("#modifyForm").attr("action", '/page/memberModify/delete.do');
 		$("#modifyForm").submit();
 		alert("삭제되었습니다.");
 
 	} else {
-		location.href = "/page/memberModify.do"
-		
+		location.href = "/page/memberModify.do"		
 	}
-
 }
-
 
 // 문자 인증하는 팝업창
 // 문자 인증 버튼 누르면 발생하는 함수
 function opensms() {
 	window.open("sendSms.do", "휴대폰 인증", "width=400,height=300,left=750,top=280");
-
 }
 
 // 주소 검색하는 팝업창
