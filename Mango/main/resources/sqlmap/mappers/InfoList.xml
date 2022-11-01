@@ -17,18 +17,19 @@
 	<insert id="insertInfo" parameterType="InfoDTO">
 
       <![CDATA[
-       insert into crawling(seq,rank,img,movie_title,movie_rate,movie_openDate)
-       values( 0, #{rank},#{img},#{movieTitle},#{movieRate},#{movieOpenDate})
+       INSERT INTO crawling(seq,rank,img,movie_title,movie_rate,movie_openDate)
+       VALUES( 0, #{rank},#{img},#{movieTitle},#{movieRate},#{movieOpenDate})
       ]]>
 	</insert>
 	
 	<delete id="deleteInfo">
-		delete from crawling where seq != 0
+		DELETE FROM crawling 
+		WHERE seq != 0
 	</delete>
 	
-	<select id="selectTheaterListKo" resultMap="InfoDTO"
-		parameterType="InfoDTO">
-		SELECT * from crawling GROUP BY movie_title ORDER BY
-		movie_title ;
+	<select id="selectTheaterListKo" resultMap="InfoDTO" parameterType="InfoDTO">
+		SELECT * FROM crawling 
+		GROUP BY movie_title 
+		ORDER BY movie_title ;
 	</select>
 </mapper>

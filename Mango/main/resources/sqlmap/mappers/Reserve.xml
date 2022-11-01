@@ -32,76 +32,52 @@
       SELECT A.ID, A.RESERVE_SEQ, A.TITLE, A.RUNNING_TIME,A.MOVIE_NAME, A.MOVIE_DATE, A.RESERVE_DATE, A.TICKET_NUMBER,   A.SELECTED_SEAT, A.SELECTED_THEATER, 
       B.PAY_MONEY, B.PAY_DATE
       FROM RESERVE A, PAY B
-      WHERE A.RESERVE_SEQ = B.RESERVE_SEQ AND A.ID = #{id}
+      WHERE A.RESERVE_SEQ = B.RESERVE_SEQ 
+      AND A.ID = #{id}
       ORDER BY A.RESERVE_SEQ DESC
    </select>
 
-   <insert id="Reserve" parameterType="ReserveVO"
-      useGeneratedKeys="true" keyColumn="reserveSequence">
+   <insert id="Reserve" parameterType="ReserveVO" useGeneratedKeys="true" keyColumn="reserveSequence">
 
-      <selectKey keyProperty="reserveSequence" resultType="int"
-         order="BEFORE">
-         select NEXTVAL(reserve_seq) from DUAL
+      <selectKey keyProperty="reserveSequence" resultType="int" order="BEFORE">
+         SELECT NEXTVAL(reserve_seq) FROM DUAL
       </selectKey>      
       <![CDATA[
-      insert into reserve(reserve_seq,id,title,running_time,movie_name,movie_date,reserve_date,ticket_number,selected_seat,selected_theater)
-      values(#{reserveSequence},#{id},#{title},#{runningTime},#{movieName},#{movieDate},SYSDATE(6),#{ticketNumber},#{selectedSeat},#{selectedTheater})
+      INSERT INTO reserve(reserve_seq,id,title,running_time,movie_name,movie_date,reserve_date,ticket_number,selected_seat,selected_theater)
+      VALUES(#{reserveSequence},#{id},#{title},#{runningTime},#{movieName},#{movieDate},SYSDATE(6),#{ticketNumber},#{selectedSeat},#{selectedTheater})
       ]]>
    </insert>
 
-   <select id="getReserveList" parameterType="ReserveVO"
-      resultType="ReserveVO">
-
-      SELECT ID, RESERVE_SEQ as reserveSequence, TITLE,
+   <select id="getReserveList" parameterType="ReserveVO" resultType="ReserveVO">
+      SELECT ID, RESERVE_SEQ as
+      reserveSequence,
+      TITLE,
       RUNNING_TIME,
       MOVIE_NAME,
-      MOVIE_DATE, RESERVE_DATE, TICKET_NUMBER,
+      MOVIE_DATE,
+      RESERVE_DATE,
+      TICKET_NUMBER,
       SELECTED_SEAT,
       SELECTED_THEATER
-      FROM RESERVE WHERE ID = #{id}
-      ORDER
-      BY RESERVE_SEQ
-      DESC
+      FROM RESERVE 
+      WHERE ID = #{id}
+      ORDER BY RESERVE_SEQ DESC
    </select>
 
-   <select id="getReserve" parameterType="ReserveVO"
-      resultType="ReserveVO">
-      SELECT ID, RESERVE_SEQ as reserveSequence, TITLE,
+   <select id="getReserve" parameterType="ReserveVO" resultType="ReserveVO">
+      SELECT ID, RESERVE_SEQ as 
+      reserveSequence, 
+      TITLE,
       RUNNING_TIME,
       MOVIE_NAME,
-      MOVIE_DATE, RESERVE_DATE, TICKET_NUMBER,
+      MOVIE_DATE, 
+      RESERVE_DATE, 
+      TICKET_NUMBER,
       SELECTED_SEAT,
       SELECTED_THEATER
-      FROM RESERVE WHERE ID = #{id}
-      ORDER
-      BY RESERVE_SEQ
-      DESC
+      FROM RESERVE 
+      WHERE ID = #{id}
+      ORDER BY RESERVE_SEQ DESC
    </select>
-
-
-
-
-<!--    <select id="allMember" resultType="ReserveVO"> SELECT
-      * FROM MEMBER
-   </select>
-   <select id="getId" resultType="ReserveVO">
-      SELECT ID FROM MEMBER WHERE ID =
-      #{id}
-   </select>
-   <insert id="register" parameterType="bit.com.a.model.MemberVO">
-      INSERT INTO MEMBER(ID, PWD,
-      NAME, EMAIL, AUTH) VALUES(#{id}, #{pwd},
-      #{name},
-      #{email}, 3)
-   </insert>
-   <select id="login" parameterType="bit.com.a.model.MemberVO"
-      resultType="ReserveVO"> SELECT ID, NAME, EMAIL, AUTH FROM
-      MEMBER WHERE ID = #{id}
-      and PWD = #{pwd}
-   </select>
-
-   ALTER TABLE MEGABOX_RESERVE ADD CONSTRAINT
-   FK_MEGABOX_RESERVE_ID_MEGABOX_
-   FOREIGN KEY (ID) REFERENCES
-   MEGABOX_MEMBER (ID) -->
+   
 </mapper>

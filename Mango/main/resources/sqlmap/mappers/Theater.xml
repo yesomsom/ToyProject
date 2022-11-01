@@ -19,48 +19,52 @@
       <result property="groupData" column="group_data" />
    </resultMap>
 
-
    <select id="selectAllTheaterList" resultMap="theaterList" parameterType="TheaterVO">
-       select * from theater       
+       SELECT * FROM theater       
    </select>
    
    <select id="selectCGVTheaterList" resultMap="theaterList" parameterType="TheaterVO">
-       select * from theater WHERE poi_nm = 'CGV' ORDER BY branch_nm;        
+       SELECT * FROM theater 
+       WHERE poi_nm = 'CGV' 
+       ORDER BY branch_nm;        
    </select>
       <select id="selectLotteTheaterList" resultMap="theaterList" parameterType="TheaterVO">
-       select * from theater WHERE poi_nm = '롯데시네마' ORDER BY branch_nm;       
+       SELECT * FROM theater 
+       WHERE poi_nm = '롯데시네마' 
+       ORDER BY branch_nm;       
    </select>
    <select id="selectMegaTheaterList" resultMap="theaterList" parameterType="TheaterVO">
-       select * from theater WHERE poi_nm = '메가박스' ORDER BY branch_nm;       
+       SELECT * FROM theater 
+       WHERE poi_nm = '메가박스' 
+       ORDER BY branch_nm;       
    </select>
    
-
-   <select id="selectCGVList" resultMap="theaterList"
-      parameterType="TheaterVO">
-      select * from theater where 1=1
+   <select id="selectCGVList" resultMap="theaterList" parameterType="TheaterVO">
+      SELECT * FROM theater 
+      WHERE 1=1
       <if test="mcateCd != null">
-         and mcate_cd = #{mcateCd}
+         AND mcate_cd = #{mcateCd}
       </if>
       <if test="sidoNm != null">
-         and sido_nm = #{sidoNm}
+         AND sido_nm = #{sidoNm}
       </if>
       <if test="sggNm != null">
-         and sgg_nm = #{sggNm}
+         AND sgg_nm = #{sggNm}
       </if>
       <if test="branchNm != null">
-         and branch_nm = #{branchNm}
+         AND branch_nm = #{branchNm}
       </if>      
       <if test="groupData == 1">
-         group by mcate_cd
+         GROUP BY mcate_cd
       </if>
       <if test="groupData == 2">
-         group by sido_nm
+         GROUP BY sido_nm
       </if>
       <if test="groupData == 3">
-         group by sgg_nm
+         GROUP BY sgg_nm
       </if>
       <if test="groupData == 4">
-         group by branch_nm
+         GROUP BY branch_nm
       </if>
    
    </select>   

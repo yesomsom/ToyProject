@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  
+
+
 <mapper namespace="ordersPayMapper">
 	<resultMap type="OrdersPayVO" id="ordersPayList">
 		<result property="id" column="id" />
@@ -13,19 +13,21 @@
 		<result property="receiverName" column="receiver_name" />
 		<result property="receiverPhone" column="receiver_phone" />
 		<result property="receiverZipno" column="receiver_zipno" />
-		<result property="receiverAddress" column="receiver_address" />      
-	</resultMap> 
-   
+		<result property="receiverAddress" column="receiver_address" />
+		<result property="deliveryState" column="delivery_state" />
+		<result property="opno" column="opno" />		
+	</resultMap>
+
 	<insert id="insertOrdersPay" parameterType="OrdersPayVO">
-		<![CDATA[
-			insert into orderspay(id,orders_id,orders_pay_date,orders_pay_money,receiver_name,receiver_phone,receiver_zipno,receiver_address)
-			values(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney},#{receiverName},#{receiverPhone},#{receiverZipno},#{receiverAddress})
-		]]>
+     <![CDATA[
+        INSERT INTO orderspay(id,orders_id,orders_pay_date,orders_pay_money, receiver_name, receiver_phone, receiver_zipno, receiver_address)
+        VALUES(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney}, #{receiverName}, #{receiverPhone}, #{receiverZipno}, #{receiverAddress})
+     ]]>
 	</insert>
-  
-	<select id="getOrdersPayData" resultType="OrdersPayVO">
-		SELECT * FROM orderspay WHERE ID = #{id}
+	
+	<select id="selectAllOrdersPayList" resultMap="ordersPayList"   parameterType="OrdersPayVO">
+	     SELECT * FROM orderspay 
+	     WHERE id = #{id} 
+	     ORDER BY opno DESC
 	</select>
- 
- 
 </mapper>

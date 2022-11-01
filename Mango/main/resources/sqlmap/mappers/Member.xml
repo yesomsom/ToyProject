@@ -26,60 +26,41 @@
 		<result property="logoImg" column="logoimg" />
 	</resultMap>
 
-	<!-- <select id="allMember" resultType="bit.com.a.model.MemberVO"> SELECT 
-		* FROM MEMBER </select> -->
-
 	<select id="getId" resultType="String" parameterType="String">
-		select *
-		from member where id = #{id}
-	</select>
-	<!-- <select id="getUserId" resultType="String" parameterType="String">
-		select *
-		from member where id = #{id} and auth = 3
-	</select>
-	<select id="getSellerId" resultType="String" parameterType="String">
-		select *
-		from member where id = #{id} and auth = 2
-	</select> -->
+		SELECT * FROM member 
+		WHERE id = #{id}
+	</select>	
 
 	<insert id="register" parameterType="MemberVO">
-		insert into member(id, password, name, phone, email, auth, address, zipno, registerdate)
-		values(#{id}, #{password}, #{name},	#{phone},#{email},3, #{address},#{zipNo}, SYSDATE(6))
+		INSERT INTO member(id, password, name, phone, email, auth, address, zipno, registerdate)
+		VALUES(#{id}, #{password}, #{name},	#{phone},#{email},3, #{address},#{zipNo}, SYSDATE(6))
 	</insert>
 	
 	<insert id="sellerRegister" parameterType="MemberVO">
-		insert into member(id, password, name, phone, email, auth, address, ownername, businessnumber, sellername, zipno, logoimg, registerdate)
-		values(#{id}, #{password}, #{name},	#{phone},#{email},2, #{address},#{ownerName}, #{businessNumber}, #{sellerName}, #{zipNo}, #{logoImg}, SYSDATE(6))
+		INSERT INTO member(id, password, name, phone, email, auth, address, ownername, businessnumber, sellername, zipno, logoimg, registerdate)
+		VALUES(#{id}, #{password}, #{name},	#{phone},#{email},2, #{address},#{ownerName}, #{businessNumber}, #{sellerName}, #{zipNo}, #{logoImg}, SYSDATE(6))
 	</insert>
 
-	<select id="login" resultType="MemberVO"
-		parameterType="MemberVO">
-		select * from member
-		where id=#{id} and
-		password=#{password}
+	<select id="login" resultType="MemberVO" parameterType="MemberVO">
+		SELECT * FROM member
+		WHERE id=#{id}
+		AND password=#{password}
 	</select>
 
 	<update id="updateMember" parameterType="MemberVO">
-		update member set
-		name =
-		#{name},
+		UPDATE member SET 
+		name = #{name},
 		password = #{password},
 		phone = #{phone},
 		email = #{email},
 		address = #{address},
 		zipno = #{zipNo}
-		where id =
-		#{id}
+		WHERE id = #{id}
 	</update>
 
 	<delete id="deleteMember" parameterType="String">
-		delete from member
-		where
-		id = #{id}
+		DELETE FROM member
+		WHERE id = #{id}
 	</delete>
-	<!-- <select id="getMemberInfo" parameterType="MemberVO" resultType="MemberVO"> 
-		SELECT ID, PASSWORD, NAME, PHONE_NUMBER, EMAIL, AUTH, REGISTER_DATE, UNREGISTER_DATE 
-		FROM WHERE ID = #{id} </select> -->
-
-
+	
 </mapper>

@@ -15,21 +15,18 @@
 
 	<!-- 공지 리스트 조회 -->
 	<select id="selectAllNoticeList" resultMap="notice" parameterType="NoticeVO">
-		select * from notice
-		limit #{skip}, #{amount}
+		SELECT * FROM notice
+		LIMIT #{skip}, #{amount}
 	</select>
 
-	<select id="selectAllNoticeCount" resultType="Integer"
-		parameterType="NoticeVO">
-		select count(*) from notice
+	<select id="selectAllNoticeCount" resultType="Integer" parameterType="NoticeVO">
+		SELECT COUNT(*) FROM notice
 	</select>
 
 	<!-- 1:1문의 리스트 조회 -->
 	<select id="selectNoticeList" resultMap="notice" parameterType="NoticeVO">
-		select * from notice where noti_id = #{notiId}
+		SELECT * FROM notice
+		WHERE noti_id = #{notiId}
 	</select>
-
-
-
-
+	
 </mapper>

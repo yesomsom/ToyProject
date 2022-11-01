@@ -19,63 +19,75 @@
 		<result property="id" column="id" />
 	</resultMap>
 	
-	<select id="selectOneGoods" resultMap="goodsList"
-		parameterType="GoodsVO">
-		SELECT A.*, B.realpath
-		FROM goods A, goodsfile B
-		WHERE A.goods_id = B.goods_id
-		GROUP BY A.goods_id
+	<select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
+		SELECT * FROM goods g 
+		left outer join goodsfile f on g.goods_id = f.goods_id 
+		WHERE 1=1
+		<if test="goodsCategory != null">
+			AND goods_category = #{goodsCategory}
+		</if>
+		<if test="goodsState != null">
+			AND goods_state = "승인"
+		</if>
+		
+		LIMIT #{skip}, #{amount}
 	</select>
 	
-	<select id="selectAllGoodsList" resultMap="goodsList"
-		parameterType="GoodsVO">
+	<select id="selectOneGoods" resultMap="goodsList" parameterType="GoodsVO">
+		SELECT A.*, B.realpath
+		FROM goods A
+		LEFT OUTER JOIN goodsfile B on A.goods_id = B.goods_id
+		GROUP BY A.goods_id
+		
+		LIMIT #{skip}, #{amount}
+	</select>
+	
+	<select id="selectAllGoodsList" resultMap="goodsList" parameterType="GoodsVO">
 		SELECT A.*, B.realpath
 		FROM goods A, goodsfile B
 		WHERE A.goods_id = B.goods_id
 
-		limit #{skip}, #{amount}
+		LIMIT #{skip}, #{amount}
 	</select>
 
-	<select id="selectAllGoodsCount" resultType="Integer"
-		parameterType="GoodsVO">
-		select count(*) from goods
+	<select id="selectAllGoodsCount" resultType="Integer" parameterType="GoodsVO">
+		SELECT COUNT(*) FROM goods
 	</select>
 
-	<select id="selectGoodsDetailList" resultMap="goodsList"
-		parameterType="GoodsVO">
-		select * from goods where goods_id = #{goodsId}
+	<select id="selectGoodsDetailList" resultMap="goodsList" parameterType="GoodsVO">
+		SELECT * FROM goods
+		WHERE goods_id = #{goodsId}
 	</select>
 
 	<insert id="insertGoods" parameterType="GoodsVO">
-		insert into goods
-		(goods_id, goods_category, goods_name, seller_name,	goods_detail, goods_price, goods_stock, delivery_price,	goods_discount, regdate, id)
-		values (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, #{goodsDiscount}, SYSDATE(6), #{id})
+		INSERT INTO goods
+		(goods_id, goods_category, goods_name, seller_name,	goods_detail, goods_price, goods_stock, delivery_price,	regdate, id)
+		VALUES (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, SYSDATE(6), #{id})
 	</insert>
 
 	<!-- seller별 goodsList 출력 -->
-	<select id="selectSellerGoodsList" resultMap="goodsList"
-		parameterType="GoodsVO">
-		select * from goods where id = #{id} ORDER BY regdate
-		DESC
-		limit #{skip}, #{amount}
+	<select id="selectSellerGoodsList" resultMap="goodsList" parameterType="GoodsVO">
+		SELECT * FROM goods
+		WHERE id = #{id} ORDER BY regdate DESC
+		LIMIT #{skip}, #{amount}
 	</select>
 
 	<!-- seller goods count -->
-	<select id="selectSellerGoodsCount" resultType="Integer"
-		parameterType="GoodsVO">
-		select count(*) from goods where id = #{id}
+	<select id="selectSellerGoodsCount" resultType="Integer" parameterType="GoodsVO">
+		SELECT COUNT(*) FROM goods
+		WHERE id = #{id}
 	</select>
 
 	<!-- 상품 삭제 -->
 	<delete id="deleteGoods" parameterType="GoodsVO">
-		delete from goods where
-		goods_id = #{goodsId}
+		DELETE FROM goods
+		WHERE goods_id = #{goodsId}
 	</delete>
 
 	<!-- 상품 수정 -->
 	<update id="modifyGoods" parameterType="GoodsVO">
 		UPDATE goods SET
-		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice},goods_discount=#{goodsDiscount}
+		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId};
 	</update>
 

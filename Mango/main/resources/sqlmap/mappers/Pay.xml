@@ -21,17 +21,19 @@
    </resultMap> 
   <insert id="Pay" parameterType="PayVO">
      <![CDATA[
-        insert into pay(id,reserve_seq,pay_date,pay_money)
-        values(#{id}, #{reserveSequence}, SYSDATE(6), #{payMoney})
+        INSERT INTO pay(id,reserve_seq,pay_date,pay_money)
+        VALUES(#{id}, #{reserveSequence}, SYSDATE(6), #{payMoney})
      ]]>
   </insert>
   
   <select id="getData" resultType="PayVO">
-  SELECT id, reserve_seq, pay_date, pay_money FROM PAY
+  	SELECT id, reserve_seq, pay_date, pay_money FROM PAY
   </select>
 
   <select id="selectAllPayList" resultMap="payList" parameterType="PayVO">
-  SELECT * FROM PAY WHERE id = #{id} ORDER BY reserve_seq DESC;
+	  SELECT * FROM PAY 
+	  WHERE id = #{id} 
+	  ORDER BY reserve_seq DESC;
   </select> 
  
   </mapper>

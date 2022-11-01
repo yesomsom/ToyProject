@@ -14,14 +14,14 @@
    </resultMap>
    
    <select id="selectAllGoodsFileList" resultMap="goodsFileList" parameterType="GoodsFileVO">
-      select * from goodsfile
-      where goods_id = #{goodsId}      
-      limit 5
+      SELECT * FROM goodsfile
+      WHERE goods_id = #{goodsId}      
+      LIMIT 5
    </select>
 
    <insert id="insertGoodsFile" parameterType="GoodsFileVO">
-      insert into goodsfile (goods_id, extension, originname, filesize, realpath, id, regdate)
-      values (#{goodsId}, #{extension}, #{originName}, #{fileSize}, #{realPath}, #{id}, SYSDATE(6))
+      INSERT INTO goodsfile (goods_id, extension, originname, filesize, realpath, id, regdate)
+      VALUES (#{goodsId}, #{extension}, #{originName}, #{fileSize}, #{realPath}, #{id}, SYSDATE(6))
    </insert>
    
 </mapper>

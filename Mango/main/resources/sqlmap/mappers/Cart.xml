@@ -25,20 +25,23 @@
    </select>
 	
 	<select id="getCartId" resultType="String" parameterType="String">
-		select * from cart where cart_id = #{cartId}
+		SELECT * FROM cart 
+		WHERE cart_id = #{cartId}
 	</select>
 	
    <insert id="insertCart" parameterType="CartVO">
-      insert into cart(cart_id, goods_id, goods_price, id, goods_qty, goods_category, delivery_price, seller_name, goods_name)
-      values(#{cartId}, #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{goodsCategory}, #{deliveryPrice}, #{sellerName}, #{goodsName})
+      INSERT INTO cart(cart_id, goods_id, goods_price, id, goods_qty, goods_category, delivery_price, seller_name, goods_name)
+      VALUES(#{cartId}, #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{goodsCategory}, #{deliveryPrice}, #{sellerName}, #{goodsName})
    </insert>
 
    <update id="modifyCount" parameterType="CartVO">
-      update cart set goods_qty = #{goodsQty} where cart_id = #{cartId};
+      UPDATE cart SET goods_qty = #{goodsQty}
+      WHERE cart_id = #{cartId};
    </update>
    
    <delete id="deleteCart" parameterType="CartVO">
-      delete from cart where cart_id = #{cartId}
+      DELETE FROM cart 
+      WHERE cart_id = #{cartId}
    </delete>
 
 </mapper>
