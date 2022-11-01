@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="mango.mango.model.MemberVO"%>
 <%@page import="mango.mango.model.ReserveVO"%>
-<%@page import="mango.mango.model.OrdersVO"%>
+<%@page import="mango.mango.model.OrdersPayVO"%>
 <%@page import="mango.mango.model.AskVO"%>
 <%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,7 +17,7 @@ if (login != null)
 List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
 %>
 <%
-List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
+List<OrdersPayVO> ordersPayList = (List<OrdersPayVO>) request.getAttribute("ordersPayList");
 %>
 <%
 List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
@@ -61,7 +61,9 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
              ReserveVO reserveVO = list.get(i);
           %>
              <div class="reserveList_card">
-                <div class="reserveId_title"><a href="${path}/page/myReserve.do">예매번호 : <%=reserveVO.getReserveSequence()%></a></div>   
+                <div class="reserveId_title">
+                	<a href="${path}/page/myReserve.do">예매번호<br><%=reserveVO.getReserveSequence()%></a>
+                </div>   
                 <div class="information_wrapper">
                    <div class="wrapper_content">
                       <div class="reserve_info"><%=reserveVO.getTitle()%></div>
@@ -100,27 +102,29 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
          <!-- 구매 상품 전체 묶음 -->
          <div class="ordersList_wrap">
           <%
-          if (ordersList == null) {
+          if (ordersPayList == null) {
           %>
           <div>구매한 상품이 없습니다</div>
           <%
           } else {
-          for (int i = 0; i < ordersList.size(); i++) {
-             OrdersVO ordersVO = ordersList.get(i);
+          for (int i = 0; i < ordersPayList.size(); i++) {
+             OrdersPayVO ordersPayVO = ordersPayList.get(i);
           %>         
              <div class="ordersList_card">
-                <div class="ordersId_title"><a href="${path}/page/myOrdersPage.do">주문번호 : <%=ordersVO.getOrdersId()%></a></div>   
+                <div class="ordersId_title">
+                	<a href="${path}/page/myOrdersPage.do">주문 번호<%=ordersPayVO.getOrdersId()%></a>
+                </div>   
                 <div class="information_wrapper">
                    <div class="wrapper_content">
-                      <div class="wrapper_content_title">주문 상품</div>
+<!--                       <div class="wrapper_content_title">주문 상품</div> -->
                       <div class="orders_info"></div>
                    </div>
                 </div>
                 
                 <div class="orders_content_wrapper">
-                   <div class="font_size">주문일</div>
+                   <div class="font_size">결제일</div>
                    &nbsp;/&nbsp;
-                   <div class="goods_name"><%=ordersVO.getCreDate()%></div>
+                   <div class="goods_name"><%=ordersPayVO.getOrdersPayDate()%></div>
                 </div>
                 <div class="orders_content_wrapper">
                    <div class="font_size">결제 수단</div>
@@ -130,8 +134,16 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                 <div class="orders_content_wrapper">
                    <div class="font_size">결제 비용</div>
                    &nbsp;/&nbsp;
-                   <div class="goods_name"><%=ordersVO.getTotalPrice()%>원</div>
-                </div>     
+                   <div class="goods_name"><%=ordersPayVO.getOrdersPayMoney()%>원</div>
+                </div>
+                <div class="orders_content_wrapper">
+                   <div class="font_size">배송 상태</div>
+                   &nbsp;/&nbsp;
+                   <div class="goods_name"><%=ordersPayVO.getDeliveryState()%></div>
+                </div>
+                <div class="orders_content_wrapper">
+                	<button id="deli_Btn" onClick="openTracking()">배송조회</button>
+                </div>                
            </div> 
                <%
                }
@@ -141,7 +153,6 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                }
                %>                               
          </div> 
-
 
          <!--나의 문의 내역 title -->
          <div class="myPage_subtitle"><a href="${path}/page/myAskList.do">문의 내역</a></div>
@@ -158,7 +169,7 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
              AskVO askVO = askList.get(i);
           %>          
              <div class="ordersList_card">
-                <div class="ordersId_title"><a href="${path}/page/myAskList.do">문의 번호 : <%=askVO.getAskId()%></a></div>   
+                <div class="ordersId_title"><a href="${path}/page/myAskList.do">문의 번호<br><%=askVO.getAskId()%></a></div>   
                 <div class="information_wrapper">
                    <div class="wrapper_content">
                       <div class="wrapper_content_title">문의 종류</div>
@@ -179,12 +190,10 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                <%
                }
                %>
-
                <%
                }
                %>                               
-         </div> 
-             
+         </div>              
      </div>
    </div>
    <script src="${path}/js/myPage.js"></script>

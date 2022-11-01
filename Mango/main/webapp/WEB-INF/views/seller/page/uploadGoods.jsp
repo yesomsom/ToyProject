@@ -46,7 +46,7 @@ if (login != null)
 			<!-- 상품가격 -->
 			<div class="goods_price form_wrapper">
 				<div class="div_wrapper">상품 가격</div>
-				<input name="goodsPrice" type="text" id ="goodsPrice">
+				<input name="goodsPrice" type="number" id ="goodsPrice">
 			</div>
 
 			<!-- 상품재고 -->
@@ -54,17 +54,11 @@ if (login != null)
 				<div class="div_wrapper">상품 재고</div>
 				<input name="goodsStock" type="number" id ="goodsStock">
 			</div>
-
-			<!-- 상품할인 -->
-			<div class="goods_discount form_wrapper">
-				<div class="div_wrapper">상품 할인률</div>
-				<input name="goodsDiscount" type="number" id="goodsDiscount">
-			</div>
-
+			
 			<!-- 상품배송비 -->
 			<div class="delivery_price form_wrapper">
 				<div class="div_wrapper">상품 배송비</div>
-				<input name="deliveryPrice" type="text" id="deliveryPrice">
+				<input name="deliveryPrice" type="number" id="deliveryPrice">
 			</div>
 
 			<div class="goods_img_path">
@@ -72,8 +66,7 @@ if (login != null)
 				<div>
 					<input type="file" name="multiFile" accept=".jpg, .png"multiple style="height: 30px;" id="multifile">
 				</div>
-			</div>
-			
+			</div>			
 
 			<!-- 상품상세 -->
 			<div class="goods_detail">
@@ -90,7 +83,7 @@ if (login != null)
       </div>
 	</div>
 
-<script src="${path }/js/uploadGoods.js"></script>
+		<script src="${path }/js/uploadGoods.js"></script>
 
-</body>
+	</body>
 </html>

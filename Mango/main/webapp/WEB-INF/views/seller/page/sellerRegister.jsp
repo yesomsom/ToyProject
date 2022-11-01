@@ -32,7 +32,7 @@
 						<button type="button" class="idCheckButton" onclick="idCheck();">아이디
 							체크</button>
 					</div>
-				</div>
+				</div>	
 
 				<div class="form-wrapper">
 					<!-- 비밀번호 입력칸 -->

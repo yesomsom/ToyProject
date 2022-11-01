@@ -25,35 +25,40 @@
 			</div>
 			<form action="/page/login/insert.do" id="loginForm" method="post">
 				<p class="register-title">
-					<a href="${path }/main.do"><img src="${path }/images/mangoLogo.png"></a> <span>로그인</span>
+					<a href="${path }/main.do">
+						<img src="${path }/images/mangoLogo.png">
+					</a> 
+					<span>로그인</span>
 				</p>
 				<div class="form-wrapper form-wrapper-id">
 					<div class="id-wrapper">
-						<input id="id" name="id" type="text" placeholder="아이디"
-							class="form-control"> <i class="zmdi zmdi-accounts"></i>
+						<input id="id" name="id" type="text" placeholder="아이디" class="form-control">
+						<i class="zmdi zmdi-accounts"></i>
 					</div>
 				</div>
 
 				<div class="form-wrapper">
-					<input type="password" name="password" placeholder="비밀번호"
-						id="password" class="form-control"  onkeyup="enterkey()"> <i
-						class="zmdi zmdi-lock"></i>
+					<input type="password" name="password" placeholder="비밀번호" id="password" class="form-control"  onkeyup="enterkey()">
+					<i class="zmdi zmdi-lock"></i>
 				</div>
 
 				<div class="sort1">
-					<input type="checkbox" id="checkSaveId" onclick="saveId()"> <span>아이디 저장</span>
+					<input type="checkbox" id="checkSaveId" onclick="saveId()">
+					<span>아이디 저장</span>
 				</div>
 
-
 				<button type="button" class="loginButton" onclick="resForm()">
-					<span>로그인 하기</span> <i class="zmdi zmdi-arrow-right"></i>
+					<span>로그인 하기</span>
+					<i class="zmdi zmdi-arrow-right"></i>
 				</button>
 				<button type="button" class="register" onclick="regMove()" style="margin-top: 10px;">
-					<span>회원가입 하기</span> <i class="zmdi zmdi-arrow-right"></i>
+					<span>회원가입 하기</span>
+					<i class="zmdi zmdi-arrow-right"></i>
 				</button>
 
 				<button type="button" class="main" onclick="HomeMove()" style="margin-top: 10px;">
-					<span>메인 홈페이지</span> <i class="zmdi zmdi-arrow-right"></i>
+					<span>메인 홈페이지</span>
+					<i class="zmdi zmdi-arrow-right"></i>
 				</button>
 			</form>
 
@@ -63,5 +68,4 @@
 	<script src="${path }/js/login.js"></script>
 
 </body>
-
 </html>

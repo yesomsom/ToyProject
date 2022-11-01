@@ -37,16 +37,20 @@ for (int i = 0; i < ordersList.size(); i++) {
 			<div class="member_detail detail_wrapper">
 				<div class="title_bold_big">구매자 정보</div>
 				<div class="margin_top">
-					구매자 이름: <span class="margin_left"><%=login.getName()%></span>
+					구매자 이름: 
+					<span class="margin_left"><%=login.getName()%></span>
 				</div>
 				<div>
-					핸드폰 번호: <span class="margin_left"><%=login.getPhone()%></span>
+					핸드폰 번호: 
+					<span class="margin_left"><%=login.getPhone()%></span>
 				</div>
 				<div>
-					우편번호 : <span class="margin_left"><%=login.getZipNo()%></span>
+					우편번호 : 
+					<span class="margin_left"><%=login.getZipNo()%></span>
 				</div>
 				<div>
-					도로명 주소 : <span class="margin_left"><%=login.getAddress()%></span>
+					도로명 주소 : 
+					<span class="margin_left"><%=login.getAddress()%></span>
 				</div>
 			</div>
 			<!-- 배송지 정보 -->
@@ -56,58 +60,52 @@ for (int i = 0; i < ordersList.size(); i++) {
 					<div class="modify_orders">
 						<div>수령인 이름:</div>
 						<div>
-							<input name="receiverName" type="text"
-								value="<%=login.getName()%>">
+							<input name="receiverName" type="text" value="<%=login.getName()%>">
 						</div>
 						<div></div>
 					</div>
 					<div class="modify_orders">
 						<div>핸드폰 번호:</div>
 						<div>
-							<input class="form-control" id="phone" name="receiverPhone"
-								type="text" readonly value="<%=login.getPhone()%>"><i
-								class="zmdi  zmdi-phone"></i>
+							<input class="form-control" id="phone" name="receiverPhone"	type="text" readonly value="<%=login.getPhone()%>">
+								<i class="zmdi  zmdi-phone"></i>
 						</div>
 						<div>
-							<button class="md_btn" id="ph" class="pnCheckButton"
-								type="button" onClick="opensms();">번호인증</button>
+							<button class="md_btn" id="ph" class="pnCheckButton" type="button" onClick="opensms();">번호인증</button>
 						</div>
 					</div>
 					<div class="modify_orders">
 						<div>우편 번호:</div>
 						<div>
-							<input name="receiverZipno" id="zipNo" type="text"
-								value="<%=login.getZipNo()%>">
+							<input name="receiverZipno" id="zipNo" type="text" value="<%=login.getZipNo()%>">
 						</div>
 						<div>
-							<button class="md_btn" id="jusoCheck" type="button"
-								onclick="goPopup();">주소검색</button>
+							<button class="md_btn" id="jusoCheck" type="button"	onclick="goPopup();">주소검색</button>
 						</div>
 					</div>
 					<div class="modify_orders">
 						<div>도로명 주소:</div>
 						<div>
-							<input name="receiverAddress" id="address" type="text"
-								value="<%=login.getAddress()%>">
+							<input name="receiverAddress" id="address" type="text" value="<%=login.getAddress()%>">
 						</div>
 						<div></div>
 					</div>
-					<input type="hidden" name="ordersId"
-						value="${ordersList[0].ordersId}">
 				</div>
 			</div>
 			<!-- 결제하기 -->
 			<div class="pay_detail">
+			
 				<div class="pay_total">
-					총 결제액: <input class="orders_money" type="text"
-						name="OrdersPayMoney" value="<%=allTotalPrice%>">원
+					총 결제액: 
+					<input class="orders_money" type="text"	name="OrdersPayMoney" value="<%=allTotalPrice%>">
+						원
 				</div>
+				
 				<div class="pay_submit">
-					<span class="orders_pay">결제하기</span> <input type="hidden"
-						name="ordersId" value="${ordersList[0].ordersId}">
+					<span class="orders_pay">결제하기</span>
+					<input type="hidden" name="ordersId" value="${ordersList[0].ordersId}">
 					<button type="submit">
-						<img class="btn"
-							src="${path }/images/payment_icon_yellow_medium.png">
+						<img class="btn" src="${path }/images/payment_icon_yellow_medium.png">
 					</button>
 				</div>
 			</div>

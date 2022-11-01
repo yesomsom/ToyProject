@@ -51,7 +51,8 @@ List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
                   <div class="movie-reserve-theater-wrapper">
                      <div><%=reserveVO.getSelectedTheater()%></div>
                      &nbsp;/&nbsp;
-                     <div class="ticket-numeber"><%=reserveVO.getTicketNumber()%>장
+                     <div class="ticket-numeber"><%=reserveVO.getTicketNumber()%>
+						장
                      </div>
                   </div>
                   <div class="movie-reserve-seats"><%=reserveVO.getSelectedSeat()%></div>
@@ -69,7 +70,8 @@ List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
 
                      <div class="pay-information-money-wrapper">
                         <div class="pay-information-money-title">결제한 비용</div>
-                        <div class="pay-information-money"><%=reserveVO.getPayVO().getPayMoney()%>원
+                        <div class="pay-information-money"><%=reserveVO.getPayVO().getPayMoney()%>
+                        원
                         </div>
                      </div>
 
@@ -87,12 +89,9 @@ List<ReserveVO> list = (List<ReserveVO>) request.getAttribute("reserveList");
                <%
                }
                %>
-
             </div>
-
          </div>
       </div>
    </div>
 </body>
-
 </html>

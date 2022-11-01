@@ -77,33 +77,32 @@
             <div class="reserve-where">4관(Sweet) 6층(총 240석)</div>
             <div class="reserve-time-wrapper">
                <button class="reserve-time-button">
-                  <span class="reserve-time-want">12:20</span> <span
-                     class="reserve-time-remain">240석</span>
+                  <span class="reserve-time-want">12:20</span>
+                  <span class="reserve-time-remain">240석</span>
                </button>
                <button class="reserve-time-button">
-                  <span class="reserve-time-want">14:20</span> <span
-                     class="reserve-time-remain">240석</span>
+                  <span class="reserve-time-want">14:20</span>
+                  <span class="reserve-time-remain">240석</span>
                </button>
                <button class="reserve-time-button">
-                  <span class="reserve-time-want">16:20</span> <span
-                     class="reserve-time-remain">240석</span>
+                  <span class="reserve-time-want">16:20</span>
+                  <span class="reserve-time-remain">240석</span>
                </button>
                <button class="reserve-time-button">
-                  <span class="reserve-time-want">18:20</span> <span
-                     class="reserve-time-remain">240석</span>
+                  <span class="reserve-time-want">18:20</span>
+                  <span class="reserve-time-remain">240석</span>
                </button>
 
             </div>
          </div>
          <div>
             <form class="seatForm" action="seat.do" method="post">
-               <input type="hidden" class="title" name="title"> <input
-                  type="hidden" class="movieName" name="movieName"> <input
-                  type="hidden" class="selectedTheater" name="selectedTheater">
-               <input type="hidden" class="theaterKind" name="theaterKind"
-                  value="CGV"> <input type="hidden" class="reserveDate"
-                  name="movieDate"> <input type="hidden" class="runningTime"
-                  name="runningTime">
+               <input type="hidden" class="title" name="title">
+               <input type="hidden" class="movieName" name="movieName">
+               <input type="hidden" class="selectedTheater" name="selectedTheater">
+               <input type="hidden" class="theaterKind" name="theaterKind" value="CGV">
+               <input type="hidden" class="reserveDate" name="movieDate">
+               <input type="hidden" class="runningTime" name="runningTime">
                <button class="seatButton" type="button">예약하기</button>
             </form>
          </div>

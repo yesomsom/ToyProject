@@ -8,14 +8,12 @@
 <link rel="stylesheet" href="${path}/css/reset.css">
 <link rel="stylesheet" href="${path }/css/theater.css"></link>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6d5cbdd87fa636fd19281386c302b0dd"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6d5cbdd87fa636fd19281386c302b0dd"></script>
 <meta charset="utf-8">
 <title>영화관 위치</title>
 </head>
 <body>
 	<div class=category_container>
-
 		<!-- 영화관 table -->
 		<div>
 			<table>
@@ -23,7 +21,6 @@
 					<tr>
 						<th class="th_header">영화관</th>
 					</tr>
-
 				</thead>
 				<tbody>
 					<c:forEach var="the" items="${TheaterList}">
@@ -34,6 +31,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 		<!-- sido table -->
 		<div>
 			<table>
@@ -46,8 +44,9 @@
 				</tbody>
 			</table>
 		</div>
+		
+		<!-- sgg table -->
 		<div>
-			<!-- sgg table -->
 			<table>
 				<thead>
 					<tr>
@@ -58,6 +57,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 		<!-- bra table -->
 		<div>
 			<table>
@@ -70,8 +70,8 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
+	
 	<div id="map"></div>
 
 	<!-- gps 권한js -->

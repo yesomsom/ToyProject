@@ -38,10 +38,7 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 									<li class="select-number-normal">2</li>
 									<li class="select-number-normal">3</li>
 									<li class="select-number-normal">4</li>
-									<li class="select-number-normal">5</li>
-									<!--  <li class="select-number-normal">6</li>
-                                    <li class="select-number-normal">7</li>
-                                    <li class="select-number-normal">8</li> -->
+									<li class="select-number-normal">5</li>								
 								</ul>
 							</div>
 						</div>
@@ -54,10 +51,7 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 									<li class="select-number-teen">2</li>
 									<li class="select-number-teen">3</li>
 									<li class="select-number-teen">4</li>
-									<li class="select-number-teen">5</li>
-									<!-- <li class="select-number-teen">6</li>
-                                    <li class="select-number-teen">7</li>
-                                    <li class="select-number-teen">8</li> -->
+									<li class="select-number-teen">5</li>									
 								</ul>
 							</div>
 						</div>
@@ -70,10 +64,7 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 									<li class="select-number-old">2</li>
 									<li class="select-number-old">3</li>
 									<li class="select-number-old">4</li>
-									<li class="select-number-old">5</li>
-									<!-- <li class="select-number-old">6</li>
-                                    <li class="select-number-old">7</li>
-                                    <li class="select-number-old">8</li> -->
+									<li class="select-number-old">5</li>									
 								</ul>
 							</div>
 						</div>
@@ -89,11 +80,12 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 					<div class="select-seat-information-wrapper">
 						<div class="select-theater-place selected-theater-place-info"><%=theaterKind%></div>
 						<div class="select-theater-place selected-theater-place-info"><%=reserve.getSelectedTheater()%></div>
-						<div class="select-theater-place selected-theater-place-info">4관
-							6층</div>
+						<div class="select-theater-place selected-theater-place-info">4관 6층</div>
 						<div class="select-theater-place">
-							<span>남은좌석</span><span class="remain-seats">152</span>/<span
-								class="all-seats">172</span>
+							<span>남은좌석</span>
+							<span class="remain-seats">152</span>
+							/
+							<span class="all-seats">172</span>
 						</div>
 
 					</div>
@@ -102,34 +94,34 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 						<div class="theater-time"><%=reserve.getRunningTime()%></div>
 					</div>
 					<div class="selected-seats-wrapper">
-						<span class="selected-seats-title">좌석번호</span> <span
-							class="selected-seats">선택한 좌석이 없습니다.</span>
+						<span class="selected-seats-title">좌석번호</span>
+						<span class="selected-seats">선택한 좌석이 없습니다.</span>
 					</div>
 					<div class="ticket-price-wrapper">
 						<div class="ticket-price-title">가격</div>
 						<div class="ticket-price">0원</div>
 					</div>
 					<form action="/page/kakao/insert.do" class="seatForm" method="post">
-						<input type="hidden" class="title" name="title"> <input
-							type="hidden" class="selectedTheater" name="selectedTheater">
+						<input type="hidden" class="title" name="title">
+						<input type="hidden" class="selectedTheater" name="selectedTheater">
 						<input type="hidden" class="reserveDate" name="movieDate">
 						<input type="hidden" class="runningTime" name="runningTime">
-						<input type="hidden" class="movieName" name="movieName"
-							value="<%=reserve.getMovieName()%>">
+						<input type="hidden" class="movieName" name="movieName" value="<%=reserve.getMovieName()%>">
+						
 						<!-- 티켓의수(선택한 좌석) -->
 						<input type="hidden" class="ticketNumber" name="ticketNumber">
 						<input type="hidden" class="selectedSeat" name="selectedSeat">
 						<!-- 결제 정보 -->
 						<input type="hidden" class="payMoney" name="payMoney">
 						<button type="button" class="reserve-button">
-							결제하기<img src="${path }/images/payment_icon_yellow_medium.png">
+							결제하기
+							<img src="${path }/images/payment_icon_yellow_medium.png">
 						</button>
 					</form>
 				</div>
 
 			</div>
 			<div class="seat-container">
-
 				<div class="seat-wrapper">
 					<div class="screen-view-wrapper">
 						<div class="screen-view">SCREEN</div>

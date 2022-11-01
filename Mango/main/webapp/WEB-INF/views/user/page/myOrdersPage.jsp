@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
 <%@ page import="mango.mango.model.MemberVO"%>
-<%@page import="mango.mango.model.OrdersVO"%>
+<%@page import="mango.mango.model.OrdersPayVO"%>
 <%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
@@ -10,7 +10,7 @@ if (login != null)
    System.out.println(login.toString());
 %>
 <%
-List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
+List<OrdersPayVO> ordersPayList = (List<OrdersPayVO>) request.getAttribute("ordersPayList");
 %>
 <head>
 <meta charset="UTF-8">
@@ -45,27 +45,27 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
             <div class="myOrderspage_list">
             <!-- 개별 구매 목록 -->
           <%
-          if (ordersList == null) {
+          if (ordersPayList == null) {
           %>
           <div>구매한 상품이 없습니다</div>
           <%
           } else {
-          for (int i = 0; i < ordersList.size(); i++) {
-             OrdersVO ordersVO = ordersList.get(i);
-          %> 
+          for (int i = 0; i < ordersPayList.size(); i++) {
+             OrdersPayVO ordersPayVO = ordersPayList.get(i);
+          %>   
                   <div class="orders_card">
-                     <div class="ordersId_title">주문번호 : <%=ordersVO.getOrdersId()%></div>   
+                     <div class="ordersId_title">주문 번호<%=ordersPayVO.getOrdersId()%></div>   
                      <div class="information_wrapper">
                         <div class="wrapper_content">
-                           <div class="wrapper_content_title">주문 상품</div>
+<!--                            <div class="wrapper_content_title">주문 상품</div> -->
                            <div class="orders_info"></div>
                         </div>
                      </div>
                      
                      <div class="orders_content_wrapper">
-                        <div class="font_size">주문일</div>
+                        <div class="font_size">결제일</div>
                         &nbsp;/&nbsp;
-                        <div class="goods_name"><%=ordersVO.getCreDate()%></div>
+                        <div class="goods_name"><%=ordersPayVO.getOrdersPayDate()%></div>
                      </div>
                      <div class="orders_content_wrapper">
                         <div class="font_size">결제 수단</div>
@@ -75,7 +75,7 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
                      <div class="orders_content_wrapper">
                         <div class="font_size">결제 비용</div>
                         &nbsp;/&nbsp;
-                        <div class="goods_name"><%=ordersVO.getTotalPrice()%>원</div>
+                        <div class="goods_name"><%=ordersPayVO.getOrdersPayMoney()%>원</div>
                      </div>
                      <!-- 수령인 정보 (toggle) -->
                      <div class="information_wrapper_receiver">
@@ -83,15 +83,21 @@ List<OrdersVO> ordersList = (List<OrdersVO>) request.getAttribute("ordersList");
                         <div class="toggle_hidden t_<%=i%>">
                            <div class="wrapper_content">
                               <div>이름</div>
-                              <div class="content_bold"></div>
+                              <div class="content_bold">
+                              	<%=ordersPayVO.getReceiverName()%>
+                              </div>
                            </div>
                            <div class="wrapper_content">
                               <div>전화번호</div>
-                              <div class="content_bold"></div>
+                              <div class="content_bold">
+                              	<%=ordersPayVO.getReceiverPhone()%>
+                              </div>
                            </div>
                            <div class="wrapper_content">
                               <div>주소</div>
-                              <div class="content_bold"></div>
+                              <div class="content_bold">
+                              	<%=ordersPayVO.getReceiverAddress()%>
+                              </div>
                            </div>                        
                         </div>   
 

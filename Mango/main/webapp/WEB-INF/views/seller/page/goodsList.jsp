@@ -26,8 +26,7 @@
              <td class="table_title">재고</td>
              <td class="table_title">상품 상세내용</td>
              <td class="table_title">가격</td>
-             <td class="table_title">배송비</td>
-             <td class="table_title">할인율(%)</td>
+             <td class="table_title">배송비</td>             
              <td class="table_title">등록일</td>
              <td class="table_title">수정하기</td>
              <td class="table_title">삭제하기</td>
@@ -51,8 +50,7 @@
                <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
                <td class="table_content"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
                <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
-               <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>
-               <td class="table_content"><input class="input_num gDiscount" type="text" value="${goods.goodsDiscount}">%</td>
+               <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>            
                <td class="table_content txt_center regDateForm"><fmt:formatDate value="${goods.regDate}" pattern="yyyy-MM-dd" /></td>
                <td class="table_content txt_center"><button class="btn modify_btn" data-goodsid="${goods.goodsId}">수정</button></td>
                <td class="table_content txt_center"><button class="btn delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>
@@ -78,7 +76,7 @@
 			</div>
 		</div>
       <form id="goodsListForm" method="get" action="/page/goodsList.do">
-         <input type="hidden" name="pageNumCri" id="pageNum"
+         <input type="hidden" name="pageNum" id="pageNum"
             value="${pageMaker.cri.pageNum}"> <input type="hidden"
             name="amount" value="${pageMaker.cri.amount }">
       </form>       
@@ -91,8 +89,7 @@
          <input type="hidden" name="goodsStock" class="update_goodsStock">
          <input type="hidden" name="goodsDetail" class="update_goodsDetail">
          <input type="hidden" name="goodsPrice" class="update_goodsPrice">
-         <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">
-         <input type="hidden" name="goodsDiscount" class="update_goodsDiscount">
+         <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">         
       </form>
        
 <!-- 삭제 form -->

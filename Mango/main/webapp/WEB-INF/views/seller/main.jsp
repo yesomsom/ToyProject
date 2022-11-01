@@ -26,7 +26,9 @@ if (login != null)
 				<div class="logo_title">
 					<img src="<%=login.getLogoImg()%>" style="width: 80px;">
 					<%=login.getSellerName()%></div>
-				<a href="/page/uploadGoods.do" class="f_Btn"><span>상품 등록<span></a>
+				<a href="/page/uploadGoods.do" class="f_Btn">
+					<span>상품 등록</span>
+				</a>
 			</div>
 
 			<div class="goodsList_wrap">
@@ -42,8 +44,7 @@ if (login != null)
 							<td class="table_title">상품 이름</td>
 							<td class="table_title">판매 상태</td>
 							<td class="table_title">재고</td>
-							<td class="table_title">가격</td>
-							<td class="table_title">할인율(%)</td>
+							<td class="table_title">가격</td>							
 						</tr>
 					</thead>
 					<tbody>
@@ -60,9 +61,6 @@ if (login != null)
 								<td class="table_content">
 									<input class="input_num gPrice" type="text" value="${goods.goodsPrice}원">
 								</td>
-								<td class="table_content">
-									<input class="input_num gDiscount" type="text" value="${goods.goodsDiscount}%">
-								</td>
 
 							</tr>
 						</c:forEach>
@@ -70,26 +68,23 @@ if (login != null)
 				</table>
 			</div>
 
-
-
 			<div class="Left_S_Container">				
-				<a href="/page/goodsList.do" class="s_Btn"><span>모두보기<span></a>
+				<a href="/page/goodsList.do" class="s_Btn">
+					<span>모두보기</span>
+				</a>
 			</div>
 		</div>
 
 		<!-- 우측 박스  -->
-
 		<div class="right_Container">
 			<div class="title">매출현황</div>
 			<div>
 				<jsp:include page="${path}/seller/page/salesDetails.do"/>
 			</div>
-			<a href="/page/salesDetails.do" class="t_Btn"><span>매출내역
-					상세보기<span></a>
+			<a href="/page/salesDetails.do" class="t_Btn">
+				<span>매출내역 상세보기</span>
+			</a>
 		</div>
-
-
-
 	</div>
 </body>
 </html>

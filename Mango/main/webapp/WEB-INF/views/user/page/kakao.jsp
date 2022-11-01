@@ -41,13 +41,9 @@ if (pay != null) {
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'MANGO Clone 테스트 결제',
-             amount : <%=payMoney%>,
-          <%--   buyer_email : '<%=email%>',
-            buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',
-            buyer_addr : '<%=address%>', 
-           --%>  buyer_postcode : '123-456',
+            name : 'MANGO 테스트 결제',
+            amount : <%=payMoney%>,          
+            buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
             if ( rsp.success ) {
@@ -81,8 +77,7 @@ if (pay != null) {
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
-                //실패시 이동할 페이지
-              <%--   location.href="<%=request.getContextPath()%>/order/payFail"; --%>
+                //실패시 이동할 페이지            
                 alert(msg);
                 location.href="/main.do";
             }

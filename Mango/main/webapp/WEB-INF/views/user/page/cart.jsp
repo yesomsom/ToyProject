@@ -132,28 +132,11 @@ if (login != null)
    <div class="total_price_wrapper">
       <!-- <form name="" class="cartForm" action="/page/orders/insert.do" method="post"> -->
       	<input type="hidden" class="id" id="memberId" name="id" value="<%=login.getId()%>">
-		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">
-	
-		
-		<!-- <input type="hidden" class="totalPrice" name="totalPrice" value="">  
-		<input type="hidden" name="sellerName" value="test"> -->
-		<!-- <input class="submit_cartId" type="hidden" name="cartId" value="test"> -->				         
-<%-- 	<input class="receiver_name_submit" type="hidden" name="receiverName" value="<%=login.getName()%>">
-		<input class="receiver_phone_submit" type="hidden" name="receiverPhone" value="<%=login.getPhone()%>">
-		<input class="receiver_zipno_submit" type="hidden" name="receiverZipno" value="<%=login.getZipNo()%>">
-		<input class="receiver_address_submit" type="hidden" name="receiverAddress" value="<%=login.getAddress()%>">
- --%>        
+		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">	   
  		<span class="total_price_title">총 주문금액</span> 
         <span class="total_price font_bold_big">0</span>
 		<span class="font_bold_big">원</span>
-		                      
-		       
-
-		<!-- <button type="button" class="btn" onclick="order_ajax()">주문하기</button> -->
-		<a onclick="order_ajax()">버튼</a>		
-		
-		<!-- <input type="submit" value="이게submit"> -->
-      <!-- </form> -->
+		<a onclick="order_ajax()">버튼</a>			
    </div>
 
    <!-- 수량 조정 form -->
