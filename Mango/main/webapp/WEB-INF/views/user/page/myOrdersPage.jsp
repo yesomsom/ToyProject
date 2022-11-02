@@ -122,6 +122,7 @@ List<OrdersPayVO> ordersPayList = (List<OrdersPayVO>) request.getAttribute("orde
    </div>
    
    <script src="${path}/js/myOrdersPage.js"></script>
+   
 </body>
 
 </html>

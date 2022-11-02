@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>goodsList</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="${path}/css/seller/goodsList.css">
+<link rel="stylesheet" href="${path}/css/seller/goodsManagement.css">
 </head>
 <body>
 	<div class="goodsList_wrap">
@@ -46,7 +46,13 @@
 					</select>
 		        </td>
 		        <td class="table_content"><input class="gName" type="text" value="${goods.goodsName}"></td>
-		        <td class="table_content txt_center">${goods.goodsState}</td>
+		        <td class="table_content txt_center">
+		        <select name="goodsState">
+		        	<option value="${goods.goodsState}" selected disabled hidden>${goods.goodsState}</option>
+		        	<option>판매 대기중</option>
+		        	<option>판매중</option>
+		        </select>
+		        </td>
 		        <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
 		        <td class="table_content"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
 		        <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
@@ -81,13 +87,14 @@
 				</ul>
 			</div>
 		</div>
+		
 		<form id="goodsListForm" method="get" action="/page/goodsList.do">
 		   <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
 		   <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 		</form>       
 	
 		<!-- 수정 form -->
-		<form action="/page/goodsList/update.do" method="post" class="goods_update_form">
+		<form action="/admin/goodsManagement/update.do" method="post" class="goods_update_form">
 		   <input type="hidden" name="goodsCategory" class="update_goodsCategory">
 		   <input type="hidden" name="goodsId" class="update_goodsId"> 
 		   <input type="hidden" name="goodsName" class="update_goodsName">
@@ -95,15 +102,16 @@
 		   <input type="hidden" name="goodsDetail" class="update_goodsDetail">
 		   <input type="hidden" name="goodsPrice" class="update_goodsPrice">
 		   <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">         
+		   <input type="hidden" name="deliveryPrice" class="update_goodsState">         
 		</form>
 	       
 		<!-- 삭제 form -->
-		<form action="/page/goodsList/delete.do" method="post" class="goods_delete_form">
+		<form action="/admin/goodsManagement/delete.do" method="post" class="goods_delete_form">
 			<input type="hidden" name="goodsId" class="delete_goodsId">
 		</form>
 		
 	</div>
 
-   <script src="${path}/js/goodsList.js"></script>
+   <script src="${path}/js/goodsManagement.js"></script>
 </body>
 </html>

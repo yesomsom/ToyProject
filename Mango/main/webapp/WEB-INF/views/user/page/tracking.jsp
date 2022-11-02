@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="mango.mango.model.OrdersPayVO"%>
+<%@ include file="/WEB-INF/views/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +29,7 @@
 		</div>
 		<div class="form-group">
 			<label for="t_invoice" class="n_dis">운송장 번호</label>
-			<input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="운송장번호">
+			<%-- <input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="<%=OrdersPayVO.getTrackingNumber%>"> --%>
 		</div>
 		<button class="btn btn-default" class="n_dis" id="searchBtn"></button>
 	</form>

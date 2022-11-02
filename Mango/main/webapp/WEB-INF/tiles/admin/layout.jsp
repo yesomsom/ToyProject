@@ -53,7 +53,7 @@
 						<!-- content가 빈값일때를 위해 ignore = true -->
 						<tiles:insertAttribute name="content" ignore="true" />
 					</div>
-					<tiles:insertAttribute name="footer" />
+					<%-- <tiles:insertAttribute name="footer" /> --%>
 				</div>
 			</div>
 		</div>

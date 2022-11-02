@@ -44,7 +44,7 @@ if (login != null)
          </div>
          <div class="Goods_introR">
             <!--상품 제목-->
-            <div class="Goods_introRTitle mb60">${goods.goodsName}</div>
+            <div class="Goods_introRTitle mb60">${goods.goodsName}</div>            
             <div class="Goods_content">
                <!--상품 가격-->
                <div class="Goods_price_wrap mb10">
@@ -113,6 +113,7 @@ if (login != null)
 	<form id="orders_direct" action="directOrders/insert.do" method="post">
 		<input class="id_submit" type="hidden" name="id" value="<%=login.getId()%>">
 		<input class="sellerName_submit" type="hidden" name="sellerName" value="${goods.sellerName}">
+		<input class="goodsId_submit" type="hidden" name="goodsId" value="${goods.goodsId}">
 		<input class="name_submit" type="hidden" name="name" value="<%=login.getName()%>">      
 		<input type="hidden" class="goods_totalPrice_submit" name="totalPrice" value="${goods.goodsPrice + goods.deliveryPrice}">
 	</form>

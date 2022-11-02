@@ -21,7 +21,7 @@ if (login != null)
 	</div>
     <div><a href="/page/uploadGoods.do">상품 등록</a></div>
     <div><a href="/page/goodsList.do">상품 등록 내역</a></div>
-    <div><a href="/page/salesDetails.do">매출 내역</a></div>
+    <div><a href="/page/salesDetails.do">판매 내역</a></div>
   </div>
 </body>
 </html>
