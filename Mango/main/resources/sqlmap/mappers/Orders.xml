@@ -5,6 +5,7 @@
 <mapper namespace="ordersMapper">
 	<resultMap type="OrdersVO" id="ordersList">
 		<result property="ordersId" column="orders_id" />
+		<result property="goodsId" column="goods_id" />
 		<result property="cartId" column="cart_id" />
 		<result property="id" column="id" />
 		<result property="name" column="name" />		
@@ -17,11 +18,17 @@
 		SELECT * FROM orders 
 		WHERE id = #{id} 
 		ORDER BY cno DESC
+		
+		LIMIT #{skip}, #{amount}
+	</select>
+
+	<select id="selectAllOrdersCount" resultType="Integer" parameterType="OrdersVO">
+		SELECT COUNT(*) FROM orders
 	</select>
 
 	<insert id="insertOrders" parameterType="OrdersVO">
-		INSERT INTO orders(orders_id, cart_id, id, name, creDate, total_price)
-		VALUES(#{ordersId}, #{cartId}, #{id}, #{name}, SYSDATE(6), #{totalPrice})
+		INSERT INTO orders(orders_id, cart_id, goods_id, id, name, creDate, total_price)
+		VALUES(#{ordersId}, #{cartId}, #{goodsId},#{id}, #{name}, SYSDATE(6), #{totalPrice})
 	</insert>
 
 	<select id="selectOrders" resultType="OrdersVO"	parameterType="OrdersVO">

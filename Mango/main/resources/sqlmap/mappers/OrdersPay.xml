@@ -7,7 +7,7 @@
 <mapper namespace="ordersPayMapper">
 	<resultMap type="OrdersPayVO" id="ordersPayList">
 		<result property="id" column="id" />
-		<result property="ordersId" column="orders_id" />
+		<result property="ordersId" column="orders_id" />		
 		<result property="ordersPayDate" column="orders_pay_date" />
 		<result property="ordersPayMoney" column="orders_pay_money" />
 		<result property="receiverName" column="receiver_name" />
@@ -15,13 +15,14 @@
 		<result property="receiverZipno" column="receiver_zipno" />
 		<result property="receiverAddress" column="receiver_address" />
 		<result property="deliveryState" column="delivery_state" />
+		<result property="trackingNumber" column="tracking_number" />
 		<result property="opno" column="opno" />		
 	</resultMap>
 
 	<insert id="insertOrdersPay" parameterType="OrdersPayVO">
      <![CDATA[
-        INSERT INTO orderspay(id,orders_id,orders_pay_date,orders_pay_money, receiver_name, receiver_phone, receiver_zipno, receiver_address)
-        VALUES(#{id},#{ordersId},SYSDATE(6),#{ordersPayMoney}, #{receiverName}, #{receiverPhone}, #{receiverZipno}, #{receiverAddress})
+        INSERT INTO orderspay(id,orders_id, orders_pay_date,orders_pay_money, receiver_name, receiver_phone, receiver_zipno, receiver_address)
+        VALUES(#{id},#{ordersId}, SYSDATE(6),#{ordersPayMoney}, #{receiverName}, #{receiverPhone}, #{receiverZipno}, #{receiverAddress})
      ]]>
 	</insert>
 	
@@ -29,5 +30,26 @@
 	     SELECT * FROM orderspay 
 	     WHERE id = #{id} 
 	     ORDER BY opno DESC
+	     
+	     LIMIT #{skip}, #{amount}
 	</select>
+	
+	<select id="selectAllOrdersPayCount" resultType="Integer" parameterType="OrdersPayVO">
+		SELECT COUNT(*) FROM orderspay
+	</select>
+	
+	<update id="updateDeliveryState" parameterType="OrdersPayVO">
+		UPDATE orderspay SET 
+		delivery_state = #{deliveryState}
+		
+		WHERE orders_id = #{ordersId}
+	</update>
+	
+	<insert id="updateTracking" parameterType="OrdersPayVO">
+	 	UPDATE orderspay SET
+        tracking_number = #{trackingNumber}
+        
+        WHERE orders_id = #{ordersId}
+     
+	</insert>
 </mapper>

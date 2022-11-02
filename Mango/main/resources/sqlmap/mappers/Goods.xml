@@ -24,10 +24,7 @@
 		left outer join goodsfile f on g.goods_id = f.goods_id 
 		WHERE 1=1
 		<if test="goodsCategory != null">
-			AND goods_category = #{goodsCategory}
-		</if>
-		<if test="goodsState != null">
-			AND goods_state = "승인"
+			AND goods_category = #{goodsCategory}			
 		</if>
 		
 		LIMIT #{skip}, #{amount}
@@ -69,6 +66,7 @@
 	<select id="selectSellerGoodsList" resultMap="goodsList" parameterType="GoodsVO">
 		SELECT * FROM goods
 		WHERE id = #{id} ORDER BY regdate DESC
+		
 		LIMIT #{skip}, #{amount}
 	</select>
 
@@ -88,7 +86,7 @@
 	<update id="modifyGoods" parameterType="GoodsVO">
 		UPDATE goods SET
 		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
-		WHERE goods_id = #{goodsId};
+		WHERE goods_id = #{goodsId}
 	</update>
 
 </mapper>
