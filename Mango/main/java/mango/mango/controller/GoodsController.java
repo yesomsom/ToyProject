@@ -65,7 +65,7 @@ public class GoodsController {
 	public ResponseEntity<String> goodsAjax(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 		HttpHeaders responsHeaders = new HttpHeaders();
 		responsHeaders.add("Content-Type", "text/html;charset=UTF-8");
-
+		
 		if (gVO.getGoodsCategory() != null && gVO.getGoodsCategory().equals("전체")) {
 			gVO.setGoodsCategory(null);
 		}
@@ -78,9 +78,11 @@ public class GoodsController {
 		}
 		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		gVO.setAmount(cri.getAmount());
-
+		
+		
 		List<GoodsVO> catList = goodsService.selectCatList(gVO);
-		model.addAttribute("catList", catList);
+		
+		model.addAttribute("catList", catList);		
 
 		String gson = new Gson().toJson(catList);
 

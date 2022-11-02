@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import mango.mango.dao.OrdersDAO;
 import mango.mango.model.OrdersVO;
+import mango.mango.model.QaVO;
 import mango.mango.service.OrdersService;
 
 @Service("OrdersService")
@@ -30,4 +31,9 @@ public class OrdersServiceImpl extends EgovAbstractServiceImpl implements Orders
    public OrdersVO selectOrders(OrdersVO oVO) throws Exception {
       return ordersDAO.selectOrders(oVO);
    }
+   
+   @Override
+	public Integer selectAllOrdersCount(OrdersVO oVO) throws Exception {
+		return ordersDAO.selectAllOrdersCount(oVO);
+	}
  }

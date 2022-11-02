@@ -17,7 +17,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -31,9 +30,11 @@ import mango.mango.controller.InfoController;
 import mango.mango.model.GoodsFileVO;
 import mango.mango.model.GoodsVO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
+import mango.mango.service.OrdersPayService;
 import mango.mango.service.OrdersService;
 
 @Controller
@@ -46,9 +47,12 @@ public class SellerController {
 
 	@Resource(name = "GoodsService")
 	private GoodsService GoodsService;
-	
+
 	@Resource(name = "OrdersService")
-	private OrdersService OrderService;
+	private OrdersService OrdersService;
+
+	@Resource(name = "OrdersPayService")
+	private OrdersPayService OrdersPayService;
 
 	@Resource(name = "fileUtil")
 	private FileUtil fileUtil;
@@ -62,9 +66,8 @@ public class SellerController {
 
 	// 상품등록 페이지
 	@RequestMapping(value = "/uploadGoods/insert", method = RequestMethod.POST)
-	public String insertuploadGoods(@RequestParam("multiFile") List<MultipartFile> multiFileList, ModelMap model,
-			Criteria cri, GoodsFileVO gfVO, MemberVO mVO, HttpSession session, GoodsVO gVO,
-			MultipartHttpServletRequest request) throws Exception {
+	public String insertuploadGoods(@RequestParam("multiFile") List<MultipartFile> multiFileList, ModelMap model, Criteria cri, GoodsFileVO gfVO, MemberVO mVO, HttpSession session,
+			GoodsVO gVO, MultipartHttpServletRequest request) throws Exception {
 		EgovWebUtil uuid = new EgovWebUtil();
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat format = new SimpleDateFormat("yy-MM-HH-mm-ss-SS");
@@ -76,25 +79,25 @@ public class SellerController {
 		String time = format.format(date); // 현재시간 설정
 
 		String path = "c:\\upload\\goodsImg\\"; // 업로드파일 저장 path
-		
+
 		String sysPath = "http://localhost:8080/img/goodsImg/";
-		
+
 		String uploadPath = "";
 
 		String sysUploadPath = "";
-		
+
 		for (int i = 0; i < multiFileList.size(); i++) { // multiFileList만큼 반복작업
 
 			String originName = multiFileList.get(i).getOriginalFilename(); // 실제파일이름
-			
+
 			String original = time + "_" + multiFileList.get(i).getOriginalFilename();
-			
+
 			String extension = originName.substring(originName.lastIndexOf(".")); // 확장자 추출
 
 			long fileSize = multiFileList.get(i).getSize(); // 파일 사이즈 추출
 
 			uploadPath = path + sellername + "\\" + original; // 실제 저장되는 path와 저장되는 파일이름
-			
+
 			sysUploadPath = sysPath + sellername + "/" + original;
 
 			gfVO.setExtension(extension); // 확장자 저장
@@ -104,7 +107,7 @@ public class SellerController {
 			gfVO.setFileSize(fileSize); // 파일 사이즈
 
 			GoodsService.insertGoodsFile(gfVO); // gfVO에 넣어준 값들을 insertGoodsFile에 담아줌			
-			
+
 			File fileCheck = new File(uploadPath);
 
 			if (!fileCheck.exists()) // uploadPath가 있는지 확인 후 없으면 폴더 생성
@@ -120,7 +123,7 @@ public class SellerController {
 				multiFileList.get(i).transferTo(uploadFile); // uploadFile에 multiFileList를 각각 저장
 
 				System.out.println("다중 파일 업로드 성공");
-				
+
 				model.addAttribute("isSuccess", true);
 			}
 		} catch (IllegalStateException | IOException e) {
@@ -136,7 +139,7 @@ public class SellerController {
 		gVO.setGoodsId(UUID); // gVO goodsid 난수설정
 		GoodsService.insertGoods(gVO);
 		model.addAttribute("type", "uploadGoods");
-	
+
 		return "/user/page/process";
 	}
 
@@ -147,8 +150,8 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/sellerRegister/insert", method = RequestMethod.POST)
-	public String insertsellerRegister(ModelMap model, Criteria cri, MemberVO mVO, String id,
-			HttpServletRequest request, @RequestParam("file") MultipartFile file) throws Exception {
+	public String insertsellerRegister(ModelMap model, Criteria cri, MemberVO mVO, String id, HttpServletRequest request, @RequestParam("file") MultipartFile file)
+			throws Exception {
 		SHA256 sha256 = new SHA256(); // 암호화 유틸 불러오기
 
 		System.out.println("logoImg: " + file);
@@ -170,7 +173,7 @@ public class SellerController {
 		String original = time + "_" + mf.getOriginalFilename();
 		uploadPath = path + sellername + "\\" + original;
 		sysUploadPath = sysPath + sellername + "/" + original;
-		
+
 		mVO.setLogoImg(sysUploadPath);
 
 		File fileCheck = new File(uploadPath);
@@ -205,8 +208,7 @@ public class SellerController {
 
 	// 상품 리스트 페이지
 	@RequestMapping(value = "/goodsList")
-	public String goodsList(ModelMap model, Criteria cri, GoodsVO gVO, HttpSession session,
-			@RequestParam(value = "pageNumCri", required = false) String pageNumCri) throws Exception {
+	public String goodsList(ModelMap model, Criteria cri, GoodsVO gVO, HttpSession session, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		gVO.setId(login.getId());
@@ -214,10 +216,10 @@ public class SellerController {
 		int goodsTotal = GoodsService.selectSellerGoodsCount(gVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, goodsTotal);
-		if (pageNumCri == null) {
-			pageNumCri = "1";
+		if (pageNum == null) {
+			pageNum = "1";
 		}
-		gVO.setSkip((Integer.parseInt(pageNumCri) - 1) * cri.getAmount());
+		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		gVO.setAmount(cri.getAmount());
 
 		List<GoodsVO> goodsList = GoodsService.selectSellerGoodsList(gVO);
@@ -246,13 +248,42 @@ public class SellerController {
 	}
 
 	// 매출내역 페이지
-	@RequestMapping(value = "/salesDetails")	
-	public String countOders(ModelMap model, Criteria cri, OrdersVO oVO, HttpSession session) throws Exception {
+	@RequestMapping(value = "/salesDetails")
+	public String countOders(ModelMap model, Criteria cri, OrdersPayVO opVO, HttpSession session, @RequestParam(value = "pageNum", required = false) String pageNum)
+			throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
-		
-		oVO.setId(login.getId());
-		
+
+		opVO.setId(login.getId());
+
+		int ordersPayTotal = OrdersPayService.selectAllOrdersPayCount(opVO);
+		// 페이징
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, ordersPayTotal);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		opVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		opVO.setAmount(cri.getAmount());
+
+		List<OrdersPayVO> ordersPayList = OrdersPayService.selectAllOrdersPayList(opVO);
+		model.addAttribute("ordersPayList", ordersPayList);
+		model.put("pageMaker", pageMaker);
+
 		return "/seller/page/salesDetails";
+	}	
+
+	@RequestMapping(value = "/update/deliveryState")
+	public String updateDeliveryState(ModelMap model, Criteria cri, OrdersPayVO opVO) throws Exception {
+		int random = (int)(Math.random()*(99999999-10000000 + 1)) + 10000000;
+		
+		OrdersPayService.updateDeliveryState(opVO);
+		
+		if(opVO.getDeliveryState().equals("배송중")) {		
+			if(opVO.getTrackingNumber() == 0) {
+				opVO.setTrackingNumber(random);
+				OrdersPayService.updateTracking(opVO);
+			}
+		}
+		return "redirect:/page/salesDetails.do";
 	}
 
 }

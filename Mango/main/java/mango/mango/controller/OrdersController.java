@@ -17,6 +17,7 @@ import mango.common.EgovWebUtil;
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
 import mango.mango.model.CartVO;
+import mango.mango.model.GoodsVO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
@@ -57,14 +58,15 @@ public class OrdersController {
 	public String insertDirectOrders(ModelMap model, Criteria cri, MemberVO mVO, OrdersVO oVO, HttpSession session) throws Exception {
 		EgovWebUtil uuid = new EgovWebUtil();
 		String UUID = uuid.getUUID();
-		String UUID2 = uuid.getUUID();
-
+		String UUID2 = uuid.getUUID();		
+		
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		model.addAttribute("type", "orders");
 		if (login != null) {
 			mVO.setId(login.getId());
 			oVO.setOrdersId(UUID);
 			oVO.setCartId(UUID2);
+			
 			ordersService.insertOrders(oVO);
 		} else {
 			model.addAttribute("isSuccess", false);
@@ -99,9 +101,9 @@ public class OrdersController {
 					oVO.setTotalPrice(totalPrice[i]);
 					oVO.setId(memberId);
 					oVO.setName(memberName);
-
-					cartList.add(oVO);
 					oVO.setOrdersId(UUID);
+
+					cartList.add(oVO);					
 					ordersService.insertOrders(oVO);
 				}
 			}
