@@ -19,7 +19,7 @@
 		<result property="id" column="id" />
 	</resultMap>
 	
-	<select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
+	<!-- <select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
 		SELECT * FROM goods g 
 		left outer join goodsfile f on g.goods_id = f.goods_id 
 		WHERE 1=1
@@ -28,7 +28,18 @@
 		</if>
 		
 		LIMIT #{skip}, #{amount}
-	</select>
+	</select> -->
+   <select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
+      SELECT * FROM goods g 
+      left outer join goodsfile f on g.goods_id = f.goods_id 
+      WHERE 1=1
+      AND g.goods_state = '승인'
+      <if test="goodsCategory != null">
+         AND goods_category = #{goodsCategory}         
+      </if>
+      ORDER BY g.regdate DESC
+      LIMIT #{skip}, #{amount}
+   </select>
 	
 	<select id="selectOneGoods" resultMap="goodsList" parameterType="GoodsVO">
 		SELECT A.*, B.realpath
@@ -49,6 +60,8 @@
 
 	<select id="selectAllGoodsCount" resultType="Integer" parameterType="GoodsVO">
 		SELECT COUNT(*) FROM goods
+		WHERE 1=1
+		AND goods_state = '승인'
 	</select>
 
 	<select id="selectGoodsDetailList" resultMap="goodsList" parameterType="GoodsVO">
@@ -88,5 +101,13 @@
 		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId}
 	</update>
+	
+	<!-- 상품 수정 -->
+	<update id="adminModifyGoods" parameterType="GoodsVO">
+		UPDATE goods SET
+		goods_category=#{goodsCategory},goods_state=#{goodsState},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
+		WHERE goods_id = #{goodsId}
+	</update>
+	
 
 </mapper>
