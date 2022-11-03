@@ -33,4 +33,7 @@ public interface GoodsService {
 
 	// 상품 수정
 	void modifyGoods(GoodsVO gVO) throws Exception;
+	
+	// admin상품 수정
+	void adminModifyGoods(GoodsVO gVO) throws Exception;
 }

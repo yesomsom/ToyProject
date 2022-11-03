@@ -271,7 +271,7 @@ public class SellerController {
 		return "/seller/page/salesDetails";
 	}	
 
-	@RequestMapping(value = "/update/deliveryState")
+	@RequestMapping(value = "/deliveryState/update")
 	public String updateDeliveryState(ModelMap model, Criteria cri, OrdersPayVO opVO) throws Exception {
 		int random = (int)(Math.random()*(99999999-10000000 + 1)) + 10000000;
 		

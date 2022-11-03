@@ -76,4 +76,9 @@ public class GoodsServiceImpl extends EgovAbstractServiceImpl implements GoodsSe
    public void modifyGoods(GoodsVO gVO) throws Exception {
        goodsDAO.modifyGoods(gVO);
    }
+   
+   @Override
+   public void adminModifyGoods(GoodsVO gVO) throws Exception {
+	   goodsDAO.adminModifyGoods(gVO);
+   }
 }

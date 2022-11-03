@@ -20,7 +20,6 @@ public class GoodsDAO extends ComAbstractDAO {
 
 	public List<GoodsVO> selectOneGoods(GoodsVO gVO) throws Exception {
 		return selectList("goodsMapper.selectOneGoods", gVO);
-
 	}
 
 	public Integer selectAllGoodsCount(GoodsVO gVO) throws Exception {
@@ -63,5 +62,10 @@ public class GoodsDAO extends ComAbstractDAO {
 	// 상품 수정
 	public int modifyGoods(GoodsVO gVO) throws Exception {
 		return update("goodsMapper.modifyGoods", gVO);
+	}
+	
+	// 상품 수정
+	public int adminModifyGoods(GoodsVO gVO) throws Exception {
+		return update("goodsMapper.adminModifyGoods", gVO);
 	}
 }

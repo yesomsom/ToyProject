@@ -20,12 +20,12 @@ import mango.mango.service.GoodsService;
 public class AdminController {
 	
 	@Resource(name = "GoodsService")
-	private GoodsService goodsService;
+	private GoodsService GoodsService;
 	
 @RequestMapping(value="/goodsManagement")
 public String goodsManagement(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 	
-	int goodsTotal = goodsService.selectAllGoodsCount(gVO);
+	int goodsTotal = GoodsService.selectAllGoodsCount(gVO);
 	
 	if (pageNum == null) {
 		pageNum = "1";
@@ -39,7 +39,7 @@ public String goodsManagement(ModelMap model, Criteria cri, GoodsVO gVO, @Reques
 	gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 	gVO.setAmount(cri.getAmount());
 
-	List<GoodsVO> goodsList = goodsService.selectOneGoods(gVO);
+	List<GoodsVO> goodsList = GoodsService.selectOneGoods(gVO);
 	
 	model.addAttribute("goodsList", goodsList);
 	
@@ -51,7 +51,7 @@ public String goodsManagement(ModelMap model, Criteria cri, GoodsVO gVO, @Reques
 	@RequestMapping(value = "/goodsManagement/delete")
 	public String deletegoodsManagement(ModelMap model, Criteria cri, GoodsVO gVO) throws Exception {
 
-		goodsService.deleteGoods(gVO.getGoodsId());
+		GoodsService.deleteGoods(gVO.getGoodsId());
 
 		return "redirect:/admin/goodsManagement.do";
 	}
@@ -60,7 +60,7 @@ public String goodsManagement(ModelMap model, Criteria cri, GoodsVO gVO, @Reques
 	@RequestMapping(value = "/goodsManagement/update")
 	public String updategoodsManagement(ModelMap model, Criteria cri, GoodsVO gVO) throws Exception {
 
-		goodsService.modifyGoods(gVO);
+		GoodsService.adminModifyGoods(gVO);
 
 		return "redirect:/admin/goodsManagement.do";
 	}

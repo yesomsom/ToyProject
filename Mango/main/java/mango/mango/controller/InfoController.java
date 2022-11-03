@@ -84,10 +84,11 @@ public class InfoController {
 				list.add(InfoDto);
 			}
 			gson = new Gson().toJson(list);
-			System.out.println(list);
-			System.out.println(gson);
+			/*
+			 * System.out.println(list); System.out.println(gson);
+			 */
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
