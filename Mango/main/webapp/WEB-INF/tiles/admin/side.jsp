@@ -11,7 +11,7 @@
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#">회원 관리</a></li>
 						<li><a href="#">사업주 회원 관리</a></li>
-						<li><a href="#">상품 관리</a></li>
+						<li><a href="${path }/admin/goodsManagement.do">상품 관리</a></li>
 						<li><a href="#">매출 내역 조회</a></li>						
 					</ul>
 				</li>

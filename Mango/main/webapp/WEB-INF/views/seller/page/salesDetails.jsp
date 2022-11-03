@@ -43,18 +43,18 @@
 						<td class="table_content txt_center">${sales.receiverName}</td>
 						<td class="table_content txt_center">${sales.receiverPhone}</td>												
 						<td class="table_content txt_center">${sales.receiverZipno}, ${sales.receiverAddress}</td>						
-						<td class="table_content txt_center">
-						<form action="/page/update/deliveryState.do" method="get">
-						<input type="hidden" name="trackingNumber" value="${sales.trackingNumber}">
-						<input type="hidden" name="ordersId" value="${sales.ordersId}">													
-							<select name="deliveryState">
-				         		<option name="delivery" value="${sales.deliveryState}" hidden selected>${sales.deliveryState}</option>				         		
-								<option value="배송 준비중">배송 준비중</option>						
-								<option value="배송중">배송중</option>						
-								<option value="배송 완료">배송 완료</option>					
-							</select>											
-							<button>수정</button>
-						</form>
+						<td class="table_content txt_center">						
+							<form action="/page/deliveryState/update.do" method="get">
+							<input type="hidden" name="trackingNumber" value="${sales.trackingNumber}">
+							<input type="hidden" name="ordersId" value="${sales.ordersId}">													
+								<select name="deliveryState">
+					         		<option name="delivery" value="${sales.deliveryState}" hidden selected>${sales.deliveryState}</option>				         		
+									<option value="배송 준비중">배송 준비중</option>						
+									<option value="배송중">배송중</option>						
+									<option value="배송 완료">배송 완료</option>					
+								</select>											
+								<button>수정</button>
+							</form>
 						</td>
 					</tr>	
 				</c:forEach>

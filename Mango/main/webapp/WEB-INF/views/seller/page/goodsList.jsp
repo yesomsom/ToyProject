@@ -105,5 +105,6 @@
 	</div>
 
    <script src="${path}/js/goodsList.js"></script>
+   <script src="${path }/js/paging.js"></script>
 </body>
 </html>

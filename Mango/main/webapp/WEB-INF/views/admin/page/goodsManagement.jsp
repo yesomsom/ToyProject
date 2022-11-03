@@ -38,7 +38,7 @@
 		        <td class="table_content txt_center">${goods.goodsId}</td>
 		        <td class="table_content">
 		         	<select name="goodsCategory">
-		         		<option value="${goods.goodsCategory}" selected disabled hidden>${goods.goodsCategory}</option>
+		         		<option class="gCat" value="${goods.goodsCategory}" selected disabled hidden>${goods.goodsCategory}</option>
 						<option value="키링">키링</option>
 						<option value="인형">인형</option>
 						<option value="피규어">피규어</option>
@@ -47,18 +47,18 @@
 		        </td>
 		        <td class="table_content"><input class="gName" type="text" value="${goods.goodsName}"></td>
 		        <td class="table_content txt_center">
-		        <select name="goodsState">
-		        	<option value="${goods.goodsState}" selected disabled hidden>${goods.goodsState}</option>
-		        	<option>판매 대기중</option>
-		        	<option>판매중</option>
-		        </select>
+			        <select name="goodsState">
+			        	<option class="gState" value="${goods.goodsState}" selected disabled hidden>${goods.goodsState}</option>
+			        	<option>판매 대기중</option>
+			        	<option>판매중</option>
+			        </select>
 		        </td>
 		        <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
 		        <td class="table_content"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
 		        <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
-		        <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>            
+		        <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>		        
 		        <td class="table_content txt_center regDateForm"><fmt:formatDate value="${goods.regDate}" pattern="yyyy-MM-dd" /></td>
-		        <td class="table_content txt_center"><button class="btn modify_btn" data-goodsid="${goods.goodsId}">수정</button></td>
+		        <td class="table_content txt_center"><button class="btn modify_btn" data-goodsid="${goods.goodsId}" data-gcat="${goods.goodsCategory}" data-gstate="${goods.goodsState}">수정</button></td>
 		        <td class="table_content txt_center"><button class="btn delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>
 		      </tr>
 		    </c:forEach>
@@ -88,13 +88,13 @@
 			</div>
 		</div>
 		
-		<form id="goodsListForm" method="get" action="/page/goodsList.do">
+		<form id="goodsManagementForm" method="get" action="goodsManagement.do">
 		   <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
 		   <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 		</form>       
 	
 		<!-- 수정 form -->
-		<form action="/admin/goodsManagement/update.do" method="post" class="goods_update_form">
+		<form action="goodsManagement/update.do" method="post" class="goods_update_form">
 		   <input type="hidden" name="goodsCategory" class="update_goodsCategory">
 		   <input type="hidden" name="goodsId" class="update_goodsId"> 
 		   <input type="hidden" name="goodsName" class="update_goodsName">
@@ -102,16 +102,17 @@
 		   <input type="hidden" name="goodsDetail" class="update_goodsDetail">
 		   <input type="hidden" name="goodsPrice" class="update_goodsPrice">
 		   <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">         
-		   <input type="hidden" name="deliveryPrice" class="update_goodsState">         
+		   <input type="hidden" name="goodsState" class="update_goodsState">         
 		</form>
 	       
 		<!-- 삭제 form -->
-		<form action="/admin/goodsManagement/delete.do" method="post" class="goods_delete_form">
+		<form action="goodsManagement/delete.do" method="post" class="goods_delete_form">
 			<input type="hidden" name="goodsId" class="delete_goodsId">
 		</form>
 		
 	</div>
 
    <script src="${path}/js/goodsManagement.js"></script>
+   <script src="${path }/js/paging.js"></script>
 </body>
 </html>
