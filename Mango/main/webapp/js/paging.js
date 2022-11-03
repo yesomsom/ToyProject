@@ -19,3 +19,13 @@ $(".pageInfo a").on("click", function(e) {
 	$("#pageNum").val($(this).attr("href"));
 	$("#goodsForm").submit();
 })
+$(".pageInfo a").on("click", function(e) {
+	e.preventDefault();
+	$("#pageNum").val($(this).attr("href"));
+	$("#goodsListForm").submit();
+})
+$(".pageInfo a").on("click", function(e) {
+	e.preventDefault();
+	$("#pageNum").val($(this).attr("href"));
+	$("#goodsManagementForm").submit();
+})

@@ -1,12 +1,5 @@
 $(document).ready(function() {
 
-/* 페이징 */
-	$(".pageInfo a").on("click", function(e){
-		e.preventDefault();
-		$("#pageNum").val($(this).attr("href"));
-		$("#boardForm").submit();
-	})
-
 /* 상품 수정 버튼 */
    $(".modify_btn").on("click", function(){
       let goodsId = $(this).data("goodsid");
