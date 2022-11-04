@@ -91,11 +91,7 @@ if (login != null)
 						<button>
 							<a href="/page/serviceCenter.do">고객센터</a>
 						</button>
-					</div>
-					<div class="search-wrapper">
-						<input>
-						<button class="searchButton">검색</button>
-					</div>
+					</div>					
 				</div>
 			</div>
 			<div></div>

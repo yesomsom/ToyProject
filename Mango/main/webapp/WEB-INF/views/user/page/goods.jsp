@@ -22,7 +22,11 @@
 				<li id="Cate" class="selectCat" data-goods="피규어"><a href="#">피규어</a></li>
 				<li id="Cate" class="selectCat" data-goods="키링"><a href="#">키링</a></li>
 				<li id="Cate" class="selectCat" data-goods="기타"><a href="#">기타</a></li>
-			</ul>
+			</ul>			
+			<div class="f-right">
+				<input type="search" class="searchKeyword"/>
+				<button class="searchBtn">검색</button>
+			</div>
 		</div>
 		<!-- 상품 리스트 -->
 		<div class="Goods_Contents">
@@ -58,7 +62,13 @@
 		
 		<form id="goodsForm" method="get" action="/page/goods.do">
 			<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
+			<input type="hidden" name="amount" id="amount" value="${pageMaker.cri.amount }">			
+		</form>
+		
+		<form id="goodsKeywordForm" method="get" action="/page/goodsKeyword.do">
+			<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
 			<input type="hidden" name="amount" id="amount" value="${pageMaker.cri.amount }">
+			<input type="hidden" name="keyword" id="keyword" value="${pageMaker.cri.keyword }">
 		</form>		
 	</div>
 	

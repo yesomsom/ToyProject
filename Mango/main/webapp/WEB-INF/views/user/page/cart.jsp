@@ -136,7 +136,7 @@ if (login != null)
  		<span class="total_price_title">총 주문금액</span> 
         <span class="total_price font_bold_big">0</span>
 		<span class="font_bold_big">원</span>
-		<a onclick="order_ajax()">버튼</a>			
+		<a onclick="order_ajax()"><button class="btn">결제하기</button></a>
    </div>
 
    <!-- 수량 조정 form -->

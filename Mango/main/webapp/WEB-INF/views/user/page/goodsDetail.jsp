@@ -76,16 +76,17 @@ if (login != null)
                <input form="orders_direct" class="input_button" type="submit" name="buygoods" value="구매하기">
                <input form="cart_direct" class="input_button" type="submit" name="cartgoods" value="장바구니">
             </div>
+            
             <div class="recommend_goods_wrap">
-               <a class="recommend_a1" href="${path}/page/goodsDetail.do?goodsId=${goodsList[1].goodsId}">
+               <%-- <a class="recommend_a1" id="ranTh" href="${path}/page/goodsDetail.do?goodsId=${goodsList[0].goodsId}">
+                  <img src="${goodsList[0].realPath }" style="width: 85px; height: 85px;">
+               </a> 
+               <a class="recommend_a1" id="ranTh" href="${path}/page/goodsDetail.do?goodsId=${goodsList[1].goodsId}">
                   <img src="${goodsList[1].realPath }" style="width: 85px; height: 85px;">
                </a> 
-               <a class="recommend_a1" href="${path}/page/goodsDetail.do?goodsId=${goodsList[7].goodsId}">
-                  <img src="${goodsList[7].realPath }" style="width: 85px; height: 85px;">
-               </a> 
-               <a class="recommend_a1" href="${path}/page/goodsDetail.do?goodsId=${goodsList[4].goodsId}">
+               <a class="recommend_a1" id="ranTh" href="${path}/page/goodsDetail.do?goodsId=${goodsList[2].goodsId}">
                   <img src="${goodsList[4].realPath }" style="width: 85px; height: 85px;">
-               </a>
+               </a> --%>
             </div>
          </div>
       </div>
@@ -119,6 +120,27 @@ if (login != null)
 	</form>
 	
    <script src="${path}/js/goodsDetail.js"></script>
+   <script>
+	$(function(){	   
+		var list = new Array();
+		<c:forEach var="goods" items="${goodsList}">
+			list.push('${goods.goodsId}'+"‡"+'${goods.realPath}');
+		</c:forEach>
+		list.sort(() => Math.random() - 0.5);
+		var html = "";
+		for(i = 0; i < 3; i++){
+			html += recommend_html(list[i]);
+		}
+		$('.recommend_goods_wrap').html(html);
+	})
+		function recommend_html(data){
+		var dataList = data.split("‡");
+		var html = `<a class="recommend_a1" id="ranTh" href="${path}/page/goodsDetail.do?goodsId=`+dataList[0]+`">
+            <img src="`+dataList[1]+`" style="width: 85px; height: 85px;">
+            </a>`;
+		return html;
+	}
+   </script>
 
 </body>
 </html>

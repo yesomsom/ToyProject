@@ -12,6 +12,8 @@ if (login != null)
 <head>
 <meta charset="UTF-8">
 <title>사업자페이지</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="${path}/css/seller/main.css">
 </head>
 <body>
@@ -79,12 +81,59 @@ if (login != null)
 		<div class="right_Container">
 			<div class="title">매출현황</div>
 			<div>
-				<jsp:include page="${path}/seller/page/salesDetails.do"/>
+				<!-- 등록된 상품 리스트 테이블 -->
+		<table class="sales_table">
+			<thead>
+				<tr class="table_title_wrap">
+					<td class="table_title">주문 번호</td>										
+					<td class="table_title">고객 아이디</td>					
+					<td class="table_title">결제 금액</td>
+					<td class="table_title">결제일</td>
+					<td class="table_title">수령인</td>
+					<td class="table_title">연락처</td>
+					<td class="table_title">배송지</td>
+					<td class="table_title">배송상태</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${ordersPayList}" var="sales"  varStatus="status">
+					<tr class="sales_detail">
+						<td class="table_content txt_center">${sales.ordersId}</td>															
+						<td class="table_content txt_center">${sales.id}</td>
+						<td class="table_content txt_right">${sales.ordersPayMoney}원</td>
+						<td class="table_content txt_center" >
+							<fmt:formatDate value="${sales.ordersPayDate}" pattern="yyyy-MM-dd" />
+							<input class="t_${status.count}" type="hidden" value="t_${status.count}" data-dv="${sales.ordersPayDate}" data-pr="${sales.ordersPayMoney}">
+						</td>										
+						<td class="table_content txt_center">${sales.receiverName}</td>
+						<td class="table_content txt_center">${sales.receiverPhone}</td>												
+						<td class="table_content txt_center">${sales.receiverZipno}, ${sales.receiverAddress}</td>						
+						<td class="table_content txt_center">						
+							<form action="/page/deliveryState/update.do" method="get">
+							<input type="hidden" name="trackingNumber" value="${sales.trackingNumber}">
+							<input type="hidden" name="ordersId" value="${sales.ordersId}">													
+								<select name="deliveryState">
+					         		<option name="delivery" value="${sales.deliveryState}" hidden selected>${sales.deliveryState}</option>				         		
+									<option value="배송 준비중">배송 준비중</option>						
+									<option value="배송중">배송중</option>						
+									<option value="배송 완료">배송 완료</option>					
+								</select>											
+								<button>수정</button>
+							</form>
+						</td>
+					</tr>	
+				</c:forEach>
+			</tbody>
+		</table>
+		<div id="chart_div"></div>
 			</div>
 			<a href="/page/salesDetails.do" class="t_Btn">
 				<span>매출내역 상세보기</span>
 			</a>
 		</div>
 	</div>
+	
+	<script src="${path}/js/graph.js"></script>
+	
 </body>
 </html>
