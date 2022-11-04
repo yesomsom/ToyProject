@@ -3,64 +3,97 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- CREATE TABLE _MEMBER ( ID VARCHAR2(200) NOT NULL, PASSWORD VARCHAR2(200) 
-	NULL, NAME VARCHAR2(200) NULL, PHONE_NUMBER VARCHAR2(200) NULL, EMAIL VARCHAR2(200) 
-	NULL, ADDRESS VARCHAR2(200) NULL, AUTH NUMBER(20) NULL, REGISTER_DATE DATE 
-	NULL, UN_REGISTER_DATE DATE NULL, CONSTRAINT _MEMBER_PK PRIMARY KEY (ID) 
-	) -->
 <mapper namespace="MemberMapper">
-	<resultMap type="MemberVO" id="memberList">
-		<result property="id" column="id" />
-		<result property="password" column="password" />
-		<result property="name" column="name" />
-		<result property="phone" column="phone" />
-		<result property="email" column="email" />
-		<result property="auth" column="auth" />
-		<result property="registerDate" column="registerdate" />
-		<result property="unRegisterDate" column="unregisterdate" />
-		<result property="address" column="address" />
-		<result property="zipNo" column="zipno" />
-		<result property="ownerName" column="ownername" />
-		<result property="businessNumber" column="businessnumber" />
-		<result property="sellerName" column="sellername" />
-		<result property="logoImg" column="logoimg" />
-	</resultMap>
+   <resultMap type="MemberVO" id="memberList">
+      <result property="id" column="id" />
+      <result property="password" column="password" />
+      <result property="name" column="name" />
+      <result property="phone" column="phone" />
+      <result property="email" column="email" />
+      <result property="auth" column="auth" />
+      <result property="registerDate" column="registerdate" />
+      <result property="unRegisterDate" column="unregisterdate" />
+      <result property="unRegisteryn" column="unregisteryn" />
+      <result property="address" column="address" />
+      <result property="zipNo" column="zipno" />
+      <result property="ownerName" column="ownername" />
+      <result property="businessNumber" column="businessnumber" />
+      <result property="sellerName" column="sellername" />
+      <result property="logoImg" column="logoimg" />
+   </resultMap>
 
-	<select id="getId" resultType="String" parameterType="String">
-		SELECT * FROM member 
-		WHERE id = #{id}
-	</select>	
+   <select id="getId" resultType="String" parameterType="String">
+      SELECT * FROM member 
+      WHERE id = #{id}
+   </select>   
 
-	<insert id="register" parameterType="MemberVO">
-		INSERT INTO member(id, password, name, phone, email, auth, address, zipno, registerdate)
-		VALUES(#{id}, #{password}, #{name},	#{phone},#{email},3, #{address},#{zipNo}, SYSDATE(6))
-	</insert>
-	
-	<insert id="sellerRegister" parameterType="MemberVO">
-		INSERT INTO member(id, password, name, phone, email, auth, address, ownername, businessnumber, sellername, zipno, logoimg, registerdate)
-		VALUES(#{id}, #{password}, #{name},	#{phone},#{email},2, #{address},#{ownerName}, #{businessNumber}, #{sellerName}, #{zipNo}, #{logoImg}, SYSDATE(6))
-	</insert>
+   <insert id="register" parameterType="MemberVO">
+      INSERT INTO member(id, password, name, phone, email, auth, address, zipno, registerdate, unregisteryn)
+      VALUES(#{id}, #{password}, #{name},   #{phone},#{email},3, #{address},#{zipNo}, SYSDATE(6), "가입")
+   </insert>
+   
+   <insert id="sellerRegister" parameterType="MemberVO">
+      INSERT INTO member(id, password, name, phone, email, auth, address, ownername, businessnumber, sellername, zipno, logoimg, registerdate)
+      VALUES(#{id}, #{password}, #{name}, #{phone},#{email},2, #{address},#{ownerName}, #{businessNumber}, #{sellerName}, #{zipNo}, #{logoImg}, SYSDATE(6))
+   </insert>
 
-	<select id="login" resultType="MemberVO" parameterType="MemberVO">
-		SELECT * FROM member
-		WHERE id=#{id}
-		AND password=#{password}
-	</select>
+   <select id="login" resultType="MemberVO" parameterType="MemberVO">
+      SELECT * FROM member
+      WHERE id=#{id}
+      AND password=#{password}
+   </select>
 
-	<update id="updateMember" parameterType="MemberVO">
-		UPDATE member SET 
-		name = #{name},
-		password = #{password},
-		phone = #{phone},
-		email = #{email},
-		address = #{address},
-		zipno = #{zipNo}
-		WHERE id = #{id}
-	</update>
+   <update id="updateMember" parameterType="MemberVO">
+      UPDATE member SET 
+      name = #{name},
+      password = #{password},
+      phone = #{phone},
+      email = #{email},
+      address = #{address},
+      zipno = #{zipNo}
+      WHERE id = #{id}
+   </update>
 
-	<delete id="deleteMember" parameterType="String">
-		DELETE FROM member
-		WHERE id = #{id}
-	</delete>
-	
+   <update id="deleteMember" parameterType="MemberVO">
+      UPDATE member SET
+      unregisteryn = "탈퇴",
+      unregisterdate = SYSDATE(6)
+      
+      WHERE id = #{id}
+   </update>  
+   
+   <select id ="getMember" resultType="MemberVO">
+      SELECT * FROM member
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+         <if test="searchType=='id' and keyword != null and keyword != '' ">
+            AND id LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='name' and keyword != null and keyword != '' ">
+            AND name LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='phone' and keyword != null and keyword != '' ">
+            AND phone LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         AND auth = 3
+      </trim>
+   </select>
+   
+   <select id="getSeller" resultType="MemberVO">
+      SELECT * FROM member
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+         <if test="searchType=='id' and keyword != null and keyword != '' ">
+            AND id LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='ownername' and keyword != null and keyword != '' ">
+            AND ownername LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='phone' and keyword != null and keyword != '' ">
+            AND phone LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='businessNumber' and keyword != null and keyword != '' ">
+            AND businessnumber LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         AND auth = 2
+      </trim>
+   </select>
 </mapper>

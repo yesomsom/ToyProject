@@ -3,13 +3,8 @@
 <mapper namespace="NoticeMapper">
 	<resultMap id="notice" type="NoticeVO">
 		<result property="notiId" column="noti_id" />
-		<!-- <result property="noti_num" column="noti_num" /> -->
-		<!-- <result property="id" column="id" /> -->
-		<result property="notiCat" column="noti_cat" />
-		<result property="notiCatDetail" column="noti_catDetail" />
 		<result property="notiSubject" column="noti_subject" />
-		<result property="notiContent" column="noti_content" />
-		<result property="notiFileName" column="noti_fileName" />
+		<result property="notiContent" column="noti_content" />		
 		<result property="notiDate" column="noti_date" />
 	</resultMap>
 
@@ -28,5 +23,10 @@
 		SELECT * FROM notice
 		WHERE noti_id = #{notiId}
 	</select>
+	
+	<insert id="insertNotice" parameterType="NoticeVO">
+		INSERT INTO notice(noti_subject, noti_content, noti_date)
+		VALUES (#{notiSubject}, #{notiContent}, SYSDATE(6))
+	</insert>
 	
 </mapper>

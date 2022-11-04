@@ -18,28 +18,19 @@
 		<result property="gno" column="gno" />
 		<result property="id" column="id" />
 	</resultMap>
-	
-	<!-- <select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
-		SELECT * FROM goods g 
-		left outer join goodsfile f on g.goods_id = f.goods_id 
-		WHERE 1=1
-		<if test="goodsCategory != null">
-			AND goods_category = #{goodsCategory}			
-		</if>
-		
-		LIMIT #{skip}, #{amount}
-	</select> -->
-   <select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
-      SELECT * FROM goods g 
-      left outer join goodsfile f on g.goods_id = f.goods_id 
-      WHERE 1=1
-      AND g.goods_state = '승인'
-      <if test="goodsCategory != null">
-         AND goods_category = #{goodsCategory}         
-      </if>
-      ORDER BY g.regdate DESC
-      LIMIT #{skip}, #{amount}
-   </select>
+
+	<select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
+	   SELECT * FROM goods g left outer join goodsfile f 
+	   on g.goods_id = f.goods_id
+	   WHERE 1=1
+	   AND g.goods_state = '승인'
+	   <if test="goodsCategory != null">
+	      AND goods_category = #{goodsCategory}
+	   </if>
+	   ORDER BY g.regdate DESC
+	   
+	   LIMIT #{skip}, #{amount}
+	</select>
 	
 	<select id="selectOneGoods" resultMap="goodsList" parameterType="GoodsVO">
 		SELECT A.*, B.realpath
@@ -51,9 +42,8 @@
 	</select>
 	
 	<select id="selectAllGoodsList" resultMap="goodsList" parameterType="GoodsVO">
-		SELECT A.*, B.realpath
-		FROM goods A, goodsfile B
-		WHERE A.goods_id = B.goods_id
+		SELECT * FROM goods 
+		WHERE goods_name LIKE '%'||#{keyword}||'%'
 
 		LIMIT #{skip}, #{amount}
 	</select>
@@ -102,12 +92,11 @@
 		WHERE goods_id = #{goodsId}
 	</update>
 	
-	<!-- 상품 수정 -->
+	<!-- 관리자 상품 수정 -->
 	<update id="adminModifyGoods" parameterType="GoodsVO">
 		UPDATE goods SET
 		goods_category=#{goodsCategory},goods_state=#{goodsState},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId}
-	</update>
-	
+	</update>	
 
 </mapper>
