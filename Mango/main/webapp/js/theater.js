@@ -88,10 +88,10 @@ function make_html_sgg(data) { // sgg 리스트 - sgg클릭시 bra 생성
 		+ data.sggNm + `">` + data.sggNm + `</td></tr>`;
 	return html
 }
-function make_html_bra(data) { // bra 리스트  - 클릭시 이벤트 현재 없음
+function make_html_bra(data) { // bra 리스트 - bra클릭시 카카오맵 infowindow값 전달
 	console.log(data)
-	html = `<tr><td  onclick="bra_click(this)" data-x="`+data.x + `" data-y="` + ta.y+`" data-poi="`+data.poiNm+`" data- b ranch="`+data.branchNm+`" > ` + data.branchNm + `</td ></tr > `;
-return html
+	html = `<tr><td  onclick="bra_click(this)" data-x="` + data.x + `" data-y="` + data.y +`" data-poi="` + data.poiNm + `" data-branch="` + data.branchNm + `" > ` + data.branchNm + `</td ></tr > `;
+	return html
 }
 
 	function bra_click(_this){		

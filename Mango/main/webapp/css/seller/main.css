@@ -82,11 +82,11 @@ span {
 	left: 1400px;
 }
 
-상품 리스트
+
 .goodsList_wrap {
    position: absolute;
-   top: 170px;
-   left: 320px;
+   top: 82px;
+   left: -5px;
 }
 
 .goodsList_wrap_title {
@@ -137,6 +137,12 @@ input {
    text-align: center;
 }
 
+#chart_div{
+	margin-top: -10px;
+    margin-left: -75px;
+    width:900px;
+    height: 500px;
+}
 
 .btn {
    border-radius: 5px;
@@ -147,7 +153,9 @@ input {
 .t_cat{
 	text-align:center;
 }
-
+.sales_table{
+	display: none;
+}
 /* 페이징 */
 .pageInfo {
    display: flex;

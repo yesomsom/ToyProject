@@ -31,15 +31,15 @@ $(document).ready(function() {
    }); 
    
 /* option selected 값으로 변경해서 전달 */ 
-	$("select[name=goodsCategory]").change(function(){
-		let selectVal = $(this).val();		
-/*		$(".update_goodsCategory").val(selectVal);	*/
-		$('.modify_btn').data('gcat', selectVal);	
-	});  
+   $("select[name=goodsCategory]").change(function(){
+      let selectVal = $(this).val();      
+/*      $(".update_goodsCategory").val(selectVal);   */
+      $('.modify_btn').data('gcat', selectVal);   
+   });  
 
-	$("select[name=goodsState]").change(function(){
-		let stateSelectVal = $(this).val();		
-/*		$(".update_goodsState").val(stateSelectVal);*/
-		$('.modify_btn').data('gstate', stateSelectVal);		
-	});
+   $("select[name=goodsState]").change(function(){
+      let stateSelectVal = $(this).val();      
+/*      $(".update_goodsState").val(stateSelectVal);*/
+      $('.modify_btn').data('gstate', stateSelectVal);      
+   });
 });

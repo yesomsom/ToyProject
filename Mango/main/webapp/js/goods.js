@@ -57,3 +57,8 @@ function make_goodsList(data) {
 			</li>`;
 	return html;
 }
+
+$(".searchBtn").on("click", function(){
+		var kw = $(".searchKeyword").val();
+		$("#keyword").val(kw);	
+	});

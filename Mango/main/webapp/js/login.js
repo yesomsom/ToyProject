@@ -23,9 +23,7 @@ $(document).ready(function(){
             if(crawlingData.length === 0){
                location.href="/page/login.do";
             }
-            let randomNumber = Math.floor(Math.random() * 7);
-            console.log(randomNumber);
-            console.log(crawlingData[randomNumber].img);
+            let randomNumber = Math.floor(Math.random() * 7);            
             poster.setAttribute('src', crawlingData[randomNumber].img);
         },
     });

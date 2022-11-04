@@ -9,8 +9,8 @@ body {
 
 h1 {
    text-align: center;
-   margin: 0;
-   font-size: 40px;
+   margin-right: 50px;
+   font-size: 40px !important;
    font-weight: bold;
 }
 
@@ -241,7 +241,7 @@ ul.tabs li.current {
    border-radius: 10px;
 }
 
-/*공지사항 contentBox-white*/
+/*怨듭��궗�빆 contentBox-white*/
 .tab-5_content {
    width: 200px;
    height: 200px;
@@ -337,7 +337,7 @@ ul.tabs li.current {
    text-align: center;
    border-radius: 5px;
 }
-/*  쟾泥  臾몄쓽蹂닿린  쐞泥  */
+/*  �읈力�  �눧紐꾩벥癰귣떯由�  �맄力�  */
 #all_notice {
    position: relative;
    top:45px;
@@ -350,7 +350,7 @@ ul.tabs li.current {
    border-radius: 15px;
    padding: 10px;
 }
-/*  쟾泥  臾몄쓽蹂닿린  쐞泥  */
+/*  �읈力�  �눧紐꾩벥癰귣떯由�  �맄力�  */
 #all_asktag {
    position: relative;
    top:45px;

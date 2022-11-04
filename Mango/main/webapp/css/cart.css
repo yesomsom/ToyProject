@@ -9,6 +9,7 @@
 .font_bold_big {
    font-weight: 900 !important;
    font-size: 18px !important;
+   margin-right: 5px;
 }
 
 /* cart content */
@@ -116,14 +117,14 @@
 .total_price_title {
    margin-right: 10px;
    position: relative;
-   top: 5px;
+   top: -2px;
    font-size: 14px !important;
 }
 .total_price {
-   margin-right: 40px;
+   /* margin-right: 40px; */
    font-size: 28px !important;
    position: relative;
-   top: 7px;
+   top: 2px;
 }
 /* button */
 .btn_img {
@@ -153,7 +154,7 @@
    height: 50px;
    background: #fffff7;
    border-radius: 7px;
-   margin-right: 18%;
+   margin-right: 19%;
    padding: 10px;
    cursor: pointer;
    font-size: 16px !important;

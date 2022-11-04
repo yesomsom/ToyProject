@@ -1,9 +1,33 @@
+* {
+	list-style: none;
+}
+
+a {
+	color: black;
+}
+
+.btn {
+	position: absolute;
+	top: 115px;
+	left: 1564px;
+	background-color: cornsilk;
+	font-size: 16px !important;
+	border-radius: 30px !important;
+}
+
+.center {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 .noti_container {
 	position: absolute;
-	top: 215px;
-	left: 520px;
+	top: 115px;
+	left: 220px;
 	text-align: center;
 	font-size: 20px;
+	width: 1471px;
+	height: 506px;
 }
 
 #h_div {
@@ -17,7 +41,8 @@
 table {
 	margin-top: 40px;
 	border-collapse: collapse;
-	width: 1000px;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 tr, td {
@@ -52,6 +77,10 @@ table td {
 
 .pageInfo {
 	display: flex;
+	position: absolute;
+	top: 300px;
+	left: 613px;
+	font-size: 25px;
 }
 
 .pageInfo a {
@@ -66,32 +95,4 @@ table td {
 	position: absolute;
 	top: 400px;
 	left: 25px;
-}
-
-.modal {
-	position: fixed;
-	width: 1918px;
-	height: 937px;
-	background: rgba(0, 0, 0, 0.8);
-	top: 0;
-	left: 0;
-	display: none;
-	z-index: 9998;
-}
-
-.modal_content {
-	width: 400px;
-	background: #fff;
-	border-radius: 10px;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	margin-top: -100px;
-	margin-left: -200px;
-	text-align: center;
-	box-sizing: border-box;
-	padding: 30px;
-	line-height: 23px;
-	cursor: pointer;
-	z-index: 9999;
 }

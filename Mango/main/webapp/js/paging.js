@@ -3,7 +3,6 @@ $(".pageInfo a").on("click", function(e) {
 	$("#pageNum").val($(this).attr("href"));
 	$("#qaForm").submit();
 })
-
 $(".pageInfo_btn a").on("click", function(e) {
 	e.preventDefault();
 	$("#pageNum").val($(this).attr("href"));
@@ -18,6 +17,7 @@ $(".pageInfo a").on("click", function(e) {
 	e.preventDefault();
 	$("#pageNum").val($(this).attr("href"));
 	$("#goodsForm").submit();
+	$("#goodsKeywordForm").submit();
 })
 $(".pageInfo a").on("click", function(e) {
 	e.preventDefault();
@@ -29,3 +29,8 @@ $(".pageInfo a").on("click", function(e) {
 	$("#pageNum").val($(this).attr("href"));
 	$("#goodsManagementForm").submit();
 })
+$(".pageInfo a").on("click", function(e) {
+		e.preventDefault();
+		$("#pageNum").val($(this).attr("href"));
+		$("#ordersListForm").submit();
+	})
