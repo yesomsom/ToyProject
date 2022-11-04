@@ -69,21 +69,22 @@ public class ServiceCenterController {
 
 	// 1:1문의사항 조회
 	@RequestMapping(value = "/myAskList")
-	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO, HttpSession session, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+	public String selectAskList(ModelMap model, Criteria cri, AskVO aVO, HttpSession session,
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		aVO.setId(login.getId());
 		int askListTotal = askService.selectAllAskCount(aVO);
-		
+
 		if (pageNum == null) {
 			pageNum = "1";
 		}
-		
-		if(pageNum != null){
+
+		if (pageNum != null) {
 			cri.setPageNum(Integer.parseInt(pageNum));
 		}
-		
+
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, askListTotal);
-				
+
 		aVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		aVO.setAmount(cri.getAmount());
 
@@ -97,7 +98,8 @@ public class ServiceCenterController {
 
 	// 공지사항 리스트
 	@RequestMapping(value = "/noticeList")
-	public String selectQaList(ModelMap model, Criteria cri, NoticeVO nVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+	public String noticeList(ModelMap model, Criteria cri, NoticeVO nVO,
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		int noticeTotal = noticeService.selectAllNoticeCount(nVO);
 		// 페이징
@@ -114,14 +116,11 @@ public class ServiceCenterController {
 
 		return "/user/page/noticeList";
 	}
-	@RequestMapping(value = "/tracking")
-	public String tracking() {
-		
-		return "user/page/tracking";
-	}
+
 	// q&a 리스트
 	@RequestMapping(value = "/qaList")
-	public String selectQaList(ModelMap model, Criteria cri, QaVO qVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+	public String qaList(ModelMap model, Criteria cri, QaVO qVO,
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		int qaListTotal = qaService.selectAllQaCount(qVO);
 		// 페이징
@@ -137,5 +136,11 @@ public class ServiceCenterController {
 		model.put("pageMaker", pageMaker);
 
 		return "/user/page/qaList";
+	}
+
+	@RequestMapping(value = "/tracking")
+	public String tracking() {
+
+		return "user/page/tracking";
 	}
 }

@@ -31,4 +31,9 @@ public class NoticeServiceImpl extends EgovAbstractServiceImpl implements Notice
 	public NoticeVO selectNoticeList(int noti_id) throws Exception {
 		return noticeDAO.selectNoticeList(noti_id);
 	}
+	
+	@Override
+	public int insertNotice(NoticeVO nVO) throws Exception{
+		return noticeDAO.insertNotice(nVO);
+	}
 }

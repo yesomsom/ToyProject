@@ -1,5 +1,7 @@
 package mango.mango.service;
 
+import java.util.List;
+
 import mango.mango.model.MemberVO;
 
 public interface MemberService {
@@ -9,4 +11,6 @@ public interface MemberService {
    public MemberVO login(MemberVO mVO) throws Exception;
    public void updateMember(MemberVO mVO) throws Exception;
    public void deleteMember(String id) throws Exception;
+   public List<MemberVO> getMember(MemberVO mVO) throws Exception;
+   public List<MemberVO> getSeller(MemberVO mVO) throws Exception;
 }

@@ -1,5 +1,7 @@
 package mango.mango.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import mango.common.service.impl.ComAbstractDAO;
@@ -30,5 +32,13 @@ public class MemberDAO extends ComAbstractDAO {
 
 	public void deleteMember(String id) throws Exception {
 		delete("MemberMapper.deleteMember", id);
+	}
+	
+	public List<MemberVO> getMember(MemberVO mVO) throws Exception {
+		return selectList("MemberMapper.getMember", mVO);
+	   }
+	   
+	public List<MemberVO> getSeller(MemberVO mVO) throws Exception {
+		return selectList("MemberMapper.getSeller", mVO);
 	}
 }

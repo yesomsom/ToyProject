@@ -11,4 +11,6 @@ public interface NoticeService {
 	Integer selectAllNoticeCount(NoticeVO nVO) throws Exception;
 
 	public NoticeVO selectNoticeList(int noti_id) throws Exception;
+	
+	public int insertNotice(NoticeVO nVO) throws Exception;
 }

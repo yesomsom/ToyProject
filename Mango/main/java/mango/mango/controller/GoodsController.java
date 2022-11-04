@@ -3,6 +3,7 @@ package mango.mango.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import mango.common.service.PageMakerDTO;
 import mango.common.util.UserURLValue;
 import mango.mango.model.GoodsFileVO;
 import mango.mango.model.GoodsVO;
+import mango.mango.model.MemberVO;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
 
@@ -50,10 +52,34 @@ public class GoodsController {
 		gVO.setAmount(cri.getAmount());
 
 		List<GoodsVO> goodsList = goodsService.selectOneGoods(gVO);
+	
+		model.addAttribute("goodsList", goodsList);
 
-		/*
-		 * List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
-		 */
+		model.put("pageMaker", pageMaker);
+		return "/user/page/goods";
+
+	}
+	
+	@RequestMapping(value = "/goodsKeyword")
+	public String goodsKeyword(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "pageNum", required = false) String pageNum, @RequestParam(value = "keyword", required = false) String keyword) throws Exception {
+
+		int goodsTotal = goodsService.selectAllGoodsCount(gVO);
+		
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		
+		if(pageNum != null){
+			cri.setPageNum(Integer.parseInt(pageNum));
+		}
+		 
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, goodsTotal);
+		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		gVO.setAmount(cri.getAmount());
+		gVO.setKeyword(keyword);
+		
+		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+	
 		model.addAttribute("goodsList", goodsList);
 
 		model.put("pageMaker", pageMaker);
@@ -90,20 +116,28 @@ public class GoodsController {
 
 	}
 
-	@RequestMapping(value = "/goodsDetail")
-	public String goodsDetail(ModelMap model, Criteria cri, GoodsFileVO gfVO, GoodsVO gVO, String goodsId) throws Exception {
-		gVO = goodsService.selectGoodsDetailList(goodsId);
-		gfVO.setGoodsId(goodsId);
-		model.addAttribute("goods", gVO);
+	   @RequestMapping(value = "/goodsDetail")
+	   public String goodsDetail(ModelMap model, Criteria cri, MemberVO mVO, GoodsFileVO gfVO, GoodsVO gVO, String goodsId, HttpSession session) throws Exception {
+	      
+	      MemberVO login = (MemberVO) session.getAttribute("login");
+	      model.addAttribute("type", "goodsDetail");
+	      if (login != null) {
+	         gVO = goodsService.selectGoodsDetailList(goodsId);
+	         gfVO.setGoodsId(goodsId);
+	         model.addAttribute("goods", gVO);
 
-		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
+	         List<GoodsVO> goodsList = goodsService.selectCatList(gVO);
 
-		List<GoodsFileVO> goodsFileList = goodsService.selectAllGoodsFileList(gfVO);
+	         List<GoodsFileVO> goodsFileList = goodsService.selectAllGoodsFileList(gfVO);
 
-		model.addAttribute("goodsList", goodsList);
-		model.addAttribute("goodsFileList", goodsFileList);
+	         model.addAttribute("goodsList", goodsList);
+	         model.addAttribute("goodsFileList", goodsFileList);
+	      } else {
+	         model.addAttribute("isSuccess", false);
+	         return "/user/page/process";
+	      }
 
-		return "/user/page/goodsDetail";
-	}
+	      return "/user/page/goodsDetail";
+	   }
 
 }

@@ -1,5 +1,7 @@
 package mango.mango.service.Impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -46,6 +48,16 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 	@Override
 	public void deleteMember(String id) throws Exception {
 		memberDAO.deleteMember(id);
+	}
+	
+	@Override
+	public List<MemberVO> getMember(MemberVO mVO) throws Exception {
+		return memberDAO.getMember(mVO);
+	}
+	   
+	@Override
+	public List<MemberVO> getSeller(MemberVO mVO) throws Exception {
+		return memberDAO.getSeller(mVO);
 	}
 
 }

@@ -18,8 +18,12 @@ public class NoticeDAO extends ComAbstractDAO {
 		return selectOne("NoticeMapper.selectAllNoticeCount", nVO);
 	}
 
-	public NoticeVO selectNoticeList(int noti_id) {
+	public NoticeVO selectNoticeList(int noti_id) throws Exception{
 		return selectOne("NoticeMapper.selectNoticeList", noti_id);
 	}
-
+	
+	public int insertNotice(NoticeVO nVO) throws Exception{
+		return insert("NoticeMapper.insertNotice", nVO);
+	}
+	
 }

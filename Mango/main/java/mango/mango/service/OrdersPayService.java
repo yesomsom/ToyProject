@@ -12,4 +12,8 @@ public interface OrdersPayService {
    Integer selectAllOrdersPayCount(OrdersPayVO opVO) throws Exception;
    int updateDeliveryState(OrdersPayVO opVO) throws Exception;   
    int updateTracking(OrdersPayVO opVO) throws Exception;
+   // 관리자 매출 내역 리스트
+   List<OrdersPayVO> allOrdersPayList(OrdersPayVO opVO) throws Exception;   
+   // 관리자 매출 내역 총개수   
+   Integer allOrdersPayCount(OrdersPayVO opVO) throws Exception;
 }

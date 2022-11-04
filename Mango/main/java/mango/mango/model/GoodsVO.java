@@ -26,5 +26,6 @@ public class GoodsVO {
 	/* 페이징 */
 	private int amount = 8; // 한 페이지 당 보여질 게시물 갯수
 	private int skip; // 스킵 할 게시물 수( (pageNum-1) * amount )
+	private String keyword; //검색 키워드
 
-}
+} 
