@@ -83,10 +83,13 @@
             </ul>
          </div>
       </div>
-      <form id="ordersListForm" method="get" action="/page/salesDetails.do">
+      <form id="salesManagementForm" method="get" action="/admin/salesManagement.do">
          <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
          <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
       </form>
    </div>
+   
+   <script src="${path }/js/paging.js"></script>
+   
 </body>
 </html>
