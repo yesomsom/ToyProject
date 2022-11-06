@@ -1,11 +1,11 @@
-.salesList_wrap {
+.goodsList_wrap {
 	position: absolute;
 	top: 75px;
 	left: 220px;
 	width: 1400px;
 }
 
-.salesList_wrap_title {
+.goodsList_wrap_title {
 	font-size: 18px !important;
 	font-weight: 900 !important;
 	margin-bottom: 30px;
@@ -16,11 +16,7 @@ table {
 	border-collapse: collapse;
 	width: 100%;
 }
-select{
-	background: none;
-	border : 1px solid black;
-	padding: 3px;
-}
+
 tr, td {
 	padding: 10px;
 }
@@ -53,26 +49,18 @@ input {
 	text-align: center;
 }
 
-.txt_right {
-	text-align: right;
-}
-
-[name="salesCategory"] {
+[name="goodsCategory"] {
 	background: none;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
 
-.btn {
+.modify_btn, .delete_btn {
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	background-color: #eee;
-	position: relative;
-    top: -2px;
-    left: 7px;
 }
 
-/* ∆‰¿Ã¬° */
 .pageInfo {
 	display: flex;
 	list-style: none;
@@ -88,6 +76,6 @@ input {
 
 .pageInfo_wrap {
 	position: absolute;
-    top: 157px;
+	top: 175px;
     left: -634px;
 }
