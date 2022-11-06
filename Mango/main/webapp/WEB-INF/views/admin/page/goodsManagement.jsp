@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>goodsList</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="${path}/css/seller/goodsManagement.css">
+<link rel="stylesheet" href="${path}/css/admin/goodsManagement.css">
 </head>
 <body>
 	<div class="goodsList_wrap">
@@ -58,8 +58,8 @@
 		        <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
 		        <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>		        
 		        <td class="table_content txt_center regDateForm"><fmt:formatDate value="${goods.regDate}" pattern="yyyy-MM-dd" /></td>
-		        <td class="table_content txt_center"><button class="btn modify_btn" data-goodsid="${goods.goodsId}"data-gcat="${goods.goodsCategory}" data-gstate="${goods.goodsState}">수정</button></td>
-		        <td class="table_content txt_center"><button class="btn delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>
+		        <td class="table_content txt_center"><button class="modify_btn" data-goodsid="${goods.goodsId}"data-gcat="${goods.goodsCategory}" data-gstate="${goods.goodsState}">수정</button></td>
+		        <td class="table_content txt_center"><button class="delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>
 		      </tr>
 		    </c:forEach>
 		  </tbody>

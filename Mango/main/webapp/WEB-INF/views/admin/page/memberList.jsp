@@ -45,7 +45,7 @@
          <option value="phone">전화번호</option>
       </select>
       <input type="text" name="keyword" id="keyword">
-      <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+      <button class="btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
    </div>
    </div>
 </div>

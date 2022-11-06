@@ -13,7 +13,7 @@
    <div class="salesList_wrap">
 
       <!-- 상단 제목 -->
-      <div class="salesList_wrap_title">판매 내역</div>
+      <div class="salesList_wrap_title">매출 내역</div>
 
       <!-- 등록된 상품 리스트 테이블 -->
       <table class="sales_table">
@@ -42,20 +42,8 @@
                   </td>                              
                   <td class="table_content txt_center">${sales.receiverName}</td>
                   <td class="table_content txt_center">${sales.receiverPhone}</td>                                    
-                  <td class="table_content txt_center">${sales.receiverZipno}, ${sales.receiverAddress}</td>                  
-                  <td class="table_content txt_center">                  
-                     <form action="/page/deliveryState/update.do" method="get">
-                     <input type="hidden" name="trackingNumber" value="${sales.trackingNumber}">
-                     <input type="hidden" name="ordersId" value="${sales.ordersId}">                                       
-                        <select name="deliveryState">
-                              <option value="${sales.deliveryState}" hidden selected>${sales.deliveryState}</option>                           
-                           <option value="배송 준비중">배송 준비중</option>                  
-                           <option value="배송중">배송중</option>                  
-                           <option value="배송 완료">배송 완료</option>               
-                        </select>                                 
-                        <button class="btn">수정</button>
-                     </form>
-                  </td>
+                  <td class="table_content txt_center">${sales.receiverZipno}, ${sales.receiverAddress}</td>  
+                  <td class="table_content txt_center">${sales.deliveryState}</td>                
                </tr>   
             </c:forEach>
          </tbody>
