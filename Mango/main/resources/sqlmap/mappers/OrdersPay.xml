@@ -55,7 +55,7 @@
 	</insert>
 	
 	<!-- 관리자 매출 내역 -->   
-   <select id="allOrdersPayList" resultMap="ordersPayList" parameterType="OrdersPayVO">
+   <select id="adminAllOrdersPayList" resultMap="ordersPayList" parameterType="OrdersPayVO">
         SELECT * FROM orderspay 
         ORDER BY opno DESC
         
@@ -63,7 +63,7 @@
    </select>
    
 	<!-- 관리자 매출 내역 총개수 -->   
-   <select id="allOrdersPayCount" resultType="Integer" parameterType="OrdersPayVO">
+   <select id="adminAllOrdersPayCount" resultType="Integer" parameterType="OrdersPayVO">
       SELECT COUNT(*) FROM orderspay
    </select>
    

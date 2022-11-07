@@ -5,6 +5,7 @@
       <result property="askId" column="ask_id" />
       <result property="id" column="id" />
       <result property="askName" column="ask_name" />
+      <result property="askRelated" column="ask_related" />
       <result property="askEmail" column="ask_email" />
       <result property="askPhone" column="ask_phone" />
       <result property="askCat" column="ask_cat" />
@@ -20,8 +21,8 @@
    <!-- 1:1문의 등록 -->
    <insert id="insertAsk" parameterType="AskVO">
    <![CDATA[
-      INSERT INTO ask(ask_id, id, ask_name, ask_phone, ask_cat, ask_catDetail, ask_type, ask_typeDetail, ask_email, ask_subject, ask_content)
-      VALUES (#{askId}, #{id}, #{askName}, #{askPhone}, #{askCat}, #{askCatDetail}, #{askType}, #{askTypeDetail}, #{askEmail}, #{askSubject}, #{askContent})
+      INSERT INTO ask(ask_id, id, ask_name, ask_state, ask_phone, ask_cat, ask_catDetail, ask_type, ask_typeDetail, ask_email, ask_subject, ask_content)
+      VALUES (#{askId}, #{id}, #{askName}, '미답변', #{askPhone}, #{askCat}, #{askCatDetail}, #{askType}, #{askTypeDetail}, #{askEmail}, #{askSubject}, #{askContent})
       ]]>
    </insert>   
    
@@ -43,5 +44,22 @@
       SELECT * FROM ask 
       WHERE id = #{id} 
       ORDER BY ask_id DESC;
+   </select>
+   
+   <!-- 관리자 -->
+   <select id="selectAdminAllAskCount" resultType="Integer" parameterType="AskVO">
+      SELECT COUNT(*) FROM ask
+      WHERE 1=1
+      AND ask_state = '미답변'
+   </select>
+   
+   <select id="selectAdminAllAskList" resultMap="ask" parameterType="AskVO">
+      SELECT * FROM ask
+      WHERE 1=1
+      AND ask_state = '미답변'
+
+      ORDER BY ask_id DESC
+
+      LIMIT #{skip}, #{amount}
    </select>
 </mapper>

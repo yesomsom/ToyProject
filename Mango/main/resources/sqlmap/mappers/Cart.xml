@@ -15,14 +15,13 @@
       <result property="goodsName" column="goods_name" />      
    </resultMap>
 
-   <select id="selectAllCartList" resultMap="cartList" parameterType="CartVO">         
-      	SELECT A.*, B.realpath
+	<select id="selectAllCartList" resultMap="cartList" parameterType="CartVO">         
+		SELECT A.*, B.realpath
 		FROM cart A, goodsfile B
 		WHERE A.goods_id = B.goods_id
 		AND A.id = #{id}
-		ORDER BY A.cart_id DESC;
-		
-   </select>
+		ORDER BY A.cart_id DESC;		
+	</select>
 	
 	<select id="getCartId" resultType="String" parameterType="String">
 		SELECT * FROM cart 
@@ -43,9 +42,10 @@
       DELETE FROM cart 
       WHERE cart_id = #{cartId}
    </delete>
-
-   <delete id="deleteAllCart" parameterType="CartVO">
+   
+    <delete id="deleteAllCart" parameterType="CartVO">
       DELETE FROM cart 
       WHERE id = #{id}
    </delete>
+
 </mapper>

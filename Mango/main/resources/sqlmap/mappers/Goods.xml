@@ -24,8 +24,11 @@
 	   WHERE 1=1
 	   AND g.goods_state = '승인'
 	   <if test="goodsCategory != null">
-	      AND goods_category = #{goodsCategory}
+	      AND g.goods_category = #{goodsCategory}
 	   </if>
+	   <if test="keyword != null and keyword != '' ">
+          AND g.goods_name like CONCAT('%',#{keyword},'%')
+       </if>
 	   ORDER BY g.regdate DESC
 	   
 	   LIMIT #{skip}, #{amount}
@@ -39,17 +42,11 @@
 		
 		LIMIT #{skip}, #{amount}
 	</select>
-	
-	<select id="selectAllGoodsList" resultMap="goodsList" parameterType="GoodsVO">
-		SELECT * FROM goods 
-		WHERE goods_name LIKE '%'||#{keyword}||'%'
-
-		LIMIT #{skip}, #{amount}
-	</select>
 
 	<select id="selectAllGoodsCount" resultType="Integer" parameterType="GoodsVO">
 		SELECT COUNT(*) FROM goods
 		WHERE 1=1
+	
 		AND goods_state = '승인'
 	</select>
 
@@ -90,6 +87,28 @@
 		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId}
 	</update>
+	
+	
+	<!-- 관리자 섹션 -->
+	
+	<select id="selectNotApprovedList" resultMap="goodsList" parameterType="GoodsVO">
+	   SELECT * FROM goods g left outer join goodsfile f 
+	   on g.goods_id = f.goods_id
+	   WHERE 1=1
+	   AND g.goods_state = '승인대기'
+	 <!--   <if test="goodsCategory != null">
+	      AND goods_category = #{goodsCategory}
+	   </if> -->
+	   ORDER BY g.regdate DESC
+	   
+	   LIMIT #{skip}, #{amount}
+	</select>
+	
+	<select id="selectNotApprovedCount" resultType="Integer" parameterType="GoodsVO">
+		SELECT COUNT(*) FROM goods
+		WHERE 1=1
+		AND goods_state = '승인대기'		
+	</select>
 	
 	<!-- 관리자 상품 수정 -->
 	<update id="adminModifyGoods" parameterType="GoodsVO">
