@@ -29,6 +29,7 @@ import mango.mango.model.ReserveVO;
 import mango.mango.model.TheaterVO;
 import mango.mango.service.AskService;
 import mango.mango.service.InfoService;
+import mango.mango.service.MemberService;
 import mango.mango.service.OrdersPayService;
 import mango.mango.service.OrdersService;
 import mango.mango.service.PayService;
@@ -41,18 +42,27 @@ public class ReserveController {
 
 	@Resource(name = "ReserveService")
 	private ReserveService reserveService;
+	
 	@Resource(name = "PayService")
 	private PayService payService;
+	
 	@Resource(name = "TheaterService")
 	private TheaterService theaterService;
+	
 	@Resource(name = "InfoService")
 	private InfoService infoService;
+	
 	@Resource(name = "OrdersService")
 	private OrdersService ordersService;
+	
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService ordersPayService;
+	
 	@Resource(name = "askService")
 	private AskService askService;
+	
+	@Resource(name = "MemberService")
+	private MemberService MemberService;
 
 	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 
@@ -96,13 +106,23 @@ public class ReserveController {
 	}
 
 	@RequestMapping(value = "/seat")
-	public String seat(ModelMap model, Criteria cri, ReserveVO rVO) throws Exception {
+	public String seat(ModelMap model, Criteria cri, ReserveVO rVO, MemberVO mVO, HttpSession session) throws Exception {
+		
+	    MemberVO login = (MemberVO) session.getAttribute("login");
 
-		System.out.println(rVO.toString());
-		logger.info("seat");
 		model.addAttribute("reserve", rVO);
-
-		return "/user/page/seat";
+	
+		model.addAttribute("type", "movieReserve");
+		
+		if (login != null) {
+			model.addAttribute("isSuccess", true);			
+			session.setAttribute("login", login);
+			return "/user/page/seat";	
+		} else {
+			model.addAttribute("isSuccess", false);
+			return "/user/page/process";
+		}
+		
 	}
 
 	@RequestMapping(value = "/kakao")
