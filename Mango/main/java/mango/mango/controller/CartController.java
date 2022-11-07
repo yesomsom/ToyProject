@@ -59,12 +59,21 @@ public class CartController {
       return "redirect:/page/cart.do";
    }
    
-  
+	//카트 단일 상품 삭제
    @RequestMapping(value = "/cart/delete")
-   public String deletCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
+   public String deleteCart(ModelMap model, Criteria cri, CartVO cVO) throws Exception {
 	   
       cartService.deleteCart(cVO.getCartId());
 
       return "redirect:/page/cart.do";
+   }
+   
+   //카트 전체 상품 삭제
+   @RequestMapping(value = "/cart/allDelete")
+   public String deleteAllCart(ModelMap model, Criteria cri, String id) throws Exception {
+	   
+	   cartService.deleteAllCart(id);
+	   
+	   return "redirect:/page/cart.do";
    }
 }

@@ -32,11 +32,18 @@ public class CartServiceImpl extends EgovAbstractServiceImpl implements CartServ
       cartDAO.modifyCount(cVO);
    }
    
+   //카트 단일 상품 삭제
    @Override
    public void deleteCart(String cartId) throws Exception {
       cartDAO.deleteCart(cartId);
    }
    
+   //카트 전체 상품 삭제 
+   @Override
+	public void deleteAllCart(String id) throws Exception {
+	   cartDAO.deleteAllCart(id);		
+	}
+
    @Override
    public String getCartId(String cartId) throws Exception{
 	   return cartDAO.getCartId(cartId);
