@@ -12,7 +12,7 @@ import mango.mango.model.OrdersVO;
 @Repository("OrdersPayDAO")
 public class OrdersPayDAO extends ComAbstractDAO {
 
-	// 리스트
+	// 판매자 별 매출 리스트
 	public List<OrdersPayVO> selectAllOrdersPayList(OrdersPayVO opVO) throws Exception {
 		return selectList("ordersPayMapper.selectAllOrdersPayList", opVO);
 	}
@@ -36,12 +36,12 @@ public class OrdersPayDAO extends ComAbstractDAO {
 	}
 
 	// 관리자 매출 내역 리스트
-	public List<OrdersPayVO> allOrdersPayList(OrdersPayVO opVO) throws Exception {
-		return selectList("ordersPayMapper.allOrdersPayList", opVO);
+	public List<OrdersPayVO> adminAllOrdersPayList(OrdersPayVO opVO) throws Exception {
+		return selectList("ordersPayMapper.adminAllOrdersPayList", opVO);
 	}
 
 	// 관리자 매출 내역 총개수
 	public Integer allOrdersPayCount(OrdersPayVO opVO) throws Exception {
-		return selectOne("ordersPayMapper.allOrdersPayCount", opVO);
+		return selectOne("ordersPayMapper.adminAllOrdersPayCount", opVO);
 	}
 }

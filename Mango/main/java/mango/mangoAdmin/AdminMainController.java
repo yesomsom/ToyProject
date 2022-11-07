@@ -1,5 +1,6 @@
 package mango.mangoAdmin;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -8,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import mango.common.util.AdminURLValue;
 import mango.mango.model.MemberVO;
+import mango.mango.service.AskService;
 
 @Controller
 @RequestMapping(value = AdminURLValue.ADMIN)
 public class AdminMainController {
 	
+	@Resource(name = "AskService")
+	private AskService AskService;
+
 	@RequestMapping(value = "/main")
 	public String main(ModelMap model, HttpSession session) throws Exception{
 		 MemberVO login = (MemberVO) session.getAttribute("login");
@@ -25,9 +30,7 @@ public class AdminMainController {
 	      } else {
 	         model.addAttribute("isSuccess", false);
 	         return "/user/page/process";
-	      }
-
-	      
-	}
+	      }	      
+	}	
 
 }

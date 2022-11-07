@@ -9,6 +9,6 @@ public interface CartService {
    void insertCart(CartVO cVO) throws Exception;
    void modifyCount(CartVO cVO) throws Exception;   
    void deleteCart(String cartId) throws Exception;
-   void deleteAllCart(String id) throws Exception;
    public String getCartId(String cartId) throws Exception;
+   void deleteAllCart(String id) throws Exception;
 }

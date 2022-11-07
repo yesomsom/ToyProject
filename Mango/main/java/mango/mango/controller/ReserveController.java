@@ -58,8 +58,8 @@ public class ReserveController {
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService ordersPayService;
 	
-	@Resource(name = "askService")
-	private AskService askService;
+	@Resource(name = "AskService")
+	private AskService AskService;
 	
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
@@ -240,7 +240,7 @@ public class ReserveController {
 		}
 		
 		aVO.setId(login.getId());
-		List<AskVO> askList = askService.selectAllAskList(aVO);
+		List<AskVO> askList = AskService.selectAllAskList(aVO);
 
 		if (askList != null) {
 			for (AskVO aListvo : askList) {

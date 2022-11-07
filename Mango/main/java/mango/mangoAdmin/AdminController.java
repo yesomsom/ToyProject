@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mango.common.service.Criteria;
 import mango.common.service.PageMakerDTO;
 import mango.common.util.AdminURLValue;
+import mango.mango.model.AskVO;
 import mango.mango.model.GoodsVO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.NoticeVO;
 import mango.mango.model.OrdersPayVO;
+import mango.mango.service.AskService;
 import mango.mango.service.GoodsService;
 import mango.mango.service.MemberService;
 import mango.mango.service.NoticeService;
@@ -38,6 +40,9 @@ public class AdminController {
 
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService OrdersPayService;
+
+	@Resource(name = "AskService")
+	private AskService AskService;
 
 	@RequestMapping(value = "/memberList")
 	public String memberList(ModelMap model, String id, MemberVO mVO,
@@ -132,12 +137,12 @@ public class AdminController {
 		return "/admin/page/goodsManagement";
 	}
 
-	// 매출 내역
+	// 관리자 매출 내역
 	@RequestMapping(value = "/salesManagement")
 	public String countOders(ModelMap model, Criteria cri, OrdersPayVO opVO, HttpSession session,
 			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
-		int ordersPayTotal = OrdersPayService.allOrdersPayCount(opVO);
+		int ordersPayTotal = OrdersPayService.adminAllOrdersPayCount(opVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, ordersPayTotal);
 		if (pageNum == null) {
@@ -146,7 +151,7 @@ public class AdminController {
 		opVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		opVO.setAmount(cri.getAmount());
 
-		List<OrdersPayVO> ordersPayList = OrdersPayService.allOrdersPayList(opVO);
+		List<OrdersPayVO> ordersPayList = OrdersPayService.adminAllOrdersPayList(opVO);
 		model.addAttribute("ordersPayList", ordersPayList);
 		model.put("pageMaker", pageMaker);
 
@@ -169,6 +174,52 @@ public class AdminController {
 		GoodsService.adminModifyGoods(gVO);
 
 		return "redirect:/admin/goodsManagement.do";
+	}
+
+	// 미답변 문의내역 조회
+	@RequestMapping(value = "/unAnswered")
+	public String unAnswered(ModelMap model, Criteria cri, AskVO aVO,
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+
+		int unAnsweredTotal = AskService.selectAdminAllAskCount(aVO);
+
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, unAnsweredTotal);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		aVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		aVO.setAmount(cri.getAmount());
+
+		List<AskVO> unAnsweredList = AskService.selectAdminAllAskList(aVO);
+
+		model.addAttribute("unAnsweredList", unAnsweredList);
+		model.put("pageMaker", pageMaker);
+
+		return "/admin/page/unAnswered";
+	}
+
+	// 미승인 상품내역 조회
+	@RequestMapping(value = "/notApproved")
+	public String notApproved(ModelMap model, Criteria cri, GoodsVO gVO,
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+
+		int approvedTotal = GoodsService.selectNotApprovedCount(gVO);
+
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, approvedTotal);
+
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		gVO.setAmount(cri.getAmount());
+
+		List<GoodsVO> approvedList = GoodsService.selectNotApprovedList(gVO);
+
+		model.addAttribute("approvedList", approvedList);
+
+		model.put("pageMaker", pageMaker);
+
+		return "/admin/page/notAppreoved";
 	}
 
 }

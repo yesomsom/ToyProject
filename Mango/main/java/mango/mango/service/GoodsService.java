@@ -36,4 +36,8 @@ public interface GoodsService {
 	
 	// admin상품 수정
 	void adminModifyGoods(GoodsVO gVO) throws Exception;
+	
+	List<GoodsVO> selectNotApprovedList(GoodsVO gVO) throws Exception;
+
+	Integer selectNotApprovedCount(GoodsVO gVO) throws Exception;
 }

@@ -27,14 +27,15 @@ public class CartDAO extends ComAbstractDAO {
 	public void deleteCart(String cartId) throws Exception {
 		delete("cartMapper.deleteCart", cartId);
 	}
-	
+
 	// 카트 전체 상품 삭제
 	public void deleteAllCart(String id) throws Exception {
 		delete("cartMapper.deleteAllCart", id);
 	}
-	
-	//카트 조회
-	public String getCartId(String cartId) throws Exception{
-		return selectOne("cartMapper.getCartId",cartId);
+
+	// 카트 조회
+	public String getCartId(String cartId) throws Exception {
+		return selectOne("cartMapper.getCartId", cartId);
 	}
+
 }

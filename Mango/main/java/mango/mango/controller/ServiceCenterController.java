@@ -32,8 +32,8 @@ public class ServiceCenterController {
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
 
-	@Resource(name = "askService")
-	private AskService askService;
+	@Resource(name = "AskService")
+	private AskService AskService;
 
 	@Resource(name = "noticeService")
 	private NoticeService noticeService;
@@ -61,8 +61,37 @@ public class ServiceCenterController {
 
 	@RequestMapping(value = "/askForm/insert", method = RequestMethod.POST)
 	public String insertAskForm(ModelMap model, Criteria cri, AskVO aVO) throws Exception {
-
-		askService.insertAsk(aVO);
+		
+		String aType = aVO.getAskType();
+		System.out.println(aVO);
+		if(aType.equals("1")) {
+			aVO.setAskType("서울"); 
+		}
+		if(aType.equals("2")) {
+			aVO.setAskType("경기/인천"); 
+		}
+		if(aType.equals("3")) {
+			aVO.setAskType("충청/대전"); 
+		}
+		if(aType.equals("4")) {
+			aVO.setAskType("전라/광주"); 
+		}
+		if(aType.equals("5")) {
+			aVO.setAskType("경북/대구"); 
+		}
+		if(aType.equals("6")) {
+			aVO.setAskType("경남/부산/울산"); 
+		}
+		if(aType.equals("7")) {
+			aVO.setAskType("강원"); 
+		}
+		if(aType.equals("8")) {
+			aVO.setAskType("제주"); 
+		}		
+		if(aType.equals("") || aType.equals("0")) {
+			aVO.setAskType("기타문의");
+		}
+		AskService.insertAsk(aVO);
 
 		return "redirect:/page/myAskList.do";
 	}
@@ -73,7 +102,7 @@ public class ServiceCenterController {
 			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		aVO.setId(login.getId());
-		int askListTotal = askService.selectAllAskCount(aVO);
+		int askListTotal = AskService.selectAllAskCount(aVO);
 
 		if (pageNum == null) {
 			pageNum = "1";
@@ -88,7 +117,7 @@ public class ServiceCenterController {
 		aVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		aVO.setAmount(cri.getAmount());
 
-		List<AskVO> askList = askService.selectAskList(aVO);
+		List<AskVO> askList = AskService.selectAskList(aVO);
 		model.addAttribute("askList", askList);
 		System.out.println("askList : " + askList);
 		model.put("pageMaker", pageMaker);

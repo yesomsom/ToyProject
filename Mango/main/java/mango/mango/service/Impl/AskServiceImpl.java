@@ -11,7 +11,7 @@ import mango.mango.dao.AskDAO;
 import mango.mango.model.AskVO;
 import mango.mango.service.AskService;
 
-@Service("askService")
+@Service("AskService")
 public class AskServiceImpl extends EgovAbstractServiceImpl implements AskService {
    @Resource(name = "askDAO")
    private AskDAO askDAO;
@@ -34,6 +34,20 @@ public class AskServiceImpl extends EgovAbstractServiceImpl implements AskServic
 	@Override
 	public List<AskVO> selectAllAskList(AskVO aVO) throws Exception {
 	      return askDAO.selectAllAskList(aVO);
+	}
+	
+	
+	// 관리자 섹션
+	//미답변 문의내역 확인
+	@Override
+	public List<AskVO> selectAdminAllAskList(AskVO aVO) throws Exception {
+		return askDAO.selectAdminAllAskList(aVO);
+	}
+	
+	// 미답변 문의 내역 토탈
+	@Override
+	public Integer selectAdminAllAskCount(AskVO aVO) throws Exception {	
+		return askDAO.selectAdminAllAskCount(aVO);
 	}
 
    

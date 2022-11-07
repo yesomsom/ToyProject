@@ -47,13 +47,13 @@ public class OrdersPayServiceImpl extends EgovAbstractServiceImpl implements Ord
 
 	// 관리자 매출 내역 리스트
 	@Override
-	public List<OrdersPayVO> allOrdersPayList(OrdersPayVO opVO) throws Exception {
-		return ordersPayDAO.allOrdersPayList(opVO);
+	public List<OrdersPayVO> adminAllOrdersPayList(OrdersPayVO opVO) throws Exception {
+		return ordersPayDAO.adminAllOrdersPayList(opVO);
 	}
 
 	// 관리자 매출 내역 총개수
 	@Override
-	public Integer allOrdersPayCount(OrdersPayVO opVO) throws Exception {
+	public Integer adminAllOrdersPayCount(OrdersPayVO opVO) throws Exception {
 		return ordersPayDAO.allOrdersPayCount(opVO);
 	}
 }

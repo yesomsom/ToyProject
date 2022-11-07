@@ -13,7 +13,7 @@ public interface OrdersPayService {
    int updateDeliveryState(OrdersPayVO opVO) throws Exception;   
    int updateTracking(OrdersPayVO opVO) throws Exception;
    // 관리자 매출 내역 리스트
-   List<OrdersPayVO> allOrdersPayList(OrdersPayVO opVO) throws Exception;   
+   List<OrdersPayVO> adminAllOrdersPayList(OrdersPayVO opVO) throws Exception;   
    // 관리자 매출 내역 총개수   
-   Integer allOrdersPayCount(OrdersPayVO opVO) throws Exception;
+   Integer adminAllOrdersPayCount(OrdersPayVO opVO) throws Exception;
 }

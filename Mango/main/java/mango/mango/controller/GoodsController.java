@@ -60,35 +60,9 @@ public class GoodsController {
 
 	}
 	
-	@RequestMapping(value = "/goodsKeyword")
-	public String goodsKeyword(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "pageNum", required = false) String pageNum, @RequestParam(value = "keyword", required = false) String keyword) throws Exception {
-
-		int goodsTotal = goodsService.selectAllGoodsCount(gVO);
-		
-		if (pageNum == null) {
-			pageNum = "1";
-		}
-		
-		if(pageNum != null){
-			cri.setPageNum(Integer.parseInt(pageNum));
-		}
-		 
-		PageMakerDTO pageMaker = new PageMakerDTO(cri, goodsTotal);
-		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
-		gVO.setAmount(cri.getAmount());
-		gVO.setKeyword(keyword);
-		
-		List<GoodsVO> goodsList = goodsService.selectAllGoodsList(gVO);
-	
-		model.addAttribute("goodsList", goodsList);
-
-		model.put("pageMaker", pageMaker);
-		return "/user/page/goods";
-
-	}
-
 	@RequestMapping(value = "/goods_ajax", produces = "application/text;charset=UTF-8")
-	public ResponseEntity<String> goodsAjax(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
+	public ResponseEntity<String> goodsAjax(ModelMap model, Criteria cri, GoodsVO gVO, @RequestParam(value = "keyword", required = false) String keyword, 
+			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 		HttpHeaders responsHeaders = new HttpHeaders();
 		responsHeaders.add("Content-Type", "text/html;charset=UTF-8");
 		
@@ -104,9 +78,9 @@ public class GoodsController {
 		}
 		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		gVO.setAmount(cri.getAmount());
+		gVO.setKeyword(keyword);
 		
-		
-		List<GoodsVO> catList = goodsService.selectCatList(gVO);
+		List<GoodsVO> catList = goodsService.selectCatList(gVO);		
 		
 		model.addAttribute("catList", catList);		
 
