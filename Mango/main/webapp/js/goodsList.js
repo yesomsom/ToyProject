@@ -7,16 +7,14 @@ $(document).ready(function() {
       let gStock = $(this).parents("tr").find(".gStock").val();
       let gDetail = $(this).parents("tr").find(".gDetail").val();
       let gPrice = $(this).parents("tr").find(".gPrice").val();
-      let gDePrice = $(this).parents("tr").find(".gDePrice").val();
-      let gDiscount = $(this).parents("tr").find(".gDiscount").val();
+      let gDePrice = $(this).parents("tr").find(".gDePrice").val();      
       
       $(".update_goodsId").val(goodsId);
       $(".update_goodsName").val(gName);
       $(".update_goodsStock").val(gStock);
       $(".update_goodsDetail").val(gDetail);
       $(".update_goodsPrice").val(gPrice);
-      $(".update_deliveryPrice").val(gDePrice);
-      $(".update_goodsDiscount").val(gDiscount); 
+      $(".update_deliveryPrice").val(gDePrice); 
       
       $(".goods_update_form").submit();         
    });
