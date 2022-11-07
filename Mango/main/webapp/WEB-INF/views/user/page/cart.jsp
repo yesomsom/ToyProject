@@ -29,7 +29,7 @@ if (login != null)
          <div>
             <button class="delete_goods">
                <img class="btn_img1" src="${path}/images/delete_icon1.png">
-               <span class="delete_goods_title">전체 삭제</span>
+               <span class="delete_goods_title">장바구니 비우기</span>
             </button>
          </div>
       </div>
@@ -150,7 +150,12 @@ if (login != null)
       <input type="hidden" name="cartId" class="delete_cartId">
    </form>
    
-	<!-- 전체 삭제 form -->
+      <!-- checked 삭제 form -->
+   <form action="/page/cart/delete.do" method="post" class="check_delete_form">
+      <div class="check_delete"></div>
+   </form>
+   
+      <!-- 전체 삭제 form -->
    <form action="/page/cart/allDelete.do" method="post" class="all_delete_form">
       <input type="hidden" name="id" value="<%=login.getId()%>">
    </form>

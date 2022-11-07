@@ -60,7 +60,7 @@ String id = request.getParameter("id");
 							<input type="radio" name="rdo00" id="rdo01" checked>
 							<label for="rdo01" class="rdoT1">영화관문의</label>
 							<span>
-								<select name="ask_type" id="askType" class="selBox" onChange="cat1_change(this.value,aks_typeDetail)">
+								<select name="askType" id="askType" class="selBox" onChange="cat1_change(this.value,aks_typeDetail)">
 									<option value="0" selected>영화관 선택</option>
 									<option value="1">서울</option>
 									<option value="2">경기/인천</option>
@@ -92,9 +92,8 @@ String id = request.getParameter("id");
 							<textarea name="askContent" cols="100" rows="10" title="문의 내용을 입력해 주세요" required placeholder="내용에 개인정보(카드번호, 계좌번호, 주민번호)가 포함되지 않도록 유의하여 입력해 주세요."></textarea>
 							<!-- 내용 및 첨부파일에 개인정보(카드번호, 계좌번호, 주민번호)가 포함되지 않도록 유의하여 입력해 주세요. -->
 						</td>
-					</tr>
-			
-					<!-- <table summary="고객정보작성 테이블"> -->
+					</tr>			
+					
 					<tbody>
 						<tr>
 							<td id="none">
