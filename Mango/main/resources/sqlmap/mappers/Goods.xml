@@ -12,8 +12,7 @@
 		<result property="goodsDetail" column="goods_detail" />
 		<result property="goodsPrice" column="goods_price" />
 		<result property="goodsStock" column="goods_stock" />
-		<result property="deliveryPrice" column="delivery_price" />
-		<result property="goodsDiscount" column="goods_discount" />
+		<result property="deliveryPrice" column="delivery_price" />		
 		<result property="regDate" column="regdate" />
 		<result property="gno" column="gno" />
 		<result property="id" column="id" />
