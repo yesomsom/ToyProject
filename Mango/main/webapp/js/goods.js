@@ -8,7 +8,32 @@ $(function() {
 		type: "get",
 		data: {
 			pageNum: pageNum,
-			amount: $("#amount").val()
+			amount: $("#amount").val(),
+			keyword: $("#keyword").val()
+		},
+		success: function(data) {
+			var res = JSON.parse(data);
+			var html = "";
+			for (i = 0; i < res.length; i++) {
+				html += make_goodsList(res[i]);
+			}
+			$(".Goods_list").html(html);
+		}
+	})	
+})
+
+$(".searchBtn").on('click',function(){
+var pageNum = getParameter("pageNum");
+	if (pageNum == "") {
+		pageNum = 1;
+	}
+	$.ajax({
+		url: "/page/goods_ajax.do",
+		type: "get",
+		data: {
+			pageNum: pageNum,
+			amount: $("#amount").val(),
+			keyword: $("#keyword").val()
 		},
 		success: function(data) {
 			var res = JSON.parse(data);
@@ -19,7 +44,7 @@ $(function() {
 			$(".Goods_list").html(html);
 		}
 	})
-})
+});
 
 function getParameter(name) {
 	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

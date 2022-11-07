@@ -26,11 +26,9 @@
       $(".quantity_delete_form").submit();
    });
    
-/* 장바구니 전체 삭제 버튼 */
+   /* 장바구니 전체 삭제 버튼 */
    $(".delete_goods").on("click", function(){
-   alert("전체");
       $(".all_delete_form").submit();
-       alert("사ㄱ제");
    });
    
 /* 전체 체크박스 설정 및 해제 */
@@ -77,42 +75,42 @@
 // 주문하기 버튼 클릭 시
 function order_ajax(){
 
-	var count = $('input:checkbox[name="chk"]:checked').length;
-	if(count < 1) {
-		alert("상품을 체크해주세요");
-		location.href="/page/cart.do";	
-	} else {
-		//var cartList = {memberId : $("#memberId").val(), memberName : $("#memberName").val(), data:[]};
-		
-		var cartIdList = "";
-		var sellerNameList = "";
-		var totalPriceList = "";
-		
-		$(".chk").each(function(){
-			if($(this).prop("checked")){
-				var cartId = $(this).data("cartid");
-				var sellerName = $(this).parent("div").find(".seller_name").text();
-				var tp = $(this).data("tp");
-				cartIdList += cartId+",";
-				sellerNameList += sellerName +",";
-				totalPriceList += tp + ",";			
-			}
-		})
-		
-		$.ajax({
-	        url: '/page/orders/insert.do',
-	        type: 'post',
-			data :{
-				//cartList : JSON.stringify(cartList)
-				memberId : $("#memberId").val(),
-				memberName : $("#memberName").val(),
-				cartIdList : cartIdList,
-			 	sellerNameList : sellerNameList,
-				totalPriceList : totalPriceList 
-			},
-	        success: function(data) {
-	            location.href="/page/orders.do";
-	        },
-	    });		
-	}
+   var count = $('input:checkbox[name="chk"]:checked').length;
+   if(count < 1) {
+      alert("상품을 체크해주세요");
+      location.href="/page/cart.do";   
+   } else {
+      //var cartList = {memberId : $("#memberId").val(), memberName : $("#memberName").val(), data:[]};
+      
+      var cartIdList = "";
+      var sellerNameList = "";
+      var totalPriceList = "";
+      
+      $(".chk").each(function(){
+         if($(this).prop("checked")){
+            var cartId = $(this).data("cartid");
+            var sellerName = $(this).parent("div").find(".seller_name").text();
+            var tp = $(this).data("tp");
+            cartIdList += cartId+",";
+            sellerNameList += sellerName +",";
+            totalPriceList += tp + ",";         
+         }
+      })
+      
+      $.ajax({
+           url: '/page/orders/insert.do',
+           type: 'post',
+         data :{
+            //cartList : JSON.stringify(cartList)
+            memberId : $("#memberId").val(),
+            memberName : $("#memberName").val(),
+            cartIdList : cartIdList,
+             sellerNameList : sellerNameList,
+            totalPriceList : totalPriceList 
+         },
+           success: function(data) {
+               location.href="/page/orders.do";
+           },
+       });      
+   }
 }

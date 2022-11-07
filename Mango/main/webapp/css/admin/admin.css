@@ -59,8 +59,7 @@ tr:nth-child(2n) {
 }
 
 table td {
-	text-align: center;
-	cursor: pointer;
+	text-align: center;	
 }
 
 #td:nth-child(1) {
