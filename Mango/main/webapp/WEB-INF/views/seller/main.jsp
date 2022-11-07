@@ -19,15 +19,11 @@ if (login != null)
 <body>
 	<div class="seller_Container">
 
-
 		<!-- 좌측 박스-->
-
 		<div class="left_Container">
 
 			<div class="Left_F_Container">
-				<div class="logo_title">
-					<img src="<%=login.getLogoImg()%>" style="width: 80px;">
-					<%=login.getSellerName()%></div>
+				
 				<a href="/page/uploadGoods.do" class="f_Btn">
 					<span>상품 등록</span>
 				</a>

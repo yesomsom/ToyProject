@@ -29,7 +29,7 @@ if (login != null)
          <div>
             <button class="delete_goods">
                <img class="btn_img1" src="${path}/images/delete_icon1.png">
-               <span class="delete_goods_title">삭제</span>
+               <span class="delete_goods_title">전체 삭제</span>
             </button>
          </div>
       </div>
@@ -40,7 +40,7 @@ if (login != null)
             <div class="order_card">
                <div class="cart_product_top">
                   <div>
-                     <input type="checkbox" class="chk" value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}" data-cartid="${cart.cartId}" data-tp="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}">
+                     <input type="checkbox" class="chk" name="chk" value="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}" data-cartid="${cart.cartId}" data-tp="${(cart.goodsPrice * cart.goodsQty) + cart.deliveryPrice}">
                      <span class="font_bold_big seller_name">${cart.sellerName}</span>
                   </div>
                   <div>
@@ -150,9 +150,9 @@ if (login != null)
       <input type="hidden" name="cartId" class="delete_cartId">
    </form>
    
-      <!-- checked 삭제 form -->
-   <form action="/page/cart/delete.do" method="post" class="check_delete_form">
-      <div class="check_delete"></div>
+	<!-- 전체 삭제 form -->
+   <form action="/page/cart/allDelete.do" method="post" class="all_delete_form">
+      <input type="hidden" name="id" value="<%=login.getId()%>">
    </form>
 
    <script src="${path}/js/cart.js"></script>

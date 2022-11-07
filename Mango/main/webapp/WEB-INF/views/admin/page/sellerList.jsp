@@ -50,8 +50,17 @@
    </div>
    </div>
 </div>
-
-<script src="${path }/js/searchKeyword.js"></script>
+<script>
+$(document).on('click', '#btnSearch', function(e){
+    e.preventDefault();
+    var url= "${getMemberListURL}";
+    alert(url);
+    url = url + "?searchType=" + $('#searchType').val();
+    url = url + "&keyword=" + $('#keyword').val();
+    location.href = url;
+    console.log(url);
+ })
+</script>
 
 </body>
 </html>

@@ -36,8 +36,6 @@
    }
    }
    %>
-
-
    <%
    if (type.equals("login")) {
       if (isSuccess) {
@@ -84,6 +82,32 @@
    
     <%
    if (type.equals("goodsDetail")) {
+      if (!isSuccess) {
+   %>
+   <script>
+      alert("로그인이 필요합니다. 로그인해주세요.");
+      location.href = "/page/login.do"
+   </script>
+   <%
+   }
+   }
+   %>
+   
+    <%
+   if (type.equals("adminLogin")) {
+      if (!isSuccess) {
+   %>
+   <script>
+      alert("로그인이 필요합니다. 로그인해주세요.");
+      location.href = "/page/login.do"
+   </script>
+   <%
+   }
+   }
+   %>
+   
+    <%
+   if (type.equals("movieReserve")) {
       if (!isSuccess) {
    %>
    <script>
@@ -153,69 +177,6 @@
    }
    }
    %>
-
-   <%
-   if (type.equals("bbsUpdate")) {
-      if (isSuccess) {
-   %>
-   <script>
-      alert("글 수정이 완료되었습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   } else {
-   %>
-   <script>
-      alert("글 수정에 실패하였습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   }
-   }
-   %>
-
-   <%
-   if (type.equals("bbsDelete")) {
-      if (isSuccess) {
-   %>
-   <script>
-      alert("글 삭제가 완료되었습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   } else {
-   %>
-   <script>
-      alert("글 삭제에 실패하였습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   }
-   }
-   %>
-
-
-   <%
-   if (type.equals("answerWrite")) {
-      if (isSuccess) {
-   %>
-   <script>
-      alert("답글 작성이 완료되었습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   } else {
-   %>
-   <script>
-      alert("답글 작성에 실패하였습니다");
-      location.href = "bbsList.do"
-   </script>
-   <%
-   }
-   }
-   %>
-
-
 
    <%
    if (type.equals("reserve")) {

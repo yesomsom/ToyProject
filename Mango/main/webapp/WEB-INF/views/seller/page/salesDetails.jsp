@@ -87,11 +87,9 @@
 		<form id="ordersListForm" method="get" action="/page/salesDetails.do">
 			<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
-		</form>
-	<div id="chart_div" style="width: 900px; height: 500px"></div>
+		</form>		
 	</div>
 	
-	<script src="${path}/js/graph.js"></script>
 	<script src="${path}/js/sellerMain.js"></script>	
     
 </body>
