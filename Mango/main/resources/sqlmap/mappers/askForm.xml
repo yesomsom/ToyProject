@@ -5,7 +5,8 @@
       <result property="askId" column="ask_id" />
       <result property="id" column="id" />
       <result property="askName" column="ask_name" />
-      <result property="askRelated" column="ask_related" />
+      <result property="relatedTitle" column="related_title" />
+      <result property="relatedContent" column="related_content" />
       <result property="askEmail" column="ask_email" />
       <result property="askPhone" column="ask_phone" />
       <result property="askCat" column="ask_cat" />
@@ -62,4 +63,17 @@
 
       LIMIT #{skip}, #{amount}
    </select>
+   
+   <update id="related" parameterType="AskVO">
+      UPDATE ask SET related_content = #{relatedContent}, related_title = #{relatedTitle}, ask_state = '답변 완료'
+      WHERE ask_id = #{askId}
+   </update>
+  
+  <select id="selectAdminAllList" resultMap="ask" parameterType="AskVO">
+  	SELECT * FROM ask
+  	ORDER BY ask_date DESC
+  	
+  	LIMIT 8
+  </select>
+   
 </mapper>

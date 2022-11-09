@@ -20,7 +20,7 @@
 
 	<select id="selectCatList" resultMap="goodsList" parameterType="GoodsVO">
 	   SELECT * FROM goods g left outer join goodsfile f 
-	   on g.goods_id = f.goods_id
+	   ON g.goods_id = f.goods_id
 	   WHERE 1=1
 	   AND g.goods_state = '승인'
 	   <if test="goodsCategory != null">
@@ -29,6 +29,7 @@
 	   <if test="keyword != null and keyword != '' ">
           AND g.goods_name like CONCAT('%',#{keyword},'%')
        </if>
+       group by g.goods_id
 	   ORDER BY g.regdate DESC
 	   
 	   LIMIT #{skip}, #{amount}
@@ -90,16 +91,24 @@
 	
 	
 	<!-- 관리자 섹션 -->
+	<select id="selectAdminAllList" resultMap="goodsList" parameterType="GoodsVO">
+		SELECT A.*, B.realpath
+		FROM goods A LEFT OUTER JOIN goodsfile B 
+		ON A.goods_id = B.goods_id
+		GROUP BY A.goods_id
+		ORDER BY A.regdate DESC
+		
+		LIMIT 8
+	</select>
 	
 	<select id="selectNotApprovedList" resultMap="goodsList" parameterType="GoodsVO">
-	   SELECT * FROM goods g left outer join goodsfile f 
-	   on g.goods_id = f.goods_id
+	   SELECT *, group_concat(B.realpath) as imageMulti FROM goods A left outer join goodsfile B 
+	   ON A.goods_id = B.goods_id
 	   WHERE 1=1
-	   AND g.goods_state = '승인대기'
-	 <!--   <if test="goodsCategory != null">
-	      AND goods_category = #{goodsCategory}
-	   </if> -->
-	   ORDER BY g.regdate DESC
+	   AND A.goods_state = '승인대기'
+	   GROUP by A.goods_id
+	   	 
+	   ORDER BY A.regdate DESC
 	   
 	   LIMIT #{skip}, #{amount}
 	</select>
@@ -109,6 +118,13 @@
 		WHERE 1=1
 		AND goods_state = '승인대기'		
 	</select>
+	
+	<!-- 승인 -->
+	<update id="updateApproved" parameterType="GoodsVO">
+		UPDATE goods SET
+		goods_state = '승인'
+		WHERE goods_id = #{goodsId}
+	</update>
 	
 	<!-- 관리자 상품 수정 -->
 	<update id="adminModifyGoods" parameterType="GoodsVO">

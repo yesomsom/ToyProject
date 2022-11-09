@@ -11,6 +11,7 @@
 	<!-- 공지 리스트 조회 -->
 	<select id="selectAllNoticeList" resultMap="notice" parameterType="NoticeVO">
 		SELECT * FROM notice
+		
 		LIMIT #{skip}, #{amount}
 	</select>
 

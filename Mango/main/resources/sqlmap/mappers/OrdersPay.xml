@@ -54,6 +54,14 @@
      
 	</insert>
 	
+	<select id="adminAllPayList" resultMap="ordersPayList" parameterType="OrdersPayVO">
+        SELECT * FROM orderspay        
+    	<!-- GROUP BY id -->
+    	ORDER BY opno DESC
+    	
+    	LIMIT 8
+  	</select>
+  	
 	<!-- 관리자 매출 내역 -->   
    <select id="adminAllOrdersPayList" resultMap="ordersPayList" parameterType="OrdersPayVO">
         SELECT * FROM orderspay 

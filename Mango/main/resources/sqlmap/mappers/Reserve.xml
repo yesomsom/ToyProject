@@ -10,7 +10,6 @@
       <result column="id" property="id" />
       <result column="title" property="title" />
       <result column="running_time" property="runningTime" />
-      <result column="movie_name" property="movieName" />
       <result column="movie_date" property="movieDate" />
       <result column="reserve_date" property="reserveDate" />
       <result column="ticket_number" property="ticketNumber" />
@@ -43,8 +42,8 @@
          SELECT NEXTVAL(reserve_seq) FROM DUAL
       </selectKey>      
       <![CDATA[
-      INSERT INTO reserve(reserve_seq,id,title,running_time,movie_name,movie_date,reserve_date,ticket_number,selected_seat,selected_theater)
-      VALUES(#{reserveSequence},#{id},#{title},#{runningTime},#{movieName},#{movieDate},SYSDATE(6),#{ticketNumber},#{selectedSeat},#{selectedTheater})
+      INSERT INTO reserve(reserve_seq,id,title,running_time,movie_date,reserve_date,ticket_number,selected_seat,selected_theater)
+      VALUES(#{reserveSequence},#{id},#{title},#{runningTime},#{movieDate},SYSDATE(6),#{ticketNumber},#{selectedSeat},#{selectedTheater})
       ]]>
    </insert>
 

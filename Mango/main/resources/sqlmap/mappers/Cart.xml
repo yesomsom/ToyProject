@@ -20,6 +20,7 @@
 		FROM cart A, goodsfile B
 		WHERE A.goods_id = B.goods_id
 		AND A.id = #{id}
+		GROUP BY A.goods_id
 		ORDER BY A.cart_id DESC;		
 	</select>
 	
