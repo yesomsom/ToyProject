@@ -35,8 +35,8 @@ public class ServiceCenterController {
 	@Resource(name = "AskService")
 	private AskService AskService;
 
-	@Resource(name = "noticeService")
-	private NoticeService noticeService;
+	@Resource(name = "NoticeService")
+	private NoticeService NoticeService;
 
 	@Resource(name = "qaService")
 	private QaService qaService;
@@ -46,7 +46,7 @@ public class ServiceCenterController {
 	@RequestMapping(value = "/serviceCenter")
 	public String serviceCenter(ModelMap model, Criteria cri, NoticeVO nVO) throws Exception {
 
-		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
+		List<NoticeVO> notice = NoticeService.selectAllNoticeList(nVO);
 		model.addAttribute("notice", notice);
 
 		return "/user/page/serviceCenter";
@@ -130,7 +130,7 @@ public class ServiceCenterController {
 	public String noticeList(ModelMap model, Criteria cri, NoticeVO nVO,
 			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
-		int noticeTotal = noticeService.selectAllNoticeCount(nVO);
+		int noticeTotal = NoticeService.selectAllNoticeCount(nVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, noticeTotal);
 		if (pageNum == null) {
@@ -139,7 +139,7 @@ public class ServiceCenterController {
 		nVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		nVO.setAmount(cri.getAmount());
 
-		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
+		List<NoticeVO> notice = NoticeService.selectAllNoticeList(nVO);
 		model.addAttribute("notice", notice);
 		model.put("pageMaker", pageMaker);
 

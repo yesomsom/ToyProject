@@ -40,4 +40,8 @@ public interface GoodsService {
 	List<GoodsVO> selectNotApprovedList(GoodsVO gVO) throws Exception;
 
 	Integer selectNotApprovedCount(GoodsVO gVO) throws Exception;
+	
+	void updateApproved(GoodsVO gVO) throws Exception;
+	
+	List<GoodsVO> selectAdminAllList(GoodsVO gVO) throws Exception;
 }

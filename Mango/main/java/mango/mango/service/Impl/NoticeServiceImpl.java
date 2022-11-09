@@ -11,29 +11,29 @@ import mango.mango.dao.NoticeDAO;
 import mango.mango.model.NoticeVO;
 import mango.mango.service.NoticeService;
 
-@Service("noticeService")
+@Service("NoticeService")
 public class NoticeServiceImpl extends EgovAbstractServiceImpl implements NoticeService {
-	@Resource(name = "noticeDAO")
-	private NoticeDAO noticeDAO;
+	@Resource(name = "NoticeDAO")
+	private NoticeDAO NoticeDAO;
 
 	// 공지사항 리스트
 	@Override
 	public List<NoticeVO> selectAllNoticeList(NoticeVO nVO) throws Exception {
-		return noticeDAO.selectAllNoticeList(nVO);
+		return NoticeDAO.selectAllNoticeList(nVO);
 	} 
 
 	@Override
 	public Integer selectAllNoticeCount(NoticeVO nVO) throws Exception {
-		return noticeDAO.selectAllNoticeCount(nVO);
+		return NoticeDAO.selectAllNoticeCount(nVO);
 	}
 
 	@Override
 	public NoticeVO selectNoticeList(int noti_id) throws Exception {
-		return noticeDAO.selectNoticeList(noti_id);
+		return NoticeDAO.selectNoticeList(noti_id);
 	}
 	
 	@Override
 	public int insertNotice(NoticeVO nVO) throws Exception{
-		return noticeDAO.insertNotice(nVO);
+		return NoticeDAO.insertNotice(nVO);
 	}
 }

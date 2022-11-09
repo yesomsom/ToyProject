@@ -14,8 +14,7 @@ public class ReserveVO {
 	private String reserveDate;
 	private String ticketNumber;
 	private String selectedSeat;
-	private String selectedTheater;
-	private String movieName;
+	private String selectedTheater;	
 
 	private PayVO PayVO;
 
@@ -24,7 +23,7 @@ public class ReserveVO {
 	}
 
 	public ReserveVO(String id, int reserveSequence, String title, String runningTime, String movieDate, String reserveDate, String ticketNumber, String selectedSeat,
-			String selectedTheater, String movieName, PayVO pVO) {
+			String selectedTheater, PayVO pVO) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -35,14 +34,13 @@ public class ReserveVO {
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
-		this.movieName = movieName;
 		this.PayVO = pVO;
 	}
 
 	@Override
 	public String toString() {
 		return "ReserveVO [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title + ", runningTime=" + runningTime + ", movieDate=" + movieDate + ", reserveDate="
-				+ reserveDate + ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater=" + selectedTheater + ", movieName=" + movieName + "]";
+				+ reserveDate + ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater=" + selectedTheater + "]";
 	}
 
 }

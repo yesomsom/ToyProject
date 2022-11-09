@@ -77,4 +77,12 @@ public class GoodsDAO extends ComAbstractDAO {
 		return selectOne("goodsMapper.selectNotApprovedCount", gVO);
 	}
 
+	public void updateApproved(GoodsVO gVO) throws Exception {
+		update("goodsMapper.updateApproved", gVO);
+	}
+	
+	public List<GoodsVO> selectAdminAllList(GoodsVO gVO) throws Exception {
+		return selectList("goodsMapper.selectAdminAllList", gVO);
+	}
+
 }

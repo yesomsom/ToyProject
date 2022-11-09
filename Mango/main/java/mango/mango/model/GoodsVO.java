@@ -22,6 +22,8 @@ public class GoodsVO {
 	private String gno;
 	private String id;
 	private String realPath;
+	private String imageMulti;
+	private String imageHtml;
 
 	/* 페이징 */
 	private int amount = 8; // 한 페이지 당 보여질 게시물 갯수

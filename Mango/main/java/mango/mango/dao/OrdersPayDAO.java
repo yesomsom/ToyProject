@@ -44,4 +44,8 @@ public class OrdersPayDAO extends ComAbstractDAO {
 	public Integer allOrdersPayCount(OrdersPayVO opVO) throws Exception {
 		return selectOne("ordersPayMapper.adminAllOrdersPayCount", opVO);
 	}
+	
+	public List<OrdersPayVO> adminAllPayList(OrdersPayVO opVO) throws Exception {
+		return selectList("ordersPayMapper.adminAllPayList", opVO);
+	}
 }

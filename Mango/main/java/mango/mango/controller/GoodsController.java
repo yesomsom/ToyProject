@@ -78,7 +78,7 @@ public class GoodsController {
 		}
 		gVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		gVO.setAmount(cri.getAmount());
-		gVO.setKeyword(keyword);
+		gVO.setKeyword(keyword); 
 		
 		List<GoodsVO> catList = goodsService.selectCatList(gVO);		
 		

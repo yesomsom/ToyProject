@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mango.common.EgovWebUtil;
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
+import mango.mango.model.AskVO;
 import mango.mango.model.CartVO;
 import mango.mango.model.MemberVO;
 import mango.mango.service.CartService;
@@ -24,17 +25,26 @@ public class CartController {
 
    @RequestMapping(value = "/cart")
    public String cart(ModelMap model, Criteria cri, CartVO cVO, MemberVO mVO, HttpSession session) throws Exception {
-      MemberVO login = (MemberVO) session.getAttribute("login");
-      model.addAttribute("type", "cart");
-      if (login != null) {
-         cVO.setId(login.getId());
-         List<CartVO> cartList = cartService.selectAllCartList(cVO);
-         model.addAttribute("cartList", cartList);
-      } else {
-         model.addAttribute("isSuccess", false);
-         return "/user/page/process";
-      }
-      return "/user/page/cart";
+      
+	   MemberVO login = (MemberVO) session.getAttribute("login");
+	   model.addAttribute("type", "cart");
+      
+	   if (login != null) {
+		   cVO.setId(login.getId());
+		   List<CartVO> cartList = cartService.selectAllCartList(cVO);
+		   if (cartList != null) {
+			   	for (CartVO cListvo : cartList) {
+			   		model.addAttribute("cartList", cartList);
+			   		System.out.println("cartList"+ cartList);
+				}
+		   } else {
+			   	System.out.println("오류발생");
+		   }
+	   } else {
+		   model.addAttribute("isSuccess", false);
+		   return "/user/page/process";
+	   }
+	   return "/user/page/cart";
    }
 
    @RequestMapping(value = "/cart/insert")

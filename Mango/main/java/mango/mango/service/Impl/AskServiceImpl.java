@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import mango.mango.dao.AskDAO;
 import mango.mango.model.AskVO;
+import mango.mango.model.CartVO;
 import mango.mango.service.AskService;
 
 @Service("AskService")
@@ -50,5 +51,14 @@ public class AskServiceImpl extends EgovAbstractServiceImpl implements AskServic
 		return askDAO.selectAdminAllAskCount(aVO);
 	}
 
-   
+	@Override
+	public void updateRelated(AskVO aVO) throws Exception {
+		askDAO.updateRelated(aVO);
+	}
+	
+	@Override
+	public List<AskVO> selectAdminAllList(AskVO aVO) throws Exception {
+		return askDAO.selectAdminAllList(aVO);
+	}
+	
 }

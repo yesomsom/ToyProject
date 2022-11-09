@@ -91,4 +91,14 @@ public class GoodsServiceImpl extends EgovAbstractServiceImpl implements GoodsSe
    public Integer selectNotApprovedCount(GoodsVO gVO) throws Exception {
       return goodsDAO.selectNotApprovedCount(gVO);
    }
+   
+   @Override
+   public void updateApproved(GoodsVO gVO) throws Exception {
+	   goodsDAO.updateApproved(gVO);
+   }
+   
+   @Override
+   public List<GoodsVO> selectAdminAllList(GoodsVO gVO) throws Exception {
+      return goodsDAO.selectAdminAllList(gVO);
+   }
 }

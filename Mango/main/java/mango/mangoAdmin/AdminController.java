@@ -35,8 +35,8 @@ public class AdminController {
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
 
-	@Resource(name = "noticeService")
-	private NoticeService noticeService;
+	@Resource(name = "NoticeService")
+	private NoticeService NoticeService;
 
 	@Resource(name = "OrdersPayService")
 	private OrdersPayService OrdersPayService;
@@ -84,9 +84,9 @@ public class AdminController {
 	@RequestMapping(value = "/addNotice/insert", method = RequestMethod.POST)
 	public String insertNotice(ModelMap model, Criteria cri, NoticeVO nVO) throws Exception {
 
-		noticeService.insertNotice(nVO);
+		NoticeService.insertNotice(nVO);
 
-		return "/admin/page/addNotice";
+		return "redirect:/admin/adminNoticeList.do";
 	}
 
 	// 공지사항 리스트
@@ -94,7 +94,7 @@ public class AdminController {
 	public String adminNoticeList(ModelMap model, Criteria cri, NoticeVO nVO,
 			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
-		int noticeTotal = noticeService.selectAllNoticeCount(nVO);
+		int noticeTotal = NoticeService.selectAllNoticeCount(nVO);
 		// 페이징
 		PageMakerDTO pageMaker = new PageMakerDTO(cri, noticeTotal);
 		if (pageNum == null) {
@@ -103,7 +103,7 @@ public class AdminController {
 		nVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
 		nVO.setAmount(cri.getAmount());
 
-		List<NoticeVO> notice = noticeService.selectAllNoticeList(nVO);
+		List<NoticeVO> notice = NoticeService.selectAllNoticeList(nVO);
 		model.addAttribute("notice", notice);
 		model.put("pageMaker", pageMaker);
 
@@ -197,8 +197,16 @@ public class AdminController {
 
 		return "/admin/page/unAnswered";
 	}
+	
+	// 답변 등록
+	@RequestMapping(value = "/unAnswered/update")
+	public String updateRelated(ModelMap model, Criteria cri, AskVO aVO) throws Exception {
+		AskService.updateRelated(aVO);
 
-	// 미승인 상품내역 조회
+		return "redirect:/admin/unAnswered.do";
+	}
+
+	// 승인대기 상품내역 조회
 	@RequestMapping(value = "/notApproved")
 	public String notApproved(ModelMap model, Criteria cri, GoodsVO gVO,
 			@RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
@@ -214,12 +222,30 @@ public class AdminController {
 		gVO.setAmount(cri.getAmount());
 
 		List<GoodsVO> approvedList = GoodsService.selectNotApprovedList(gVO);
+		
+		for(int i = 0; i < approvedList.size(); i++) {
+			String[] imageList = approvedList.get(i).getImageMulti().split(",");
+			String html = "";
+			for(int j = 0; j < imageList.length; j++) {
+				html += "<img src=\""+imageList[j]+"\" style=\"width: 30px; height: 30px; margin-right:3px;\"/>";
+			}
+			approvedList.get(i).setImageHtml(html);
+		}
 
 		model.addAttribute("approvedList", approvedList);
-
+		
 		model.put("pageMaker", pageMaker);
 
-		return "/admin/page/notAppreoved";
+		return "/admin/page/notApproved";
+	}
+	
+	// 승인 변경
+	@RequestMapping(value = "/notApproved/update")
+	public String updateApproved(ModelMap model, Criteria cri, GoodsVO gVO) throws Exception {
+		
+		GoodsService.updateApproved(gVO);
+		
+		return "redirect:/admin/notApproved.do";
 	}
 
 }

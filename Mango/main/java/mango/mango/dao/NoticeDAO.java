@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import mango.common.service.impl.ComAbstractDAO;
 import mango.mango.model.NoticeVO;
 
-@Repository("noticeDAO")
+@Repository("NoticeDAO")
 public class NoticeDAO extends ComAbstractDAO {
 	// 공지 조회
 	public List<NoticeVO> selectAllNoticeList(NoticeVO nVO) throws Exception {

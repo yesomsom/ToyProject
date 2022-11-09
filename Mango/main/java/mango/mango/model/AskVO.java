@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 public class AskVO {
 	private int askId; //글 번호
-	private String askRelated; // 답변
+	private String relatedTitle; // 답변
+	private String relatedContent; // 답변
 	private String id; //회원id
 	private String askName; //질문자 이름
 	private String askEmail; //답변받을 이메일

@@ -16,4 +16,5 @@ public interface OrdersPayService {
    List<OrdersPayVO> adminAllOrdersPayList(OrdersPayVO opVO) throws Exception;   
    // 관리자 매출 내역 총개수   
    Integer adminAllOrdersPayCount(OrdersPayVO opVO) throws Exception;
+   List<OrdersPayVO> adminAllPayList(OrdersPayVO opVO) throws Exception;
 }

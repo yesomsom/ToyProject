@@ -3,6 +3,7 @@ package mango.mango.service;
 import java.util.List;
 
 import mango.mango.model.AskVO;
+import mango.mango.model.CartVO;
 
 public interface AskService {
 	// 1:1 문의 등록
@@ -20,4 +21,6 @@ public interface AskService {
 	List<AskVO> selectAdminAllAskList(AskVO aVO) throws Exception;
 	// 미답변 문의 내역 토탈
 	Integer selectAdminAllAskCount(AskVO aVO) throws Exception;
+	void updateRelated(AskVO aVO) throws Exception;
+	List<AskVO> selectAdminAllList(AskVO aVO) throws Exception;
 }

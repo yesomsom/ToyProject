@@ -56,4 +56,9 @@ public class OrdersPayServiceImpl extends EgovAbstractServiceImpl implements Ord
 	public Integer adminAllOrdersPayCount(OrdersPayVO opVO) throws Exception {
 		return ordersPayDAO.allOrdersPayCount(opVO);
 	}
+	
+	@Override
+	public List<OrdersPayVO> adminAllPayList(OrdersPayVO opVO) throws Exception {
+		return ordersPayDAO.adminAllPayList(opVO);
+	}
 }
