@@ -1,0 +1,104 @@
+/* orders all */
+.orders_wrapper {
+    padding: 40px;
+    position: absolute;
+    top: 120px;
+    width: 1350px;
+    left: 230px;
+}
+.orders_wrapper_title {
+    font-size: 25px !important;
+    font-weight: 900 !important;
+    margin-bottom: 35px;
+    margin-left: 30px;
+}
+.title_bold_big {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #eee;
+}
+.detail_wrapper {
+   padding: 40px;
+   margin: 15px;
+    border: 1px solid #fce8ac;
+    background: white;
+    line-height: 3;
+    border-radius: 15px;
+}
+.margin_top {
+   margin-top: 30px;
+}
+.margin_right {
+   margin-right: 20px;
+}
+.margin_left {
+   margin-left: 10px;
+}
+.border_bottom {
+   border-bottom: 1px solid #fce8ac;
+}
+.text_align_right {
+   text-align: right;
+}
+/* orders content */
+.modify_orders {
+   display: flex;
+}
+.modify_orders div {
+   flex: 1;
+}
+.modify_orders input{
+   width: 800px;
+   height: 20px;
+   border: 1px solid #ccc;
+   margin-left: 30px;
+   border-radius: 3px;
+}
+.pay_detail {
+   display: flex;
+   padding: 20px;
+}
+.pay_detail div {
+   position: relative;
+   left: 92px;
+}
+.pay_total {
+    font-size: 24px !important;
+    font-weight: 900 !important;
+    margin-bottom: 35px;
+    margin-left: 20px;
+    display: relative;
+    top: 25px;
+}
+.pay_submit {
+   margin-left: 560px;
+}
+.orders_money {
+   font-size: 24px !important;
+    font-weight: 900 !important;
+    background: none;
+    border: none;
+    text-align: right;
+    width: 130px;
+    position: relative;
+    top: -4px;
+    left: -5px;
+}
+
+/* button */
+.btn {
+   position: relative;
+   top: 14px;
+}
+.orders_pay {
+   font-size: 20px !important;
+   font-weight: 900 !important;
+   margin-right: 10px;
+}
+.md_btn {
+   background: #ccc;
+   margin-left: 10px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+}

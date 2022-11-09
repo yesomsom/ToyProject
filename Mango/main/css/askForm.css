@@ -1,0 +1,128 @@
+.ask_container {
+   position: absolute;
+   top: 200px;
+   left: 25%;
+   font-size: 20px;
+}
+
+/* 대제목 */
+#h_div {
+   position: relative;
+   bottom: 40px;
+   right: 265px;
+   font-size: 30px;
+   font-weight: bold;
+   padding-left: 250px;
+}
+
+span {
+   font-size: 12px;
+}
+
+textarea {
+   width: 800px;
+   font-size: 15px;
+   border-radius: 5px;
+   font-size: 15px;
+}
+
+input {
+   font-size: 15px;
+   border-radius: 5px;
+   height: 35px;
+}
+
+table tr td {
+   padding: 7px 0 7px 0;
+   border-top: 1px solid lightgray;
+   border-bottom: 1px solid lightgray;
+}
+
+p {
+   margin-bottom: 15px;
+}
+
+/*고객정보,문의내용 title border지우기*/
+#none {
+   border-top: none;
+   border-bottom: none;
+}
+
+/*영화관 문의 라디오*/
+.rdoT1 {
+   margin-right: 15px;
+}
+
+/*소제목*/
+.t_head {
+   bottom: 30px;
+   font-size: 25px;
+   font-weight: bold;
+   margin: 50px 0 10px 0;
+}
+
+/*개인정보 수집 동의 제목*/
+#agree_head {
+   margin-top: 60px;
+}
+
+/*제목 입력 box*/
+.textBox {
+   width: 800px;
+   height: 35px;
+}
+
+/* 테이블 이름 컬럼 */
+.cols1 {
+   /* background-color: #d1d5dd; */
+   border-bottom: 1px solid lightgray;
+   border-top: 1px solid lightgray;
+   padding: 0 110px 0 10px;
+   font-weight: bolder;
+}
+
+/* 셀렉트박스 */
+.selBox {
+   width: 120px;
+   height: 35px;
+   font-size: 15px;
+   margin-right: 15px;
+   border-radius: 5px;
+}
+
+/*회원 정보이용 동의 약관 box*/
+.agreeBox {
+   width: 977px;
+}
+
+/* 정보 동의 라디오 */
+.rdo1 {
+   margin: 10px 0;
+   float: right;
+}
+
+.rd1 {
+   margin-right: 20px;
+}
+
+/* 다시쓰기, 확인 버튼 */
+.btn_A {
+   text-align: center;
+   margin: 60px 0 300px 0;
+}
+
+.btn1 {
+   width: 120px;
+   height: 50px;
+   border-radius: 5px;
+   font-size: 20px;
+   margin-right: 15px;
+}
+
+.btn2 {
+   width: 120px;
+   height: 50px;
+   border-radius: 5px;
+   font-size: 20px;
+   margin-left: 15px;
+}

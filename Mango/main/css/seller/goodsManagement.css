@@ -1,0 +1,82 @@
+.goodsList_wrap {
+	position: absolute;
+	top: 75px;
+	left: 220px;
+}
+
+.goodsList_wrap_title {
+	font-size: 18px !important;
+	font-weight: 900 !important;
+	margin-bottom: 30px;
+	margin-left: 4px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 1400px;
+}
+
+tr, td {
+	/*    border: 1px solid #ccc; */
+	padding: 10px;
+}
+
+.table_title_wrap {
+	background-color: #fce8ac;
+}
+
+.table_title {
+	font-weight: 900 !important;
+	text-align: center;
+}
+
+tr:nth-child(2n) {
+	background-color: #fcf7e6;
+}
+
+input {
+	background: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.input_num {
+	width: 50px;
+	text-align: right;
+}
+
+.txt_center {
+	text-align: center;
+}
+
+[name="goodsCategory"] {
+	background: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.btn {
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+
+/* 페이징 */
+.pageInfo {
+	display: flex;
+	list-style: none;
+}
+
+.pageInfo a {
+	margin: 10px;
+}
+
+.pageInfo a:hover {
+	color: rgb(247, 173, 63) !important;
+}
+
+.pageInfo_wrap {
+	position: absolute;
+	top: 600px;
+	left: 420px;
+}

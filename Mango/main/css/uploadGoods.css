@@ -1,0 +1,35 @@
+.uploadForm_Container {
+	position: absolute;
+	top: 168px;
+	left: 470px;
+	padding: 20px;
+	width: 843px;
+}
+
+.goods_detail #editor {
+	height: 400px;
+}
+
+.ck-editor__editable {
+	min-height: 300px;
+}
+
+.form_wrapper {
+	margin-bottom: 20px;
+	display: flex;
+}
+
+.form_wrapper>input {
+	width: 300px;
+	height: 30px;
+	position: relative;
+}
+
+.form_wrapper>select {
+	width: 300px;
+	height: 30px;
+}
+
+.div_wrapper {
+	width: 120px;
+}

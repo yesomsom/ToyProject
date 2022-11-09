@@ -1,0 +1,177 @@
+button {
+	cursor: pointer;
+}
+
+span {
+	font-size: 2em !important;
+	font-weight: bold;
+}
+
+.seller_Container {	
+	border: 0;
+	border-radius: 30px;
+	position: absolute;
+	top: 145px;
+	left: 200px;
+	width: 1690px;
+	position: absolute;
+	top: 145px;
+	left: 200px;
+	width: 1690px;
+	height: 765px;
+	border: 0;
+	display: flex;
+}
+
+.left_Container {
+	width: 810px;
+	border: 0;
+	border-radius: 30px;
+	background-color: rgba(199, 191, 82, 0);
+	padding: 20px;
+	margin: 20px;
+}
+.Left_F_Container{
+	display:flex;
+}
+.right_Container {
+	width: 810px;
+	border: 0;
+	/* border-radius: 30px; */
+	background-color: rgba(199, 191, 82, 0);
+	padding: 20px;
+	margin: 20px;
+	border-left : 1px solid lightblue;
+}
+
+.seller_Container button {
+	border: 0;
+}
+
+.title {
+	position: relative;
+    top: 25px;
+    left: 25px;
+    font-size: 30px !important;
+}
+.logo_title{
+	position: relative;
+	top: 10px;
+	left: 25px;
+	font-size: 30px !important;
+}
+
+.logo_title>img {
+    vertical-align: middle;
+}
+.f_Btn {
+	position: absolute;
+	top: 650px;
+	left: 650px;
+}
+
+.s_Btn {
+	position: absolute;
+	top: 650px;
+	left: 500px;
+}
+
+.t_Btn {
+	position: absolute;
+	top: 650px;
+	left: 1400px;
+}
+
+
+.goodsList_wrap {
+    position: absolute;
+    top:0;    
+    left: -5px;
+}
+
+.goodsList_wrap_title {
+   font-size: 30px !important;
+    font-weight: 400 !important;
+    margin: 62px 0;
+   
+}
+
+table {
+   border-collapse: collapse;
+   width: 800px;
+}
+
+tr, td {
+/*    border: 1px solid #ccc; */
+   padding: 10px;
+}
+
+.table_title_wrap {
+   background-color: #fce8ac;
+}
+
+.table_title {
+   font-weight: 900 !important;   
+   text-align: center;
+}
+.table_content {      
+   text-align: right;
+}
+tr:nth-child(2n) {
+  background-color: #fcf7e6;
+}
+
+input {
+   background: none;
+   border:0;
+   /* border: 1px solid #ccc; */
+   /* border-radius: 5px; */
+}
+
+.input_num {
+   width: 50px;
+   text-align: right;
+}
+
+.txt_center {
+   text-align: center;
+}
+
+#chart_div{
+	margin-top: -10px;
+    margin-left: -75px;
+    width:900px;
+    height: 500px;
+}
+
+.btn {
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   background-color: #eee;
+}
+
+.t_cat{
+	text-align:center;
+}
+.sales_table{
+	display: none;
+}
+/* 페이징 */
+.pageInfo {
+   display: flex;
+   list-style: none;
+}
+
+.pageInfo a {
+   margin: 10px;
+}
+
+.pageInfo a:hover {
+   color: rgb(247, 173, 63) !important;
+}
+
+.pageInfo_wrap {
+   position: absolute;
+    top: 450px;
+    left: 420px;
+}
