@@ -46,7 +46,7 @@
    <!-- 일반 회원 로그인 -->
         	   <script>
         	      alert("<%=name%>" + "님 환영합니다");
-        	      location.href = "/main.do"
+        	      history.go(-2);        	      
         	   </script>  
    <%      	          	 
          } else if (auth == 2) {

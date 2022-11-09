@@ -105,12 +105,12 @@ ReserveVO reserve = (ReserveVO) request.getAttribute("reserve");
 						<input type="hidden" class="title" name="title">
 						<input type="hidden" class="selectedTheater" name="selectedTheater">
 						<input type="hidden" class="reserveDate" name="movieDate">
-						<input type="hidden" class="runningTime" name="runningTime">
-						<input type="hidden" class="movieName" name="movieName" value="<%=reserve.getMovieName()%>">
+						<input type="hidden" class="runningTime" name="runningTime">					
 						
 						<!-- 티켓의수(선택한 좌석) -->
 						<input type="hidden" class="ticketNumber" name="ticketNumber">
 						<input type="hidden" class="selectedSeat" name="selectedSeat">
+						
 						<!-- 결제 정보 -->
 						<input type="hidden" class="payMoney" name="payMoney">
 						<button type="button" class="reserve-button">

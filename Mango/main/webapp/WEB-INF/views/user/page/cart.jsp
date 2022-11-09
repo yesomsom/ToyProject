@@ -1,13 +1,16 @@
+<%@page import="java.util.List"%>
+<%@page import="mango.mango.model.MemberVO"%>
+<%@page import="mango.mango.model.CartVO"%>
+<%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@page import="mango.mango.model.MemberVO"%>
-<%@ include file="/WEB-INF/views/taglib.jsp"%>
 <%
 MemberVO login = (MemberVO) session.getAttribute("login");
 if (login != null)
    System.out.println(login.toString());
 %>
 <%
+List<CartVO> cartList = (List<CartVO>) request.getAttribute("cartList");
 %>
 <!DOCTYPE html>
 <html>
@@ -33,8 +36,24 @@ if (login != null)
             </button>
          </div>
       </div>
+      
+      
       <div class="order_card_serveral">
       
+ 	<%
+	if (cartList == null) {
+	%>
+	
+	<div class="noCartWrapper">
+		<div class="noCartBold">장바구니에 담긴 상품이 없습니다.</div>
+		<div class="noCartLight">원하는 상품을 장바구니에 넣어 보세요!</div>
+		<a class="goShoppingBtn" href="/page/goods.do">쇼핑하러 가기 ></a>
+	</div>
+	
+	<%
+	} else {
+	%>      
+	 
          <!-- 장바구니에 넣어 놓은 상품 -->
          <c:forEach var="cart" items="${cartList}">
             <div class="order_card">
@@ -124,7 +143,14 @@ if (login != null)
                </div>
             </div>            
          </c:forEach>
+         
+	<%
+	}
+	%>
+          
       </div>
+    
+      
       <br> <br> <br> <br> <br> <br>
    </div>
 

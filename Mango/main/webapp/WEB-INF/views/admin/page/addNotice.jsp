@@ -5,22 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<script	src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="${path}/css/admin/addNotice.css">
 </head>
-<body>	
-	<form method="post" action="/admin/addNotice/insert.do">
-		<div class="form_wrapper">
-			<div class="div_wrapper">제목</div>	
-			<input type="text" name="notiSubject">
+<body>
+	<form method="post" action="/admin/addNotice/insert.do" id="addNoticeForm">
+		<div class="form_wrapper notiTitle">
+			<input type="text" name="notiSubject" placeholder="공지사항 제목"
+				class="notiTitle">
 		</div>
 		<div class="noti_content">
-			<textarea id="editor"></textarea>
+			<textarea id="editor" style=""></textarea>
 			<input type="hidden" name="notiContent" class="addNotice_value">
-		</div>	
-		<button id="upload_Btn">등록하기</button>	
+		</div>
+		<button id="upload_Btn" type="button">등록하기</button>
 	</form>
-	
+
 	<script>
 	ClassicEditor
 	   .create(document.querySelector('#editor'), {
@@ -40,6 +42,8 @@
 		   let addNotiStr = notiStr.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	    
 	
 		   $('.addNotice_value').val(addNotiStr);
+		   $('#addNoticeForm').submit()
+		   alert("공지사항이 등록되었습니다.")		  
 	});
 	</script>
 </body>

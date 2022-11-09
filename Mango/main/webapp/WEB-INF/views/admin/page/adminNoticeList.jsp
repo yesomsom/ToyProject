@@ -5,35 +5,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<link rel="stylesheet" href="${path }/css/admin/adminBoard.css">
 </head>
 <body>
-	<div class="noti_container">			
-		<table>
-			<thead>
-				<tr>
-					<td id="td">글번호</td>
-					<td id="td">제목</td>
-					<td id="td">등록일</td>
-				</tr>
-			</thead>
-			
-			<!-- 공지사항 리스트 -->
-			<tbody>
-				<c:forEach items="${notice}" var="noticelist">
+	<div class="container">
+		<div class="row col-md-15 custyle margin-left-1">			
+			<table class="table table-striped custab">
+			<h1>공지사항</h1>
+				<thead>
 					<tr>
-						<td>${noticelist.notiId}</td>
-						<td class="modal_button">${noticelist.notiSubject}</td>
-						<td>
-							<fmt:formatDate value="${noticelist.notiDate}" pattern="yyyy-MM-dd" />
-						</td>
+						<th class="text-center">글번호</th>
+						<th class="text-center">제목</th>
+						<th class="text-center">등록일</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>				
+				<!-- 공지사항 리스트 -->
+				<tbody>
+					<c:forEach items="${notice}" var="noticelist">
+						<tr>
+							<td class="text-center">${noticelist.notiId}</td>
+							<td class="text-center">${noticelist.notiSubject}</td>
+							<td class="text-center">
+								<fmt:formatDate value="${noticelist.notiDate}" pattern="yyyy-MM-dd" />
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<!-- 페이징 -->
 	<div class="pageInfo_wrap">
@@ -62,7 +63,7 @@
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 	</form>
 	
-	<button class="btn"><a href="${path }/admin/addNotice.do">공지사항 등록</a></button>
+	<a href="${path }/admin/addNotice.do"><button class="btn">공지사항 등록</button></a>
 
 	<script src="${path }/js/paging.js"></script>
 </body>

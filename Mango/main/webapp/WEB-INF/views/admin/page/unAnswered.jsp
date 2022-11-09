@@ -7,89 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<style>
-h1{
-margin-bottom: -30px !important;
-}
-h2{
-margin:10px !important;
-}
-.container {
-    margin-top: -28px;
-}
-			.upContainer{
-				display:flex;
-			}
-			.relatedContainer{
-			    border: 1px;
-    margin-top: -12px;
-    position: absolute;
-    display: none;
-    top: 476px;
-    width: 1170px;
-			}
-			.relatedContainer div{
-			
-			border:1px solid black;
-			}
-			
-			#relatedContent{
-			        position: absolute;
-    width: 1170px;
-    height: 220px
-			}
-			#q-info{
-			    width: 300px;
-    height: 50px;
-			}
-			#q-infos{
-			       height: 138px;
-			}
-			#q-title{
-			    width: 865px;
-    height: 50px;
-}
-			#q-content{
-			       height: 138px;
-			}
-			#relatedBtn{
-	    position: relative;
-    top: -1px;
-    width: 1175px;
-    height: 54px;
-    left: -4px;
-    border: 0;
-    border-radius: 12px;
-			}
-			#relateCon{
-			           position: relative;
-    top: -1px;
-    width: 1170px;
-    height: 120px;
-    left: -1px;
-}
-#relatedContent div{
-	height:50px;
-}
-#relatedTitle{
-    position: relative;
-    width: 1170px;
-    left: -2px;
-    height: 50px;
-}
-#q-infos div{
-    height: 34px;
-    font-size: 20px;
-}
-			
-			
-		</style>
+<link rel="stylesheet" href="${path }/css/admin/adminBoard.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row col-md-15 custyle margin-left-1">
-			<table class="table table-striped custab">				
-				<h1>미답변 문의내역</h1>
+			<table class="table table-striped custab">
+				<h1>미답변 문의목록</h1>
 				<thead>
 					<tr>
 						<th class="text-center">회원</th>
@@ -107,10 +31,10 @@ margin:10px !important;
 				<tbody>
 					<c:forEach var="unAnswer" items="${unAnsweredList }">
 						<tr>
-							<td class="text-center">${unAnswer.id }</td>
-							<td class="text-center">${unAnswer.askName }</td>
-							<td class="text-center">${unAnswer.askPhone }</td>
-							<td class="text-center">${unAnswer.askEmail }</td>
+							<td class="text-center" id="id">${unAnswer.id }</td>
+							<td class="text-center" id="aName">${unAnswer.askName }</td>
+							<td class="text-center" id="aPhone">${unAnswer.askPhone }</td>
+							<td class="text-center" id="aEmail">${unAnswer.askEmail }</td>
 							<td class="text-center">${unAnswer.askCat }${unAnswer.askCatDetail}</td>
 							<c:if test="${unAnswer.askType ne '기타문의'}">
 								<td class="text-center">${unAnswer.askType }${unAnswer.askTypeDetail }점</td>
@@ -118,49 +42,91 @@ margin:10px !important;
 							<c:if test="${unAnswer.askType eq '기타문의'}">
 								<td class="text-center">${unAnswer.askType }</td>
 							</c:if>
-							<td class="text-center">${unAnswer.askSubject }</td>
-							<td class="text-center">${unAnswer.askContent }</td>
+							<td class="text-center" id="aTitle">${unAnswer.askSubject }</td>
+							<td class="text-center" id="aContent">${unAnswer.askContent }</td>
 							<c:if test="${unAnswer.askState eq '미답변'}">
-								<td class="text-center">${unAnswer.askState } / <button onClick="relatedBlock()" style="border: 0; color: blue; background: none;">답변하기</button></td>
+								<td class="text-center">${unAnswer.askState }/
+									<button type="button" class="relatedBtn" style="border: 0; color: blue; background: none;">답변하기</button>
+								</td>
 							</c:if>
-							<td class="text-center">${unAnswer.askDate }</td>
+							<td class="text-center">${unAnswer.askDate }
+								<input id="askId" type="hidden" value="${unAnswer.askId }">
+							</td>						
 						</tr>
-						<div class="relatedContainer" id="relatedContainer">
-							<div class="upContainer">
-								<div>
-									<div id="q-info"><h2>회원정보</h2></div>
-									<div id="q-infos">					
-										<div>회원 : ${unAnswer.id }</div>
-										<div>성함 : ${unAnswer.askName }</div>
-										<div>연락처 : ${unAnswer.askPhone }</div>
-										<div>이메일 : ${unAnswer.askEmail }</div>
-									</div>		
-								</div>
-								<div>
-									<div id="q-title"><h2>${unAnswer.askSubject }</h2></div>
-									<div id="q-content">${unAnswer.askContent }</div>
-								</div>
-							</div>
-							
-							<div id="relatedContent">
-								<div><h2>답변하기</h2></div>
-								<div><input id=relatedTitle name="relaterTitle" type="text" placeholder="제목"></div>
-								<textarea rows="" cols="" id="relateCon">
-								</textarea>
-								
-								<button type="button" id="relatedBtn">발송하기</button>
-							</div>
-						</div>
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>		
+		</div>
+		<div class="relatedContainer" id="relatedContainer">
+			<div class="upContainer">
+				<div>
+					<div id="q-info">
+						<h2>회원정보</h2>
+					</div>
+					<div id="q-infos">
+						<div>
+							회원 : <span id="id"></span>
+						</div>
+						<div>
+							성함 : <span id="askName"></span>
+						</div>
+						<div>
+							연락처 : <span id="askPhone"></span>
+						</div>
+						<div>
+							이메일 : <span id="askEmail"></span>
+						</div>
+					</div>
+				</div>
+				<div>					
+					<div id="askTitle"></div>
+					<div id="askContent"></div>
+				</div>
+			</div>
+
+			<div id="relatedContent">
+				<div>
+					<h2>답변하기</h2>
+				</div>
+				<form action="/admin/unAnswered/update.do" id="answeredForm">
+					<div>
+						<input id=relatedTitle name="relatedTitle" type="text" placeholder="제목" />
+					</div>
+					<textarea rows="" cols="" id="relateCon" name="relatedContent"></textarea>					
+					<input type="hidden" id="aId" name="askId">
+					<button type="button" id="sendRelatedBtn">발송하기</button>
+				</form>
+			</div>
+		</div>
 	</div>
-	<script>
-	function relatedBlock(){
-		 const btn = document.getElementById('relatedContainer');
-		 btn.style.display = 'block';
-	}
-	</script>
+	<!-- 페이징  -->   
+	<div class="pageInfo_wrap">
+		<div class="pageInfo_area">
+			<ul id="pageInfo" class="pageInfo">
+				<c:if test="${pageMaker.prev}">
+					<li class="pageInfo_btn previous">
+						<a href="${pageMaker.startPage-1}">Previous</a>
+					</li>
+				</c:if>
+				<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+					<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+						<a href="${num}">${num}</a>
+					</li>
+				</c:forEach>
+				<c:if test="${pageMaker.next}">
+					<li class="pageInfo_btn next">
+						<a href="${pageMaker.endPage + 1 }">Next</a>
+					</li>
+				</c:if>  
+			</ul>
+		</div>
+	</div>
+	<form id="unAnsweredForm" method="get" action="/admin/unAnswered.do">
+	   <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
+	   <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+	</form>
+	
+	<script src="${path}/js/unAnswered.js"></script>
+	<script src="${path }/js/paging.js"></script>
 </body>
 </html>

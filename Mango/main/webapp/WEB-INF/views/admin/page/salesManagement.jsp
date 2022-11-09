@@ -10,74 +10,70 @@
 <link rel="stylesheet" href="${path}/css/admin/salesManagement.css">
 </head>
 <body>
-   <div class="salesList_wrap">
-
-      <!-- 상단 제목 -->
-      <div class="salesList_wrap_title">매출 내역</div>
-
-      <!-- 등록된 상품 리스트 테이블 -->
-      <table class="sales_table">
-         <thead>
-            <tr class="table_title_wrap">
-               <td class="table_title">주문 번호</td>                              
-               <td class="table_title">고객 아이디</td>               
-               <td class="table_title">결제 금액</td>
-               <td class="table_title">결제일</td>
-               <td class="table_title">수령인</td>
-               <td class="table_title">연락처</td>
-               <td class="table_title">배송지</td>
-               <td class="table_title">배송상태</td>
-            </tr>
-         </thead>
-         <tbody>
-            <c:forEach items="${ordersPayList}" var="sales"  varStatus="status">
-               <tr class="sales_detail">
-                  <td class="table_content txt_center">${sales.ordersId}</td>
-                                             
-                  <td class="table_content txt_center">${sales.id}</td>
-                  <td class="table_content txt_right">${sales.ordersPayMoney}원</td>
-                  <td class="table_content txt_center" >
-                     <fmt:formatDate value="${sales.ordersPayDate}" pattern="yyyy-MM-dd" />
-                     <input class="t_${status.count}" type="hidden" value="t_${status.count}" data-dv="${sales.ordersPayDate}" data-pr="${sales.ordersPayMoney}">
-                  </td>                              
-                  <td class="table_content txt_center">${sales.receiverName}</td>
-                  <td class="table_content txt_center">${sales.receiverPhone}</td>                                    
-                  <td class="table_content txt_center">${sales.receiverZipno}, ${sales.receiverAddress}</td>  
-                  <td class="table_content txt_center">${sales.deliveryState}</td>                
-               </tr>   
-            </c:forEach>
-         </tbody>
-      </table>
-
-      <!-- 페이징  -->
-      <div class="pageInfo_wrap">
-         <div class="pageInfo_area">
-            <ul id="pageInfo" class="pageInfo">
-               <c:if test="${pageMaker.prev}">
-                  <li class="pageInfo_btn previous">
-                     <a href="${pageMaker.startPage-1}">Previous</a>
-                  </li>
-               </c:if>
-               <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                  <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
-                     <a href="${num}">${num}</a>
-                  </li>
-               </c:forEach>
-               <c:if test="${pageMaker.next}">
-                  <li class="pageInfo_btn next">
-                     <a href="${pageMaker.endPage + 1 }">Next</a>
-                  </li>
-               </c:if>
-            </ul>
-         </div>
-      </div>
-      <form id="salesManagementForm" method="get" action="/admin/salesManagement.do">
-         <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
-         <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
-      </form>
-   </div>
+<div class="container">
+	<div class="row col-md-15 custyle margin-left-1">
+		<table class="table table-striped custab">
+			<h1>매출 내역</h1>
+			<thead>
+			   <tr>
+			      <th class="text-center">주문 번호</th>
+			      <th class="text-center">고객 아이디</th>
+			      <th class="text-center">결제 금액</th>
+			      <th class="text-center">결제일</th>
+			      <th class="text-center">수령인</th>
+			      <th class="text-center">연락처</th>
+			      <th class="text-center">배송지</th>
+			      <th class="text-center">배송상태</th>
+			   </tr>
+			</thead>
+			<tbody>
+			<c:forEach items="${ordersPayList}" var="sales"  varStatus="status">
+			      <tr>
+			         <td class="text-center">${sales.ordersId}</td>
+			         <td class="text-center">${sales.id}</td>
+			         <td class="text-center">${sales.ordersPayMoney}원</td>
+			         <td class="text-center"><fmt:formatDate value="${sales.ordersPayDate}" pattern="yyyy-MM-dd" />
+			            <input class="t_${status.count}" type="hidden" value="t_${status.count}" data-dv="${sales.ordersPayDate}" data-pr="${sales.ordersPayMoney}">
+			         </td>
+			         <td class="text-center">${sales.receiverName}</td>
+			         <td class="text-center">${sales.receiverPhone}</td>  
+			         <td class="text-center">${sales.receiverZipno}, ${sales.receiverAddress}</td>  
+			         <td class="text-center">${sales.deliveryState}</td>
+			      </tr>
+			</c:forEach>
+			</tbody>
+		</table>   
+	</div>  
+	</div>
+	<!-- 페이징  -->
+	<div class="pageInfo_wrap">
+	   <div class="pageInfo_area">
+	      <ul id="pageInfo" class="pageInfo">
+	         <c:if test="${pageMaker.prev}">
+	            <li class="pageInfo_btn previous">
+	               <a href="${pageMaker.startPage-1}">Previous</a>
+	            </li>
+	         </c:if>
+	         <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+	            <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+	               <a href="${num}">${num}</a>
+	            </li>
+	         </c:forEach>
+	         <c:if test="${pageMaker.next}">
+	            <li class="pageInfo_btn next">
+	               <a href="${pageMaker.endPage + 1 }">Next</a>
+	            </li>
+	         </c:if>
+	      </ul>
+	   </div>
+	</div>
+	
+	<form id="salesManagementForm" method="get" action="/admin/salesManagement.do">
+	   <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
+	   <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+	</form>   
    
-   <script src="${path }/js/paging.js"></script>
+	<script src="${path }/js/paging.js"></script>
    
 </body>
 </html>
