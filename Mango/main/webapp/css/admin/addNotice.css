@@ -1,0 +1,19 @@
+.ck-editor__editable {
+	min-height: 300px;
+}
+
+.notiTitle {
+	position: relative;
+	left: 200px;
+}
+
+.noti_content {
+	width: 1000px;
+	position: relative;
+	left: 400px;
+}
+
+#upload_Btn {
+	position: relative;
+	left: 1328px;
+}

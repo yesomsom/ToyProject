@@ -9,7 +9,7 @@ $(function() {
 		data: {
 			pageNum: pageNum,
 			amount: $("#amount").val(),
-			keyword: $("#keyword").val()
+			keyword: $(".searchKeyword").val()
 		},
 		success: function(data) {
 			var res = JSON.parse(data);
@@ -33,7 +33,7 @@ var pageNum = getParameter("pageNum");
 		data: {
 			pageNum: pageNum,
 			amount: $("#amount").val(),
-			keyword: $("#keyword").val()
+			keyword: $(".searchKeyword").val()
 		},
 		success: function(data) {
 			var res = JSON.parse(data);
@@ -83,7 +83,7 @@ function make_goodsList(data) {
 	return html;
 }
 
-$(".searchBtn").on("click", function(){
+/*$(".searchBtn").on("click", function(){
 		var kw = $(".searchKeyword").val();
 		$("#keyword").val(kw);	
-	});
+	});*/

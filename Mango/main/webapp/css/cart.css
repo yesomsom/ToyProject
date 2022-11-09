@@ -13,6 +13,30 @@
 }
 
 /* cart content */
+.noCartWrapper {
+	margin:20px;
+	text-align: center;	
+	position: relative;
+	top: 80px;
+}
+.noCartBold {
+	font-size: 25px !important;
+	margin: 20px;
+}
+.noCartLight {
+	font-size: 16px !important;
+	color: #ccc;
+	margin: 20px;
+}
+.goShoppingBtn {
+	text-align: center;
+	padding: 10px;
+	margin: 20px;
+	border: 1px solid #ccc;
+	position: relative;
+	top: 20px;
+	font-size: 16px !important;
+}
 .chk_all_wrapper {
    display: flex;
    justify-content: space-between;

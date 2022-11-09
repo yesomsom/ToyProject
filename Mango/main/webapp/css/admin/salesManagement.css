@@ -1,4 +1,4 @@
-.salesList_wrap {
+/* .salesList_wrap {
 	position: absolute;
 	top: 75px;
 	left: 220px;
@@ -70,12 +70,15 @@ input {
 	position: relative;
     top: -2px;
     left: 7px;
-}
+} */
 
-/* ∆‰¿Ã¬° */
+
 .pageInfo {
 	display: flex;
-	list-style: none;
+    list-style: none;
+    position: absolute;
+    left: 1050px;
+    top: -260px;
 }
 
 .pageInfo a {
@@ -84,10 +87,4 @@ input {
 
 .pageInfo a:hover {
 	color: rgb(247, 173, 63) !important;
-}
-
-.pageInfo_wrap {
-	position: absolute;
-    top: 157px;
-    left: -634px;
 }

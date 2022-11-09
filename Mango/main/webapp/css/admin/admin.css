@@ -7,12 +7,12 @@ a {
 }
 
 .btn {
-	position: absolute;
-	top: 115px;
-	left: 1564px;
-	background-color: cornsilk;
-	font-size: 16px !important;
-	border-radius: 30px !important;
+position: absolute;
+    top: 456px;
+    left: 1418px;
+    background-color: cornsilk;
+    font-size: 16px !important;
+    border-radius: 30px !important;
 }
 
 .center {
@@ -20,7 +20,7 @@ a {
 	margin-bottom: 20px;
 }
 
-.noti_container {
+/* .noti_container {
 	position: absolute;
 	top: 115px;
 	left: 220px;
@@ -28,7 +28,7 @@ a {
 	font-size: 20px;
 	width: 1471px;
 	height: 506px;
-}
+} */
 
 #h_div {
 	position: relative;

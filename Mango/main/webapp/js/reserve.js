@@ -11,7 +11,6 @@ const inputReserveDate = document.querySelector('.reserveDate');
 const inputRunningTime = document.querySelector('.runningTime');
 const seatForm = document.querySelector('.seatForm');
 const seatButton = document.querySelector('.seatButton');
-const movieName = document.querySelector('.movieName');
 
 let movieListAge = '';
 let year = 0;
@@ -47,8 +46,7 @@ function add() {
                     console.log(li.innerHTML);
                     console.log(li.parentElement);
                     console.log(li.parentElement.childNodes[1].innerHTML);
-                    //form에 넘기기 위한
-                    movieName.value = li.parentElement.childNodes[1].innerHTML;
+                    //form에 넘기기 위한                   
                     inputTitle.value = li.innerHTML;
                 });
             });

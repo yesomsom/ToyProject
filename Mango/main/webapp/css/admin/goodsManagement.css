@@ -63,7 +63,10 @@ input {
 
 .pageInfo {
 	display: flex;
-	list-style: none;
+    list-style: none;
+    position: absolute;
+    left: 1050px;
+    top: -260px;
 }
 
 .pageInfo a {
@@ -72,10 +75,4 @@ input {
 
 .pageInfo a:hover {
 	color: rgb(247, 173, 63) !important;
-}
-
-.pageInfo_wrap {
-	position: absolute;
-	top: 175px;
-    left: -634px;
 }
