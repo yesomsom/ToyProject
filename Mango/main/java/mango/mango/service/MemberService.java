@@ -3,6 +3,7 @@ package mango.mango.service;
 import java.util.List;
 
 import mango.mango.model.MemberVO;
+import mango.mango.model.NoticeVO;
 
 public interface MemberService {
    public String getId(String id) throws Exception;   
@@ -13,4 +14,6 @@ public interface MemberService {
    public void deleteMember(String id) throws Exception;
    public List<MemberVO> getMember(MemberVO mVO) throws Exception;
    public List<MemberVO> getSeller(MemberVO mVO) throws Exception;
+   Integer getMemberCount(MemberVO mVO) throws Exception;
+   Integer getSellerCount(MemberVO mVO) throws Exception;
 }

@@ -11,4 +11,5 @@ public interface CartService {
    void deleteCart(String cartId) throws Exception;
    public String getCartId(String cartId) throws Exception;
    void deleteAllCart(String id) throws Exception;
+   void modifyState(CartVO cVO) throws Exception;
 }

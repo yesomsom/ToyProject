@@ -196,7 +196,20 @@ public class ReserveController {
 		}
 		return "/user/page/myReserve";
 	}
-
+	
+	
+	@RequestMapping(value = "/tracking")
+	public String tracking(ModelMap model,	Criteria cri, OrdersPayVO opVO, String ordersId) throws Exception {
+		opVO.setOrdersId(ordersId);
+		List<OrdersPayVO> list = ordersPayService.selectListTracking(opVO);
+		
+		
+		model.addAttribute("opList", list);		
+		
+		return "/user/page/tracking"; 
+	}
+	 
+	
 	@RequestMapping(value = "/myPage")
 	public String myPage(ModelMap model, Criteria cri, ReserveVO rVO, PayVO pVO, OrdersVO oVO, OrdersPayVO opVO, AskVO aVO, HttpSession session) throws Exception {
 		MemberVO login = (MemberVO) session.getAttribute("login");
@@ -215,6 +228,7 @@ public class ReserveController {
 		}
 
 		oVO.setId(login.getId());
+		
 		List<OrdersVO> ordersList = ordersService.selectAllOrdersList(oVO);
 
 		if (ordersList != null) {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import mango.common.service.impl.ComAbstractDAO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.NoticeVO;
 
 @Repository("MemberDAO")
 public class MemberDAO extends ComAbstractDAO {
@@ -41,4 +42,13 @@ public class MemberDAO extends ComAbstractDAO {
 	public List<MemberVO> getSeller(MemberVO mVO) throws Exception {
 		return selectList("MemberMapper.getSeller", mVO);
 	}
+	
+	public Integer getMemberCount(MemberVO mVO) throws Exception {
+		return selectOne("MemberMapper.getMemberCount", mVO);
+	}
+	
+	public Integer getSellerCount(MemberVO mVO) throws Exception {
+		return selectOne("MemberMapper.getSellerCount", mVO);
+	}
+	
 }

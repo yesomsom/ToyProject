@@ -17,7 +17,6 @@ import mango.common.EgovWebUtil;
 import mango.common.service.Criteria;
 import mango.common.util.UserURLValue;
 import mango.mango.model.CartVO;
-import mango.mango.model.GoodsVO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.OrdersPayVO;
 import mango.mango.model.OrdersVO;
@@ -77,7 +76,7 @@ public class OrdersController {
 
 	@RequestMapping(value = "/orders/insert", method = RequestMethod.POST)
 	@ResponseBody
-	public String insertOrders(ModelMap model, Criteria cri, MemberVO mVO, @RequestParam(value = "cartIdList") String cartIdList,
+	public String insertOrders(ModelMap model, Criteria cri, CartVO cVO, MemberVO mVO, @RequestParam(value = "cartIdList") String cartIdList,
 			@RequestParam(value = "sellerNameList") String sellerNameList, @RequestParam(value = "totalPriceList") String totalPriceList,
 			@RequestParam(value = "memberId", required = false) String memberId, @RequestParam(value = "memberName", required = false) String memberName, HttpSession session)
 			throws Exception {
@@ -87,8 +86,7 @@ public class OrdersController {
 		String[] cartId = cartIdList.split(",");
 		String[] sellerName = sellerNameList.split(",");
 		String[] totalPrice = totalPriceList.split(",");
-		List<OrdersVO> cartList = new ArrayList<OrdersVO>();
-
+		List<OrdersVO> cartList = new ArrayList<OrdersVO>();		
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		model.addAttribute("type", "orders");
 		if (login != null) {
@@ -102,9 +100,14 @@ public class OrdersController {
 					oVO.setId(memberId);
 					oVO.setName(memberName);
 					oVO.setOrdersId(UUID);
-
-					cartList.add(oVO);					
+					cartList.add(oVO);
 					ordersService.insertOrders(oVO);
+										
+					int cartState = 2;
+					cVO.setCartId(cartId[i]);
+					cVO.setCartState(cartState);
+					cartService.modifyState(cVO);
+					
 				}
 			}
 
@@ -144,7 +147,8 @@ public class OrdersController {
 
 		return "redirect:/page/myOrdersPage.do";
 	}
-
+	
+	
 	@RequestMapping(value = "/myOrdersPage")
 	public String myOrdersPage(ModelMap model, Criteria cri, OrdersVO oVO, OrdersPayVO opVO, HttpSession session) throws Exception {
 

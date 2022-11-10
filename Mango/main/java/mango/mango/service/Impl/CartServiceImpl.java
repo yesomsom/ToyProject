@@ -48,5 +48,10 @@ public class CartServiceImpl extends EgovAbstractServiceImpl implements CartServ
 	public String getCartId(String cartId) throws Exception {
 		return cartDAO.getCartId(cartId);
 	}
+		
+	@Override
+	public void modifyState(CartVO cVO) throws Exception {
+		cartDAO.modifyState(cVO);
+	}
 
 }

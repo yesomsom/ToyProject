@@ -45,31 +45,55 @@ public class AdminController {
 	private AskService AskService;
 
 	@RequestMapping(value = "/memberList")
-	public String memberList(ModelMap model, String id, MemberVO mVO,
+	public String memberList(ModelMap model, Criteria cri, String id, MemberVO mVO,
 			@RequestParam(required = false, defaultValue = "id") String searchType,
-			@RequestParam(required = false) String keyword) throws Exception {
+			@RequestParam(required = false) String keyword,  @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		MemberVO memberVO = new MemberVO();
 		memberVO.setSearchType(searchType);
 		memberVO.setKeyword(keyword);
-
+		
+		int memListTotal = MemberService.getMemberCount(mVO);
+		
+		// 페이징
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, memListTotal);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		mVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		mVO.setAmount(cri.getAmount());
+				
 		List<MemberVO> memberList = MemberService.getMember(mVO);
+		
 		model.addAttribute("memberList", memberList);
-
+		model.put("pageMaker", pageMaker);
+		
 		return "/admin/page/memberList";
 	}
 
 	@RequestMapping(value = "/sellerList")
-	public String sellerList(ModelMap model, String id, MemberVO mVO,
+	public String sellerList(ModelMap model, Criteria cri, String id, MemberVO mVO,
 			@RequestParam(required = false, defaultValue = "id") String searchType,
-			@RequestParam(required = false) String keyword) throws Exception {
+			@RequestParam(required = false) String keyword, @RequestParam(value = "pageNum", required = false) String pageNum) throws Exception {
 
 		MemberVO memberVO = new MemberVO();
 		memberVO.setSearchType(searchType);
 		memberVO.setKeyword(keyword);
-
+		
+		int selListTotal = MemberService.getSellerCount(mVO);
+		// 페이징
+		PageMakerDTO pageMaker = new PageMakerDTO(cri, selListTotal);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		mVO.setSkip((Integer.parseInt(pageNum) - 1) * cri.getAmount());
+		mVO.setAmount(cri.getAmount());
+		
 		List<MemberVO> sellerList = MemberService.getSeller(mVO);
+
+		
 		model.addAttribute("sellerList", sellerList);
+		model.put("pageMaker", pageMaker);
 
 		return "/admin/page/sellerList";
 	}

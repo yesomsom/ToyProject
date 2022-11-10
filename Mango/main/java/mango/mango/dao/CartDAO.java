@@ -37,5 +37,9 @@ public class CartDAO extends ComAbstractDAO {
 	public String getCartId(String cartId) throws Exception {
 		return selectOne("cartMapper.getCartId", cartId);
 	}
-
+	
+	// 주문여부
+	public void modifyState(CartVO cVO) throws Exception {
+		update("cartMapper.modifyState", cVO);
+	}
 }

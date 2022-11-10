@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import mango.mango.dao.MemberDAO;
 import mango.mango.model.MemberVO;
+import mango.mango.model.NoticeVO;
 import mango.mango.service.MemberService;
 
 @Service("MemberService")
@@ -58,6 +59,16 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 	@Override
 	public List<MemberVO> getSeller(MemberVO mVO) throws Exception {
 		return memberDAO.getSeller(mVO);
+	}
+	
+	@Override
+	public Integer getMemberCount(MemberVO mVO) throws Exception {
+		return memberDAO.getMemberCount(mVO);
+	}
+	
+	@Override
+	public Integer getSellerCount(MemberVO mVO) throws Exception {
+		return memberDAO.getSellerCount(mVO);
 	}
 
 }

@@ -19,10 +19,12 @@ import mango.common.util.UserURLValue;
 import mango.mango.model.AskVO;
 import mango.mango.model.MemberVO;
 import mango.mango.model.NoticeVO;
+import mango.mango.model.OrdersPayVO;
 import mango.mango.model.QaVO;
 import mango.mango.service.AskService;
 import mango.mango.service.MemberService;
 import mango.mango.service.NoticeService;
+import mango.mango.service.OrdersPayService;
 import mango.mango.service.QaService;
 
 @Controller
@@ -39,8 +41,8 @@ public class ServiceCenterController {
 	private NoticeService NoticeService;
 
 	@Resource(name = "qaService")
-	private QaService qaService;
-
+	private QaService qaService;	
+	
 	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 
 	@RequestMapping(value = "/serviceCenter")
@@ -167,9 +169,25 @@ public class ServiceCenterController {
 		return "/user/page/qaList";
 	}
 
-	@RequestMapping(value = "/tracking")
-	public String tracking() {
-
-		return "user/page/tracking";
-	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

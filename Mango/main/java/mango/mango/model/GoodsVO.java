@@ -15,8 +15,7 @@ public class GoodsVO {
 	private String goodsState;
 	private String sellerName;
 	private String goodsDetail;
-	private int goodsPrice;
-	private int goodsStock;
+	private int goodsPrice;	
 	private int deliveryPrice;	
 	private Date regDate;
 	private String gno;
