@@ -59,15 +59,6 @@ $('#upload_Btn').on("click", function() {
         return false;
    }
 
-   if ($("#goodsStock").val() == "") {
-      toastr.error('상품 재고를 입력하세요.', '오류', {
-         timeOut: 3000,
-      });
-      $("#goodsStock").focus();
-      $("#goodsStock").val("");
-      return false;
-   }
-
    if ($("#deliveryPrice").val() == "") {
       toastr.error('배송비를 입력하세요.', '오류', {
          timeOut: 3000,

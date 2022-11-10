@@ -80,11 +80,9 @@ function order_ajax(){
       alert("상품을 체크해주세요");
       location.href="/page/cart.do";   
    } else {
-      //var cartList = {memberId : $("#memberId").val(), memberName : $("#memberName").val(), data:[]};
-      
       var cartIdList = "";
       var sellerNameList = "";
-      var totalPriceList = "";
+      var totalPriceList = "";      
       
       $(".chk").each(function(){
          if($(this).prop("checked")){
@@ -100,12 +98,11 @@ function order_ajax(){
       $.ajax({
            url: '/page/orders/insert.do',
            type: 'post',
-         data :{
-            //cartList : JSON.stringify(cartList)
+         data :{            
             memberId : $("#memberId").val(),
-            memberName : $("#memberName").val(),
+            memberName : $("#memberName").val(),            
             cartIdList : cartIdList,
-             sellerNameList : sellerNameList,
+            sellerNameList : sellerNameList,
             totalPriceList : totalPriceList 
          },
            success: function(data) {

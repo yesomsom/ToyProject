@@ -11,5 +11,5 @@ $(".pageInfo a").on("click", function(e) {
 	$("#ordersListForm").submit();
 	$("#salesManagementForm").submit();
 	$("#unAnsweredForm").submit();
-	$("#ApprovedForm").submit();
+	$("#approvedForm").submit();
 })

@@ -3,15 +3,13 @@ $(document).ready(function() {
 /* 상품 수정 버튼 */
    $(".modify_btn").on("click", function(){
       let goodsId = $(this).data("goodsid");
-      let gName = $(this).parents("tr").find(".gName").val();
-      let gStock = $(this).parents("tr").find(".gStock").val();
+      let gName = $(this).parents("tr").find(".gName").val();   
       let gDetail = $(this).parents("tr").find(".gDetail").val();
       let gPrice = $(this).parents("tr").find(".gPrice").val();
       let gDePrice = $(this).parents("tr").find(".gDePrice").val();      
       
       $(".update_goodsId").val(goodsId);
-      $(".update_goodsName").val(gName);
-      $(".update_goodsStock").val(gStock);
+      $(".update_goodsName").val(gName);   
       $(".update_goodsDetail").val(gDetail);
       $(".update_goodsPrice").val(gPrice);
       $(".update_deliveryPrice").val(gDePrice); 

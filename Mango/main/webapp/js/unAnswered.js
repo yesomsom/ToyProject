@@ -1,6 +1,6 @@
 /* 상품 수정 버튼 */
 $(".relatedBtn").on('click',function(){
-	let id = $(this).parents("tr").find("#id").text();
+	let id = $(this).parents("tr").find("#aaid").text();
 	let askId = $(this).parents("tr").find("#askId").val();
 	let askName = $(this).parents("tr").find("#aName").text();
 	let askPhone = $(this).parents("tr").find("#aPhone").text();

@@ -9,7 +9,7 @@ $(document).ready(function() {
 	})
 });
 
-function openTracking() {
-	window.open("tracking.do", "배송 조회", "width=1600,height=1200");
+/*function openTracking() {
+	window.open("tracking.do", "pop", "배송 조회", "width=1600,height=1200");
 
-}
+}*/

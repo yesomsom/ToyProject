@@ -203,7 +203,7 @@ function opensms() {
    }
 
 // 주소 검색하는 팝업창
-// 주소갬석 버튼 클릭시 발생하는 함수 
+// 주소검색 버튼 클릭시 발생하는 함수 
 function goPopup(){	
 	var pop = window.open("jusoPopup.do","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 }
