@@ -37,11 +37,11 @@ for (int i = 0; i < ordersList.size(); i++) {
 			<div class="member_detail detail_wrapper">
 				<div class="title_bold_big">구매자 정보</div>
 				<div class="margin_top">
-					구매자 이름: 
+					구매자 : 
 					<span class="margin_left"><%=login.getName()%></span>
 				</div>
 				<div>
-					핸드폰 번호: 
+					연락처 : 
 					<span class="margin_left"><%=login.getPhone()%></span>
 				</div>
 				<div>
@@ -58,14 +58,14 @@ for (int i = 0; i < ordersList.size(); i++) {
 				<div class="title_bold_big">수령인 정보</div>
 				<div class="margin_top">
 					<div class="modify_orders">
-						<div>수령인 이름:</div>
+						<div>수령인 : </div>
 						<div>
 							<input name="receiverName" type="text" value="<%=login.getName()%>">
 						</div>
 						<div></div>
 					</div>
 					<div class="modify_orders">
-						<div>핸드폰 번호:</div>
+						<div>연락처 : </div>
 						<div>
 							<input class="form-control" id="phone" name="receiverPhone"	type="text" readonly value="<%=login.getPhone()%>">
 								<i class="zmdi  zmdi-phone"></i>
@@ -75,7 +75,7 @@ for (int i = 0; i < ordersList.size(); i++) {
 						</div>
 					</div>
 					<div class="modify_orders">
-						<div>우편 번호:</div>
+						<div>우편 번호 : </div>
 						<div>
 							<input name="receiverZipno" id="zipNo" type="text" value="<%=login.getZipNo()%>">
 						</div>
@@ -84,7 +84,7 @@ for (int i = 0; i < ordersList.size(); i++) {
 						</div>
 					</div>
 					<div class="modify_orders">
-						<div>도로명 주소:</div>
+						<div>도로명 주소 : </div>
 						<div>
 							<input name="receiverAddress" id="address" type="text" value="<%=login.getAddress()%>">
 						</div>
@@ -96,7 +96,7 @@ for (int i = 0; i < ordersList.size(); i++) {
 			<div class="pay_detail">
 			
 				<div class="pay_total">
-					총 결제액: 
+					총 결제액 : 
 					<input class="orders_money" type="text"	name="OrdersPayMoney" value="<%=allTotalPrice%>">
 						원
 				</div>

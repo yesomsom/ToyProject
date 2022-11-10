@@ -20,19 +20,19 @@ border-radius: 15px;
 margin:0 10px 20px 10px;
 }
  .salesContainer{
-background-color:lightblue;
+background-color: #fce8ac;
 
 }
 .noticeContainer{
-background-color:lightgrey;
+background-color: #5e990b;
 
 }
 .askContainer{
-background-color:tomato;
+background-color: #fce8ac;
 
 }
 .goodsContainer{
-background-color:orange;
+background-color: #fce8ac;
 
 }
 .flexCon{

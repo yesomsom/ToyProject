@@ -11,22 +11,21 @@
 </head>
 <body>
 	<div class="container">
-	   <div class="row col-md-15 custyle margin-left-1">
-	      <table class="table table-striped custab">
+	   <div class="row col-md-15 custyle margin-left-1" style="width:1200px;">
+	      <table class="table table-striped custab" style="width:1200px;">
 	       <h1>상품 등록 내역</h1>
 	         <thead>
 	            <tr>
 	               <th class="text-center">상품 번호</th>
 	               <th class="text-center">카테고리</th>
 	               <th class="text-center">상품 이름</th>
-	               <th class="text-center">판매 상태</th>
-	               <th class="text-center">재고</th>
+	               <th class="text-center">판매 상태</th>	               
 	               <th class="text-center">상품 상세내용</th>
 	               <th class="text-center">가격</th>
 	               <th class="text-center">배송비</th>
 	               <th class="text-center">등록일</th>
-	               <th class="text-center">수정하기</th>
-	               <th class="text-center">삭제하기</th>
+	               <th class="text-center">수정</th>
+	               <th class="text-center">삭제</th>
 	            </tr>
 	         </thead>
 	         <tbody>
@@ -49,14 +48,13 @@
 				        	<option>승인 대기</option>
 				        	<option>승인</option>
 				        </select>
-	                  </td>                  
-	                  <td class="text-center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
+	                  </td>	                  
 	                  <td class="text-center"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
-	                  <td class="text-center"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
-	                  <td class="text-center"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>
+	                  <td class="text-center"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}"><span>원</span></td>
+	                  <td class="text-center"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}"><span>원</span></td>
 	                  <td class="text-center"><fmt:formatDate value="${goods.regDate}" pattern="yyyy-MM-dd" /></td>
-	                  <td class="text-center"><button class="modify_btn" data-goodsid="${goods.goodsId}"data-gcat="${goods.goodsCategory}" data-gstate="${goods.goodsState}">수정</button></td>
-	                  <td class="text-center"><button class="delete_btn" data-goodsid="${goods.goodsId}">삭제</button></td>                  
+	                  <td class="text-center"><button class="modify_btn" data-goodsid="${goods.goodsId}"data-gcat="${goods.goodsCategory}" data-gstate="${goods.goodsState}"><span>수정</span></button></td>
+	                  <td class="text-center"><button class="delete_btn" data-goodsid="${goods.goodsId}"><span>삭제</span></button></td>                  
 	               </tr>
 	         </c:forEach>
 	         </tbody>
@@ -96,8 +94,7 @@
 	   <input type="hidden" name="goodsCategory" class="update_goodsCategory">
 	   <input type="hidden" name="goodsState" class="update_goodsState">        
 	   <input type="hidden" name="goodsId" class="update_goodsId"> 
-	   <input type="hidden" name="goodsName" class="update_goodsName">
-	   <input type="hidden" name="goodsStock" class="update_goodsStock">
+	   <input type="hidden" name="goodsName" class="update_goodsName">	   
 	   <input type="hidden" name="goodsDetail" class="update_goodsDetail">
 	   <input type="hidden" name="goodsPrice" class="update_goodsPrice">
 	   <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">		    

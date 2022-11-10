@@ -54,10 +54,9 @@ List<OrdersPayVO> ordersPayList = (List<OrdersPayVO>) request.getAttribute("orde
              OrdersPayVO ordersPayVO = ordersPayList.get(i);
           %>   
                   <div class="orders_card">
-                     <div class="ordersId_title">주문 번호<%=ordersPayVO.getOrdersId()%></div>   
+                     <div class="ordersId_title">주문 번호<br><%=ordersPayVO.getOrdersId()%></div>   
                      <div class="information_wrapper">
                         <div class="wrapper_content">
-<!--                            <div class="wrapper_content_title">주문 상품</div> -->
                            <div class="orders_info"></div>
                         </div>
                      </div>

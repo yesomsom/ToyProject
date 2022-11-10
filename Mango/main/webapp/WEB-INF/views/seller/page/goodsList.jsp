@@ -23,7 +23,6 @@
 		      <td class="table_title">카테고리</td>
 		      <td class="table_title">상품 이름</td>
 		      <td class="table_title">판매 상태</td>
-		      <td class="table_title">재고</td>
 		      <td class="table_title">상품 상세내용</td>
 		      <td class="table_title">가격</td>
 		      <td class="table_title">배송비</td>             
@@ -46,8 +45,7 @@
 					</select>
 		        </td>
 		        <td class="table_content"><input class="gName" type="text" value="${goods.goodsName}"></td>
-		        <td class="table_content txt_center">${goods.goodsState}</td>
-		        <td class="table_content txt_center"><input class="input_num gStock" type="text" value="${goods.goodsStock}">개</td>
+		        <td class="table_content txt_center">${goods.goodsState}</td>	
 		        <td class="table_content"><input class="gDetail" type="text" value="${goods.goodsDetail}"></td>
 		        <td class="table_content"><input class="input_num gPrice" type="text" value="${goods.goodsPrice}">원</td>
 		        <td class="table_content"><input class="input_num gDePrice" type="text" value="${goods.deliveryPrice}">원</td>            
@@ -90,8 +88,7 @@
 		<form action="/page/goodsList/update.do" method="post" class="goods_update_form">
 		   <input type="hidden" name="goodsCategory" class="update_goodsCategory">
 		   <input type="hidden" name="goodsId" class="update_goodsId"> 
-		   <input type="hidden" name="goodsName" class="update_goodsName">
-		   <input type="hidden" name="goodsStock" class="update_goodsStock">
+		   <input type="hidden" name="goodsName" class="update_goodsName">		   
 		   <input type="hidden" name="goodsDetail" class="update_goodsDetail">
 		   <input type="hidden" name="goodsPrice" class="update_goodsPrice">
 		   <input type="hidden" name="deliveryPrice" class="update_deliveryPrice">         

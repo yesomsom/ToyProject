@@ -91,6 +91,7 @@
 	</div>
 	
 	<script src="${path}/js/sellerMain.js"></script>	
+	<script src="${path}/js/paging.js"></script>	
     
 </body>
 </html>

@@ -148,17 +148,15 @@ List<CartVO> cartList = (List<CartVO>) request.getAttribute("cartList");
 	}
 	%>
           
-      </div>
-    
+      </div>   
       
       <br> <br> <br> <br> <br> <br>
    </div>
 
    <!-- 하단 결제하기 바 -->
-   <div class="total_price_wrapper">
-      <!-- <form name="" class="cartForm" action="/page/orders/insert.do" method="post"> -->
+   <div class="total_price_wrapper">      
       	<input type="hidden" class="id" id="memberId" name="id" value="<%=login.getId()%>">
-		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">	   
+		<input type="hidden" name="name" id="memberName" value="<%=login.getName()%>">		
  		<span class="total_price_title">총 주문금액</span> 
         <span class="total_price font_bold_big">0</span>
 		<span class="font_bold_big">원</span>

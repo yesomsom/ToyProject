@@ -40,8 +40,7 @@ if (login != null)
 						<tr class=" table_title_wrap">
 							<td class="table_title">카테고리</td>
 							<td class="table_title">상품 이름</td>
-							<td class="table_title">판매 상태</td>
-							<td class="table_title">재고</td>
+							<td class="table_title">판매 상태</td>							
 							<td class="table_title">가격</td>							
 						</tr>
 					</thead>
@@ -52,10 +51,7 @@ if (login != null)
 								<td class="table_content">
 									<input class="gName" type="text" value="${goods.goodsName}">
 								</td>
-								<td class="table_content txt_center">${goods.goodsState}</td>
-								<td class="table_content txt_center">
-									<input class="input_num gStock" type="text" value="${goods.goodsStock}개">
-								</td>
+								<td class="table_content txt_center">${goods.goodsState}</td>								
 								<td class="table_content">
 									<input class="input_num gPrice" type="text" value="${goods.goodsPrice}원">
 								</td>

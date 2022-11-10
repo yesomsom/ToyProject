@@ -48,12 +48,6 @@ if (login != null)
 				<div class="div_wrapper">상품 가격</div>
 				<input name="goodsPrice" type="number" id ="goodsPrice">
 			</div>
-
-			<!-- 상품재고 -->
-			<div class="goods_stock form_wrapper">
-				<div class="div_wrapper">상품 재고</div>
-				<input name="goodsStock" type="number" id ="goodsStock">
-			</div>
 			
 			<!-- 상품배송비 -->
 			<div class="delivery_price form_wrapper">
@@ -62,7 +56,7 @@ if (login != null)
 			</div>
 
 			<div class="goods_img_path">
-				<div class="div_wrapper">상품 이미지</div>
+				<div class="div_imageFile">상품 이미지(최대 <span class="blue">5</span>개, <span class="blue">.jpg</span>, <span class="blue">.png</span> 이미지 파일만 가능)</div>
 				<div>
 					<input type="file" name="multiFile" accept=".jpg, .png"multiple style="height: 30px;" id="multifile">
 				</div>

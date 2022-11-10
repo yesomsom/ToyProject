@@ -71,7 +71,7 @@
 			</ul>
 		</div>
 	</div>
-	<form id="ApprovedForm" method="get" action="/admin/notApproved.do">
+	<form id="approvedForm" method="get" action="/admin/notApproved.do">
 		<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum}">
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 	</form>

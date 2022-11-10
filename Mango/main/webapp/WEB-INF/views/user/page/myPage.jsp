@@ -112,11 +112,10 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
           %>         
              <div class="ordersList_card">
                 <div class="ordersId_title">
-                	<a href="${path}/page/myOrdersPage.do">주문 번호<%=ordersPayVO.getOrdersId()%></a>
+                	<a href="${path}/page/myOrdersPage.do">주문 번호<br><%=ordersPayVO.getOrdersId()%></a>
                 </div>   
                 <div class="information_wrapper">
                    <div class="wrapper_content">
-<!--                       <div class="wrapper_content_title">주문 상품</div> -->
                       <div class="orders_info"></div>
                    </div>
                 </div>
@@ -142,7 +141,10 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                    <div class="goods_name"><%=ordersPayVO.getDeliveryState()%></div>
                 </div>
                 <div class="orders_content_wrapper">
-                	<button id="deli_Btn" onClick="openTracking()">배송조회</button>
+                	<form action="/page/tracking.do">
+	                	<button id="deli_Btn" onClick="openTracking()">배송조회</button>
+	                	<input type="hidden" name="ordersId" value="<%=ordersPayVO.getOrdersId()%>">
+                	</form> 
                 </div>                
            </div> 
                <%

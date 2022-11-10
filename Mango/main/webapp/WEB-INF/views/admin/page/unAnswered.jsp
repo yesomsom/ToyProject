@@ -31,7 +31,7 @@
 				<tbody>
 					<c:forEach var="unAnswer" items="${unAnsweredList }">
 						<tr>
-							<td class="text-center" id="id">${unAnswer.id }</td>
+							<td class="text-center" id="aaid">${unAnswer.id }</td>
 							<td class="text-center" id="aName">${unAnswer.askName }</td>
 							<td class="text-center" id="aPhone">${unAnswer.askPhone }</td>
 							<td class="text-center" id="aEmail">${unAnswer.askEmail }</td>
@@ -92,7 +92,7 @@
 					<div>
 						<input id=relatedTitle name="relatedTitle" type="text" placeholder="제목" />
 					</div>
-					<textarea rows="" cols="" id="relateCon" name="relatedContent"></textarea>					
+					<textarea rows="" cols="" id="relateCon" name="relatedContent" placeholder="내용"></textarea>					
 					<input type="hidden" id="aId" name="askId">
 					<button type="button" id="sendRelatedBtn">발송하기</button>
 				</form>
