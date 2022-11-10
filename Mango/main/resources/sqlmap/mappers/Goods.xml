@@ -10,8 +10,7 @@
 		<result property="sellerName" column="seller_name" />
 		<result property="goodsState" column="goods_state" />
 		<result property="goodsDetail" column="goods_detail" />
-		<result property="goodsPrice" column="goods_price" />
-		<result property="goodsStock" column="goods_stock" />
+		<result property="goodsPrice" column="goods_price" />		
 		<result property="deliveryPrice" column="delivery_price" />		
 		<result property="regDate" column="regdate" />
 		<result property="gno" column="gno" />
@@ -58,8 +57,8 @@
 
 	<insert id="insertGoods" parameterType="GoodsVO">
 		INSERT INTO goods
-		(goods_id, goods_category, goods_name, seller_name,	goods_detail, goods_price, goods_stock, delivery_price,	regdate, id)
-		VALUES (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsDetail}, #{goodsPrice}, #{goodsStock}, #{deliveryPrice}, SYSDATE(6), #{id})
+		(goods_id, goods_category, goods_name, seller_name,	goods_detail, goods_price, delivery_price,	regdate, id)
+		VALUES (#{goodsId}, #{goodsCategory}, #{goodsName}, #{sellerName}, #{goodsDetail}, #{goodsPrice}, #{deliveryPrice}, SYSDATE(6), #{id})
 	</insert>
 
 	<!-- seller별 goodsList 출력 -->
@@ -85,7 +84,7 @@
 	<!-- 상품 수정 -->
 	<update id="modifyGoods" parameterType="GoodsVO">
 		UPDATE goods SET
-		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
+		goods_category=#{goodsCategory},goods_name=#{goodsName},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId}
 	</update>
 	
@@ -129,7 +128,7 @@
 	<!-- 관리자 상품 수정 -->
 	<update id="adminModifyGoods" parameterType="GoodsVO">
 		UPDATE goods SET
-		goods_category=#{goodsCategory},goods_state=#{goodsState},goods_name=#{goodsName},goods_stock=#{goodsStock},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
+		goods_category=#{goodsCategory},goods_state=#{goodsState},goods_name=#{goodsName},goods_detail=#{goodsDetail},goods_price=#{goodsPrice},delivery_price=#{deliveryPrice}
 		WHERE goods_id = #{goodsId}
 	</update>	
 

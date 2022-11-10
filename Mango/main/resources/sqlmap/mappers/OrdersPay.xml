@@ -46,14 +46,20 @@
 		WHERE orders_id = #{ordersId}
 	</update>
 	
-	<insert id="updateTracking" parameterType="OrdersPayVO">
+	<update id="updateTracking" parameterType="OrdersPayVO">
 	 	UPDATE orderspay SET
         tracking_number = #{trackingNumber}
         
         WHERE orders_id = #{ordersId}
      
-	</insert>
-	
+	</update>
+	 
+	 <select id="selectListTracking" resultMap="ordersPayList" parameterType="OrdersPayVO">
+	 	SELECT * from orderspay        
+        
+        WHERE orders_id = #{ordersId}
+	</select>
+	 
 	<select id="adminAllPayList" resultMap="ordersPayList" parameterType="OrdersPayVO">
         SELECT * FROM orderspay        
     	<!-- GROUP BY id -->

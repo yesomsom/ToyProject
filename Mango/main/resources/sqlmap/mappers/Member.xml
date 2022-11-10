@@ -76,24 +76,60 @@
          </if>
          AND auth = 3
       </trim>
+      
+      LIMIT #{skip}, #{amount}
    </select>
    
-   <select id="getSeller" resultType="MemberVO">
-      SELECT * FROM member
+   <select id="getMemberCount" resultType="Integer" parameterType="MemberVO">
+		SELECT COUNT(*) FROM member
       <trim prefix="WHERE" prefixOverrides="AND|OR">
          <if test="searchType=='id' and keyword != null and keyword != '' ">
             AND id LIKE CONCAT('%', #{keyword}, '%')
          </if>
-         <if test="searchType=='ownername' and keyword != null and keyword != '' ">
-            AND ownername LIKE CONCAT('%', #{keyword}, '%')
+         <if test="searchType=='name' and keyword != null and keyword != '' ">
+            AND name LIKE CONCAT('%', #{keyword}, '%')
          </if>
          <if test="searchType=='phone' and keyword != null and keyword != '' ">
             AND phone LIKE CONCAT('%', #{keyword}, '%')
          </if>
-         <if test="searchType=='businessNumber' and keyword != null and keyword != '' ">
-            AND businessnumber LIKE CONCAT('%', #{keyword}, '%')
+         AND auth = 3
+      </trim>
+	</select>
+	
+	<select id="getSeller" resultType="MemberVO">
+	   SELECT * FROM member
+	   <trim prefix="WHERE" prefixOverrides="AND|OR">
+	      <if test="searchType=='id' and keyword != null and keyword != '' ">
+	         AND id LIKE CONCAT('%', #{keyword}, '%')
+	      </if>
+	      <if test="searchType=='ownername' and keyword != null and keyword != '' ">
+	         AND ownername LIKE CONCAT('%', #{keyword}, '%')
+	      </if>
+	      <if test="searchType=='phone' and keyword != null and keyword != '' ">
+	         AND phone LIKE CONCAT('%', #{keyword}, '%')
+	      </if>
+	      <if test="searchType=='businessNumber' and keyword != null and keyword != '' ">
+	         AND businessnumber LIKE CONCAT('%', #{keyword}, '%')
+	      </if>
+	      AND auth = 2
+	   </trim>
+	   
+	   LIMIT #{skip}, #{amount}
+	</select>
+   
+    <select id="getSellerCount" resultType="Integer" parameterType="MemberVO">
+		SELECT COUNT(*) FROM member
+      <trim prefix="WHERE" prefixOverrides="AND|OR">
+         <if test="searchType=='id' and keyword != null and keyword != '' ">
+            AND id LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='name' and keyword != null and keyword != '' ">
+            AND name LIKE CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType=='phone' and keyword != null and keyword != '' ">
+            AND phone LIKE CONCAT('%', #{keyword}, '%')
          </if>
          AND auth = 2
       </trim>
-   </select>
+	</select>
 </mapper>

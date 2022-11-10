@@ -28,7 +28,7 @@
 
    <select id="selectMapping" parameterType="ReserveVO"
       resultMap="ReserveVO">
-      SELECT A.ID, A.RESERVE_SEQ, A.TITLE, A.RUNNING_TIME,A.MOVIE_NAME, A.MOVIE_DATE, A.RESERVE_DATE, A.TICKET_NUMBER,   A.SELECTED_SEAT, A.SELECTED_THEATER, 
+      SELECT A.ID, A.RESERVE_SEQ, A.TITLE, A.RUNNING_TIME, A.MOVIE_DATE, A.RESERVE_DATE, A.TICKET_NUMBER,   A.SELECTED_SEAT, A.SELECTED_THEATER, 
       B.PAY_MONEY, B.PAY_DATE
       FROM RESERVE A, PAY B
       WHERE A.RESERVE_SEQ = B.RESERVE_SEQ 
@@ -51,8 +51,7 @@
       SELECT ID, RESERVE_SEQ as
       reserveSequence,
       TITLE,
-      RUNNING_TIME,
-      MOVIE_NAME,
+      RUNNING_TIME,   
       MOVIE_DATE,
       RESERVE_DATE,
       TICKET_NUMBER,
@@ -67,8 +66,7 @@
       SELECT ID, RESERVE_SEQ as 
       reserveSequence, 
       TITLE,
-      RUNNING_TIME,
-      MOVIE_NAME,
+      RUNNING_TIME,   
       MOVIE_DATE, 
       RESERVE_DATE, 
       TICKET_NUMBER,

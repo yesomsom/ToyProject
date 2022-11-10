@@ -5,6 +5,7 @@
 <mapper namespace="cartMapper">
    <resultMap type="CartVO" id="cartList">
       <result property="cartId" column="cart_id" />
+      <result property="cartState" column="cart_state" />
       <result property="goodsId" column="goods_id" />
       <result property="goodsPrice" column="goods_price" />
       <result property="id" column="id" />
@@ -20,7 +21,8 @@
 		FROM cart A, goodsfile B
 		WHERE A.goods_id = B.goods_id
 		AND A.id = #{id}
-		GROUP BY A.goods_id
+		AND A.cart_state = '1'
+		GROUP BY A.goods_id		
 		ORDER BY A.cart_id DESC;		
 	</select>
 	
@@ -30,13 +32,13 @@
 	</select>
 	
    <insert id="insertCart" parameterType="CartVO">
-      INSERT INTO cart(cart_id, goods_id, goods_price, id, goods_qty, goods_category, delivery_price, seller_name, goods_name)
-      VALUES(#{cartId}, #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{goodsCategory}, #{deliveryPrice}, #{sellerName}, #{goodsName})
+      INSERT INTO cart(cart_id, cart_state, goods_id, goods_price, id, goods_qty, goods_category, delivery_price, seller_name, goods_name)
+      VALUES(#{cartId}, '1', #{goodsId}, #{goodsPrice}, #{id}, #{goodsQty}, #{goodsCategory}, #{deliveryPrice}, #{sellerName}, #{goodsName})
    </insert>
 
    <update id="modifyCount" parameterType="CartVO">
       UPDATE cart SET goods_qty = #{goodsQty}
-      WHERE cart_id = #{cartId};
+      WHERE cart_id = #{cartId}	
    </update>
    
    <delete id="deleteCart" parameterType="CartVO">
@@ -48,5 +50,10 @@
       DELETE FROM cart 
       WHERE id = #{id}
    </delete>
-
+   
+	<update id="modifyState" parameterType="CartVO">
+		UPDATE cart SET cart_state = '2'
+		WHERE cart_id = #{cartId}
+	</update>
+	
 </mapper>

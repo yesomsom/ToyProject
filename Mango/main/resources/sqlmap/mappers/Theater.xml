@@ -6,7 +6,7 @@
 
 <mapper namespace="Theater">
    <resultMap type="TheaterVO" id="theaterList">
-      <result property="id" column="id" />
+      <result property="tId" column="t_id" />
       <result property="poiNm" column="poi_nm" />
       <result property="branchNm" column="branch_nm" />
       <result property="mcateCd" column="mcate_cd" />
