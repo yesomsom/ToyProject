@@ -206,7 +206,7 @@ public class ReserveController {
 		
 		model.addAttribute("opList", list);		
 		
-		return "/user/page/tracking"; 
+		return "user/page/tracking"; 
 	}
 	 
 	
