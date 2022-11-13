@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="mango.mango.model.OrdersPayVO"%>
 <%@ include file="/WEB-INF/views/taglib.jsp"%>
+<% String num = request.getParameter("num"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
 		</div>
 		<div class="form-group">
 			<label for="t_invoice" class="n_dis">운송장 번호</label>
-			<input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="${opList[0].trackingNumber}">
+			<input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="<%=num %>">
 		</div>
 		<button class="btn btn-default" class="n_dis" id="searchBtn"></button>
 	</form>

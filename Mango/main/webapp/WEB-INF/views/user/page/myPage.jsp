@@ -141,9 +141,10 @@ List<AskVO> askList = (List<AskVO>) request.getAttribute("askList");
                    <div class="goods_name"><%=ordersPayVO.getDeliveryState()%></div>
                 </div>
                 <div class="orders_content_wrapper">
-                	<form action="/page/tracking.do">
+                	<form onsubmit="window.open('tracking.do?num=<%=ordersPayVO.getTrackingNumber()%>', 'pop', 'width=700, height=500');">
 	                	<button id="deli_Btn" onClick="openTracking()">배송조회</button>
 	                	<input type="hidden" name="ordersId" value="<%=ordersPayVO.getOrdersId()%>">
+	                	<input type="hidden" class="tn" name="trackingNumber" value="<%=ordersPayVO.getTrackingNumber()%>">
                 	</form> 
                 </div>                
            </div> 
