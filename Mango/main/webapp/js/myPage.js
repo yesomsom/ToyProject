@@ -10,6 +10,6 @@ $(document).ready(function() {
 });
 
 /*function openTracking() {
-	window.open("tracking.do", "pop", "배송 조회", "width=1600,height=1200");
+	window.open("tracking.do", "pop", "배송 조회", "width=700,height=500");
 
 }*/
