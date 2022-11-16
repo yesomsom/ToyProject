@@ -162,7 +162,7 @@ public class MemberController {
 
 		HashMap<String, String> set = new HashMap<String, String>();
 		set.put("to", to); // 수신번호
-		set.put("from", "01023143970"); // 발신번호
+		set.put("from", "발신번호"); // 발신번호
 		set.put("text", text); // 문자내용
 		set.put("type", "sms"); // 문자 타입
 
