@@ -17,6 +17,8 @@
 #define mul 3
 #define div 4
 
+using namespace std;
+
 // 응용 프로그램 정보에 사용되는 CAboutDlg 대화 상자입니다.
 
 class CAboutDlg : public CDialogEx
@@ -390,10 +392,22 @@ void CMFCApplication1Dlg::OnBnClickedblotto()
 	CClientDC dc(this);
 	srand((unsigned)time(NULL)); // 난수 발생 초기화
 
-	CString str, lotto;
+	CString str, lotto, arr[6], temp;
+
 	for (int i = 0; i < 6; i++) {
-		str.Format(_T("%2d "), rand() % 45 + 1); //32768을 45로 나눈 나머지 값의 범위는 0~44이고, 이 값에 1을 더하므로 1~45 사이의 난수 생성
-		lotto = lotto + str;
+		str.Format(_T("%2d "), rand() % 45 + 1);
+		arr[i] = str; //32768을 45로 나눈 나머지 값의 범위는 0~44이고, 이 값에 1을 더하므로 1~45 사이의 난수 생성
+		
+		for (int j = 0; j < i; j++) {
+			if (arr[i] == arr[j]) {
+				i--;
+				break;
+			}
+		}
+		
+	}
+	for (int k = 0; k < 6; k++) {
+		lotto = lotto + arr[k];
 	}
 	
 	SetDlgItemText(IDC_EDIT1, lotto);
