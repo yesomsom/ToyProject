@@ -389,7 +389,6 @@ void CMFCApplication1Dlg::OnBnClickedbeql2()
 void CMFCApplication1Dlg::OnBnClickedblotto()
 {
 	UpdateData(false);
-	CClientDC dc(this);
 	srand((unsigned)time(NULL)); // 난수 발생 초기화
 
 	CString str, lotto, arr[6], temp;
@@ -412,7 +411,7 @@ void CMFCApplication1Dlg::OnBnClickedblotto()
 	
 	SetDlgItemText(IDC_EDIT1, lotto);
 	UpdateData(true); // true는 컨트롤에 있는 것을 변수에 저장
-
+	m_bEqualClk = true;
 }
 
 
