@@ -393,6 +393,7 @@ void CMFCApplication1Dlg::OnBnClickedblotto()
 
 	CString str, lotto, arr[6], temp;
 
+	// 중복되는 수 제외
 	for (int i = 0; i < 6; i++) {
 		str.Format(_T("%2d "), rand() % 45 + 1);
 		arr[i] = str; //32768을 45로 나눈 나머지 값의 범위는 0~44이고, 이 값에 1을 더하므로 1~45 사이의 난수 생성
@@ -405,13 +406,14 @@ void CMFCApplication1Dlg::OnBnClickedblotto()
 		}
 		
 	}
+	// 중복되지 않게 6자리 출력
 	for (int k = 0; k < 6; k++) {
 		lotto = lotto + arr[k];
 	}
 	
 	SetDlgItemText(IDC_EDIT1, lotto);
 	UpdateData(true); // true는 컨트롤에 있는 것을 변수에 저장
-	m_bEqualClk = true;
+	m_bEqualClk = true; // 다음 계산기 사용 시 로또 정보 삭제
 }
 
 
