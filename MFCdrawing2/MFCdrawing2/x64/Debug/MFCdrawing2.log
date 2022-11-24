@@ -1,0 +1,4 @@
+﻿  MFCdrawing2View.cpp
+C:\Users\songi\OneDrive\바탕 화면\MFCdrawing2\MFCdrawing2\MFCdrawing2View.cpp(118,34): warning C4244: '=': 'const WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\songi\OneDrive\바탕 화면\MFCdrawing2\MFCdrawing2\MFCdrawing2View.cpp(190,25): warning C4101: 'pOldBrush' :참조되지 않은 지역 변수입니다.
+  MFCdrawing2.vcxproj -> C:\Users\songi\OneDrive\바탕 화면\MFCdrawing2\x64\Debug\MFCdrawing2.exe
