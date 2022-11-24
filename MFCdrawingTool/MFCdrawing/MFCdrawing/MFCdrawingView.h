@@ -42,14 +42,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-private:
-	CPoint m_point; // Start point
-	UINT m_nChar; // 'L' 'R' 'C'
-public:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnLine();
 	afx_msg void OnRect();
 	afx_msg void OnCircle();
+private:
+	CPoint m_point; // Start point
+	UINT m_nChar; // 'L' 'R' 'C'
 };
 
 #ifndef _DEBUG  // MFCdrawingView.cpp의 디버그 버전

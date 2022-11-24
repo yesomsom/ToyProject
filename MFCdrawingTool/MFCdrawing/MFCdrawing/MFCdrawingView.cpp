@@ -168,6 +168,7 @@ void CMFCdrawingView::OnLine()
 {
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	m_nChar = 'L';
+	m_point.x = -1;	m_point.y = -1; // 초기화
 }
 
 
@@ -175,6 +176,7 @@ void CMFCdrawingView::OnRect()
 {
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	m_nChar = 'R';
+	m_point.x = -1;	m_point.y = -1; // 초기화
 }
 
 
@@ -182,4 +184,5 @@ void CMFCdrawingView::OnCircle()
 {
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	m_nChar = 'C';
+	m_point.x = -1;	m_point.y = -1; // 초기화
 }
