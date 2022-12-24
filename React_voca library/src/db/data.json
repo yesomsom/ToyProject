@@ -1,0 +1,177 @@
+{
+  "days": [
+    {
+      "id": 1,
+      "day": 1
+    },
+    {
+      "id": 2,
+      "day": 2
+    },
+    {
+      "id": 3,
+      "day": 3
+    },
+    {
+      "id": 4,
+      "day": 4
+    },
+    {
+      "id": 5,
+      "day": 5
+    },
+    {
+      "id": 6,
+      "day": 6
+    },
+    {
+      "id": 7,
+      "day": 7
+    },
+    {
+      "id": 8,
+      "day": 8
+    },
+    {
+      "id": 9,
+      "day": 9
+    },
+    {
+      "id": 10,
+      "day": 10
+    },
+    {
+      "id": 11,
+      "day": 11
+    },
+    {
+      "id": 12,
+      "day": 12
+    },
+    {
+      "day": 13,
+      "id": 13
+    },
+    {
+      "day": 14,
+      "id": 14
+    },
+    {
+      "day": 15,
+      "id": 15
+    },
+    {
+      "day": 16,
+      "id": 16
+    },
+    {
+      "day": 17,
+      "id": 17
+    },
+    {
+      "day": 18,
+      "id": 18
+    },
+    {
+      "day": 19,
+      "id": 19
+    },
+    {
+      "day": 20,
+      "id": 20
+    },
+    {
+      "day": 21,
+      "id": 21
+    },
+    {
+      "day": 22,
+      "id": 22
+    },
+    {
+      "day": 23,
+      "id": 23
+    },
+    {
+      "day": 24,
+      "id": 24
+    },
+    {
+      "day": 25,
+      "id": 25
+    },
+    {
+      "day": 26,
+      "id": 26
+    },
+    {
+      "day": 27,
+      "id": 27
+    }
+  ],
+  "words": [
+    {
+      "id": 1,
+      "day": 1,
+      "eng": "corporeal",
+      "kor": "형체를 가진, 물질적인, 신체의",
+      "isDone": true
+    },
+    {
+      "id": 2,
+      "day": 2,
+      "eng": "endure",
+      "kor": "견디다, 참다, 인내하다",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "day": 3,
+      "eng": "preen",
+      "kor": "(잔뜩) 몸치장을 하다[멋을 부리다]",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "day": 4,
+      "eng": "captivate",
+      "kor": "…의 마음을 사로잡다[매혹하다]",
+      "isDone": false
+    },
+    {
+      "id": 5,
+      "day": 1,
+      "eng": "established",
+      "kor": "인정받는, 확실히 자리를 잡은",
+      "isDone": true
+    },
+    {
+      "id": 6,
+      "day": 1,
+      "eng": "ethos",
+      "kor": "(특정 집단·사회의) 기풍[정신]",
+      "isDone": true
+    },
+    {
+      "day": "2",
+      "eng": "car",
+      "kor": "차",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "day": "1",
+      "eng": "house",
+      "kor": "집",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "day": "1",
+      "eng": "food",
+      "kor": "음식",
+      "isDone": false,
+      "id": 9
+    }
+  ]
+}
