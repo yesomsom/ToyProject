@@ -93,7 +93,9 @@ td {
 /* DayList.js */
 
 .list_day {
-  margin-top: 80px;
+  margin-top: 20px;
+  height: 500px;
+  float: left !important;
 }
 
 li.list_day_li {
@@ -108,6 +110,10 @@ li.list_day_li {
 
 li.list_day_li:hover {
   background-color:rgb(117, 154, 117);
+}
+
+.align_center {
+  align-items: center;
 }
 
 

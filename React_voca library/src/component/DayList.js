@@ -2,6 +2,9 @@
 //import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import Page from "./Page";
+import { useState } from "react";
+import styled from "styled-components";
 
 export default function DayList() {
   //console.log(dummy);
@@ -19,21 +22,37 @@ export default function DayList() {
 */
 
   const days = useFetch("http://localhost:3002/days");
+  const [limit, setLimit] = useState(25);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   if(days.length === 0) {
     return <span>Loading...</span>
   }
 
   return (  
-    <>
+    <Layout>
       <ul className="list_day">
-        {days.map(days => (
+        {days.slice(offset, offset+limit).map(days => (
           <li className="list_day_li" key={days.id}>
             <Link to={`/day/${days.day}`} id="fontColorWhite">Day {days.day}</Link>
           </li>
         ))}
-      </ul>    
-    </>
+      </ul>  
 
+      <footer>
+          <Page 
+            total = {days.length}
+            limit = {limit}
+            page = {page}
+            setPage = {setPage} />
+      </footer>  
+    </Layout>
   )
 }
+
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
