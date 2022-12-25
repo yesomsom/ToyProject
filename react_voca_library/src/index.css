@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Ubuntu:wght@300&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#fontColorWhite {
+  color: white;
+  font-weight: 600;
+}
+
+.App {
+  width: 800px;
+  height: 100vh;
+  margin: 100px;
+  border: 3px dashed #efefef;
+  padding: 50px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+table, td, tr {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+table {
+  position: relative;
+  top: 30px;
+  left: 50px;
+  width: 700px;
+}
+
+td {
+  padding: 20px;
+}
+
+
+/* Header.js */
+
+.title {
+  font-size: 75px;
+  font-weight: 100;
+  margin-top: 65px;
+  font-family: 'Black Han Sans', sans-serif;
+}
+
+.header {
+  position: relative;
+}
+
+.header .menu {
+  position: absolute;
+  top: -62px;
+  right: -2px;
+}
+
+.header .link {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: whitesmoke;
+  font-weight: 900;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.header .link:hover {
+  background-color:#ccc;
+}
+
+
+/* DayList.js */
+
+.list_day {
+  margin-top: 20px;
+  height: 500px;
+  float: left !important;
+}
+
+li.list_day_li {
+  float: left;
+  padding: 15px 20px;
+  font-size: 22px;
+  background-color:darkseagreen;
+  border-radius: 100px;
+  margin: 22px 17px;
+  width: 70px;
+}
+
+li.list_day_li:hover {
+  background-color:rgb(117, 154, 117);
+}
+
+.align_center {
+  align-items: center;
+}
+
+
+/* Day.js */
+
+.day_title_color {
+  color:  white;
+  background-color: rgb(134 165 134);
+  width: 680px;
+  padding: 10px;
+  position: relative;
+  left: 50px;
+  margin-top: 60px;
+}
+
+.btn_check {
+  background-color: rgb(255 234 63 / 54%);
+  border-radius: 15px;
+  padding: 6px 10px;
+  border: 1px solid #5f5f5f4a;
+}
+
+.btn_del {
+  margin-left: 10px;
+  background-color: #c31e1efa;
+  border-radius: 15px;
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid #3f3f3fba;
+}
+
+
+/* Word.js */
+
+.turn_off {
+  background-color: #efefef;
+  color:#aaa;
+}
+
+.word_kor {
+  width: 300px;
+}
+
+
+/* CreateWord.js */
+
+.create_word_form {
+  margin-top: 65px;
+}
+
+.input_area {
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.input_area label {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: left;
+  position: relative;
+  left: 20px;
+  margin-bottom: 10px;
+}
+
+.input_text {
+  width: 450px;
+  height: 50px;
+  font-size: 19px;
+}
+
+.input_select {
+  width: 458px;
+  height: 56px;
+  font-size: 19px;
+}
+
+.save_btn {
+  margin-top: 20px;
+  width: 80px;
+  height: 45px;
+  background-color: rgb(134 165 134);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save_btn:hover {
+  background-color: rgb(117, 154, 117);
+}
+
+
+/* CreateDay.js */
+
+.days_main {
+  margin-top: 90px;
+}
+
+.days_now {
+  font-weight: 900;
+  color: rgb(117, 154, 117);
+  font-size: 28px !important;
+  padding: 10px;
+}
+
+.day_btn {
+  margin: 30px 10px;
+  width: 80px;
+  height: 45px;
+  background-color: rgb(134 165 134);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.day_btn:hover {
+  background-color: rgb(117, 154, 117);
+}
