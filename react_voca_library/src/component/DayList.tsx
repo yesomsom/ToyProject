@@ -62,3 +62,5 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+/* npm install styled-components */

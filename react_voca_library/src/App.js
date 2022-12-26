@@ -27,6 +27,8 @@ function App() {
 export default App;
 
 
+/* react 생성 cmd: npx create-react-app 프로젝트이름 */
+
 /* REST API */
 
 // npx json-server ./src/db/data.json --port 3002 
@@ -43,5 +45,5 @@ export default App;
 
 
 /* typescript */
-// npm install typescript @types/node @types/react @types/react-dom @types/jest @types/react-router-dom
+// npm install typescript @types/node @types/react @types/react-dom @types/jest @types/react-router-dom @types/styled-components
 
