@@ -33,7 +33,7 @@ export default function Word({word:w}:IProps) {
         'Content-Type' : 'application/json', //보내는 리소스 타입 (json 타입으로 보냄)
       },
       body : JSON.stringify({
-        ...word,
+        ...w,
         isDone: !isDone,
       }),
     }).then(res => {
