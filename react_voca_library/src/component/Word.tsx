@@ -50,7 +50,7 @@ export default function Word({word:w}:IProps) {
       }).then(res=>{
         if(res.ok){
           setWord({
-            ...word,
+            ...w,
             id:0,
           });
         }
