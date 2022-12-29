@@ -58,7 +58,7 @@ export default function Word({word:w}:IProps) {
     }
   }
 
-  if(word.id === 0) {
+  if(w.id === 0) {
     return null;
   }
 
