@@ -67,7 +67,7 @@ export default function Word({word:w}:IProps) {
       <td>
         <input type="checkbox" checked={isDone} onChange={toggleDone}></input>
       </td>
-      <td>{word.eng}</td>
+      <td>{w.eng}</td>
       <td className="word_kor">{isShow && w.kor}</td>
       <td>
         <button className="btn_check" onClick={toggleShow}>{isShow ? "숨기기" : " 뜻확인"}</button>
